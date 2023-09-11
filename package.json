@@ -1,0 +1,27 @@
+{
+  "name": "crowdbotics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "html-report": "cypress run — — spec cypress/integration/pagetest/*.js — — browser chrome — — headed",
+    "test": "mocha test --reporter mochawesome --reporter-options autoOpen=true",
+    "cy:run": "cypress run",
+  "cy:parallel" : "cypress-parallel -s cy:run -t 2 -d cypress/integration/pagetest -a"
+
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.1.0",
+    "cypress-parallel": "^0.13.0",
+    "otplib": "^12.0.1"
+  },
+  "devDependencies": {
+    "cypress-mochawesome-reporter": "^3.5.1",
+    "lodash": "^4.17.21",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0"
+  }
+}

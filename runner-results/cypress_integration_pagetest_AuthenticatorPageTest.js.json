@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 1,
+  "passes": 0,
+  "pending": 0,
+  "failures": 1,
+  "start": "2023-09-11T06:20:41.107Z",
+  "duration": 86086,
+  "file": "cypress\\integration\\pagetest\\AuthenticatorPageTest.js"
+}
