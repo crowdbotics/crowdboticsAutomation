@@ -22,4 +22,4 @@ jobs:
         run: npm install cypress --save-dev
         
       - name: Run Cypress tests
-        run: npm run test:smoke # Adjust this to your Cypress test run command
+        run: npm run html-report    # Adjust this to your Cypress test run command
