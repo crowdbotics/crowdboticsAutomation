@@ -19,7 +19,7 @@ jobs:
           node-version: 18.17.0 # Use the Node.js version you need for your project
 
       - name: Install dependencies
-        run: npm install ci
+        run: npm install cypress --save-dev
         
       - name: Run Cypress tests
         run: npm run test:smoke    # Adjust this to your Cypress test run command
