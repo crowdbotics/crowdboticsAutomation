@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-   
     "test:smoke": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=smoke"
-   
   },
   "author": "",
   "license": "ISC",
