@@ -21,8 +21,5 @@ jobs:
       - name: Install dependencies
         run: npm install cypress --save-dev
         
-      - name: Allow Permission
-        run: git update-index --chmod=+x ./.github/scripts/backend_decrypt.sh
-        
       - name: Run Cypress tests
         run: npm run test:smoke # Adjust this to your Cypress test run command
