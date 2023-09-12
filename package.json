@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "html-report": "cypress run — — spec cypress/integration/pagetest/*.js — — browser chrome — — headed",
-    "test": "mocha test --reporter mochawesome --reporter-options autoOpen=true",
-    "cy:run": "cypress run",
+   
     "test:smoke": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=smoke",
-    "cy:parallel": "cypress-parallel -s cy:run -t 2 -d cypress/integration/pagetest -a"
+   
   },
   "author": "",
   "license": "ISC",
