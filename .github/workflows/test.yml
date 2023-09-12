@@ -17,12 +17,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 18.17.0 # Use the Node.js version you need for your project
-      - name: Install and cache Cypress and npm dependencies, and build frontend server
-        uses: cypress-io/github-action@v2
-        with:
-          # Don't run tests; we're only using the install and build steps here
-          runTests: false
-          build: yarn build
       - name: Install dependencies
         run: npm install cypress --save-dev
         
