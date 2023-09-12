@@ -23,7 +23,7 @@ describe('Hooks',function()
 // this.data=data       
 //       }))
     })
-it("Varify the login functionality with valid userid and valid password and valid authcode (smoke)",{tags: ['@smokeTag']},function()
+it("Varify the login functionality with valid userid and valid password and valid authcode",function()
 {
 const login=new LoginPage();
 const auth=new Authenticator();

@@ -4,7 +4,7 @@
   "passes": 0,
   "pending": 0,
   "failures": 1,
-  "start": "2023-09-11T06:20:41.107Z",
-  "duration": 86086,
+  "start": "2023-09-12T13:57:02.893Z",
+  "duration": 21952,
   "file": "cypress\\integration\\pagetest\\AuthenticatorPageTest.js"
 }

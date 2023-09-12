@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:smoke": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=smoke"
+    "test:smoke": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=smoke",
+    "html-report": "cypress run — — spec cypress/integration/pagetest/*.js — — browser chrome — — headed",
+    "test": "mocha test --reporter mochawesome --reporter-options autoOpen=true",
+    "cy:run": "cypress run",
+    "cy:parallel": "cypress-parallel -s cy:run -t 2 -d cypress/integration/pagetest -a"
   },
   "author": "",
   "license": "ISC",
