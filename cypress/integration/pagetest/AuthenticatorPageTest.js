@@ -23,18 +23,17 @@ describe('Hooks',function()
 // this.data=data       
 //       }))
     })
-it("Varify the login functionality with valid userid and valid password and valid authcode",function()
+it("Varify the login functionality with valid userid and valid password and valid authcode (smoke)",{tags: ['@smokeTag']},function()
 {
 const login=new LoginPage();
 const auth=new Authenticator();
-cy.clickOnElement(login.getAllowButton());
-cy.enterText(login.getuserName(),Cypress.env('username'));
-cy.enterText(login.getPassword(),Cypress.env('password'));
-cy.clickOnElement(login.getSimpleLogin());
+cy.clickOnElement(login.com_AllowButton());
+cy.enterText(login.com_userName(),Cypress.env('username'));
+cy.enterText(login.com_Password(),Cypress.env('password'));
+cy.clickOnElement(login.com_SimpleLogin());
 const token = authenticator.generate(Cypress.env('authenticationToken'));
 cy.clickOnElement(auth.getAuthenticationField());
 cy.enterText(auth.getAuthenticatorCode(),token)
-cy.wait(50000)
-cy.get(cy.title).contains('Crowdbotics | Dashboard');
+cy.get(cy.title(),{timeout:5000}).contains('Crowdbotics | Dashboard');
 })
 })

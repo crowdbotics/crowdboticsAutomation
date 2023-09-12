@@ -7,21 +7,23 @@
     "html-report": "cypress run — — spec cypress/integration/pagetest/*.js — — browser chrome — — headed",
     "test": "mocha test --reporter mochawesome --reporter-options autoOpen=true",
     "cy:run": "cypress run",
-  "cy:parallel" : "cypress-parallel -s cy:run -t 2 -d cypress/integration/pagetest -a"
-
+    "test:smoke": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=smoke",
+    "cy:parallel": "cypress-parallel -s cy:run -t 2 -d cypress/integration/pagetest -a"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^13.1.0",
     "cypress-parallel": "^0.13.0",
     "otplib": "^12.0.1"
   },
   "devDependencies": {
+    "cypress": "^13.1.0",
+    "cypress-grep": "^3.0.4",
     "cypress-mochawesome-reporter": "^3.5.1",
     "lodash": "^4.17.21",
     "mocha": "^10.2.0",
     "mochawesome": "^7.1.3",
-    "mochawesome-merge": "^4.3.0"
+    "mochawesome-merge": "^4.3.0",
+    "or": "^0.2.0"
   }
 }

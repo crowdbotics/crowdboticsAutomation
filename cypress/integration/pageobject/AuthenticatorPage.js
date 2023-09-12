@@ -2,11 +2,11 @@
  {
     getAuthenticatorCode()
     {
-        return cy.get('input#__BVID__38');
+        return cy.get('div.otp input').first();
     }
     getAuthenticationField()
     {
-        return cy.get('input#__BVID__38');
+        return cy.get('div.otp input').first();
     }
  }
  export default Authenticator;

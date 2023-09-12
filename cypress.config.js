@@ -5,7 +5,7 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   projectId: "bme5ek",
   reporter: 'cypress-mochawesome-reporter',
-  defaultCommandTimeout: 10000,
+  //defaultCommandTimeout: 10000,
   env:
   {
       url:"https://crowdbotics-slack-dev.herokuapp.com",
