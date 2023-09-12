@@ -17,12 +17,16 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 18.17.0 # Use the Node.js version you need for your project
-
+      - name: Cypress install
+        uses: cypress-io/github-action@v2  # <----- This is where mine fails, when cypress is installing
+        with:
+          runTests: false
+      - run: yarn cypress info
+      - run: node -p 'os.cpus()'
+      - run: yarn lint
+      - run: yarn build
       - name: Install dependencies
         run: npm install cypress --save-dev
-
-      - name: Reclaim cache directory
-        run: chown -R 1001:1001 /github/home/.cache && echo "pwn dat cache"
         
       - name: Run Cypress tests
         run: npm run test:smoke    # Adjust this to your Cypress test run command
