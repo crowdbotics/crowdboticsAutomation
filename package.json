@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test:smokeregression":"npx cypress run --spec cypress/integration/pagetest/*.js --env grep=smoke and grep=regression" ,
     "test:smoke": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=smoke",
     "test:regression": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=regression",
     "html-report": "cypress run — — spec cypress/integration/pagetest/*.js — — browser chrome — — headed",
