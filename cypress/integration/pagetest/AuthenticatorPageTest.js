@@ -33,7 +33,8 @@ cy.enterText(login.com_Password(),Cypress.env('password'));
 cy.clickOnElement(login.com_SimpleLogin());
 const token = authenticator.generate(Cypress.env('authenticationToken'));
 cy.clickOnElement(auth.getAuthenticationField());
-cy.enterText(auth.getAuthenticatorCode(),token)
-cy.get(cy.title(),{timeout:5000}).contains('Crowdbotics | Dashboard');
+cy.enterText(auth.getAuthenticatorCode(),token);
+cy.get('.page-title',{timeout:5000}).contains('Dashboard');
+//cy.get(cy.title(),{timeout:5000}).contains('Crowdbotics | Dashboard');
 })
 })

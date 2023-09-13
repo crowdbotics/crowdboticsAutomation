@@ -35,7 +35,7 @@ login.com_SimpleLogin().click()
 cy.get('.beforelogin-row.mt-3 > .validation-error').contains('The email field is required')
 })
 
-it("Varify the login password validation message (smoke)",{tags: ['@smokeTag']},function()
+it("Varify the login password validation message (smoke,regression)",{tags: ['@smokeTag','@regressionTag']},function()
 {
 const login=new LoginPage()
 login.com_AllowButton().click()
