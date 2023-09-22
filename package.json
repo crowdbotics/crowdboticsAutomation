@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:smokeregression":"npx cypress run --spec cypress/integration/pagetest/*.js --env grep=smoke and grep=regression" ,
+    "test:smokeregression": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=smoke and grep=regression",
     "test:smoke": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=smoke",
     "test:regression": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=regression",
     "html-report": "cypress run — — spec cypress/integration/pagetest/*.js — — browser chrome — — headed",
@@ -15,11 +15,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.5.0",
     "cypress-parallel": "^0.13.0",
     "otplib": "^12.0.1"
   },
   "devDependencies": {
-    "cypress": "^13.1.0",
+    "cypress": "^13.2.0",
     "cypress-grep": "^3.0.4",
     "cypress-mochawesome-reporter": "^3.5.1",
     "lodash": "^4.17.21",
