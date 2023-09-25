@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 20.17.0 # Use the Node.js version you need for your project
+          node-version: 18.17.0 # Use the Node.js version you need for your project
 
       - name: Install dependencies
         run: npm install cypress --save-dev
