@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: 18.17.0 # Use the Node.js version you need for your project
 
+      - name: unInstall dependencies
+        run: npm uninstall cypress
+
       - name: Install dependencies
         run: npm install cypress --save-dev
 
