@@ -18,14 +18,13 @@ jobs:
         with:
           node-version: 18.17.0 # Use the Node.js version you need for your project
 
-      - name: update ubuntu
-        run: chmod +x script.sh
+      
 
       - name: Install dependencies
         run: npm install cypress --save-dev
 
-      - name: update ubuntu
-        run: chmod +x script.sh
+      - name: Running PHPUnit Tests
+        run: script.sh
 
       - name: Run Cypress tests
         run: npm run test:smoke   # Adjust this to your Cypress test run command
