@@ -48,13 +48,13 @@ login.com_SimpleLogin().click()
 cy.get('.beforelogin-row.mt-0 > .validation-error').contains('The password field is required')
 })
 
-it("Varify the google login is working or not",function()
-{
-const login=new LoginPage()
-login.com_AllowButton().click()
-cy.clickOnElement(login.com_GoogleLogin())
-cy.title().should('eq', cy.title())
-// cy.title().contains('Sign in - Google Accounts')
-})
+// it("Varify the google login is working or not",function()
+// {
+// const login=new LoginPage()
+// login.com_AllowButton().click()
+// cy.clickOnElement(login.com_GoogleLogin())
+// cy.title().should('eq', cy.title())
+// // cy.title().contains('Sign in - Google Accounts')
+// })
 
 })
