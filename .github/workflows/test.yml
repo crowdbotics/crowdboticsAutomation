@@ -6,7 +6,7 @@ on:
       - master # Change this to your main branch name
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latesty
     
 
     steps:
@@ -21,4 +21,4 @@ jobs:
         run: npm install cypress --save-dev
         
       - name: Run Cypress tests
-        run: npx cypress run --spec cypress/integration/pagetest/LoginPageTest.js   # Adjust this to your Cypress test run command
+        run: npm run test:smoke   # Adjust this to your Cypress test run command
