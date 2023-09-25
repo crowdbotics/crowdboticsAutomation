@@ -13,13 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Run shell script
+        run: ./your_script.sh
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 18.17.0 # Use the Node.js version you need for your project
-
-      - name: clear cache
-        run: npm cache clean --force
 
       - name: Install dependencies
         run: npm install cypress --save-dev
