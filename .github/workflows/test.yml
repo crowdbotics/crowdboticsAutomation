@@ -6,7 +6,7 @@ on:
       - master # Change this to your main branch name
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     
 
     steps:
