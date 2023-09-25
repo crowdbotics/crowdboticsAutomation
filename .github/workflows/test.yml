@@ -6,7 +6,7 @@ on:
       - master # Change this to your main branch name
 jobs:
   build:
-    runs-on: ubuntu-latesty
+    runs-on: ubuntu-latest
     
 
     steps:
