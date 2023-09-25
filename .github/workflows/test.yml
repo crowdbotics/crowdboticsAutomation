@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 18.17.0 # Use the Node.js version you need for your project
 
-       -name: clear cache
+      - name: clear cache
         run: npm cache clean --force
 
       - name: Install dependencies
