@@ -2,9 +2,10 @@ import { authenticator } from 'otplib';
 /// <reference types = "cypress"/>
 
 
-const response = null;
+let res;
+let auth_key;
 class LoginPage {
-     login() {
+    doLogin() {
         // ******************* LOGIN AND GET AUTH KEY ********************
         const tokenvalue = authenticator.generate("574WTVJOJ562OOSF2FCFPBJM6FIKHQBR");
         cy.readFile('cypress/fixtures/login.json').then((data) => {
@@ -22,14 +23,18 @@ class LoginPage {
 
             }).then((response) => {
                 expect(response.status).to.eq(200)
-                // auth_key = response.body.key
-                // cy.log('api auth key is generated ', auth_key)
-                cy.log('json data    ===========', response)
+                auth_key = response.body.key
+
+                cy.log('api auth key is generated ', auth_key)
+                Cypress.env('token_key', auth_key);
+                cy.log('json data    ===========', response.body)
+                res = response;
             })
-            cy.log('json data    ===========', response)
-            
+
+
         })
-        return response;
+        return res;
+
     }
 }
 export default LoginPage;

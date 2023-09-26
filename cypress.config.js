@@ -12,7 +12,11 @@ module.exports = defineConfig({
     username: "sneh@crowdbotics.com",
     password: "devstringx@123",
     authenticationToken: "UGNYCSUVC4BCH7NL7G54KGBNN7GOLGJK",
-    loginEndPoint: "/api/v2/login/"
+    token_key: "",
+    loginEndPoint: "/api/v2/totp-login/",
+    createMilestone: "",
+    createTasks: "",
+    
   },
   e2e: {
     setupNodeEvents(on, config) {
