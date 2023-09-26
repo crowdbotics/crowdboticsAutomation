@@ -1,15 +1,15 @@
 import { authenticator } from 'otplib';
 /// <reference types = "cypress"/>
 
-// const valae = require('../../fixtures/login')
+
 const response = null;
 class LoginPage {
      login() {
         // ******************* LOGIN AND GET AUTH KEY ********************
         const tokenvalue = authenticator.generate("574WTVJOJ562OOSF2FCFPBJM6FIKHQBR");
-        cy.readFile('D:/crowdbotics_automation/cypress/fixtures/login.json').then((data) => {
+        cy.readFile('cypress/fixtures/login.json').then((data) => {
             data.token = parseInt(tokenvalue)
-            cy.writeFile('D:/crowdbotics_automation/cypress/fixtures/login.json', JSON.stringify(data))
+            cy.writeFile('cypress/fixtures/login.json', JSON.stringify(data))
         })
 
 
