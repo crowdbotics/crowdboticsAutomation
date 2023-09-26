@@ -8,16 +8,19 @@ module.exports = defineConfig({
   defaultCommandTimeout: 10000,
   env:
   {
-      url:"https://crowdbotics-slack-dev.herokuapp.com",
-      username : "sneh@crowdbotics.com",
-      password : "devstringx@123",
-      authenticationToken : "UGNYCSUVC4BCH7NL7G54KGBNN7GOLGJK"
+    url: "https://crowdbotics-slack-dev.herokuapp.com",
+    username: "sneh@crowdbotics.com",
+    password: "devstringx@123",
+    authenticationToken: "UGNYCSUVC4BCH7NL7G54KGBNN7GOLGJK",
+    loginEndPoint: "/api/v2/login/"
   },
   e2e: {
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
     },
-    specPattern:'cypress/integration/pagetest/*.js'
-  },
- 
+    // specPattern:'cypress/integration/pagetest/*.js'
+    specPattern: 'cypress/integration/api/tests/*.js'
+  }
+
+
 });
