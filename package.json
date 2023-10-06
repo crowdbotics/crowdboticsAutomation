@@ -10,13 +10,17 @@
     "html-report": "cypress run — — spec cypress/integration/pagetest/*.js — — browser chrome — — headed",
     "test": "mocha test --reporter mochawesome --reporter-options autoOpen=true",
     "cy:run": "cypress run",
-    "cy:parallel": "cypress-parallel -s cy:run -t 2 -d cypress/integration/pagetest -a"
+    "cy:parallel": "cypress-parallel -s cy:run -t 2 -d cypress/integration/pagetest -a",
+    "test:dummy": "npx cypress run --spec cypress/integration/api/pages/Dummy.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.5.0",
+    "btoa": "^1.2.1",
     "cypress-parallel": "^0.13.0",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "otplib": "^12.0.1"
   },
   "devDependencies": {
