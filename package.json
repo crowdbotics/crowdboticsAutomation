@@ -11,7 +11,7 @@
     "test": "mocha test --reporter mochawesome --reporter-options autoOpen=true",
     "cy:run": "cypress run",
     "cy:parallel": "cypress-parallel -s cy:run -t 2 -d cypress/integration/pagetest -a",
-    "test:dummy": "npx cypress run --spec cypress/integration/api/pages/Dummy.js"
+    "test:dummy": "npx cypress run --spec cypress/integration/api/tests/Dummy.js"
   },
   "author": "",
   "license": "ISC",
