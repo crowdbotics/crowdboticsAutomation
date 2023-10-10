@@ -1,7 +1,7 @@
 const axios = require("axios");
 
-const username = 'anish.kumar@crowdbotics.com'; // Replace with your Kiwi TCMS username
-const password = 'bcHV3w94wUJ7GsU';
+const username = 'sneh@crowdbotics.com'; // Replace with your Kiwi TCMS username
+const password = 'devstringx@123';
 const apiUrl = 'http://cbtcms.herokuapp.com/json-rpc/';
 const login = async () => {
   const body = {
@@ -23,6 +23,17 @@ const login = async () => {
 queryValues = {
     'author_id': 14
 }
+values = {
+  'product': 'CB',
+  'product_id': 3,
+  'product_version': 'V1',
+  'name': 'Testplan foobar',
+  'author_id': 14,
+  'type': 'Acceptance',
+  'parent': null,
+  'text':'Testing TCMS'
+}
+
 
 const fetchTestPlans = async () => {
   const body = {
@@ -34,8 +45,8 @@ const fetchTestPlans = async () => {
   try {
     const response = await axios.post(apiUrl, body, {
         auth: {
-            username: "anish.kumar@crowdbotics.com",
-            password: "bcHV3w94wUJ7GsU",
+            username: "sneh@crowdbotics.com",
+            password: "devstringx@123",
         },
     });
 
@@ -44,6 +55,27 @@ const fetchTestPlans = async () => {
     console.log(error.response.data);
   }
 };
-//hello
-fetchTestPlans();
-//login();
+
+const createTestPaln = async () => {
+  const body = {
+    jsonrpc: "2.0",
+    method: "TestPlan.create",
+    id: "jsonrpc",
+    params: [values],
+  };
+  try {
+    const response = await axios.post(apiUrl, body, {
+      auth: {
+        username: "sneh@crowdbotics.com",
+        password: "devstringx@123",
+    },
+    });
+
+    console.log(response.data);
+  } catch (error) {
+   console.log(error.response.data);
+  }
+};
+createTestPaln();
+//fetchTestPlans();
+
