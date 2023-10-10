@@ -8,7 +8,7 @@ module.exports = defineConfig({
   defaultCommandTimeout: 10000,
   env:
   {
-    url: "https://crowdbotics-slack-dev.herokuapp.com",
+    baseUrl: "https://crowdbotics-slack-dev.herokuapp.com",
     username: "sneh@crowdbotics.com",
     password: "devstringx@123",
     authenticationToken: "UGNYCSUVC4BCH7NL7G54KGBNN7GOLGJK",
@@ -16,7 +16,8 @@ module.exports = defineConfig({
     loginEndPoint: "/api/v2/totp-login/",
     createMilestone: "",
     createTasks: "",
-    
+
+
   },
   e2e: {
     setupNodeEvents(on, config) {
@@ -25,6 +26,7 @@ module.exports = defineConfig({
     // specPattern:'cypress/integration/pagetest/*.js'
     specPattern: 'cypress/integration/api/tests/*.js'
   }
+
 
 
 });
