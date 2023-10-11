@@ -1,7 +1,5 @@
 import { authenticator } from 'otplib';
 /// <reference types = "cypress"/>
-
-let anish;
 let res;
 let auth_key;
 class LoginPage {

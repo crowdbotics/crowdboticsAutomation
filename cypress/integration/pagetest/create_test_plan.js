@@ -1,28 +1,34 @@
 const axios = require("axios");
+
 const login = async () => {  
 	const body = {
     jsonrpc: "2.0",
     method: "Auth.login",
     id: "jsonrpc",
-    params: ['anish.kumar@crowdbotics.com', 'cHV3w94wUJ7GsU'],
-  };
+    params: ['cbsneh', 'dssneh@123'],
+    };
 try {
     const response = await axios.post(`http://cbtcms.herokuapp.com/json-rpc/`, body, {});
-		console.log(response.data);  
+		console.log(response.data); 
+    response_data=response.data.result; 
 } catch (error) {
     console.log(error.response.data);
-  }};
+  }
+  return response_data;
+};
 
   values = {
     'product': 3,
     'product_version': 3,
-    'name': 'Edward Test Plan',
+    'name': 'Cypress Test Plan',
     'type': 5,
     'parent': null,
-    'text':'Edward new test plan',
+    'is_active':true,
+    'text':'Cypress new test plan',
 }
 
 const createTestPlan = async () => {
+  const loginResponse = await login();
   const body = {
     jsonrpc: "2.0",
     method: "TestPlan.create",
@@ -31,7 +37,7 @@ const createTestPlan = async () => {
   };
   const headers = {
     "Content-Type": "application/json",
-    Cookie: `l9xjkj8c48wetmihwsc7g0681amzuss1`,
+    Cookie: 'sessionid='+loginResponse,
   };
   try {
     const response = await axios.post(
@@ -43,24 +49,5 @@ const createTestPlan = async () => {
   } catch (error) {
     console.log(error.response.data);
   }
-};
-
-queryValues = {
-  'author_id': 14
-}
-
-const fetchTestPlans = async () => {
-const body = {
-  jsonrpc: "2.0",
-  method: "TestPlan.filter",
-  id: "jsonrpc",
-  params: [queryValues],
-};
-try {
-  const response = await axios.post(`http://cbtcms.herokuapp.com/json-rpc/`, body, {});
-  console.log(response.data);
-} catch (error) {
-  console.log(error.response.data);
-}
 };
 createTestPlan();
