@@ -25,16 +25,18 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('callAPI', (method, endpoint, data) => {
+  cy.log("this is callApi method")
     return cy.request({
       method,
       url: `${Cypress.env('baseUrl')}${endpoint}`,
-      body: data,
-      headers: {
-        'Content-Type': 'application/json',
-        // Add any authentication headers if needed
-      },
+      body: data
+      // headers: {
+      //   'Content-Type': 'application/json',
+      //   // Add any authentication headers if needed
+      // },
     }).then((response) => {
       // Add assertions to validate the response
+      
       expect(response.status).to.eq(200); // Example: Check if the status code is 200
       // Add more assertions as needed based on your API response structure
   

@@ -1,9 +1,7 @@
 const cypress = require("cypress");
 const { defineConfig } = require("cypress");
 
-
 module.exports = defineConfig({
-  projectId: "bme5ek",
   reporter: 'cypress-mochawesome-reporter',
   defaultCommandTimeout: 10000,
   env:
@@ -14,20 +12,14 @@ module.exports = defineConfig({
     authenticationToken: "UGNYCSUVC4BCH7NL7G54KGBNN7GOLGJK",
     token_key: "",
     loginEndPoint: "/api/v2/totp-login/",
+    createApp: "/api/v1/github-repos/",
     createMilestone: "",
     createTasks: "",
-
-
   },
   e2e: {
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
     },
-     //specPattern:'cypress/integration/pagetest/*.js'
-     specPattern: 'cypress/integration/api/tests/Dummy.js'
-     //specPattern: 'cypress/integration/api/tests/logintest.js'
+    specPattern: 'cypress/integration/api/tests/*.js'
   }
-
-
-
 });
