@@ -1,6 +1,6 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
-import { doLogin } from 'D:/crowdbotics_automation/cypress/integration/api/pages/loginPage.js';
+import { doLogin } from '../pages/loginPage.js';
 
 describe("Login flow", () => {
     it('login request', () => {
