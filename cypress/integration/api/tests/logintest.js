@@ -1,6 +1,8 @@
-import LoginPage from '../pages/loginPage';
+// import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
+import { doLogin } from 'D:/crowdbotics_automation/cypress/integration/api/pages/loginPage.js';
 
+<<<<<<< HEAD
 
 describe("Checkout flow", () => {
     let auth_key;
@@ -22,3 +24,15 @@ describe("Checkout flow", () => {
     })
 })
 });
+=======
+describe("Login flow", () => {
+    it('login request', () => {
+        doLogin().then((response) => {
+            expect(response.status, "Login Status code is not matching").to.eq(200)
+            cy.log("login response", response.body.key)
+        })
+    })
+})
+
+
+>>>>>>> 972398ae658735eb35aa9cedd78bd2e2ba58e90f

@@ -89,8 +89,6 @@ describe("Checkout flow", () => {
             url: baseURL+'/api/v1/apps/' + app_id + '/payment-proposals/',
             body: { "title": "Payment milestone ", "due_date": "2023-12-13", "amount": 2000.0, "status": "draft" },
             headers: {
-                //   'Content-Type': 'application/json',
-                //   'Accept': 'application/json',
                 'Authorization': 'Token ' + auth_key
             }
         }).then((response) => {
