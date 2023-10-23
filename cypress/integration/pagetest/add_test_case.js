@@ -52,12 +52,12 @@ const createTestRun = async () => {
         console.log('Test Run created successfully! ID:', testRunId);
 
        
-        let testCasesToAdd = [470,821,191]; 
+        let testCasesToAdd = 4; 
         const bodyAddTestCases = {
             jsonrpc: "2.0",
             method: "TestRun.add_case",
             id: "jsonrpc",
-            params: [testRunId, [testCasesToAdd]],
+            params: [testRunId, testCasesToAdd],
         };
 
         const responseAddTestCases = await axios.post(
@@ -72,5 +72,4 @@ const createTestRun = async () => {
         console.error('Error:', error.response.data);
     }
 };
-
-createTestRun();
+createTestRun;

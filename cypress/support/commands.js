@@ -51,3 +51,4 @@ Cypress.Commands.add("enterText", (element1, element2) => {
 Cypress.Commands.add("clickOnElement", (element1) => {
     element1.click({ force: true });
 })
+

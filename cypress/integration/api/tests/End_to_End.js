@@ -8,6 +8,7 @@ describe("Checkout flow", () => {
     let payment_id;
     let quote_id;
     let attributes_id;
+    let testRun;
     const baseURL= "https://crowdbotics-slack-dev.herokuapp.com"
     before('POST request', () => {
         // ******************* LOGIN AND GET AUTH KEY ********************
