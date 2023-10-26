@@ -13,6 +13,8 @@ module.exports = defineConfig({
     token_key: "",
     loginEndPoint: "/api/v2/totp-login/",
     createApp: "/api/v1/github-repos/",
+    createTags: "/api/v1/prd_tags/?app=",
+    createUserRoles: "/api/v1/prd_roles/?app=",
     createMilestone: "",
     createTasks: "",
   },
