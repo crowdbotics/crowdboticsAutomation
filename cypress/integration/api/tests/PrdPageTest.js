@@ -7,7 +7,7 @@ let authKey;
 let app_id;
 let app_name;
 describe("PRD Page", () => {
-    let app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
+    app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Create Tags Flow', () => {
         doLogin().then((response) => {
             authKey = response.body.key;
