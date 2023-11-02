@@ -1,5 +1,6 @@
 const axios = require("axios");
-
+let testRunId;
+let  response_data;
 const login = async () => {  
 	const body = {
     jsonrpc: "2.0",
@@ -47,29 +48,44 @@ const createTestRun = async () => {
             bodyCreateTestRun,
             { headers }
         );
+        testRunId = responseCreateTestRun.data.result.id;
+    } catch (error) {
+        console.error('Error:', error.response.data);
+    }
         
-        const testRunId = responseCreateTestRun.data.result.id;
-        console.log('Test Run created successfully! ID:', testRunId);
+        // return testRunId;
+}
+const addTestCasesToTestRun = async (testcaseIDs) => {
+    const loginResponse = await login();
+    const createTestRunResponse = await createTestRun();
 
-       
-        let testCasesToAdd = 4; 
-        const bodyAddTestCases = {
-            jsonrpc: "2.0",
-            method: "TestRun.add_case",
-            id: "jsonrpc",
-            params: [testRunId, testCasesToAdd],
-        };
+    const bodyAddTestCases = {
+        jsonrpc: "2.0",
+        method: "TestRun.add_case",
+        id: "jsonrpc",
+        params: [testRunIds, testcaseIDs],
+    };
 
+    const headers = {
+        "Content-Type": "application/json",
+        Cookie: 'sessionid=' + loginResponse,
+    };
+
+    try {
         const responseAddTestCases = await axios.post(
             `http://cbtcms.herokuapp.com/json-rpc/`,
             bodyAddTestCases,
             { headers }
         );
 
+        // Handle the response here if needed
         console.log('Test cases added to the test run:', responseAddTestCases.data);
-
     } catch (error) {
         console.error('Error:', error.response.data);
     }
 };
-createTestRun;
+
+const testcaseIDs = [408, 409, 410]; // Array of test case IDs to add
+
+addTestCasesToTestRun(982);
+

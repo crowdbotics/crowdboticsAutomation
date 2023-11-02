@@ -2,11 +2,11 @@
 
 export const doCteareApp = (auth_key, app_name) => {
     // ******************* CREATE AN APP ******************** //
-    cy.readFile('cypress/fixtures/createApp.json').then((data) => {
+    cy.readFile('cypress/fixtures/api_createApp.json').then((data) => {
         data.custom_name = app_name
-        cy.writeFile('cypress/fixtures/createApp.json', JSON.stringify(data))
+        cy.writeFile('cypress/fixtures/api_createApp.json', JSON.stringify(data))
     })
-    return cy.fixture('createApp.json').then((myFixture) => {
+    return cy.fixture('api_createApp.json').then((myFixture) => {
         cy.request({
             method: 'POST',
             url: Cypress.env('baseUrl') + Cypress.env('createApp'),

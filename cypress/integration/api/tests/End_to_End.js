@@ -1,5 +1,6 @@
 import { authenticator } from 'otplib';
 /// <reference types = "cypress"/>
+
 describe("Checkout flow", () => {
     let auth_key;
     let milestone_id;
@@ -22,6 +23,7 @@ describe("Checkout flow", () => {
             auth_key = response.body.key
             cy.log('api auth key is generated ', auth_key)
         })
+        
     })
     it("Task shareable-status", () => {
         //  ************* GET Task shareable-status
@@ -41,6 +43,10 @@ describe("Checkout flow", () => {
     })
 
     it("create an app", () => {
+
+         const testCasesToAdd = 470;
+        cy.createTestRun(testCasesToAdd);
+
         let app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
         cy.request({
             method: 'POST',
@@ -61,7 +67,11 @@ describe("Checkout flow", () => {
             app_id = response.body.id
 
             cy.log('App is created and app ID is ' + app_id)
-        })
+
+           
+                
+    }) 
+    
     })
 
     // app_id = 115908
