@@ -7,6 +7,7 @@ export const doLogin = () => {
     cy.readFile('cypress/fixtures/api_login.json').then((data) => {
         data.token = parseInt(tokenvalue)
         cy.writeFile('cypress/fixtures/api_login.json', JSON.stringify(data))
+        // cy.wait(10000); 
     })
     return cy.fixture('api_login.json').then((myFixture) => {
         cy.request({

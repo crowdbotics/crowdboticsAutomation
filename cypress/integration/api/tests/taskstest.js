@@ -1,8 +1,8 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
-import {doCteareApp} from '../pages/DashboardPage.js';
+import { doCteareApp } from '../pages/DashboardPage.js';
 import { doCteareMilestone } from '../pages/TasksPage.js';
-import {doLogin} from '../pages/loginPage.js';
+import { doLogin } from '../pages/loginPage.js';
 
 let authKey;
 let app_id;
@@ -17,7 +17,7 @@ describe("Dashboard Page", () => {
                 app_id = response.body.id;
                 localStorage.setItem('app_id', response.body.id);
                 // const app_id = localStorage.getItem('app_id');
-                doCteareMilestone(authKey, app_id).then((response) =>{
+                doCteareMilestone(authKey, app_id).then((response) => {
                     expect(response.status).to.eq(201)
                     cy.log("login response", response.body)
                 })

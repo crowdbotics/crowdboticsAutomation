@@ -1,5 +1,1 @@
-<<<<<<< HEAD:cypress/fixtures/api_login.json
-{"email":"testsneh@crowdbotics.com","password":"devstringx@123","token":188033}
-=======
-{"email":"testsneh@crowdbotics.com","password":"devstringx@123","token":602144}
->>>>>>> 239b9cb74d394a06b789da503c29c38da5299037:cypress/fixtures/login.json
+{"email":"testsneh@crowdbotics.com","password":"devstringx@123","token":477403}

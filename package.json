@@ -7,11 +7,14 @@
     "test:smokeregression": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=smoke and grep=regression",
     "test:smoke": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=smoke",
     "test:regression": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=regression",
-    "html-report": "cypress run — — spec cypress/integration/pagetest/*.js — — browser chrome — — headed",
     "test": "mocha test --reporter mochawesome --reporter-options autoOpen=true",
     "cy:run": "cypress run",
     "cy:parallel": "cypress-parallel -s cy:run -t 2 -d cypress/integration/pagetest -a",
-    "test:dummy": "npx cypress run --spec cypress/integration/api/tests/Dummy.js"
+    "test:dummy": "npx cypress run --spec cypress/integration/api/tests/Dummy.js",
+    "cypress-run": "cypress run --spec cypress/integration/api/tests/Runner.js --browser chrome --headed",
+    "html-report-api": "cypress run — — spec cypress/integration/api/tests/*.js — — browser chrome — — headed",
+    "html-report": "cypress run — — spec cypress/integration/pagetest/*.js — — browser chrome — — headed",
+    "test:prd": "npx cypress run --spec cypress/integration/api/tests/*.js"
   },
   "author": "",
   "license": "ISC",
