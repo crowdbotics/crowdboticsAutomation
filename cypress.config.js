@@ -12,6 +12,7 @@ module.exports = defineConfig({
     authenticationToken: "UGNYCSUVC4BCH7NL7G54KGBNN7GOLGJK",
     token_key: "",
     loginEndPoint: "/api/v2/totp-login/",
+    logoutEndPoint: "/api/v2/logout/",
     createApp: "/api/v1/github-repos/",
     searchApp1: "/api/v2/apps/?custom_name=",
     searchApp2: "&page=1&limit=8",
@@ -34,7 +35,9 @@ module.exports = defineConfig({
     codePrivacyPrivateToPublic2: "/private/",
     codePrivacyPublicToPrivate1: "/api/v1/github-repos/",
     codePrivacyPublicToPrivate2: "/private/",
-    deleteApp:"/api/v2/apps/"
+    deleteApp:"/api/v2/apps/",
+    addJobRequest1: "/api/v2/apps/",
+    addJobRequest2: "/jobs/"
   },
   e2e: {
     setupNodeEvents(on, config) {

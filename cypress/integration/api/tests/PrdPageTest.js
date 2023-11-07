@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
-import { prd_overview_tags, prd_overview_userRoles, prd_create_group, prd_get_group, prd_delete_group,prd_create_item,prd_get_Item,prd_delete_item } from '../pages/PrdPage.js';
+import { prd_overview_tags, prd_overview_userRoles, prd_create_group, prd_get_group, prd_delete_group, prd_create_item, prd_get_Item, prd_delete_item } from '../pages/PrdPage.js';
 
 let authKey;
 let app_id;
@@ -59,7 +59,7 @@ describe("PRD Page", () => {
 
     it('Create PrdItem Flow', () => {
         prd_create_item(authKey, app_id, group_id, 'PRD ITEM TEST' + app_id).then((response) => {
-            item_id=response.body.id;
+            item_id = response.body.id;
             expect(response.status).to.eq(201)
             cy.log("create PrdItem response", response.body)
         })
@@ -69,13 +69,15 @@ describe("PRD Page", () => {
         prd_get_Item(authKey, group_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get PrdItem response", response.body)
+
         })
     })
     it('Delete PrdItem Flow', () => {
-        prd_delete_item(authKey, app_id,group_id,item_id).then((response) => {
+        prd_delete_item(authKey, app_id, group_id, item_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Delete PrdItem Response", response.body)
         })
+       
     })
 
 })

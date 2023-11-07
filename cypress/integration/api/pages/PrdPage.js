@@ -12,10 +12,6 @@ export const prd_overview_tags = (auth_key, app_id) => {
             url: Cypress.env('baseUrl') + Cypress.env('createTags') + app_id,
             body: myFixture,
             headers: {
-
-
-
-
                 // 'Content-Type': 'application/json',
                 // 'Accept': 'application/json',
                 'Authorization': 'Token ' + auth_key,
@@ -113,12 +109,12 @@ export const prd_delete_group = (auth_key, app_id) => {
 
 export const prd_create_item = (auth_key, app_id, group_id, item_name) => {
 
-    cy.readFile('cypress/fixtures/apo_createPRDItem.json').then((data) => {
+    cy.readFile('cypress/fixtures/api_createPRDItem.json').then((data) => {
         data.name = item_name
         data.group = group_id
-        cy.writeFile('cypress/fixtures/apo_createPRDItem.json', JSON.stringify(data))
+        cy.writeFile('cypress/fixtures/api_createPRDItem.json', JSON.stringify(data))
     })
-    return cy.fixture('apo_createPRDItem.json').then((myFixture) => {
+    return cy.fixture('api_createPRDItem.json').then((myFixture) => {
         cy.request({
             method: 'POST',
             url: Cypress.env('baseUrl') + Cypress.env('createprdItem') + app_id,
@@ -176,11 +172,4 @@ export const prd_delete_item = (auth_key, app_id,group_id,item_id) => {
         })
     })
 };
-
-
-
-
-
-
-
 

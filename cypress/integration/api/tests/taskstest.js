@@ -6,7 +6,7 @@ import { doLogin } from '../pages/loginPage.js';
 
 let authKey;
 let app_id;
-describe("Dashboard Page", () => {
+describe("Tasks Page", () => {
     let app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Create App Flow', () => {
         doLogin().then((response) => {
