@@ -60,6 +60,15 @@ module.exports = defineConfig({
     addTaskIntoMilestone1: "/api/v2/apps/",
     addTaskIntoMilestone2: "/milestones/",
     addTaskIntoMilestone3: "/add-task/",
+    publicTask1 : "/api/v2/tasks/",
+    publicTask2 : "/public/",
+    searchTask1: "/api/v2/tasks/search-by-id/?search=",
+    searchTask2: "&app=",
+    getAllMilestone1: "/api/v2/apps/",
+    getAllMilestone2: "/milestones/?current_tab=proposal",
+
+
+    
 
 
   },
