@@ -37,7 +37,31 @@ module.exports = defineConfig({
     codePrivacyPublicToPrivate2: "/private/",
     deleteApp:"/api/v2/apps/",
     addJobRequest1: "/api/v2/apps/",
-    addJobRequest2: "/jobs/"
+    addJobRequest2: "/jobs/",
+    changePlan1: "/api/v2/apps/",
+    changePlan2: "/plan/update/",
+    viewTask1: "/api/v2/apps/",
+    viewTask2: "/milestones/",
+    getTaskId1: "/api/v2/tasks/",
+    getTaskId2: "/",
+    addMileStone1: "/api/v2/apps/",
+    addMileStone2: "/milestones/",
+    getTaskSharableStatus: "/api/v2/tasks/shareable-status/",
+    getMilestone1: "/api/v2/apps/",
+    getMilestone2: "/milestones/",
+    getMilestone2: "/",
+    updateMilestone1:"/api/v2/apps/",
+    updateMilestone2: "/milestones/",
+    updateMilestone3: "/",
+    deleteMilestone1: "/api/v2/apps/",
+    deleteMilestone2: "/milestones/",
+    deleteMilestone3: "/",
+    createTask: "/api/v2/tasks/",
+    addTaskIntoMilestone1: "/api/v2/apps/",
+    addTaskIntoMilestone2: "/milestones/",
+    addTaskIntoMilestone3: "/add-task/",
+
+
   },
   e2e: {
     setupNodeEvents(on, config) {
