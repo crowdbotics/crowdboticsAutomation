@@ -17,10 +17,24 @@ export const doCteareApp = (auth_key, app_name) => {
             },
             body: myFixture
         }).then((response) => {
-            return response;            
+            return response;
         })
     })
 };
 
+export const searchApp = (auth_key, app_name) => {
+    // ******************* SEARCH AN APP ******************** //
+       return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('searchApp1')+app_name+ Cypress.env('searchApp2'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+        }).then((response) => {
+            return response;
+        })
+};
 
 

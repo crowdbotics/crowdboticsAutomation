@@ -4,19 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:smokeregression": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=smoke and grep=regression",
-    "test:smoke": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=smoke",
-    "test:regression": "npx cypress run --spec cypress/integration/pagetest/*.js --env grep=regression",
-    "html-report": "cypress run — — spec cypress/integration/pagetest/*.js — — browser chrome — — headed",
-    "test": "mocha test --reporter mochawesome --reporter-options autoOpen=true",
-    "cy:run": "cypress run",
-    "cy:parallel": "cypress-parallel -s cy:run -t 2 -d cypress/integration/pagetest -a",
-    "test:dummy": "npx cypress run --spec cypress/integration/api/tests/Dummy.js"
+    "test:prd": "npx cypress run --spec cypress/integration/api/tests/*.js --env grep=PRD",
+    "test:login": "npx cypress run --spec cypress/integration/api/tests/*.js --env grep=Login",
+    "test:settings": "npx cypress run --spec cypress/integration/api/tests/*.js --env grep=Settings",
+    "test:dashboard": "npx cypress run --spec cypress/integration/api/tests/*.js --env grep=Dashboard",
+    "test:tasks": "npx cypress run --spec cypress/integration/api/tests/*.js --env grep=Tasks"
+
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.5.0",
+    "axios": "^1.5.1",
     "btoa": "^1.2.1",
     "cypress-parallel": "^0.13.0",
     "express": "^4.18.2",
@@ -27,6 +25,7 @@
     "cypress": "^13.2.0",
     "cypress-grep": "^3.0.4",
     "cypress-mochawesome-reporter": "^3.5.1",
+    "fs-extra": "^11.1.1",
     "lodash": "^4.17.21",
     "mocha": "^10.2.0",
     "mochawesome": "^7.1.3",

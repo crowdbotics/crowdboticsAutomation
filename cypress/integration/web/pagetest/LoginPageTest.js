@@ -1,6 +1,6 @@
 //import { functions } from "cypress/types/lodash";
 import { describe } from "mocha";
-import LoginPage from "../pageobject/LoginPage";
+import LoginPage from "../../pageobject/LoginPage";
 /// <reference types = "cypress"/>
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from

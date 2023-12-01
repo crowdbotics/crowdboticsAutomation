@@ -1,3 +1,4 @@
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -51,3 +52,93 @@ Cypress.Commands.add("enterText", (element1, element2) => {
 Cypress.Commands.add("clickOnElement", (element1) => {
     element1.click({ force: true });
 })
+
+//..................................................................
+
+
+
+// cypress/support/commands.js
+import axios from 'axios';
+Cypress.Commands.add('loginToKiwiTCMS', () => {
+  // Wrap the asynchronous operation with cy.then()
+  return cy.then(() => {
+    const body = {
+      jsonrpc: "2.0",
+      method: "Auth.login",
+      id: "jsonrpc",
+      params: ['cbsneh', 'dssneh@123'],
+    };
+
+    // Make the API request and handle the response
+    return axios.post(`http://cbtcms.herokuapp.com/json-rpc/`, body, {})
+      .then(response => {
+        if (response && response.data) {
+          cy.log('Logged in successfully!');
+          return response.data.result;
+        } else {
+          // Handle the case where response or response.data is undefined
+          throw new Error('Invalid response received from the server');
+        }
+      })
+      .catch(error => {
+        // Handle errors, log them, or throw a custom error
+        console.error('Error during login:', error);
+        throw error;
+      });
+  });
+});
+
+// Rest of your commands...
+
+
+
+Cypress.Commands.add('createTestRun', (testCasesToAdd) => {
+  cy.loginToKiwiTCMS().then(sessionId => {
+    const testRunData = {
+      'plan': 8,
+      'name': 'My Test Run',
+      'build': 3,
+      'manager': 'cbsneh',
+      'summary': "This is run created by cypress automation"
+    };
+
+    const bodyCreateTestRun = {
+      jsonrpc: "2.0",
+      method: "TestRun.create",
+      id: "jsonrpc",
+      params: [testRunData],
+    };
+
+    const headers = {
+      "Content-Type": "application/json",
+      Cookie: 'sessionid=' + sessionId,
+    };
+
+    cy.request({
+      method: 'POST',
+      url: 'http://cbtcms.herokuapp.com/json-rpc/',
+      body: bodyCreateTestRun,
+      headers: headers,
+    }).then(responseCreateTestRun => {
+      const testRunId = responseCreateTestRun.body.result.id;
+      cy.log('Test Run created successfully! ID:', testRunId);
+
+      const bodyAddTestCases = {
+        jsonrpc: "2.0",
+        method: "TestRun.add_case",
+        id: "jsonrpc",
+        params: [testRunId, testCasesToAdd],
+      };
+
+      cy.request({
+        method: 'POST',
+        url: 'http://cbtcms.herokuapp.com/json-rpc/',
+        body: bodyAddTestCases,
+        headers: headers,
+      }).then(responseAddTestCases => {
+        cy.log('Test cases added to the test run:', responseAddTestCases.body);
+      });
+    });
+  });
+});
+

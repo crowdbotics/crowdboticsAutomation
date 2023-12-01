@@ -9,20 +9,16 @@ export const prd_overview_tags = (auth_key, app_id) => {
     return cy.fixture('api_createPRDTags.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('createTags')+app_id,
+            url: Cypress.env('baseUrl') + Cypress.env('createTags') + app_id,
             body: myFixture,
             headers: {
-
-                
-
-
                 // 'Content-Type': 'application/json',
                 // 'Accept': 'application/json',
                 'Authorization': 'Token ' + auth_key,
             }
-           
+
         }).then((response) => {
-            return response;            
+            return response;
         })
     })
 };
@@ -37,7 +33,7 @@ export const prd_overview_userRoles = (auth_key, app_id) => {
     return cy.fixture('api_createPRDUserRoles.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('createUserRoles')+app_id,
+            url: Cypress.env('baseUrl') + Cypress.env('createUserRoles') + app_id,
             body: myFixture,
             headers: {
 
@@ -45,47 +41,23 @@ export const prd_overview_userRoles = (auth_key, app_id) => {
                 // 'Accept': 'application/json',
                 'Authorization': 'Token ' + auth_key,
             }
-           
+
         }).then((response) => {
-            return response;            
+            return response;
         })
     })
 };
+export const prd_create_group = (auth_key, app_id, group_name) => {
 
-export const prd_AI = (auth_key, app_id,app_name1) => {
-
-    cy.readFile('cypress/fixtures/api_createPRDAi.json').then((data) => {
-        data.app_name = app_name1
-        cy.writeFile('cypress/fixtures/api_createPRDAi.json', JSON.stringify(data))
-    })
-    return cy.fixture('api_createPRDAi.json').then((myFixture) => {
-        cy.request({
-            method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('createprdai1')+app_id+Cypress.env('createprdai2'),
-            body: myFixture,
-            headers: {
-
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': 'Token ' + auth_key,
-            }
-           
-        }).then((response) => {
-            return response;            
-        })
-    })
-};
-
-export const prd_catalog_templates = (auth_key, app_id) => {
-
-    cy.readFile('cypress/fixtures/api_createPRDCatalogTemplates.json').then((data) => {
+    cy.readFile('cypress/fixtures/api_createPRDGroup.json').then((data) => {
         data.app = app_id
-        cy.writeFile('cypress/fixtures/api_createPRDCatalogTemplates.json', JSON.stringify(data))
+        data.name = group_name
+        cy.writeFile('cypress/fixtures/api_createPRDGroup.json', JSON.stringify(data))
     })
-    return cy.fixture('api_createPRDCatalogTemplates.json').then((myFixture) => {
+    return cy.fixture('api_createPRDGroup.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('createcatalogtemplates')+app_id,
+            url: Cypress.env('baseUrl') + Cypress.env('createprdGroup') + app_id,
             body: myFixture,
             headers: {
 
@@ -93,23 +65,59 @@ export const prd_catalog_templates = (auth_key, app_id) => {
                 // 'Accept': 'application/json',
                 'Authorization': 'Token ' + auth_key,
             }
-           
+
         }).then((response) => {
-            return response;            
+            return response;
         })
     })
 };
+export const prd_get_group = (auth_key, app_id) => {
 
-export const prd_add_features = (auth_key, app_id) => {
 
-    cy.readFile('cypress/fixtures/api_createPRDFeature.json').then((data) => {
-        data.app = app_id
-        cy.writeFile('cypress/fixtures/api_createPRDFeature.json', JSON.stringify(data))
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getprdGroup') + app_id,
+        headers: {
+
+            // 'Content-Type': 'application/json',
+            // 'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        }
+
+    }).then((response) => {
+        return response;
     })
-    return cy.fixture('api_createPRDFeature.json').then((myFixture) => {
+};
+
+export const prd_delete_group = (auth_key, app_id) => {
+
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteprdGroup') + app_id,
+        headers: {
+
+            // 'Content-Type': 'application/json',
+            // 'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        }
+
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const prd_create_item = (auth_key, app_id, group_id, item_name) => {
+
+    cy.readFile('cypress/fixtures/api_createPRDItem.json').then((data) => {
+        data.name = item_name
+        data.group = group_id
+        cy.writeFile('cypress/fixtures/api_createPRDItem.json', JSON.stringify(data))
+    })
+    return cy.fixture('api_createPRDItem.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('createprdfeature')+app_id,
+            url: Cypress.env('baseUrl') + Cypress.env('createprdItem') + app_id,
             body: myFixture,
             headers: {
 
@@ -117,9 +125,51 @@ export const prd_add_features = (auth_key, app_id) => {
                 // 'Accept': 'application/json',
                 'Authorization': 'Token ' + auth_key,
             }
-           
+
         }).then((response) => {
-            return response;            
+            return response;
         })
     })
 };
+
+export const prd_get_Item = (auth_key, group_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getprdItem') + group_id,
+        headers: {
+
+            // 'Content-Type': 'application/json',
+            // 'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        }
+
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const prd_delete_item = (auth_key, app_id,group_id,item_id) => {
+
+    cy.readFile('cypress/fixtures/api_deleteprdItem.json').then((data) => {
+        data.group_ids = [group_id];
+        data.item_ids = [item_id];
+        cy.writeFile('cypress/fixtures/api_deleteprdItem.json', JSON.stringify(data))
+    })
+    return cy.fixture('api_deleteprdItem.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('deleteprdItem') + app_id,
+            body: myFixture,
+            headers: {
+
+                // 'Content-Type': 'application/json',
+                // 'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            }
+
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
