@@ -1,5 +1,6 @@
-export const change_plan = (auth_key,app_id,plan_id) => {
-        cy.readFile('cypress/fixtures/api_change_plan.json').then((data) => {
+/// <reference types = "cypress"/>
+export const change_plan = (auth_key, app_id, plan_id) => {
+    cy.readFile('cypress/fixtures/api_change_plan.json').then((data) => {
         data.id = plan_id;
         cy.writeFile('cypress/fixtures/api_change_plan.json', JSON.stringify(data));
     });
