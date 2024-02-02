@@ -966,3 +966,52 @@ export const doGetPrdAiUserType = (auth_key,app_id) => {
         return response;
     })
 };
+export const docreatePRDWithAI = (auth_key, app_id,app_name1) => {
+    cy.readFile('cypress/fixtures/api_add_PrdwithAI.json').then((data) => {
+        data.app_name = app_name1;
+        cy.writeFile('cypress/fixtures/api_add_PrdwithAI.json', JSON.stringify(data))
+    })
+    return cy.fixture('api_add_PrdwithAI.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createprdai1') + app_id + Cypress.env('createprdai2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+
+        }).then((response) => {
+            return response;
+        })
+    }) 
+};
+export const doAddfeaturewithAI = (auth_key, app_id) => {
+    return cy.fixture('api_addFeaturewithAI.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('addFeaturewithAI1') + app_id + Cypress.env('addFeaturewithAI2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const doAddfeaturemanually = (auth_key, app_id) => {
+    return cy.fixture('api_addFeaturemanually.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('addFeaturemanually1') + app_id + Cypress.env('addFeaturemanually2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+
+        }).then((response) => {
+            return response;
+        })
+    })
+};
