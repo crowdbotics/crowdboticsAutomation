@@ -313,7 +313,7 @@ module.exports = defineConfig({
     getPrdAiUserType2: "/prd_ai_usertype/",
     getAppetizeBuilds1: "/api/v1/apps/",
     getAppetizeBuilds2: "/appetize-builds/",
-    getSettingsFEList: "/api/v2/settings/fe/"
+    getSettingsFEList: "/api/v2/settings/fe/",
     addFeaturewithAI1 : "/api/v1/apps/",
     addFeaturewithAI2 : "/prd-ai-generator/generate-features-with-description/",
     addFeaturemanually1 : "/api/v1/apps/",
