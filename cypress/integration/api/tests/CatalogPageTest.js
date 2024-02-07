@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
-import { doAddCatalogFeature, doGetCatologFeature, doAddCatalogCategory, doGetCatologCategory, doAddCatalogModule, doGetCatologModule, doImportFeature, doImportModule, doGetArchetype, doAsset, doCatalogCodeModule, doGetEmbeddingSearch } from '../pages/CatalogPage.js';
+import {doGetSettingsFElist, doAddCatalogFeature, doGetCatologFeature, doAddCatalogCategory, doGetCatologCategory, doAddCatalogModule, doGetCatologModule, doImportFeature, doImportModule, doGetArchetype, doAsset, doCatalogCodeModule, doGetEmbeddingSearch } from '../pages/CatalogPage.js';
 
 let authKey;
 let app_id;
@@ -123,6 +123,13 @@ describe("Catalog Page", () => {
     it('Get Embedding Search Flow', () => {
         doGetEmbeddingSearch(authKey).then((response) => {
             // expect(response.status).to.eq(201)
+            cy.log("Get Embedding Search response", response.body)
+        })
+    })
+
+    it('Get Settings FE List', () => {
+        doGetSettingsFElist(authKey).then((response) => {
+             expect(response.status).to.eq(200)
             cy.log("Get Embedding Search response", response.body)
         })
     })

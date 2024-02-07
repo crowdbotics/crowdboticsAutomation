@@ -195,3 +195,15 @@ export const doGetEmbeddingSearch = (auth_key) => {
         })
     })
 };
+export const doGetSettingsFElist = (auth_key) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getSettingsFEList') ,
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};

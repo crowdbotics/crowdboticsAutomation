@@ -313,6 +313,7 @@ module.exports = defineConfig({
     getPrdAiUserType2: "/prd_ai_usertype/",
     getAppetizeBuilds1: "/api/v1/apps/",
     getAppetizeBuilds2: "/appetize-builds/",
+    getSettingsFEList: "/api/v2/settings/fe/"
 
 
 
