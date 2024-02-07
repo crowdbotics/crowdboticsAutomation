@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
-import { doGetPrdAiUserType,doGetPrdActivityLog,doGetStatementOfWork,doGetUsefullLinks,doGetPaymentReceipt,doAddInstallerInstall,doGetStartOverPrdAi,doGetaAnalyzeRisks,doAddSuggestedFeatures,doGetCurrentPrdPdf, getCodeStateList, getRolesUsingId, getRoles, getAppPerformanceList, getPendingInvite, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, getAllFeatureFromBacklog, getPrdAiCategories, prd_overview_tags, prd_overview_userRoles, prd_create_group, prd_get_group, prd_delete_group, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem,doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd } from '../pages/PrdPage.js';
+import { doGetPrdAiUserType,doGetPrdActivityLog,doGetStatementOfWork,doGetUsefullLinks,doGetPaymentReceipt,doAddInstallerInstall,doGetStartOverPrdAi,doGetaAnalyzeRisks,doAddSuggestedFeatures,doGetCurrentPrdPdf, getCodeStateList, getRolesUsingId, getRoles, getAppPerformanceList, getPendingInvite, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, getAllFeatureFromBacklog, getPrdAiCategories, prd_overview_tags, prd_overview_userRoles, prd_create_group, prd_get_group, prd_delete_group, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem,doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd,docreatePRDWithAI,doAddfeaturewithAI,doAddfeaturemanually } from '../pages/PrdPage.js';
 
 let authKey;
 let app_id;
@@ -440,6 +440,28 @@ describe("PRD Page", () => {
         doGetUserReposList(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Delete PrdGroup response", response.body)
+        })
+    })
+it('Add Create PRD with AI', () => {
+    docreatePRDWithAI(authKey, app_id, app_name).then((response) => {
+        expect(response.status).to.eq(202)
+        cy.log("Add Feature with AI", response.body)
+
+    })
+})
+    it('Add Feature with AI', () => {
+        doAddfeaturewithAI(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(202)
+            cy.log("Add Feature with AI", response.body)
+
+        })
+    })
+    it('Add Feature Manually', () => {
+
+        doAddfeaturemanually(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(201)
+            cy.log("Add Feature Manually", response.body)
+
         })
     })
 
