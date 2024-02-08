@@ -195,3 +195,23 @@ export const doGetEmbeddingSearch = (auth_key) => {
         })
     })
 };
+
+export const doAddCatalogPlatform = (auth_key,platform_slug,platform_title) => {
+    cy.readFile('cypress/fixtures/api_addCatalogPlatform.json').then((data) => {
+        data.slug = platform_slug;
+        data.title = platform_title;
+        cy.writeFile('cypress/fixtures/api_addCatalogPlatform.json', JSON.stringify(data));
+    });
+    return cy.fixture('api_addCatalogPlatform.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('addCatalogPlatform'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};

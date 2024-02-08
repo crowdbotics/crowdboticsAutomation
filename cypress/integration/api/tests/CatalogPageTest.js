@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
-import { doAddCatalogFeature, doGetCatologFeature, doAddCatalogCategory, doGetCatologCategory, doAddCatalogModule, doGetCatologModule, doImportFeature, doImportModule, doGetArchetype, doAsset, doCatalogCodeModule, doGetEmbeddingSearch } from '../pages/CatalogPage.js';
+import { doAddCatalogPlatform,doAddCatalogFeature, doGetCatologFeature, doAddCatalogCategory, doGetCatologCategory, doAddCatalogModule, doGetCatologModule, doImportFeature, doImportModule, doGetArchetype, doAsset, doCatalogCodeModule, doGetEmbeddingSearch } from '../pages/CatalogPage.js';
 
 let authKey;
 let app_id;
@@ -19,6 +19,8 @@ let module_id;
 let group_id;
 let archetype_id;
 let slug;
+let platform_slug;
+let platform_title;
 describe("Catalog Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Add Catalog Feature Flow', () => {
@@ -123,6 +125,15 @@ describe("Catalog Page", () => {
     it('Get Embedding Search Flow', () => {
         doGetEmbeddingSearch(authKey).then((response) => {
             // expect(response.status).to.eq(201)
+            cy.log("Get Embedding Search response", response.body)
+        })
+    })
+    
+    it('Add Catalog Platform Flow', () => {
+        platform_slug = 'TestPlatformSlug' + (Math.random() + 1).toString(36).substring(7);
+        platform_title = 'My Platform title' + (Math.random() + 1).toString(36).substring(7);
+        doAddCatalogPlatform(authKey,platform_slug,platform_title).then((response) => {
+             expect(response.status).to.eq(201)
             cy.log("Get Embedding Search response", response.body)
         })
     })

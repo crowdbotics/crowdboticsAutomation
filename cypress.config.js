@@ -37,8 +37,6 @@ module.exports = defineConfig({
     createprdai2: "/prd-ai-generator/generate_features/",
     createcatalogtemplates: "/api/v1/prd_groups/import-archetype/?app=",
     createprdfeature: "/api/v1/prd_groups/import-features/?app=",
-    createMilestone: "",
-    createTasks: "",
     updateAppName: "/api/v2/apps/",
     codePrivacyPrivateToPublic1: "/api/v1/github-repos/",
     codePrivacyPrivateToPublic2: "/private/",
@@ -97,6 +95,7 @@ module.exports = defineConfig({
     getArchetype: "/api/v1/catalog/archetype/",
     asset: "/api/v1/catalog/asset/",
     catalogCodeModule: "/api/v1/catalog/code-module/",
+// This end point not available in trac list
     catalogEmbeddingSearch: "/api/v1/embedding-search/",
     createConnectors1: "/api/v2/apps/",
     createConnectors2: "/connectors/",
@@ -128,6 +127,7 @@ module.exports = defineConfig({
     patchGroup2: "/?app=",
     patchItem1: "/api/v1/prd_items/",
     patchItem2: "/?app=",
+    //This endpoint is not available in trac list
     approvePrd: "/api/v1/prd_groups/approve/",
     updatePrdVersionStatus: "/api/v1/update_prd_version_status/",
     getGroupUsingId: "/api/v1/prd_groups/",
@@ -313,8 +313,14 @@ module.exports = defineConfig({
     getPrdAiUserType2: "/prd_ai_usertype/",
     getAppetizeBuilds1: "/api/v1/apps/",
     getAppetizeBuilds2: "/appetize-builds/",
-
-
+    editAmountInPaymentMilestone1: "/api/v1/apps/",
+    editAmountInPaymentMilestone2: "/payment-proposals/",
+    editAmountInPaymentMilestone3: "/",
+    addFeaturewithAI1 : "/api/v1/apps/",
+    addFeaturewithAI2 : "/prd-ai-generator/generate-features-with-description/",
+    addTaskFromTemplete : "/api/v2/tasks/templates/?page=1&limit=50",
+    addCatalogPlatform : "/api/v1/catalog/platform/",
+    
 
 
 
