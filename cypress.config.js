@@ -317,6 +317,14 @@ module.exports = defineConfig({
     addFeaturewithAI2 : "/prd-ai-generator/generate-features-with-description/",
     addFeaturemanually1 : "/api/v1/apps/",
     addFeaturemanually2 : "/prd_ai_features/",
+    getprdfeatures1 : "/api/v1/apps/",
+    getprdaifeatures2 : "/api/v1/apps/132957/prd_ai_features/",
+    approveallfeatures1 : "/api/v1/apps/",
+    approveallfeatures2 : "/prd_ai_features/approve-all/",
+    createcategories1 : "/api/v1/apps/",
+    createcategories2 : "/prd_ai_categories/",
+    deletecategories1 : "/api/v1/apps/",
+    deletecategories2 : "/prd_ai_categories/",
 
 
 
