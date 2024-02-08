@@ -317,6 +317,9 @@ module.exports = defineConfig({
     addFeaturewithAI2 : "/prd-ai-generator/generate-features-with-description/",
     addFeaturemanually1 : "/api/v1/apps/",
     addFeaturemanually2 : "/prd_ai_features/",
+    cancelPendingInvitation1 : "/api/v2/apps/",
+    cancelPendingInvitation2 : "/pending-invitations/",
+    cancelPendingInvitation3 : "/cancel-invitation/",
 
 
 
