@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
-import { doCancelInvitation,doInviteMember, doGetTeamMember, doGetTeamMemberUsingId } from '../pages/TeamMemberPageAdmin.js';
+import { doCancelInvitation, doInviteMember, doGetTeamMember, doGetTeamMemberUsingId } from '../pages/TeamMemberPageAdmin.js';
 
 let member_id;
 let request_id;
@@ -24,32 +24,32 @@ describe("Team Member Admin Page", () => {
                 const selectRole = roles[Math.floor(Math.random() * roles.length)];
                 doInviteMember(authKey, app_id, 'shubham12@crowdbotics.com', selectRole).then((response) => {
                     expect(response.status).to.eq(200)
-                    request_id=response.body.invitation.id;
+                    request_id = response.body.invitation.id;
+                    member_id = response.body.invitation.member.id;
                     cy.log("create tags response", response.body)
                 })
             })
         })
     })
 
-        it('Cancel Invite Flow', () => {
-            doCancelInvitation (authKey, app_id,request_id).then((response) => {
-            //member_id = response.body.result.id;
+    it('Cancel Invite Flow', () => {
+        doCancelInvitation(authKey, app_id, request_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("create userroles response", response.body)
         })
     })
-//     it('Get Team Member Flow', () => {
-//         doGetTeamMember(authKey, app_id).then((response) => {
-//             member_id = response.body.result.id;
-//             expect(response.status).to.eq(200)
-//             cy.log("create userroles response", response.body)
-//         })
-//     })
+    it('Get Team Member Flow', () => {
+        doGetTeamMember(authKey, app_id).then((response) => {
+            member_id = response.body[0].id;
+            expect(response.status).to.eq(200)
+            cy.log("create userroles response", response.body)
+        })
+    })
 
-//     it('Get Team Member Using Id Flow', () => {
-//         doGetTeamMemberUsingId(authKey, app_id, member_id).then((response) => {
-//             expect(response.status).to.eq(200)
-//             cy.log("create userroles response", response.body)
-//         })
-//     })
- })
+    it('Get Team Member Using Id Flow', () => {
+        doGetTeamMemberUsingId(authKey, app_id, member_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("create userroles response", response.body)
+        })
+    })
+})
