@@ -318,8 +318,8 @@ module.exports = defineConfig({
     addFeaturewithAI2 : "/prd-ai-generator/generate-features-with-description/",
     addFeaturemanually1 : "/api/v1/apps/",
     addFeaturemanually2 : "/prd_ai_features/",
-
-
+    getInstallerInstalledComponents1 : "/api/v1/apps/",
+    getInstallerInstalledComponents2 : "/installer/installed-components/",
 
 
 
