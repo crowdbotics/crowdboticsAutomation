@@ -321,6 +321,14 @@ module.exports = defineConfig({
     cancelPendingInvitation1 : "/api/v2/apps/",
     cancelPendingInvitation2 : "/pending-invitations/",
     cancelPendingInvitation3 : "/cancel-invitation/",
+    getprdfeatures1 : "/api/v1/apps/",
+    getprdaifeatures2 : "/api/v1/apps/132957/prd_ai_features/",
+    approveallfeatures1 : "/api/v1/apps/",
+    approveallfeatures2 : "/prd_ai_features/approve-all/",
+    createcategories1 : "/api/v1/apps/",
+    createcategories2 : "/prd_ai_categories/",
+    deletecategories1 : "/api/v1/apps/",
+    deletecategories2 : "/prd_ai_categories/",
 
 
 
