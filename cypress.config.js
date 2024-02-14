@@ -329,6 +329,14 @@ module.exports = defineConfig({
     createcategories2 : "/prd_ai_categories/",
     deletecategories1 : "/api/v1/apps/",
     deletecategories2 : "/prd_ai_categories/",
+    putcreatecategories1 : "/api/v1/apps/",
+    putcreatecategories2 : "/prd_ai_categories/",
+    putFeature1 : "/api/v1/apps/",
+    putFeature2 : "/prd_ai_features/",
+    patchFeature1 : "/api/v1/apps/",
+    patchFeature2 : "/prd_ai_features/",
+    deleteFeature1 : "/api/v1/apps/",
+    deleteFeature2 : "/prd_ai_features/",
 
 
 
