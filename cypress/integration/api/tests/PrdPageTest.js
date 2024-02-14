@@ -1,18 +1,22 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
-import { doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks, doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getCodeStateList, getRolesUsingId, getRoles, getAppPerformanceList, getPendingInvite, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, getAllFeatureFromBacklog, getPrdAiCategories, prd_overview_tags, prd_overview_userRoles, prd_create_group, prd_get_group, prd_delete_group, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually } from '../pages/PrdPage.js';
+import { doDeletefeature,doPatchFeature,doPutFeature,doPutCategories,doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks, doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getCodeStateList, getRolesUsingId, getRoles, getAppPerformanceList, getPendingInvite, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, getAllFeatureFromBacklog, getPrdAiCategories, prd_overview_tags, prd_overview_userRoles, prd_create_group, prd_get_group, prd_delete_group, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually } from '../pages/PrdPage.js';
 
 let authKey;
 let app_id;
 let app_name;
 let group_id;
 let group_name;
+let categories_name ;
 let item_id;
+let feature_id;
 let tag_id;
+let description_name ;
 let role_id;
 let comment_id;
 let categories_id
+let title_name;
 let item_name;
 let added_items = [];
 let task_id = ["6120"];
@@ -458,12 +462,34 @@ describe("PRD Page", () => {
         })
     })
     it('Add Feature Manually', () => {
-
         doAddfeaturemanually(authKey, app_id).then((response) => {
+            categories_id = response.body.id;
+            feature_id = response.body.id;
             expect(response.status).to.eq(201)
             cy.log("Add Feature Manually", response.body)
 
         })
+    })
+    it('Put Feature', () => {
+        title_name = 'MyTitleNamechange' + (Math.random() + 1).toString(36).substring(7);
+        doPutFeature(authKey, app_id, categories_id,title_name,feature_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Put feature response", response.body)
+        })
+    })
+    it('Patch Feature', () => {
+        title_name = 'MyTitleNamechange' + (Math.random() + 1).toString(36).substring(7);
+        doPatchFeature(authKey, app_id, categories_id,title_name,feature_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Patch feature response", response.body)
+        })
+    })
+    it('Delete Feature', () => {
+        doDeletefeature(authKey, app_id, feature_id).then((response) => {
+            expect(response.status).to.eq(204)
+            cy.log("Delete feature", response.body)
+        })
+
     })
     it('Get PRD AI Features', () => {
         doGetPRDAIfeatures(authKey, app_id).then((response) => {
@@ -471,7 +497,6 @@ describe("PRD Page", () => {
             cy.log("Get PRD AI Features response", response.body)
         })
     })
-
 
     it('Approve All features', () => {
         doApproveAllFeatures(authKey, app_id).then((response) => {
@@ -484,9 +509,15 @@ describe("PRD Page", () => {
         doCreateCategories(authKey, app_id).then((response) => {
             categories_id = response.body.id;
             expect(response.status).to.eq(201)
-
             cy.log("Create Categories", response.body)
 
+        })
+    })
+    it('Put Categories', () => {
+        title_name = 'MyTitleName' + (Math.random() + 1).toString(36).substring(7);
+        doPutCategories(authKey, app_id,categories_id,title_name).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Put categories response", response.body)
         })
     })
     it('Delete Categories', () => {
@@ -496,6 +527,7 @@ describe("PRD Page", () => {
         })
 
     })
+    
 
 
 })
