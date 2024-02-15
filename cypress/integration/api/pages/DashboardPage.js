@@ -221,43 +221,43 @@ export const getAppLogsUsingLogID = (auth_key, log_id) => {
 
     
 };
-// export const getAddonsList = (auth_key, app_id) => {
-//     return cy.request({
-//         method: 'GET',
-//         url: Cypress.env('baseUrl') + Cypress.env('getAddonsList1') + app_id+Cypress.env('getAddonsList2'),
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Accept': 'application/json',
-//             'Authorization': 'Token ' + auth_key,
-//         },
-//     }).then((response) => {
-//         return response;
-//     })  
-// };
+export const getAddonsList = (auth_key, app_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getAddonsList1') + app_id+Cypress.env('getAddonsList2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })  
+};
 
-// export const doCreateAttributes = (auth_key, app_id) => {
+export const doCreateAttributes = (auth_key, app_id) => {
     
-//     cy.readFile('cypress/fixtures/api_createAttributes.json').then((data) => {
-//         data.new_build_stage = app_id;
-//         cy.writeFile('cypress/fixtures/api_createAttributes.json', JSON.stringify(data))
-//     })
-//     return cy.fixture('api_createAttributes.json').then((myFixture) => {
-//         cy.request({
-//             method: 'POST',
-//            // url: Cypress.env('baseUrl') + Cypress.env('createAttributes1')+app_id+Cypress.env('createAttributes2'),
-//            url: Cypress.env('baseUrl') +'/api/v1/apps/'+app_id+'/attributes/',
+    cy.readFile('cypress/fixtures/api_createAttributes.json').then((data) => {
+        data.new_build_stage = app_id;
+        cy.writeFile('cypress/fixtures/api_createAttributes.json', JSON.stringify(data))
+    })
+    return cy.fixture('api_createAttributes.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+           // url: Cypress.env('baseUrl') + Cypress.env('createAttributes1')+app_id+Cypress.env('createAttributes2'),
+           url: Cypress.env('baseUrl') +'/api/v1/apps/'+app_id+'/attributes/',
 
-//            headers: {
-//                 'Content-Type': 'application/json',
-//                 'Accept': 'application/json',
-//                 'Authorization': 'Token ' + auth_key,
-//             },
-//             body: myFixture
-//         }).then((response) => {
-//             return response;
-//         })
-//     })
-// };
+           headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
 
 export const getAttributes = (auth_key, app_id) => {
     return cy.request({
@@ -330,21 +330,21 @@ export const getFiles = (auth_key, app_id) => {
         return response;
     })
 };
-//     export const getAuditLogList = (auth_key, app_id) => {
-//         return cy.request({
-//             method: 'GET',
-//             //url: Cypress.env('baseUrl') + Cypress.env('getAuditLogList1')+app_id+Cypress.env('getAuditLogList2'),  
-//             url: Cypress.env('baseUrl') +'/api/v1/apps/' +app_id+'/audit-logs/',  
+    export const getAuditLogList = (auth_key, app_id) => {
+        return cy.request({
+            method: 'GET',
+            //url: Cypress.env('baseUrl') + Cypress.env('getAuditLogList1')+app_id+Cypress.env('getAuditLogList2'),  
+            url: Cypress.env('baseUrl') +'/api/v1/apps/' +app_id+'/audit-logs/',  
 
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Accept': 'application/json',
-//                 'Authorization': 'Token ' + auth_key,
-//             },
-//         }).then((response) => {
-//             return response;
-//         })
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+        }).then((response) => {
+            return response;
+        })
 
     
-// };
+};
 
