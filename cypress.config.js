@@ -337,6 +337,14 @@ module.exports = defineConfig({
     patchFeature2 : "/prd_ai_features/",
     deleteFeature1 : "/api/v1/apps/",
     deleteFeature2 : "/prd_ai_features/",
+    changeMemberJobTitle1 : "/api/v2/apps/",
+    changeMemberJobTitle2 : "/members/",
+    changeMemberJobTitle3 : "/",
+    getAllMemberList1 : "/api/v2/apps/",
+    getAllMemberList2 : "/members/"
+    
+
+
 
 
 

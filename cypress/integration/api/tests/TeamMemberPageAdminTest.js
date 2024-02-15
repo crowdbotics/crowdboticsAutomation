@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
-import { doCancelInvitation, doInviteMember, doGetTeamMember, doGetTeamMemberUsingId } from '../pages/TeamMemberPageAdmin.js';
+import { doGetAllMemberList, doUpdateMemberjobTitle,doCancelInvitation, doInviteMember, doGetTeamMember, doGetTeamMemberUsingId } from '../pages/TeamMemberPageAdmin.js';
 
 let member_id;
 let request_id;
@@ -50,6 +50,20 @@ describe("Team Member Admin Page", () => {
         doGetTeamMemberUsingId(authKey, app_id, member_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("create userroles response", response.body)
+        })
+    })
+
+    it('Change Team Member Job Title', () => {
+        doUpdateMemberjobTitle(authKey, app_id, member_id,app_name).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("change team member job title", response.body)
+        })
+    })
+
+    it('get all member list', () => {
+        doGetAllMemberList(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("get all member list", response.body)
         })
     })
 })
