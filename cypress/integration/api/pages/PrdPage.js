@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 
-//-------done---
+//-------Create Prd Tags------
 export const prd_overview_tags = (auth_key, app_id) => {
 
     cy.readFile('cypress/fixtures/api_createPRDTags.json').then((data) => {
@@ -22,6 +22,7 @@ export const prd_overview_tags = (auth_key, app_id) => {
     })
 };
 
+//------Add Prd Version Status--------
 export const addPrdVersionStatus = (auth_key, app_id) => {
 
     cy.readFile('cypress/fixtures/api_addPrdVersionStatus.json').then((data) => {
@@ -43,7 +44,7 @@ export const addPrdVersionStatus = (auth_key, app_id) => {
     })
 };
 
-//---Done---
+//------Get Prd AI Categories--------
 export const getPrdAiCategories = (auth_key, app_id) => {
 
     return cy.request({
@@ -60,7 +61,7 @@ export const getPrdAiCategories = (auth_key, app_id) => {
         return response;
     })
 };
-
+//-------Get Pending Invite-----
 export const getPendingInvite = (auth_key, app_id) => {
 
     return cy.request({
@@ -77,7 +78,7 @@ export const getPendingInvite = (auth_key, app_id) => {
         return response;
     })
 };
-
+//-----Get App Performance list--------------
 export const getAppPerformanceList = (auth_key, app_id) => {
 
     return cy.request({
@@ -94,7 +95,7 @@ export const getAppPerformanceList = (auth_key, app_id) => {
         return response;
     })
 };
-
+//-------------Get Code State List-------------
 export const getCodeStateList = (auth_key, app_id) => {
 
     return cy.request({
@@ -112,7 +113,7 @@ export const getCodeStateList = (auth_key, app_id) => {
     })
 };
 
-
+//-------Get Roles----------------
 export const getRoles = (auth_key) => {
 
     return cy.request({
@@ -129,7 +130,7 @@ export const getRoles = (auth_key) => {
         return response;
     })
 };
-
+//----------Get ROles using Id------------------
 export const getRolesUsingId = (auth_key, app_id) => {
 
     return cy.request({
@@ -146,7 +147,7 @@ export const getRolesUsingId = (auth_key, app_id) => {
         return response;
     })
 };
-
+//----------Get All Feature From Backlog--------------
 export const getAllFeatureFromBacklog = (auth_key, app_id) => {
 
     return cy.request({
@@ -165,7 +166,7 @@ export const getAllFeatureFromBacklog = (auth_key, app_id) => {
 };
 
 
-
+//-----------Get Currently Approved Prd Version---------------
 export const getCurrentlyApprovedPrdVersion = (auth_key, app_id) => {
 
     return cy.request({
@@ -182,7 +183,7 @@ export const getCurrentlyApprovedPrdVersion = (auth_key, app_id) => {
         return response;
     })
 };
-
+//----------------Get CB Care Plan Using Id-------------------
 export const getCBCarePlanUsingId = (auth_key, app_id) => {
 
     return cy.request({
@@ -200,6 +201,7 @@ export const getCBCarePlanUsingId = (auth_key, app_id) => {
     })
 };
 
+//-----------Get Milestone Index--------------------
 export const getMilestoneIndex = (auth_key, app_id) => {
 
     return cy.request({
@@ -216,7 +218,7 @@ export const getMilestoneIndex = (auth_key, app_id) => {
         return response;
     })
 };
-
+//----------------Get Milestone Status Summury----------------
 export const getMilestoneStatusSummy = (auth_key, app_id) => {
 
     return cy.request({
@@ -236,7 +238,7 @@ export const getMilestoneStatusSummy = (auth_key, app_id) => {
 
 
 
-//----Done-----
+//------Prd Overview User ROles-------
 export const prd_overview_userRoles = (auth_key, app_id) => {
 
     cy.readFile('cypress/fixtures/api_createPRDUserRoles.json').then((data) => {
