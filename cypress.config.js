@@ -463,10 +463,17 @@ module.exports = defineConfig({
     patchFeature1 : "/api/v1/apps/",
     patchFeature2 : "/prd_ai_features/",
     deleteFeature1 : "/api/v1/apps/",
-    deleteFeature2 : "/prd_ai_features/"
+    deleteFeature2 : "/prd_ai_features/",
+    getShareableComponentsList: "/api/v2/shareable-components/",
+    createShareableComponents: "/api/v2/shareable-components/",
+    getShareableComponentsById1: "/api/v2/shareable-components/",
+    getShareableComponentsById2: "/",
+    patchShareableComponentsById1: "/api/v2/shareable-components/",
+    patchShareableComponentsById2: "/",
 
 
 
+   
 
 
   },
