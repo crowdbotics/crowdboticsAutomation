@@ -1226,3 +1226,60 @@ export const doGetSettingsFElist = (auth_key) => {
         return response;
     })
 }
+
+export const doGetShareableComponentsList = (auth_key) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getShareableComponentsList'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const doCreateShareableComponent = (auth_key) => {
+   
+    return cy.fixture('api_addShareableComponent.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createShareableComponents'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+export const doGetShareableComponentsById = (auth_key,shareableComponent_id) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getShareableComponentsById1')+shareableComponent_id+Cypress.env('getShareableComponentsById2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+export const doPatchShareableComponent = (auth_key,shareableComponent_id) => {
+   
+    return cy.fixture('api_patchShareableComponent.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchShareableComponentsById1')+shareableComponent_id+Cypress.env('patchShareableComponentsById2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
