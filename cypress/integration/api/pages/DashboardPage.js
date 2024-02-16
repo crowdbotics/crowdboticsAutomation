@@ -94,10 +94,101 @@ export const getAppListById = (auth_key) => {
 };
 
 
-export const getSkills = (auth_key) => {
+export const doGetSkillsList = (auth_key) => {
     return cy.request({
         method: 'GET',
         url: Cypress.env('baseUrl') + Cypress.env('getSkills'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doGetBugTaskList = (auth_key,app_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getBugTaskList1')+app_id+ Cypress.env('getBugTaskList2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doCreateBugTask = (auth_key,app_id) => {
+   
+    return cy.fixture('api_addBugtask.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createBugTask1')+app_id+Cypress.env('createBugTask2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+
+export const doGetBugTaskById = (auth_key,app_id,bugTask_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getBugTaskById1')+app_id+ Cypress.env('getBugTaskById2')+bugTask_id+Cypress.env('getBugTaskById3'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doUpdateWithPutBugTask = (auth_key,app_id,bugTask_id) => {
+   
+    return cy.fixture('api_updateWithPutBugtask.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putBugTaskById1')+app_id+Cypress.env('putBugTaskById2')+bugTask_id+Cypress.env('putBugTaskById3'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+export const doUpdateWithPatchBugTask = (auth_key,app_id,bugTask_id) => {
+   
+    return cy.fixture('api_updateWithPatchBugtask.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchBugTaskById1')+app_id+Cypress.env('patchBugTaskById2')+bugTask_id+Cypress.env('patchBugTaskById3'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doDeleteBugTask = (auth_key,app_id,bugTask_id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteBugTaskById1')+app_id+ Cypress.env('deleteBugTaskById2')+bugTask_id+Cypress.env('deleteBugTaskById3'),
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',

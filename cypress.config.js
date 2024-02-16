@@ -480,10 +480,31 @@ module.exports = defineConfig({
     changeMemberJobTitle2 : "/members/",
     changeMemberJobTitle3 : "/",
     getAllMemberList1 : "/api/v2/apps/",
-    getAllMemberList2 : "/members/"
+    getAllMemberList2 : "/members/",
     deleteFeature2 : "/prd_ai_features/",
+    getBugTaskList1 : "/api/v1/apps/",
+    getBugTaskList2 : "/bug-tasks/",
 
+    createBugTask1 : "/api/v1/apps/",
+    createBugTask2 : "/bug-tasks/",
+    
+    getBugTaskById1: "/api/v1/apps/",
+    getBugTaskById2: "/bug-tasks/",
+    getBugTaskById3: "/",
 
+    putBugTaskById1: "/api/v1/apps/",
+    putBugTaskById2: "/bug-tasks/",
+    putBugTaskById3: "/",
+
+    patchBugTaskById1: "/api/v1/apps/",
+    patchBugTaskById2: "/bug-tasks/",
+    patchBugTaskById3: "/",
+
+    deleteBugTaskById1: "/api/v1/apps/",
+    deleteBugTaskById2: "/bug-tasks/",
+    deleteBugTaskById3: "/",
+
+    
 
    
 

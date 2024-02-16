@@ -1,6 +1,6 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
-import { doGetAppetizeBuilds,getAppListById,getFiles,getEdges,getComponent,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, getSkills, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID } from '../pages/DashboardPage.js';
+import { doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,getFiles,getEdges,getComponent,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
 
 let appname;
@@ -8,6 +8,7 @@ let authKey;
 let log_id;
 let attribute_id;
 let app_id;
+let bugTask_id;
 let app_type;
 describe("Dashboard Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
@@ -65,9 +66,56 @@ describe("Dashboard Page", () => {
 
     
     it('Get Skill List Flow', () => {
-        getSkills(authKey).then((response) => {
+        doGetSkillsList(authKey).then((response) => {
             cy.log("login response", response.body)
             expect(response.status).to.eq(200)
+        })
+    })
+    
+    it('Get Bug Task List Flow', () => {
+        doGetBugTaskList(authKey,app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Bug Task List response", response.body)
+
+        })
+    })
+
+    it('Create Bug Task  Flow', () => {
+        doCreateBugTask(authKey,app_id).then((response) => {
+            bugTask_id=response.body.id;
+            expect(response.status).to.eq(201)
+            cy.log("Create Bug Task response", response.body)
+
+        })
+    })
+
+    it('Get Bug Task Using Id Flow', () => {
+        doGetBugTaskById(authKey,app_id,bugTask_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Bug Task Using Id response", response.body)
+
+        })
+    })
+
+    it('Put Bug Task Using Id Flow', () => {
+        doUpdateWithPutBugTask(authKey,app_id,bugTask_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Put Bug Task Using Id response", response.body)
+
+        })
+    })
+    it('Patch Bug Task Using Id Flow', () => {
+        doUpdateWithPatchBugTask(authKey,app_id,bugTask_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Patch Bug Task Using Id response", response.body)
+
+        })
+    })
+    it('Delete Bug Task Flow', () => {
+        doDeleteBugTask(authKey,app_id,bugTask_id).then((response) => {
+            expect(response.status).to.eq(204)
+            cy.log("Delete Bug Task response", response.body)
+
         })
     })
 
