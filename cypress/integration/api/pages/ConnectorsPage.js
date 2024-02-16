@@ -76,3 +76,16 @@ export const doDeleteConnector = (auth_key, app_id, connector_id) => {
         return response;
     })
 };
+
+export const doGetInstallerInstalComponent = (auth_key, app_id) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getInstallerInstalledComponents1') + app_id + Cypress.env('getInstallerInstalledComponents2') ,
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
