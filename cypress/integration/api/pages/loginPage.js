@@ -3,7 +3,7 @@ import { authenticator } from 'otplib';
 
 export const doLogin = () => {
     // ******************* LOGIN AND GET AUTH KEY ******************** //
-    const tokenvalue = authenticator.generate("JXKIAER7DA5BW2F6XBHZ3APL7FULNMQO");
+    const tokenvalue = authenticator.generate("VXHD455PWPHOUBIV2ZCXN3GFZUG5DCCY");
     cy.readFile('cypress/fixtures/api_login.json').then((data) => {
         data.token = parseInt(tokenvalue);
         cy.writeFile('cypress/fixtures/api_login.json', JSON.stringify(data));
