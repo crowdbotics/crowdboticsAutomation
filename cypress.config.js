@@ -445,6 +445,10 @@ module.exports = defineConfig({
     addFeaturewithAI2 : "/prd-ai-generator/generate-features-with-description/",
     addFeaturemanually1 : "/api/v1/apps/",
     addFeaturemanually2 : "/prd_ai_features/",
+    getpreinstallmodule1 : "/installer/installed-modules/",
+    getpreinstallmodule2 : "/api/v1/apps/",
+    addmodules1 : "/api/v2/apps/",
+    addmodules2 : "/installer/install/",
     cancelPendingInvitation1 : "/api/v2/apps/",
     cancelPendingInvitation2 : "/pending-invitations/",
     cancelPendingInvitation3 : "/cancel-invitation/",
@@ -470,10 +474,17 @@ module.exports = defineConfig({
     getShareableComponentsById2: "/",
     patchShareableComponentsById1: "/api/v2/shareable-components/",
     patchShareableComponentsById2: "/",
+    changeMemberJobTitle1 : "/api/v2/apps/",
+    changeMemberJobTitle2 : "/members/",
+    changeMemberJobTitle3 : "/",
+    getAllMemberList1 : "/api/v2/apps/",
+    getAllMemberList2 : "/members/"
+    deleteFeature2 : "/prd_ai_features/",
 
 
 
    
+
 
 
   },

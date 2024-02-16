@@ -57,5 +57,39 @@ export const doCancelInvitation = (auth_key, app_id, request_id) => {
     }).then((response) => {
         return response;
     })
+}
 
-};
+    export const doUpdateMemberjobTitle = (auth_key, app_id, member_id,app_name) => {
+
+        cy.readFile('cypress/fixtures/api_Member_JobTitle.json').then((data) => {
+            data.custom_name = app_name;
+            cy.writeFile('cypress/fixtures/api_Member_JobTitle.json', JSON.stringify(data))
+        })
+        return cy.fixture('api_Member_JobTitle.json').then((myFixture) => {
+            cy.request({
+                method: 'PATCH',
+                url: Cypress.env('baseUrl') + Cypress.env('changeMemberJobTitle1') + app_id + Cypress.env('changeMemberJobTitle2') + member_id + Cypress.env('changeMemberJobTitle3'),
+                body: myFixture,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Token ' + auth_key,
+                }
+            }).then((response) => {
+                return response;
+            })
+        })
+    }
+    export const doGetAllMemberList = (auth_key, app_id) => {
+
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getAllMemberList1') + app_id + Cypress.env('getAllMemberList2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            }
+        }).then((response) => {
+            return response;
+        })
+    }
+
