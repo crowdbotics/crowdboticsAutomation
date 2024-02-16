@@ -1,7 +1,7 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
-import { doCreateTask, doViewTask, doGetTaskById, doAddQuoteInTask, doDeleteTask, doDeleteSubTask, doAddMilestone, doGetAllMilestone, doGetAllSubTask, doGetMilestone, doUpdateMilestone, doDeleteMilestone, doAddTaskIntoMilestone, doUpdateTaskIntoMilestone, doUpdateSubTask, doUpdateOtherSubTask, doPublicTask, doApprovePricing, doUndoApprovePricing, doApprovePayment, doUndoApprovedPayment, doAddPaymentMilestone, doGetPaymentMilestone, doGetAllPaymentMilestone, doDeletePaymentMilestone, doAddQuote, doGetQuoteMilestone, doCheckoutWithAch, doGetJobType, doUpdateJobTypeRate, doGetTaskSharableStatus, doCreateBillingSchedule, doUpdateBillingSchedule, doGetBillingSchedule, doCreateSubTask, doCreateOtherSubTask, doMoveTask, doUpdateMilestoneCostHrs, doTaskIntoWishlist, doSearchTask } from '../pages/TasksPage.js';
+import { doGetExistingTaskTemplate,doEditAmountInPaymentMilestone,doCreateTask, doViewTask, doGetTaskById, doAddQuoteInTask, doDeleteTask, doDeleteSubTask, doAddMilestone, doGetAllMilestone, doGetAllSubTask, doGetMilestone, doUpdateMilestone, doDeleteMilestone, doAddTaskIntoMilestone, doUpdateTaskIntoMilestone, doUpdateSubTask, doUpdateOtherSubTask, doPublicTask, doApprovePricing, doUndoApprovePricing, doApprovePayment, doUndoApprovedPayment, doAddPaymentMilestone, doGetPaymentMilestone, doGetAllPaymentMilestone, doDeletePaymentMilestone, doAddQuote, doGetQuoteMilestone, doCheckoutWithAch, doGetJobType, doUpdateJobTypeRate, doGetTaskSharableStatus, doCreateBillingSchedule, doUpdateBillingSchedule, doGetBillingSchedule, doCreateSubTask, doCreateOtherSubTask, doMoveTask, doUpdateMilestoneCostHrs, doTaskIntoWishlist, doSearchTask } from '../pages/TasksPage.js';
 import { doLogin } from '../pages/loginPage.js';
 
 let authKey;
@@ -37,6 +37,15 @@ describe("Tasks Page", () => {
             })
         })
     })
+    
+    it('Get Existing Task from template', () => {
+
+        doGetExistingTaskTemplate(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Existing Task from template", response.body)
+        })
+    })
+
     it('Get Task SharableStatus Flow', () => {
 
         doGetTaskSharableStatus(authKey).then((response) => {
@@ -180,6 +189,15 @@ describe("Tasks Page", () => {
             cy.log("Add Payment Milestone response", response.body)
         })
     })
+
+    it('Add Payment Milestone FLow', () => {
+        const amount = 1000.00
+        doEditAmountInPaymentMilestone(authKey, app_id, payment_id, amount).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Add Payment Milestone response", response.body)
+        })
+    })
+
 
     it('Get PaymentMilestone Flow', () => {
 
