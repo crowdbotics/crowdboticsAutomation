@@ -116,6 +116,21 @@ export const doAddMilestone = (auth_key, app_id, milestone_name) => {
     })
 };
 
+export const doGetExistingTaskTemplate = (auth_key) => {
+
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('addTaskFromTemplete'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+
+};
+
 export const doGetAllMilestone = (auth_key, app_id) => {
 
     return cy.request({
@@ -351,6 +366,26 @@ export const doAddPaymentMilestone = (auth_key, app_id, due_date, title, amount)
         cy.request({
             method: 'POST',
             url: Cypress.env('baseUrl') + Cypress.env('addPaymentMilestone1') + app_id + Cypress.env('addPaymentMilestone2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doEditAmountInPaymentMilestone = (auth_key, app_id, payment_milestone_id, amount) => {
+    cy.readFile('cypress/fixtures/api_editAmountInPaymentMilestone.json').then((data) => {
+        data.amount = amount;
+        cy.writeFile('cypress/fixtures/api_editAmountInPaymentMilestone.json', JSON.stringify(data));
+    });
+
+    return cy.fixture('api_editAmountInPaymentMilestone.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('editAmountInPaymentMilestone1') + app_id + Cypress.env('editAmountInPaymentMilestone2') + payment_milestone_id + Cypress.env('editAmountInPaymentMilestone3'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key

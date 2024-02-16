@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 
-//-------done---
+//-------Create Prd Tags------
 export const prd_overview_tags = (auth_key, app_id) => {
 
     cy.readFile('cypress/fixtures/api_createPRDTags.json').then((data) => {
@@ -22,6 +22,7 @@ export const prd_overview_tags = (auth_key, app_id) => {
     })
 };
 
+//------Add Prd Version Status--------
 export const addPrdVersionStatus = (auth_key, app_id) => {
 
     cy.readFile('cypress/fixtures/api_addPrdVersionStatus.json').then((data) => {
@@ -43,7 +44,7 @@ export const addPrdVersionStatus = (auth_key, app_id) => {
     })
 };
 
-//---Done---
+//------Get Prd AI Categories--------
 export const getPrdAiCategories = (auth_key, app_id) => {
 
     return cy.request({
@@ -60,7 +61,7 @@ export const getPrdAiCategories = (auth_key, app_id) => {
         return response;
     })
 };
-
+//-------Get Pending Invite-----
 export const getPendingInvite = (auth_key, app_id) => {
 
     return cy.request({
@@ -77,7 +78,7 @@ export const getPendingInvite = (auth_key, app_id) => {
         return response;
     })
 };
-
+//-----Get App Performance list--------------
 export const getAppPerformanceList = (auth_key, app_id) => {
 
     return cy.request({
@@ -94,7 +95,7 @@ export const getAppPerformanceList = (auth_key, app_id) => {
         return response;
     })
 };
-
+//-------------Get Code State List-------------
 export const getCodeStateList = (auth_key, app_id) => {
 
     return cy.request({
@@ -112,7 +113,7 @@ export const getCodeStateList = (auth_key, app_id) => {
     })
 };
 
-
+//-------Get Roles----------------
 export const getRoles = (auth_key) => {
 
     return cy.request({
@@ -129,7 +130,7 @@ export const getRoles = (auth_key) => {
         return response;
     })
 };
-
+//----------Get ROles using Id------------------
 export const getRolesUsingId = (auth_key, app_id) => {
 
     return cy.request({
@@ -146,7 +147,7 @@ export const getRolesUsingId = (auth_key, app_id) => {
         return response;
     })
 };
-
+//----------Get All Feature From Backlog--------------
 export const getAllFeatureFromBacklog = (auth_key, app_id) => {
 
     return cy.request({
@@ -165,7 +166,7 @@ export const getAllFeatureFromBacklog = (auth_key, app_id) => {
 };
 
 
-
+//-----------Get Currently Approved Prd Version---------------
 export const getCurrentlyApprovedPrdVersion = (auth_key, app_id) => {
 
     return cy.request({
@@ -182,7 +183,7 @@ export const getCurrentlyApprovedPrdVersion = (auth_key, app_id) => {
         return response;
     })
 };
-
+//----------------Get CB Care Plan Using Id-------------------
 export const getCBCarePlanUsingId = (auth_key, app_id) => {
 
     return cy.request({
@@ -200,6 +201,7 @@ export const getCBCarePlanUsingId = (auth_key, app_id) => {
     })
 };
 
+//-----------Get Milestone Index--------------------
 export const getMilestoneIndex = (auth_key, app_id) => {
 
     return cy.request({
@@ -216,7 +218,7 @@ export const getMilestoneIndex = (auth_key, app_id) => {
         return response;
     })
 };
-
+//----------------Get Milestone Status Summury----------------
 export const getMilestoneStatusSummy = (auth_key, app_id) => {
 
     return cy.request({
@@ -236,7 +238,7 @@ export const getMilestoneStatusSummy = (auth_key, app_id) => {
 
 
 
-//----Done-----
+//------Prd Overview User ROles-------
 export const prd_overview_userRoles = (auth_key, app_id) => {
 
     cy.readFile('cypress/fixtures/api_createPRDUserRoles.json').then((data) => {
@@ -406,7 +408,7 @@ export const doPatchGroup = (auth_key, app_id, group_id, group_name) => {
         })
     })
 };
-//------Done--------
+
 export const doPatchItem = (auth_key, app_id, item_id, item_name) => {
 
     cy.readFile('cypress/fixtures/api_patchGroupItem.json').then((data) => {
@@ -448,7 +450,7 @@ export const doApprovePrd = (auth_key, app_id) => {
         })
     })
 };
-//--------Done------------
+
 export const doUpdatePrdVersionStatus = (auth_key, app_id) => {
 
     cy.readFile('cypress/fixtures/api_approvePrd.json').then((data) => {
@@ -469,7 +471,7 @@ export const doUpdatePrdVersionStatus = (auth_key, app_id) => {
         })
     })
 };
-//------Done-----
+
 export const doImportCatalog = (auth_key, app_id, group_id, task_id) => {
 
     cy.readFile('cypress/fixtures/api_importCatalog.json').then((data) => {
@@ -490,7 +492,7 @@ export const doImportCatalog = (auth_key, app_id, group_id, task_id) => {
         })
     })
 };
-//----DOne-----
+
 export const doGetGroupUsingId = (auth_key, group_id) => {
     return cy.request({
         method: 'GET',
@@ -503,7 +505,7 @@ export const doGetGroupUsingId = (auth_key, group_id) => {
         return response;
     })
 };
-//---Done----
+
 export const doPatchItemUpdateOrder = (auth_key, group_id, item_name) => {
 
     cy.readFile('cypress/fixtures/api_reorderPrdItems.json').then((data) => {
@@ -524,7 +526,7 @@ export const doPatchItemUpdateOrder = (auth_key, group_id, item_name) => {
         })
     })
 };
-//---Done----
+
 export const doGetItemsUsingId = (auth_key, item_id) => {
     return cy.request({
         method: 'GET',
@@ -537,7 +539,7 @@ export const doGetItemsUsingId = (auth_key, item_id) => {
         return response;
     })
 };
-//----Done----
+
 export const doAddPrdRoles = (auth_key, app_id, role_name) => {
 
     cy.readFile('cypress/fixtures/api_addPrdRole.json').then((data) => {
@@ -559,7 +561,7 @@ export const doAddPrdRoles = (auth_key, app_id, role_name) => {
         })
     })
 };
-//---Done-----
+
 export const doRemovePrdRoles = (auth_key, item_id, role_id) => {
 
     cy.readFile('cypress/fixtures/api_removePrdRole.json').then((data) => {
@@ -580,7 +582,7 @@ export const doRemovePrdRoles = (auth_key, item_id, role_id) => {
         })
     })
 };
-//-------Done------
+
 export const doAddPrdTag = (auth_key, app_id, tag_name) => {
 
     cy.readFile('cypress/fixtures/api_addPrdTag.json').then((data) => {
@@ -602,7 +604,7 @@ export const doAddPrdTag = (auth_key, app_id, tag_name) => {
         })
     })
 };
-//------Done--------
+
 export const doGetPrdTag = (auth_key, app_id) => {
     return cy.request({
         method: 'GET',
@@ -615,7 +617,7 @@ export const doGetPrdTag = (auth_key, app_id) => {
         return response;
     })
 };
-//------Done-----
+
 export const doGetPrdTagUsingId = (auth_key, tag_id) => {
     return cy.request({
         method: 'GET',
@@ -628,7 +630,7 @@ export const doGetPrdTagUsingId = (auth_key, tag_id) => {
         return response;
     })
 };
-//----Done-----
+
 export const doDeletePrdTag = (auth_key, tag_id) => {
     return cy.request({
         method: 'DELETE',
@@ -641,7 +643,7 @@ export const doDeletePrdTag = (auth_key, tag_id) => {
         return response;
     })
 };
-//--------Done----------
+
 export const doGetPrdVersions = (auth_key, app_id) => {
     return cy.request({
         method: 'GET',
@@ -654,7 +656,7 @@ export const doGetPrdVersions = (auth_key, app_id) => {
         return response;
     })
 };
-//----Done----
+
 export const doAddComment = (auth_key, app_id, comment, added_item_id) => {
 
     cy.readFile('cypress/fixtures/api_addPrdTtemComment.json').then((data) => {
@@ -676,7 +678,7 @@ export const doAddComment = (auth_key, app_id, comment, added_item_id) => {
         })
     })
 };
-//---Done----
+
 export const doGetComment = (auth_key, comment_id) => {
     return cy.request({
         method: 'GET',
@@ -689,7 +691,7 @@ export const doGetComment = (auth_key, comment_id) => {
         return response;
     })
 };
-//---Done----
+
 export const doGetChangeCommentStatus = (auth_key, comment_id, app_id, status) => {
 
     cy.readFile('cypress/fixtures/api_prdChangeCommentStatus.json').then((data) => {
@@ -710,7 +712,7 @@ export const doGetChangeCommentStatus = (auth_key, comment_id, app_id, status) =
         })
     })
 };
-//-----Done-----
+
 export const doGetViewInStudioPrd = (auth_key, app_id) => {
     return cy.request({
         method: 'GET',
@@ -723,7 +725,7 @@ export const doGetViewInStudioPrd = (auth_key, app_id) => {
         return response;
     })
 };
-//---Done-----
+
 export const doDeleteComment = (auth_key, comment_id, app_id) => {
     return cy.request({
         method: 'DELETE',
@@ -1000,7 +1002,12 @@ export const doAddfeaturewithAI = (auth_key, app_id) => {
         })
     })
 };
-export const doAddfeaturemanually = (auth_key, app_id) => {
+export const doAddfeaturemanually = (auth_key, app_id, categories_id, feature_id) => {
+    cy.readFile('cypress/fixtures/api_addFeaturemanually.json').then((data) => {
+        data.body = categories_id;
+        data.id = feature_id;
+        cy.writeFile('cypress/fixtures/api_addFeaturemanually.json', JSON.stringify(data))
+    })
     return cy.fixture('api_addFeaturemanually.json').then((myFixture) => {
         cy.request({
             method: 'POST',
@@ -1065,6 +1072,84 @@ export const doDeleteCategories = (auth_key, app_id, categories_id) => {
     return cy.request({
         method: 'DELETE',
         url: Cypress.env('baseUrl') + Cypress.env('deletecategories1') + app_id + Cypress.env('deletecategories2') + categories_id + '/',
+        headers: {
+
+            // 'Content-Type': 'application/json',
+            // 'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        }
+
+    }).then((response) => {
+        return response;
+    })
+
+};
+export const doPutCategories = (auth_key, app_id, categories_id, title_name) => {
+
+    cy.readFile('cypress/fixtures/api_putcategories.json').then((data) => {
+        data.id = categories_id,
+            data.title = title_name;
+        cy.writeFile('cypress/fixtures/api_putcategories.json', JSON.stringify(data))
+    })
+    return cy.fixture('api_putcategories.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putcreatecategories1') + app_id + Cypress.env('putcreatecategories2') + categories_id + '/',
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const doPutFeature = (auth_key, app_id, categories_id, title_name, feature_id) => {
+
+    cy.readFile('cypress/fixtures/api.putfeature.json').then((data) => {
+        data.id = categories_id,
+            data.title = title_name;
+        data.id = feature_id;
+        cy.writeFile('cypress/fixtures/api.putfeature.json', JSON.stringify(data))
+    })
+    return cy.fixture('api.putfeature.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putFeature1') + app_id + Cypress.env('putFeature2') + feature_id + '/',
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const doPatchFeature = (auth_key, app_id, categories_id, title_name, feature_id) => {
+
+    cy.readFile('cypress/fixtures/api_patchfeature.json').then((data) => {
+        data.id = categories_id,
+            data.title = title_name;
+        data.id = feature_id;
+        cy.writeFile('cypress/fixtures/api_patchfeature.json', JSON.stringify(data))
+    })
+    return cy.fixture('api_patchfeature.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchFeature1') + app_id + Cypress.env('patchFeature2') + feature_id + '/',
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const doDeletefeature = (auth_key, app_id, feature_id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteFeature1') + app_id + Cypress.env('deleteFeature2') + feature_id + '/',
         headers: {
 
             // 'Content-Type': 'application/json',

@@ -141,4 +141,6 @@ Cypress.Commands.add('createTestRun', (testCasesToAdd) => {
     });
   });
 });
-
+Cypress.Commands.add('resloveSyncIssue',()=>{
+return cy.wait(4000);
+})
