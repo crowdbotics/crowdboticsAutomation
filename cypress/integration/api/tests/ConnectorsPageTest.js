@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
-import { doCreateConnector, doGetConnector, doGetInstallerInstalComponent, doGetConnectorUsingId, doEditConnector, doDeleteConnector } from '../pages/ConnectorsPage.js';
+import { doCreateConnector, doGetConnector, doGetInstallerInstalComponent, doGetConnectorUsingId, doUpdateConnector, doEditConnector, doDeleteConnector } from '../pages/ConnectorsPage.js';
 
 let authKey;
 let app_id;
@@ -35,6 +35,15 @@ describe("Connectors Page", () => {
         doGetConnector(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Connectors response", response.body)
+        })
+    })
+
+    it('Update Apps Connectors', () => {
+        connector_name = connector_name + 1;
+        connector_description = connector_description + 1;
+        doUpdateConnector(authKey, app_id, connector_name, connector_description, connector_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Update Apps Connector response", response.body)
         })
     })
 
