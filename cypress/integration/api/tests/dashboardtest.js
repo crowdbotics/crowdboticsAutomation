@@ -1,12 +1,13 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
-import { doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,getFiles,getEdges,getComponent,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID } from '../pages/DashboardPage.js';
+import { doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
 
 let component_id;
 let appname;
 let authKey;
 let log_id;
+let file_id;
 let attribute_id;
 let app_id;
 let bugTask_id;
@@ -200,24 +201,56 @@ describe("Dashboard Page", () => {
             expect(response.status).to.eq(200)
         })
     })
-    it('Get Component Flow', () => {
-        getComponent(authKey, app_id).then((response) => {
-            cy.log("Get Component Listresponse", response.body)
+    it('Get File List Flow', () => {
+        dogGetFilesList(authKey, app_id).then((response) => {
+            cy.log("Get File List response", response.body)
             expect(response.status).to.eq(200)
         })
     })
-   
-    it('Get Edges Flow', () => {
-        getFiles(authKey, app_id).then((response) => {
-            cy.log("Get Edges Listresponse", response.body)
+
+    it('Create File Flow', () => {
+        doCreateFile(authKey,app_id).then((response) => {
+            file_id=response.body.id;
+            expect(response.status).to.eq(201)
+            cy.log("Create File response", response.body)
+
+        })
+    })
+
+    it('Get File Using Id Flow', () => {
+        doGetFileById(authKey,app_id,file_id).then((response) => {
             expect(response.status).to.eq(200)
+            cy.log("Get File Using Id response", response.body)
+
+        })
+    })
+
+    it('Put File Using Id Flow', () => {
+        doUpdateWithPutFile(authKey,app_id,file_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Put File Using Id response", response.body)
+
+        })
+    })
+    it('Patch File Using Id Flow', () => {
+        doUpdateWithPatchFile(authKey,app_id,file_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Patch File Using Id response", response.body)
+
+        })
+    })
+    it('Delete File Flow', () => {
+        doDeleteFile(authKey,app_id,file_id).then((response) => {
+            expect(response.status).to.eq(204)
+            cy.log("Delete File response", response.body)
+
         })
     })
     
-    it('Get Files Flow', () => {
+    it('Get Edge List Flow', () => {
         getEdges(authKey, app_id).then((response) => {
-            cy.log("Get Files Listresponse", response.body)
             expect(response.status).to.eq(200)
+            cy.log("Get Edge List response", response.body)
         })
     })
     it('Search Invoice Flow', () => {
