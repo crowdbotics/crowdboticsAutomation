@@ -481,6 +481,9 @@ module.exports = defineConfig({
     getAllMemberList2 : "/members/",
     deleteFeature2 : "/prd_ai_features/",
 
+    getComponent1: "/api/v1/apps/",
+    getComponent2: "/components/",
+
     getBugTaskList1 : "/api/v1/apps/",
     getBugTaskList2 : "/bug-tasks/",
 
