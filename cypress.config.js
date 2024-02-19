@@ -546,12 +546,10 @@ module.exports = defineConfig({
     deleteFiles2: "/files/",
     deleteFiles3: "/",
 
-
+    appsConnectorUpdate1: "/api/v2/apps/",
+    appsConnectorUpdate2: "/connectors/",
 
     
-
-   
-
 
   },
   e2e: {
