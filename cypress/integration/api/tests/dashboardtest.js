@@ -1,8 +1,9 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
-import { doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,getFiles,getEdges,getComponent,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID } from '../pages/DashboardPage.js';
+import { doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,getFiles,getEdges,getComponent,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
 
+let component_id;
 let appname;
 let authKey;
 let log_id;
@@ -32,8 +33,6 @@ describe("Dashboard Page", () => {
             expect(response.status).to.eq(200)
         })
     })
-
-    //getAddonsList working here
 
     it('Search App Flow', () => {
         searchApp(authKey, appname).then((response) => {
@@ -118,6 +117,54 @@ describe("Dashboard Page", () => {
 
         })
     })
+ 
+    it('Get Component List Flow', () => {
+        doGetComponentList(authKey,app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Component List response", response.body)
+
+        })
+    })
+
+    it('Create Component Flow', () => {
+        doCreateComponent(authKey,app_id).then((response) => {
+            component_id=response.body.id;
+            expect(response.status).to.eq(201)
+            cy.log("Create Component response", response.body)
+
+        })
+    })
+
+    it('Get Component Using Id Flow', () => {
+        doGetComponentById(authKey,app_id,component_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Component Using Id response", response.body)
+
+        })
+    })
+
+    it('Put Component Using Id Flow', () => {
+        doUpdateWithPutComponent(authKey,app_id,component_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Put Component Using Id response", response.body)
+
+        })
+    })
+    it('Patch Component Using Id Flow', () => {
+        doUpdateWithPatchComponent(authKey,app_id,component_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Patch Component Using Id response", response.body)
+
+        })
+    })
+    it('Delete Component Flow', () => {
+        doDeleteComponent(authKey,app_id,component_id).then((response) => {
+            expect(response.status).to.eq(204)
+            cy.log("Delete Component response", response.body)
+
+        })
+    })
+
 
     it('Get Certificate List Flow', () => {
         getCertificateList(authKey).then((response) => {

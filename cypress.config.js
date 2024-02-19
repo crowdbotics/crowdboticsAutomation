@@ -344,8 +344,6 @@ module.exports = defineConfig({
     getCodePackage1: "/api/v2/apps/",
     getCodePackage2: "/code_packages/",
     getUserList: "/api/v2/users/?id=",
-    getComponent1: "/api/v1/apps/",
-    getComponent2: "/components/",
     getEdges1: "/api/v1/apps/",
     getEdges2: "/edges/",
     getFiles1: "/api/v1/apps/",
@@ -482,6 +480,10 @@ module.exports = defineConfig({
     getAllMemberList1 : "/api/v2/apps/",
     getAllMemberList2 : "/members/",
     deleteFeature2 : "/prd_ai_features/",
+
+    getComponent1: "/api/v1/apps/",
+    getComponent2: "/components/",
+
     getBugTaskList1 : "/api/v1/apps/",
     getBugTaskList2 : "/bug-tasks/",
 
@@ -503,6 +505,28 @@ module.exports = defineConfig({
     deleteBugTaskById1: "/api/v1/apps/",
     deleteBugTaskById2: "/bug-tasks/",
     deleteBugTaskById3: "/",
+    
+    getComponentList1: "/api/v1/apps/",
+    getComponentList2: "/components/",
+
+    createComponent1: "/api/v1/apps/",
+    createComponent2: "/components/",
+
+    getComponentById1: "/api/v1/apps/",
+    getComponentById2: "/components/",
+    getComponentById3: "/",
+
+    putComponent1: "/api/v1/apps/",
+    putComponent2: "/components/",
+    putComponent3: "/",
+
+    patchComponent1: "/api/v1/apps/",
+    patchComponent2: "/components/",
+    patchComponent3: "/",
+
+    deleteComponent1: "/api/v1/apps/",
+    deleteComponent2: "/components/",
+    deleteComponent3: "/",
 
     
 

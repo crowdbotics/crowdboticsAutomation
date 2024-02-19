@@ -199,6 +199,98 @@ export const doDeleteBugTask = (auth_key,app_id,bugTask_id) => {
     })
 };
 
+
+export const doGetComponentList = (auth_key,app_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getComponentList1')+app_id+ Cypress.env('getComponentList2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doCreateComponent = (auth_key,app_id) => {
+   
+    return cy.fixture('api_addComponent.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createComponent1')+app_id+Cypress.env('createComponent2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doGetComponentById = (auth_key,app_id,Component_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getComponentById1')+app_id+ Cypress.env('getComponentById2')+Component_id+Cypress.env('getComponentById3'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doUpdateWithPutComponent = (auth_key,app_id,component_id) => {
+   
+    return cy.fixture('api_updateWithPutComponent.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putComponent1')+app_id+Cypress.env('putComponent2')+component_id+Cypress.env('putComponent3'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+export const doUpdateWithPatchComponent = (auth_key,app_id,component_id) => {
+   
+    return cy.fixture('api_updateWithPatchComponent.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchComponent1')+app_id+Cypress.env('patchComponent2')+component_id+Cypress.env('patchComponent3'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doDeleteComponent = (auth_key,app_id,component_id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteComponent1')+app_id+ Cypress.env('deleteComponent2')+component_id+Cypress.env('deleteComponent3'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+
 export const getCertificateList = (auth_key) => {
     return cy.request({
         method: 'GET',
