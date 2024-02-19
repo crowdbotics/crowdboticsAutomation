@@ -346,8 +346,6 @@ module.exports = defineConfig({
     getUserList: "/api/v2/users/?id=",
     getEdges1: "/api/v1/apps/",
     getEdges2: "/edges/",
-    getFiles1: "/api/v1/apps/",
-    getFiles2: "/files/",
     getPrdActivityLog1: "/api/v1/apps/",
     getPrdActivityLog1: "/prd-activity-logs/",
     getPrdAiUserType1: "/api/v1/apps/",
@@ -481,8 +479,6 @@ module.exports = defineConfig({
     getAllMemberList2 : "/members/",
     deleteFeature2 : "/prd_ai_features/",
 
-    getComponent1: "/api/v1/apps/",
-    getComponent2: "/components/",
 
     getBugTaskList1 : "/api/v1/apps/",
     getBugTaskList2 : "/bug-tasks/",
@@ -527,6 +523,30 @@ module.exports = defineConfig({
     deleteComponent1: "/api/v1/apps/",
     deleteComponent2: "/components/",
     deleteComponent3: "/",
+
+    getFilesList1: "/api/v1/apps/",
+    getFilesList2: "/files/",
+
+    createFilesList1: "/api/v1/apps/",
+    createFilesList2: "/files/",
+
+    getFilesById1: "/api/v1/apps/",
+    getFilesById2: "/files/",
+    getFilesById3: "/",
+
+    putFilesById1: "/api/v1/apps/",
+    putFilesById2: "/files/",
+    putFilesById3: "/",
+
+    patchFilesById1: "/api/v1/apps/",
+    patchFilesById2: "/files/",
+    patchFilesById3: "/",
+
+    deleteFiles1: "/api/v1/apps/",
+    deleteFiles2: "/files/",
+    deleteFiles3: "/",
+
+
 
     
 

@@ -470,20 +470,7 @@ export const getUserList = (auth_key, app_id) => {
         return response;
     })
 };
-export const getComponent = (auth_key, app_id) => {
-    return cy.request({
-        method: 'GET',
-        //url: Cypress.env('baseUrl') + Cypress.env('getComponent1')+app_id+ Cypress.env('getComponent2'),
-        url: Cypress.env('baseUrl')+'/api/v1/apps/'+app_id+'/components/',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Authorization': 'Token ' + auth_key,
-        },
-    }).then((response) => {
-        return response;
-    })
-};
+
 
 export const getEdges = (auth_key, app_id) => {
     return cy.request({
@@ -499,11 +486,14 @@ export const getEdges = (auth_key, app_id) => {
         return response;
     })
 };
-export const getFiles = (auth_key, app_id) => {
+/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+export const dogGetFilesList = (auth_key, app_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getFiles1')+app_id+ Cypress.env('getFiles1'),
-      //  url: Cypress.env('baseUrl')+'/api/v1/apps/'+app_id+'/components/',
+        url: Cypress.env('baseUrl') + Cypress.env('getFilesList1')+app_id+ Cypress.env('getFilesList2'),
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -513,6 +503,87 @@ export const getFiles = (auth_key, app_id) => {
         return response;
     })
 };
+
+export const doCreateFile = (auth_key,app_id) => {
+   
+    return cy.fixture('api_addFile.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createFilesList1')+app_id+Cypress.env('createFilesList2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doGetFileById = (auth_key,app_id,file_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getFilesById1')+app_id+ Cypress.env('getFilesById2')+file_id+Cypress.env('getFilesById3'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doUpdateWithPutFile = (auth_key,app_id,file_id) => {
+   
+    return cy.fixture('api_updateWithPutFile.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putFilesById1')+app_id+Cypress.env('putFilesById2')+file_id+Cypress.env('putFilesById2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+export const doUpdateWithPatchFile = (auth_key,app_id,file_id) => {
+   
+    return cy.fixture('api_updateWithPatchFile.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchFilesById1')+app_id+Cypress.env('patchFilesById2')+file_id+Cypress.env('patchFilesById3'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doDeleteFile = (auth_key,app_id,file_id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteFiles1')+app_id+ Cypress.env('deleteFiles2')+file_id+Cypress.env('deleteFiles3'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
     export const getAuditLogList = (auth_key, app_id) => {
         return cy.request({
             method: 'GET',
