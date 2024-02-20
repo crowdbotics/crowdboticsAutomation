@@ -336,7 +336,7 @@ module.exports = defineConfig({
     getStudioScreen1 : "/api/v2/apps/",
     getStudioScreen2 : "/screens/?limit=40&page=1",
     getStudioScreenEdge1 : "/api/v2/apps/",
-    getStudioScreenEdge2 : "/edges/?page=1&limit=20"
+    getStudioScreenEdge2 : "/edges/?page=1&limit=20",
     getShareableComponentsList: "/api/v2/shareable-components/",
     createShareableComponents: "/api/v2/shareable-components/",
     getShareableComponentsById1: "/api/v2/shareable-components/",
