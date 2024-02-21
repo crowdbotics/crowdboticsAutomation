@@ -549,6 +549,13 @@ module.exports = defineConfig({
     appsConnectorUpdate1: "/api/v2/apps/",
     appsConnectorUpdate2: "/connectors/",
 
+    getStudioScreen1 : "/api/v2/apps/",
+    getStudioScreen2 : "/screens/?limit=40&page=1",
+    getStudioScreenEdge1 : "/api/v2/apps/",
+    getStudioScreenEdge2 : "/edges/?page=1&limit=20",
+    postCreateScreen1 : "/api/v2/apps/",
+    postCreateScreen2 : "/screens/create-screens/",
+
     
 
   },
