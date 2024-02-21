@@ -207,3 +207,36 @@ export const doGetSettingsFElist = (auth_key) => {
         return response;
     })
 };
+
+export const doGetEdges = (auth_key, app_id) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('edges1') + app_id + Cypress.env("edges2"),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const dopostedge = (auth_key, app_id,myEdge_id) => {
+    cy.readFile('cypress/fixtures/api_addedge.json').then((data) => {
+      data.edge_id=myEdge_id;
+        cy.writeFile('cypress/fixtures/api_addedge.json', JSON.stringify(data));
+    });
+
+    return cy.fixture('api_addedge.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('edges1') + app_id + Cypress.env('edges2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};

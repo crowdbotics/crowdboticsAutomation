@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
-import {doGetSettingsFElist, doAddCatalogFeature, doGetCatologFeature, doAddCatalogCategory, doGetCatologCategory, doAddCatalogModule, doGetCatologModule, doImportFeature, doImportModule, doGetArchetype, doAsset, doCatalogCodeModule, doGetEmbeddingSearch } from '../pages/CatalogPage.js';
+import {doGetEdges,doGetSettingsFElist, doAddCatalogFeature, doGetCatologFeature, doAddCatalogCategory, doGetCatologCategory, doAddCatalogModule, doGetCatologModule, doImportFeature, doImportModule, doGetArchetype, doAsset, doCatalogCodeModule, doGetEmbeddingSearch, dopostedge } from '../pages/CatalogPage.js';
 
 let authKey;
 let app_id;
@@ -134,4 +134,20 @@ describe("Catalog Page", () => {
         })
     })
 
+
+
+it('Get Edge', () => {
+    doGetEdges(authKey,app_id).then((response) => {
+         expect(response.status).to.eq(200)
+        cy.log("Get Edge Screen", response.body)
+    })
+})
+
+it('Post Edge', () => {
+    const myEdge_id = 'Test' + (Math.random() + 1).toString(36).substring(7);
+        dopostedge(authKey,app_id,myEdge_id).then((response) => {
+            expect(response.status).to.eq(201)
+            cy.log("add Edge Screen", response.body)
+        })
+    })
 })
