@@ -1,0 +1,19 @@
+{
+    "screens": [
+        {
+            "name": "Untitled4",
+            "path": "/screens/Untitled4/index.js",
+            "screen_id": "c4df8559-aa06-416f-a861-35efef03cfff",
+            "metadata": {
+                "screenStatus": "ready",
+                "elementType": "screen",
+                "type": "screen",
+                "position": {
+                    "x": 1519.7359272044375,
+                    "y": 26.765065736904706
+                },
+                "showPreviewImage": false
+            }
+        }
+    ]
+}

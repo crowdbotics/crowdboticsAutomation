@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
-import {  getStudioScreen, doGetStudioScreenEdge} from '../pages/StudioPage.js';
+import { getStudioScreen, doGetStudioScreenEdge, doPostCreateStudioScreen } from '../pages/StudioPage.js';
 
 
 let app_id;
@@ -32,6 +32,12 @@ describe("Studio lnading page", () => {
         doGetStudioScreenEdge(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Studio screen edge", response.body)
+        })
+    })
+    it('Post create screen on canvas', () => {
+        doPostCreateStudioScreen(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(201)
+            cy.log("Create screen on canvas", response.body)
         })
     })
 });
