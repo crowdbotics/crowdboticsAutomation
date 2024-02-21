@@ -7,6 +7,8 @@ import { getStudioScreen, doGetStudioScreenEdge, doPostCreateStudioScreen } from
 let app_id;
 let app_name;
 let authKey;
+let screen_id;
+
 describe("Studio lnading page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Studio Page flow', () => {
@@ -34,10 +36,18 @@ describe("Studio lnading page", () => {
             cy.log("Studio screen edge", response.body)
         })
     })
+   
     it('Post create screen on canvas', () => {
-        doPostCreateStudioScreen(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(201)
-            cy.log("Create screen on canvas", response.body)
+
+        cy.fixture('api_createStudio_Screen.json').then((data) => {
+             const fixture_Screen_Id = data.screens[0].screen_id;
+             const incrementedId = fixture_Screen_Id.slice(0, -1) + (parseInt(fixture_Screen_Id.slice(-1)) + 1);
+               screen_id = incrementedId;
+               doPostCreateStudioScreen(authKey, app_id, screen_id).then((response) => {
+                expect(response.status).to.eq(201);
+                cy.log("Create screen on canvas", response.body);
+            });
+        
         })
     })
 });

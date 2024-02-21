@@ -26,8 +26,11 @@ export const doGetStudioScreenEdge = (auth_key, app_id) => {
         return response;
     })
 };
-export const doPostCreateStudioScreen = (auth_key, app_id) => {
-
+export const doPostCreateStudioScreen = (auth_key, app_id,screen_id) => {
+    cy.readFile('cypress/fixtures/api_createStudio_Screen.json').then((data) => {
+        data.screens[0].screen_id = screen_id;
+        cy.writeFile('cypress/fixtures/api_createStudio_Screen.json', JSON.stringify(data));
+    });
     return cy.fixture('api_createStudio_Screen.json').then((myFixture) => {
         cy.request({
             method: 'POST',
