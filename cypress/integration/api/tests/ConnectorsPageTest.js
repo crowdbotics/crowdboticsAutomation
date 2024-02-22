@@ -71,7 +71,7 @@ describe("Connectors Page", () => {
     })
     it('Delete Connector Flow', () => {
         doDeleteConnector(authKey, app_id, connector_id).then((response) => {
-            expect(response.status).to.eq(200)
+            expect(response.status).to.eq(204)
             cy.log("Delete Connector response", response.body)
         })
     })

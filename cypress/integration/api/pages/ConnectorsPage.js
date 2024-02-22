@@ -47,14 +47,14 @@ export const doGetConnectorUsingId = (auth_key, app_id, connector_id) => {
 
 export const doUpdateConnector = (auth_key, app_id, connector_name, connector_description, connector_id) => {
     cy.readFile('cypress/fixtures/api_addConnectors.json').then((data) => {
-        data.name = connector_name
-        data.description = connector_description
+        data.name = connector_name;
+        data.description = connector_description;
         cy.writeFile('cypress/fixtures/api_addConnectors.json', JSON.stringify(data));
     });
     return cy.fixture('api_addConnectors.json').then((myFixture) => {
         cy.request({
             method: 'PUT',
-            url: Cypress.env('baseUrl') + Cypress.env('appsConnectorUpdate1') + app_id + Cypress.env('appsConnectorUpdate2') + connector_id,
+            url: Cypress.env('baseUrl') + Cypress.env('appsConnectorUpdate1') + app_id + Cypress.env('appsConnectorUpdate2') + connector_id + Cypress.env('appsconnectorUpdate3'),
             headers: {
                 'Authorization': 'Token ' + auth_key
             },

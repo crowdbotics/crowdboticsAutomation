@@ -1160,5 +1160,28 @@ export const doDeletefeature = (auth_key, app_id, feature_id) => {
     }).then((response) => {
         return response;
     })
+};
+export const doGetPRDList = (auth_key, app_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('appsPRDlist1') + app_id + Cypress.env('appsPRDlist2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
 
+    }).then((response) => {
+        return response;
+    })
+};
+export const doGetprdPartialUpdate = (auth_key, app_id) => {
+    return cy.request({
+        method: 'PATCH',
+        url: Cypress.env('baseUrl') + Cypress.env('prdPartialUpdate1') + app_id + Cypress.env('prdPartialUpdate2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+
+    }).then((response) => {
+        return response;
+    })
 };
