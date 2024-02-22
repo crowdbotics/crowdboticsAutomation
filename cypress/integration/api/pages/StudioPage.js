@@ -43,5 +43,17 @@ export const doPostCreateStudioScreen = (auth_key, app_id,screen_id) => {
             return response;
         })
     })
-
 };
+    export const doGetStudiopage = (auth_key, app_id) => {
+
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getStudiopage1') + app_id,
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            }
+        }).then((response) => {
+            return response;
+        })
+    };
+

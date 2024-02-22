@@ -556,7 +556,8 @@ module.exports = defineConfig({
     postCreateScreen1 : "/api/v2/apps/",
     postCreateScreen2 : "/screens/create-screens/",
 
-    
+    getStudiopage1:"/api/v2/apps/",
+    getStudiopage2:"/",
 
   },
   e2e: {

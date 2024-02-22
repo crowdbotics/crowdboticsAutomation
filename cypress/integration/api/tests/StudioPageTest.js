@@ -1,13 +1,14 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
-import { getStudioScreen, doGetStudioScreenEdge, doPostCreateStudioScreen } from '../pages/StudioPage.js';
+import { doGetStudiopage, getStudioScreen, doGetStudioScreenEdge, doPostCreateStudioScreen } from '../pages/StudioPage.js';
 
 
 let app_id;
 let app_name;
 let authKey;
 let screen_id;
+
 
 describe("Studio lnading page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
@@ -36,18 +37,28 @@ describe("Studio lnading page", () => {
             cy.log("Studio screen edge", response.body)
         })
     })
-   
+
     it('Post create screen on canvas', () => {
 
         cy.fixture('api_createStudio_Screen.json').then((data) => {
-             const fixture_Screen_Id = data.screens[0].screen_id;
-             const incrementedId = fixture_Screen_Id.slice(0, -1) + (parseInt(fixture_Screen_Id.slice(-1)) + 1);
-               screen_id = incrementedId;
-               doPostCreateStudioScreen(authKey, app_id, screen_id).then((response) => {
+            const fixture_Screen_Id = data.screens[0].screen_id;
+            const incrementedId = fixture_Screen_Id.slice(0, -1) + (parseInt(fixture_Screen_Id.slice(-1)) + 1);
+            screen_id = incrementedId;
+            doPostCreateStudioScreen(authKey, app_id, screen_id).then((response) => {
                 expect(response.status).to.eq(201);
                 cy.log("Create screen on canvas", response.body);
             });
-        
+
         })
     })
+
+
+    it('Navigate into the studio landing page Flow', () => {
+
+        doGetStudiopage(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Navigate into the studio landing page  response", response.body)
+        })
+    })
+
 });
