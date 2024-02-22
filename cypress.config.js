@@ -548,6 +548,12 @@ module.exports = defineConfig({
 
     appsConnectorUpdate1: "/api/v2/apps/",
     appsConnectorUpdate2: "/connectors/",
+    appsconnectorUpdate3: "/",
+
+    appsPRDlist1: "/api/v1/apps/",
+    appsPRDlist2: "/prd/",
+    prdPartialUpdate1: "/api/v1/apps/",
+    prdPartialUpdate2: "/prd/",
 
     
 
