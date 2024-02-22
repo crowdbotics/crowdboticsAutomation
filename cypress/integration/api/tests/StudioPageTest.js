@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
-import { doGetStudiopage,getStudioScreen, doGetStudioScreenEdge, doPostCreateStudioScreen } from '../pages/StudioPage.js';
+import { doGetStudiopage, getStudioScreen, doGetStudioScreenEdge, doPostCreateStudioScreen } from '../pages/StudioPage.js';
 
 
 let app_id;
@@ -52,19 +52,13 @@ describe("Studio lnading page", () => {
         })
     })
 
-    it('Get Studio Page Flow', () => {
+
+    it('Navigate into the studio landing page Flow', () => {
+
         doGetStudiopage(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
-            cy.log("Get Studio Page Flow response", response.body)
+            cy.log("Navigate into the studio landing page  response", response.body)
         })
     })
-    
-        it('Navigate into the studio landing page Flow', () => {
-            
-                    doGetStudiopage(authKey,app_id).then((response) => {
-                        expect(response.status).to.eq(200)
-                        cy.log("Navigate into the studio landing page  response", response.body)
-                    })
-                })
-            
+
 });
