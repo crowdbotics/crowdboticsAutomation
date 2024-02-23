@@ -546,7 +546,27 @@ module.exports = defineConfig({
     deleteFiles2: "/files/",
     deleteFiles3: "/",
 
-// ---------------PRD New FLow----------------------//
+
+
+    appsConnectorUpdate1: "/api/v2/apps/",
+    appsConnectorUpdate2: "/connectors/",
+    appsconnectorUpdate3: "/",
+
+    appsPRDlist1: "/api/v1/apps/",
+    appsPRDlist2: "/prd/",
+    prdPartialUpdate1: "/api/v1/apps/",
+    prdPartialUpdate2: "/prd/",
+
+    getStudioScreen1 : "/api/v2/apps/",
+    getStudioScreen2 : "/screens/?limit=40&page=1",
+    getStudioScreenEdge1 : "/api/v2/apps/",
+    getStudioScreenEdge2 : "/edges/?page=1&limit=20",
+    postCreateScreen1 : "/api/v2/apps/",
+    postCreateScreen2 : "/screens/create-screens/",
+    getStudiopage1:"/api/v2/apps/",
+    getStudiopage2:"/",
+
+    // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
     generateOrganizationPRD: " /api/v1/prd/generate-prd/",
     getOrganizationPRDById1: "/api/v1/prd/",
@@ -557,13 +577,6 @@ module.exports = defineConfig({
     patchOrganizationPRDById2: "/",
     deleteOrganizationPRD1: "/api/v1/prd/",
     deleteOrganizationPRD2: "/",
-    
-    
-
-   
-
-   
-
 
   },
   e2e: {
