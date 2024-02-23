@@ -199,7 +199,7 @@ export const doGetSettingsFElist = (auth_key) => {
 
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getSettingsFEList') ,
+        url: Cypress.env('baseUrl') + Cypress.env('getSettingsFEList'),
         headers: {
             'Authorization': 'Token ' + auth_key
         }
@@ -212,7 +212,7 @@ export const doGetEdges = (auth_key, app_id) => {
 
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('edges1') + app_id + Cypress.env("edges2"),
+        url: Cypress.env('baseUrl') + Cypress.env("getEdgeList1") + app_id + Cypress.env("getEdgeList2"),
         headers: {
             'Authorization': 'Token ' + auth_key
         }
@@ -221,16 +221,16 @@ export const doGetEdges = (auth_key, app_id) => {
     })
 }
 
-export const dopostedge = (auth_key, app_id,myEdge_id) => {
+export const dopostedge = (auth_key, app_id, myEdge_id) => {
     cy.readFile('cypress/fixtures/api_addedge.json').then((data) => {
-      data.edge_id=myEdge_id;
+        data.edge_id = myEdge_id;
         cy.writeFile('cypress/fixtures/api_addedge.json', JSON.stringify(data));
     });
 
     return cy.fixture('api_addedge.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('edges1') + app_id + Cypress.env('edges2'),
+            url: Cypress.env('baseUrl') + Cypress.env("createEdge1") + app_id + Cypress.env("createEdge2"),
             headers: {
                 'Authorization': 'Token ' + auth_key
             },
@@ -239,4 +239,70 @@ export const dopostedge = (auth_key, app_id,myEdge_id) => {
             return response;
         })
     })
-};
+}
+
+export const doGetEdgesByid = (auth_key, app_id, edge_id) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getEdgeById1') + app_id + Cypress.env("getEdgeById2") + edge_id + Cypress.env("getEdgeById3"),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const doputedge = (auth_key, app_id, edge_id) => {
+    cy.readFile('cypress/fixtures/api_putedge.json').then((data) => {
+        data.edge_id = edge_id;
+        cy.writeFile('cypress/fixtures/api_putedge.json', JSON.stringify(data));
+    });
+
+    return cy.fixture('api_putedge.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env("putEdgeById1") + app_id + Cypress.env("putEdgeById2") + edge_id + Cypress.env("putEdgeById3"),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+export const dopatchedge = (auth_key, app_id, edge_id) => {
+    cy.readFile('cypress/fixtures/api_patchedge.json').then((data) => {
+        data.edge_id = edge_id;
+        cy.writeFile('cypress/fixtures/api_patchedge.json', JSON.stringify(data));
+    });
+
+    return cy.fixture('api_patchedge.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env("patchEdgeById1") + app_id + Cypress.env("patchEdgeById2") + edge_id + Cypress.env("patchEdgeById3"),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+export const dodeleteEdgesByid = (auth_key, app_id, edge_id) => {
+
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteEdgeById1') + app_id + Cypress.env("deleteEdgeById2") + edge_id + Cypress.env("deleteEdgeById3"),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+} 

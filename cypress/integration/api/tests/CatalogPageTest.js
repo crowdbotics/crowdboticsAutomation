@@ -1,8 +1,9 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
-import {doGetEdges,doGetSettingsFElist, doAddCatalogFeature, doGetCatologFeature, doAddCatalogCategory, doGetCatologCategory, doAddCatalogModule, doGetCatologModule, doImportFeature, doImportModule, doGetArchetype, doAsset, doCatalogCodeModule, doGetEmbeddingSearch, dopostedge } from '../pages/CatalogPage.js';
+import { dodeleteEdgesByid, dopatchedge, doputedge, doGetEdgesByid, doGetEdges, doGetSettingsFElist, doAddCatalogFeature, doGetCatologFeature, doAddCatalogCategory, doGetCatologCategory, doAddCatalogModule, doGetCatologModule, doImportFeature, doImportModule, doGetArchetype, doAsset, doCatalogCodeModule, doGetEmbeddingSearch, dopostedge } from '../pages/CatalogPage.js';
 
+let edge_id;
 let authKey;
 let app_id;
 let app_name;
@@ -129,25 +130,55 @@ describe("Catalog Page", () => {
 
     it('Get Settings FE List', () => {
         doGetSettingsFElist(authKey).then((response) => {
-             expect(response.status).to.eq(200)
+            expect(response.status).to.eq(200)
             cy.log("Get Embedding Search response", response.body)
         })
     })
 
-
-
-it('Get Edge', () => {
-    doGetEdges(authKey,app_id).then((response) => {
-         expect(response.status).to.eq(200)
-        cy.log("Get Edge Screen", response.body)
+    it('Get Edge', () => {
+        doGetEdges(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Edge Screen", response.body)
+        })
     })
-})
 
-it('Post Edge', () => {
-    const myEdge_id = 'Test' + (Math.random() + 1).toString(36).substring(7);
-        dopostedge(authKey,app_id,myEdge_id).then((response) => {
+    it('Post Edge', () => {
+        const myEdge_id = 'Test' + (Math.random() + 1).toString(36).substring(7);
+        dopostedge(authKey, app_id, myEdge_id).then((response) => {
+            edge_id = response.body.id;
             expect(response.status).to.eq(201)
             cy.log("add Edge Screen", response.body)
+        })
+    })
+
+    it('Get Edge using id', () => {
+        doGetEdgesByid(authKey, app_id, edge_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Edge Screen", response.body)
+        })
+    })
+
+    it('Put Edge', () => {
+        doputedge(authKey, app_id, edge_id).then((response) => {
+            edge_id = response.body.id;
+            expect(response.status).to.eq(200)
+            cy.log("add Edge Screen", response.body)
+        })
+    })
+
+    it('Patch Edge', () => {
+        dopatchedge(authKey, app_id, edge_id).then((response) => {
+            edge_id = response.body.id;
+            expect(response.status).to.eq(200)
+            cy.log("add Edge Screen", response.body)
+
+        })
+    })
+
+    it('Delete Edge using id', () => {
+        dodeleteEdgesByid(authKey, app_id, edge_id).then((response) => {
+            expect(response.status).to.eq(204)
+            cy.log("Get Edge Screen", response.body)
         })
     })
 })
