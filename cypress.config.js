@@ -546,9 +546,21 @@ module.exports = defineConfig({
     deleteFiles2: "/files/",
     deleteFiles3: "/",
 
-
-
+// ---------------PRD New FLow----------------------//
+    getOrganizationPRDList: "/api/v1/prd/",
+    generateOrganizationPRD: " /api/v1/prd/generate-prd/",
+    getOrganizationPRDById1: "/api/v1/prd/",
+    getOrganizationPRDById2: "/",
+    putOrganizationPRDById1: "/api/v1/prd/",
+    putOrganizationPRDById2: "/",
+    patchOrganizationPRDById1: "/api/v1/prd/",
+    patchOrganizationPRDById2: "/",
+    deleteOrganizationPRD1: "/api/v1/prd/",
+    deleteOrganizationPRD2: "/",
     
+    
+
+   
 
    
 
