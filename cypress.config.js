@@ -569,6 +569,8 @@ module.exports = defineConfig({
     deleteFiles2: "/files/",
     deleteFiles3: "/",
 
+
+
     appsConnectorUpdate1: "/api/v2/apps/",
     appsConnectorUpdate2: "/connectors/",
     appsconnectorUpdate3: "/",
@@ -584,9 +586,20 @@ module.exports = defineConfig({
     getStudioScreenEdge2 : "/edges/?page=1&limit=20",
     postCreateScreen1 : "/api/v2/apps/",
     postCreateScreen2 : "/screens/create-screens/",
-
     getStudiopage1:"/api/v2/apps/",
     getStudiopage2:"/",
+
+    // ---------------PRD New FLow----------------------//
+    getOrganizationPRDList: "/api/v1/prd/",
+    generateOrganizationPRD: " /api/v1/prd/generate-prd/",
+    getOrganizationPRDById1: "/api/v1/prd/",
+    getOrganizationPRDById2: "/",
+    putOrganizationPRDById1: "/api/v1/prd/",
+    putOrganizationPRDById2: "/",
+    patchOrganizationPRDById1: "/api/v1/prd/",
+    patchOrganizationPRDById2: "/",
+    deleteOrganizationPRD1: "/api/v1/prd/",
+    deleteOrganizationPRD2: "/",
 
   },
   e2e: {
