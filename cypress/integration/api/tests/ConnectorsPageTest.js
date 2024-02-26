@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doLogin } from '../pages/loginPage.js';
-import { doCreateConnector, doGetConnector, doGetConnectorUsingId, doEditConnector, doDeleteConnector } from '../pages/ConnectorsPage.js';
+import { doCreateConnector, doGetConnector, doGetInstallerInstalComponent, doGetConnectorUsingId, doUpdateConnector, doEditConnector, doDeleteConnector } from '../pages/ConnectorsPage.js';
 
 let authKey;
 let app_id;
@@ -38,6 +38,15 @@ describe("Connectors Page", () => {
         })
     })
 
+    it('Update Apps Connectors', () => {
+        connector_name = connector_name + 1;
+        connector_description = connector_description + 1;
+        doUpdateConnector(authKey, app_id, connector_name, connector_description, connector_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Update Apps Connector response", response.body)
+        })
+    })
+
     it('Edit Connectors Flow', () => {
         connector_description = connector_description + 1;
         doEditConnector(authKey, app_id, connector_description, connector_id).then((response) => {
@@ -62,8 +71,14 @@ describe("Connectors Page", () => {
     })
     it('Delete Connector Flow', () => {
         doDeleteConnector(authKey, app_id, connector_id).then((response) => {
-            expect(response.status).to.eq(200)
+            expect(response.status).to.eq(204)
             cy.log("Delete Connector response", response.body)
+        })
+    })
+    it('Get Installer Installed Components', () => {
+        doGetInstallerInstalComponent(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get installed Components with Status response", response.body)
         })
     })
 
