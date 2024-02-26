@@ -458,6 +458,29 @@ module.exports = defineConfig({
     createcategories2 : "/prd_ai_categories/",
     deletecategories1 : "/api/v1/apps/",
     deletecategories2 : "/prd_ai_categories/",
+    getEdgeList1 : "/api/v1/apps/",
+    getEdgeList2 : "/edges/",
+
+    createEdge1 : "/api/v1/apps/",
+    createEdge2 : "/edges/",
+
+    getEdgeById1 : "/api/v1/apps/",
+    getEdgeById2  : "/edges/",
+    getEdgeById3  : "/",
+
+    putEdgeById1 : "/api/v1/apps/",
+    putEdgeById2  : "/edges/",
+    putEdgeById3  : "/",
+
+    patchEdgeById1 : "/api/v1/apps/",
+    patchEdgeById2  : "/edges/",
+    patchEdgeById3  : "/",
+
+    deleteEdgeById1 : "/api/v1/apps/",
+    deleteEdgeById2  : "/edges/",
+    deleteEdgeById3  : "/",
+
+    
     putcreatecategories1 : "/api/v1/apps/",
     putcreatecategories2 : "/prd_ai_categories/",
     putFeature1 : "/api/v1/apps/",
