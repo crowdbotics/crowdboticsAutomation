@@ -541,7 +541,6 @@ export const doGetEmbeddingSearch = (auth_key) => {
 export const doGetCatalogPlatformList = (auth_key) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getSettingsFEList'),
         //getCatalogPlatformList
          url: Cypress.env('baseUrl') + Cypress.env('addCatalogPlatform'),
         headers: {
@@ -550,18 +549,6 @@ export const doGetCatalogPlatformList = (auth_key) => {
     }).then((response) => {
         return response;
     })
-
-};
-
-export const doGetEdges = (auth_key, app_id) => {
-
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env("getEdgeList1") + app_id + Cypress.env("getEdgeList2"),
-        headers: {
-            'Authorization': 'Token ' + auth_key
-        }
-
 }
 export const doAddCatalogPlatform = (auth_key, platform_slug, platform_title) => {
     cy.readFile('cypress/fixtures/api_addCatalogPlatform.json').then((data) => {
@@ -629,17 +616,6 @@ export const doGetCatalogPlatformById = (auth_key, platform_id) => {
     })
 }
 
-export const dopostedge = (auth_key, app_id, myEdge_id) => {
-    cy.readFile('cypress/fixtures/api_addedge.json').then((data) => {
-        data.edge_id = myEdge_id;
-        cy.writeFile('cypress/fixtures/api_addedge.json', JSON.stringify(data));
-    });
-
-    return cy.fixture('api_addedge.json').then((myFixture) => {
-        cy.request({
-            method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env("createEdge1") + app_id + Cypress.env("createEdge2"),
-          
 export const doUpdateWithPutCatalogPlatform = (auth_key, platform_id, platform_slug, platform_title) => {
     cy.readFile('cypress/fixtures/api_UpdateCatalogPlatform.json').then((data) => {
         data.slug = platform_slug;
@@ -723,15 +699,6 @@ export const doCreateCatalogResource = (auth_key, resource_title, resource_descr
         })
     })
 }
-
-export const doGetEdgesByid = (auth_key, app_id, edge_id) => {
-
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getEdgeById1') + app_id + Cypress.env("getEdgeById2") + edge_id + Cypress.env("getEdgeById3"),
-        headers: {
-            'Authorization': 'Token ' + auth_key
-        }
 
 export const doGetCatalogResourceById = (auth_key, resource_id) => {
     return cy.request({
@@ -992,16 +959,6 @@ export const doGetCatalogFeatureTypeList = (auth_key) => {
     })
 }
 
-export const doputedge = (auth_key, app_id, edge_id) => {
-    cy.readFile('cypress/fixtures/api_putedge.json').then((data) => {
-        data.edge_id = edge_id;
-        cy.writeFile('cypress/fixtures/api_putedge.json', JSON.stringify(data));
-    });
-
-    return cy.fixture('api_putedge.json').then((myFixture) => {
-        cy.request({
-            method: 'PUT',
-            url: Cypress.env('baseUrl') + Cypress.env("putEdgeById1") + app_id + Cypress.env("putEdgeById2") + edge_id + Cypress.env("putEdgeById3"),
 export const doCreateCatalogFeatureType = (auth_key, feature_title) => {
     cy.readFile('cypress/fixtures/api_addCatalogFeatureType.json').then((data) => {
         data.title = feature_title;
@@ -1069,18 +1026,6 @@ export const doUpdateWithPatchCatalogFeatureType = (auth_key, feature_id, featur
         })
     })
 }
-
-export const dopatchedge = (auth_key, app_id, edge_id) => {
-    cy.readFile('cypress/fixtures/api_patchedge.json').then((data) => {
-        data.edge_id = edge_id;
-        cy.writeFile('cypress/fixtures/api_patchedge.json', JSON.stringify(data));
-    });
-
-    return cy.fixture('api_patchedge.json').then((myFixture) => {
-        cy.request({
-            method: 'PATCH',
-            url: Cypress.env('baseUrl') + Cypress.env("patchEdgeById1") + app_id + Cypress.env("patchEdgeById2") + edge_id + Cypress.env("patchEdgeById3"),
-
 export const doDeleteCatalogFeatureType = (auth_key, feature_id) => {
     return cy.request({
         method: 'DELETE',
@@ -1164,7 +1109,6 @@ export const doUpdateWithPatchCatalogModuleType = (auth_key, module_id, module_t
         cy.request({
             method: 'PATCH',
             url: Cypress.env('baseUrl') + Cypress.env('updateWithPatchCatalogModuleTypeById1') + module_id + Cypress.env('updateWithPatchCatalogModuleTypeById2'),
-
             headers: {
                 'Authorization': 'Token ' + auth_key
             },
@@ -1174,13 +1118,6 @@ export const doUpdateWithPatchCatalogModuleType = (auth_key, module_id, module_t
         })
     })
 }
-
-export const dodeleteEdgesByid = (auth_key, app_id, edge_id) => {
-
-    return cy.request({
-        method: 'DELETE',
-        url: Cypress.env('baseUrl') + Cypress.env('deleteEdgeById1') + app_id + Cypress.env("deleteEdgeById2") + edge_id + Cypress.env("deleteEdgeById3"),
-
 export const doDeleteCatalogModuleType = (auth_key, module_id) => {
     return cy.request({
         method: 'DELETE',
@@ -1324,16 +1261,12 @@ export const doGetShareableComponentsById = (auth_key,shareableComponent_id) => 
     return cy.request({
         method: 'GET',
         url: Cypress.env('baseUrl') + Cypress.env('getShareableComponentsById1')+shareableComponent_id+Cypress.env('getShareableComponentsById2'),
-
         headers: {
             'Authorization': 'Token ' + auth_key
         }
     }).then((response) => {
         return response;
     })
-
-} 
-
 }
 export const doPatchShareableComponent = (auth_key,shareableComponent_id) => {
    
@@ -1350,4 +1283,3 @@ export const doPatchShareableComponent = (auth_key,shareableComponent_id) => {
         })
     })
 }
-
