@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 import { doAddJobRequest, doGetJobRequest, doGetJobRequestUsingId, doEditJobRequest, doDeleteJobRequest } from '../pages/JobPage.js';
-import { doLogin } from '../pages/loginPage.js';
+import { doJobLogin } from '../pages/loginPage.js';
 import { doCteareApp } from '../pages/DashboardPage.js';
 let job_id;
 let authKey;
@@ -9,7 +9,7 @@ let project_description;
 describe("Job Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Add Job Request Flow', () => {
-        doLogin().then((response) => {
+        doJobLogin().then((response) => {
             authKey = response.body.key;
             doCteareApp(authKey, app_name).then((response) => {
                 cy.log("login response", response.body)

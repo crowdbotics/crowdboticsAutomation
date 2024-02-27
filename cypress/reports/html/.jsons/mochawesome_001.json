@@ -1,0 +1,155 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2024-02-23T05:49:36.763Z",
+    "end": "2024-02-23T05:49:45.022Z",
+    "duration": 8259,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6fc67b17-54c1-4372-8ae0-80f47ad75931",
+      "title": "",
+      "fullFile": "cypress\\integration\\api\\tests\\ChangePlanPageTest.js",
+      "file": "cypress\\integration\\api\\tests\\ChangePlanPageTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5ca22bc6-f797-4830-bda0-9fac5b153649",
+          "title": "Change Plan Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "community to pro test",
+              "fullTitle": "Change Plan Page community to pro test",
+              "timedOut": null,
+              "duration": 6785,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\ChangePlanPageTest.js\\\\Change Plan Page -- community to pro test (failed).png\"\n    ]\n  ]\n}",
+              "code": "let app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);\n(0, _loginPage.doLogin)().then(response => {\n  authKey = response.body.key;\n  (0, _DashboardPage.doCteareApp)(authKey, app_name).then(response => {\n    cy.log(\"login response\", response.body);\n    expect(response.body.name, \"App name is not matching\").to.eq(app_name);\n    app_id = response.body.id;\n    app_name = response.body.name;\n    localStorage.setItem('app_id', response.body.id);\n    // const app_id = localStorage.getItem('app_id');\n    (0, _ChangePlanPage.change_plan)(authKey, app_id, pro_id).then(response => {\n      expect(response.status).to.eq(200);\n      cy.log(\"Community To Pro response\", response.body);\n    });\n  });\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://crowdbotics-slack-dev.herokuapp.com/api/v2/apps/133813/plan/update/\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://crowdbotics-slack-dev.herokuapp.com/api/v2/apps/133813/plan/update/\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Token e155774e004e12d416dd6ecbecb99abb593cd62f\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.2.0 Chrome/114.0.5735.289 Electron/25.8.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"cookie\": \"sessionid=g937dbp499mer7jmfpxks7ugxy66sxxn; csrftoken=2DQ6C2cD8wyAgomjrnuk6ZkhpsdEGgGQrb1hATiMWLZ1NheszRDxFcoKjetMYJDa\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 10\n}\nBody: {\"id\":169}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"server\": \"Cowboy\",\n  \"date\": \"Fri, 23 Feb 2024 05:49:41 GMT\",\n  \"report-to\": \"{\\\"group\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://nel.heroku.com/reports?ts=1708667382&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=zr%2FtrdWcx7nWFZ5XEqWE1Z%2Bg6FsRv5HcV8mBtuLDfFk%3D\\\"}]}\",\n  \"reporting-endpoints\": \"heroku-nel=https://nel.heroku.com/reports?ts=1708667382&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=zr%2FtrdWcx7nWFZ5XEqWE1Z%2Bg6FsRv5HcV8mBtuLDfFk%3D\",\n  \"nel\": \"{\\\"report_to\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"success_fraction\\\":0.005,\\\"failure_fraction\\\":0.05,\\\"response_headers\\\":[\\\"Via\\\"]}\",\n  \"connection\": \"keep-alive\",\n  \"content-type\": \"application/json\",\n  \"allow\": \"POST, OPTIONS\",\n  \"x-content-type-options\": \"nosniff\",\n  \"referrer-policy\": \"same-origin\",\n  \"x-frame-options\": \"DENY\",\n  \"content-length\": \"45\",\n  \"vary\": \"Origin, Cookie\",\n  \"via\": \"1.1 vegur\"\n}\nBody: {\n  \"errorMessage\": \"No payment info available.\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://crowdbotics-slack-dev.herokuapp.com/api/v2/apps/133813/plan/update/\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://crowdbotics-slack-dev.herokuapp.com/api/v2/apps/133813/plan/update/\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Token e155774e004e12d416dd6ecbecb99abb593cd62f\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.2.0 Chrome/114.0.5735.289 Electron/25.8.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"cookie\": \"sessionid=g937dbp499mer7jmfpxks7ugxy66sxxn; csrftoken=2DQ6C2cD8wyAgomjrnuk6ZkhpsdEGgGQrb1hATiMWLZ1NheszRDxFcoKjetMYJDa\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 10\n}\nBody: {\"id\":169}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"server\": \"Cowboy\",\n  \"date\": \"Fri, 23 Feb 2024 05:49:41 GMT\",\n  \"report-to\": \"{\\\"group\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://nel.heroku.com/reports?ts=1708667382&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=zr%2FtrdWcx7nWFZ5XEqWE1Z%2Bg6FsRv5HcV8mBtuLDfFk%3D\\\"}]}\",\n  \"reporting-endpoints\": \"heroku-nel=https://nel.heroku.com/reports?ts=1708667382&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=zr%2FtrdWcx7nWFZ5XEqWE1Z%2Bg6FsRv5HcV8mBtuLDfFk%3D\",\n  \"nel\": \"{\\\"report_to\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"success_fraction\\\":0.005,\\\"failure_fraction\\\":0.05,\\\"response_headers\\\":[\\\"Via\\\"]}\",\n  \"connection\": \"keep-alive\",\n  \"content-type\": \"application/json\",\n  \"allow\": \"POST, OPTIONS\",\n  \"x-content-type-options\": \"nosniff\",\n  \"referrer-policy\": \"same-origin\",\n  \"x-frame-options\": \"DENY\",\n  \"content-length\": \"45\",\n  \"vary\": \"Origin, Cookie\",\n  \"via\": \"1.1 vegur\"\n}\nBody: {\n  \"errorMessage\": \"No payment info available.\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:51104/__cypress/runner/cypress_runner.js:133013:72)\n    at tryCatcher (http://localhost:51104/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (http://localhost:51104/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (http://localhost:51104/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromise0 (http://localhost:51104/__cypress/runner/cypress_runner.js:1621:10)\n    at Promise._settlePromises (http://localhost:51104/__cypress/runner/cypress_runner.js:1701:18)\n    at _drainQueueStep (http://localhost:51104/__cypress/runner/cypress_runner.js:2407:12)\n    at _drainQueue (http://localhost:51104/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (http://localhost:51104/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (http://localhost:51104/__cypress/runner/cypress_runner.js:2286:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://crowdbotics/./cypress/integration/api/pages/ChangePlanPage.js:8:11)",
+                "diff": null
+              },
+              "uuid": "9d8561ae-9357-4285-9505-4cf308e7c749",
+              "parentUUID": "5ca22bc6-f797-4830-bda0-9fac5b153649",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "pro to advanced test",
+              "fullTitle": "Change Plan Page pro to advanced test",
+              "timedOut": null,
+              "duration": 714,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\ChangePlanPageTest.js\\\\Change Plan Page -- pro to advanced test (failed).png\"\n    ]\n  ]\n}",
+              "code": "(0, _ChangePlanPage.change_plan)(authKey, app_id, advanced_id).then(response => {\n  expect(response.status).to.eq(200);\n  cy.log(\"Pro To advanced response\", response.body);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://crowdbotics-slack-dev.herokuapp.com/api/v2/apps/133813/plan/update/\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://crowdbotics-slack-dev.herokuapp.com/api/v2/apps/133813/plan/update/\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Token e155774e004e12d416dd6ecbecb99abb593cd62f\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.2.0 Chrome/114.0.5735.289 Electron/25.8.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 10\n}\nBody: {\"id\":169}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"server\": \"Cowboy\",\n  \"date\": \"Fri, 23 Feb 2024 05:49:42 GMT\",\n  \"report-to\": \"{\\\"group\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://nel.heroku.com/reports?ts=1708667382&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=zr%2FtrdWcx7nWFZ5XEqWE1Z%2Bg6FsRv5HcV8mBtuLDfFk%3D\\\"}]}\",\n  \"reporting-endpoints\": \"heroku-nel=https://nel.heroku.com/reports?ts=1708667382&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=zr%2FtrdWcx7nWFZ5XEqWE1Z%2Bg6FsRv5HcV8mBtuLDfFk%3D\",\n  \"nel\": \"{\\\"report_to\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"success_fraction\\\":0.005,\\\"failure_fraction\\\":0.05,\\\"response_headers\\\":[\\\"Via\\\"]}\",\n  \"connection\": \"keep-alive\",\n  \"content-type\": \"application/json\",\n  \"allow\": \"POST, OPTIONS\",\n  \"x-content-type-options\": \"nosniff\",\n  \"referrer-policy\": \"same-origin\",\n  \"x-frame-options\": \"DENY\",\n  \"content-length\": \"45\",\n  \"vary\": \"Origin, Cookie\",\n  \"via\": \"1.1 vegur\"\n}\nBody: {\n  \"errorMessage\": \"No payment info available.\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://crowdbotics-slack-dev.herokuapp.com/api/v2/apps/133813/plan/update/\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://crowdbotics-slack-dev.herokuapp.com/api/v2/apps/133813/plan/update/\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Token e155774e004e12d416dd6ecbecb99abb593cd62f\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.2.0 Chrome/114.0.5735.289 Electron/25.8.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 10\n}\nBody: {\"id\":169}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"server\": \"Cowboy\",\n  \"date\": \"Fri, 23 Feb 2024 05:49:42 GMT\",\n  \"report-to\": \"{\\\"group\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://nel.heroku.com/reports?ts=1708667382&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=zr%2FtrdWcx7nWFZ5XEqWE1Z%2Bg6FsRv5HcV8mBtuLDfFk%3D\\\"}]}\",\n  \"reporting-endpoints\": \"heroku-nel=https://nel.heroku.com/reports?ts=1708667382&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=zr%2FtrdWcx7nWFZ5XEqWE1Z%2Bg6FsRv5HcV8mBtuLDfFk%3D\",\n  \"nel\": \"{\\\"report_to\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"success_fraction\\\":0.005,\\\"failure_fraction\\\":0.05,\\\"response_headers\\\":[\\\"Via\\\"]}\",\n  \"connection\": \"keep-alive\",\n  \"content-type\": \"application/json\",\n  \"allow\": \"POST, OPTIONS\",\n  \"x-content-type-options\": \"nosniff\",\n  \"referrer-policy\": \"same-origin\",\n  \"x-frame-options\": \"DENY\",\n  \"content-length\": \"45\",\n  \"vary\": \"Origin, Cookie\",\n  \"via\": \"1.1 vegur\"\n}\nBody: {\n  \"errorMessage\": \"No payment info available.\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:51104/__cypress/runner/cypress_runner.js:133013:72)\n    at tryCatcher (http://localhost:51104/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (http://localhost:51104/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (http://localhost:51104/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromise0 (http://localhost:51104/__cypress/runner/cypress_runner.js:1621:10)\n    at Promise._settlePromises (http://localhost:51104/__cypress/runner/cypress_runner.js:1701:18)\n    at _drainQueueStep (http://localhost:51104/__cypress/runner/cypress_runner.js:2407:12)\n    at _drainQueue (http://localhost:51104/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (http://localhost:51104/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (http://localhost:51104/__cypress/runner/cypress_runner.js:2286:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://crowdbotics/./cypress/integration/api/pages/ChangePlanPage.js:8:11)",
+                "diff": null
+              },
+              "uuid": "76ac56e3-61bf-48b7-8757-ad55712d0790",
+              "parentUUID": "5ca22bc6-f797-4830-bda0-9fac5b153649",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "community to custom test",
+              "fullTitle": "Change Plan Page community to custom test",
+              "timedOut": null,
+              "duration": 580,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\ChangePlanPageTest.js\\\\Change Plan Page -- community to custom test (failed).png\"\n    ]\n  ]\n}",
+              "code": "(0, _ChangePlanPage.change_plan)(authKey, app_id, custom_id).then(response => {\n  expect(response.status).to.eq(200);\n  cy.log(\"Community To Custom response\", response.body);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://crowdbotics-slack-dev.herokuapp.com/api/v2/apps/133813/plan/update/\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://crowdbotics-slack-dev.herokuapp.com/api/v2/apps/133813/plan/update/\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Token e155774e004e12d416dd6ecbecb99abb593cd62f\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.2.0 Chrome/114.0.5735.289 Electron/25.8.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 10\n}\nBody: {\"id\":169}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"server\": \"Cowboy\",\n  \"date\": \"Fri, 23 Feb 2024 05:49:43 GMT\",\n  \"report-to\": \"{\\\"group\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://nel.heroku.com/reports?ts=1708667383&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=t1uDEPDn3gAWGVeOaOpGnj7LxUT53OefWHMNHhfxCj8%3D\\\"}]}\",\n  \"reporting-endpoints\": \"heroku-nel=https://nel.heroku.com/reports?ts=1708667383&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=t1uDEPDn3gAWGVeOaOpGnj7LxUT53OefWHMNHhfxCj8%3D\",\n  \"nel\": \"{\\\"report_to\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"success_fraction\\\":0.005,\\\"failure_fraction\\\":0.05,\\\"response_headers\\\":[\\\"Via\\\"]}\",\n  \"connection\": \"keep-alive\",\n  \"content-type\": \"application/json\",\n  \"allow\": \"POST, OPTIONS\",\n  \"x-content-type-options\": \"nosniff\",\n  \"referrer-policy\": \"same-origin\",\n  \"x-frame-options\": \"DENY\",\n  \"content-length\": \"45\",\n  \"vary\": \"Origin, Cookie\",\n  \"via\": \"1.1 vegur\"\n}\nBody: {\n  \"errorMessage\": \"No payment info available.\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://crowdbotics-slack-dev.herokuapp.com/api/v2/apps/133813/plan/update/\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://crowdbotics-slack-dev.herokuapp.com/api/v2/apps/133813/plan/update/\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Token e155774e004e12d416dd6ecbecb99abb593cd62f\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.2.0 Chrome/114.0.5735.289 Electron/25.8.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 10\n}\nBody: {\"id\":169}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"server\": \"Cowboy\",\n  \"date\": \"Fri, 23 Feb 2024 05:49:43 GMT\",\n  \"report-to\": \"{\\\"group\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://nel.heroku.com/reports?ts=1708667383&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=t1uDEPDn3gAWGVeOaOpGnj7LxUT53OefWHMNHhfxCj8%3D\\\"}]}\",\n  \"reporting-endpoints\": \"heroku-nel=https://nel.heroku.com/reports?ts=1708667383&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=t1uDEPDn3gAWGVeOaOpGnj7LxUT53OefWHMNHhfxCj8%3D\",\n  \"nel\": \"{\\\"report_to\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"success_fraction\\\":0.005,\\\"failure_fraction\\\":0.05,\\\"response_headers\\\":[\\\"Via\\\"]}\",\n  \"connection\": \"keep-alive\",\n  \"content-type\": \"application/json\",\n  \"allow\": \"POST, OPTIONS\",\n  \"x-content-type-options\": \"nosniff\",\n  \"referrer-policy\": \"same-origin\",\n  \"x-frame-options\": \"DENY\",\n  \"content-length\": \"45\",\n  \"vary\": \"Origin, Cookie\",\n  \"via\": \"1.1 vegur\"\n}\nBody: {\n  \"errorMessage\": \"No payment info available.\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:51104/__cypress/runner/cypress_runner.js:133013:72)\n    at tryCatcher (http://localhost:51104/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (http://localhost:51104/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (http://localhost:51104/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromise0 (http://localhost:51104/__cypress/runner/cypress_runner.js:1621:10)\n    at Promise._settlePromises (http://localhost:51104/__cypress/runner/cypress_runner.js:1701:18)\n    at _drainQueueStep (http://localhost:51104/__cypress/runner/cypress_runner.js:2407:12)\n    at _drainQueue (http://localhost:51104/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (http://localhost:51104/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (http://localhost:51104/__cypress/runner/cypress_runner.js:2286:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://crowdbotics/./cypress/integration/api/pages/ChangePlanPage.js:8:11)",
+                "diff": null
+              },
+              "uuid": "85296d11-9a2a-494b-94d6-ae2f337d31f7",
+              "parentUUID": "5ca22bc6-f797-4830-bda0-9fac5b153649",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "9d8561ae-9357-4285-9505-4cf308e7c749",
+            "76ac56e3-61bf-48b7-8757-ad55712d0790",
+            "85296d11-9a2a-494b-94d6-ae2f337d31f7"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 8079,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

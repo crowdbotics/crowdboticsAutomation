@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 6,
+  "passes": 5,
+  "pending": 0,
+  "failures": 1,
+  "start": "2024-02-22T18:44:51.476Z",
+  "duration": 19570,
+  "file": "cypress\\integration\\api\\tests\\TeamMemberPageAdminTest.js"
+}

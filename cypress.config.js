@@ -150,6 +150,7 @@ module.exports = defineConfig({
     editConnectors2: "/connectors/",
     deleteConnector1: "/api/v2/apps/",
     deleteConnector2: "/connectors/",
+    deleteConnector3: "/",
     addDataModel1: "/api/v2/apps/",
     addDataModel2: "/models/",
     getDataModel1: "/api/v2/apps/",
@@ -479,7 +480,6 @@ module.exports = defineConfig({
     deleteEdgeById1 : "/api/v1/apps/",
     deleteEdgeById2  : "/edges/",
     deleteEdgeById3  : "/",
-
     
     putcreatecategories1 : "/api/v1/apps/",
     putcreatecategories2 : "/prd_ai_categories/",
@@ -600,6 +600,8 @@ module.exports = defineConfig({
     patchOrganizationPRDById2: "/",
     deleteOrganizationPRD1: "/api/v1/prd/",
     deleteOrganizationPRD2: "/",
+
+    
 
   },
   e2e: {

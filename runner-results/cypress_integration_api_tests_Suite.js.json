@@ -1,0 +1,10 @@
+{
+  "suites": 8,
+  "tests": 128,
+  "passes": 25,
+  "pending": 0,
+  "failures": 103,
+  "start": "2024-02-22T18:43:55.103Z",
+  "duration": 164282,
+  "file": "cypress\\integration\\api\\tests\\Suite.js"
+}

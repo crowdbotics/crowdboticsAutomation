@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
-import { doLogin } from '../pages/loginPage.js';
+import { doModuleLogin } from '../pages/loginPage.js';
 import { moduleInstall, doGetapiPreinstallmodule } from '../pages/ModulePage.js';
 
 
@@ -11,7 +11,7 @@ let module_id;
 describe("Module Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Api_pre_install_module', () => {
-        doLogin().then((response) => {
+        doModuleLogin().then((response) => {
             authKey = response.body.key;
             cy.log("login response", response.body)
             doCteareApp(authKey, app_name).then((response) => {

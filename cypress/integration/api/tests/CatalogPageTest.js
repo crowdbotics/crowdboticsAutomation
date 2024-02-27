@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
-import { doLogin } from '../pages/loginPage.js';
+import { doCatalogLogin } from '../pages/loginPage.js';
 import { doGetEdges,dopostedge,doGetEdgesByid,doputedge,dopatchedge,dodeleteEdgesByid,doPatchShareableComponent,doGetShareableComponentsById,doCreateShareableComponent,doGetShareableComponentsList,doGetCatalogPlatformList,doGetCatalogResourceList,doGetCatalogSectorList,doGetCatalogTaskList,doGetCatalogFeatureTypeList,doGetCatalogModuleTypeList,doGAddCatalogPlatformCustomDomain,doGetCatalogPlatformCustomDomain,doDeleteCatologModule,doUpdateWithPutCatologModule,doUpdateWithPatchCatologModule,doGetCatologModuleById,doDeleteCatalogArchetype, doUpdateWithPatchCatalogArchetype, doUpdateWithPutCatalogArchetype, doGetCatalogArchetypeById, doCreateCatalogArchetype, doDeleteCatalogAsset, doUpdateWithPatchCatalogAsset, doUpdateWithPutCatalogAsset, doGetCatalogAssetUsingId, doGetCatalogAssetList, doDeleteCatalogBaseType, doUpdateWithPatchCatalogBaseArchetype, doUpdateWithPutCatalogBaseArchetype, doCreateCatalogBaseArchetype, doGetCatalogBaseArchetypeList, doDeleteCatalogCategory, doUpdateWithPatchCatalogCategory, doUpdateWithPutCatalogCategory, doGetCatalogCategoryById, doDeleteCatalogModuleType, doUpdateWithPatchCatalogModuleType, doUpdateWithPutCatalogModuleType, doGetCatalogModuleTypeById, doCreateCatalogModuleType, doDeleteCatalogFeatureType, doUpdateWithPatchCatalogFeatureType, doUpdateWithPutCatalogFeatureType, doGetCatalogFeatureTypeById, doCreateCatalogFeatureType, doDeleteCatalogCodeModule, doUpdateWithPatchCatalogCodeModule, doUpdateWithPutCatalogCodeModule, doGetCatalogCodeModuleById, doDeleteCatalogTask, doUpdateWithPatchCatalogTask, doUpdateWithPutCatalogTask, doGetCatalogTaskById, doCreateCatalogTask, doDeleteCatalogSector, doUpdateWithPatchCatalogSector, doUpdateWithPutCatalogSector, doGetCatalogSectorById, doCreateCatalogSector, doDeleteCatalogResource, doUpdateWithPatchCatalogResource, doUpdateWithPutCatalogResource, doGetCatalogResourceById, doCreateCatalogResource, doDeleteCatalogPlatform, doUpdateWithPatchCatalogPlatform, doUpdateWithPutCatalogPlatform, doGetCatalogPlatformById, doAddCatalogPlatform, doGetSettingsFElist, doAddCatalogFeature, doGetCatologFeature, doAddCatalogCategory, doGetCatologCategoryList, doAddCatalogModule, doGetCatologModuleList, doImportFeature, doImportModule, doGetCatalogArchetypeList, doAddCatalogAsset, doCreateCatalogCodeModule, doGetEmbeddingSearch } from '../pages/CatalogPage.js';
 
 let edge_id;
@@ -43,7 +43,7 @@ let shareableComponent_id;
 describe("Catalog Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Add Catalog Feature Flow', () => {
-        doLogin().then((response) => {
+        doCatalogLogin().then((response) => {
             authKey = response.body.key;
             doCteareApp(authKey, app_name).then((response) => {
                 cy.log("login response", response.body)

@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
-import { doLogin } from '../pages/loginPage.js';
+import { doConnectorLogin } from '../pages/loginPage.js';
 import { doCreateConnector, doGetConnector, doGetInstallerInstalComponent, doGetConnectorUsingId, doUpdateConnector, doEditConnector, doDeleteConnector } from '../pages/ConnectorsPage.js';
 
 let authKey;
@@ -13,7 +13,7 @@ let connector_id;
 describe("Connectors Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Create Connectors Flow', () => {
-        doLogin().then((response) => {
+        doConnectorLogin().then((response) => {
             authKey = response.body.key;
             doCteareApp(authKey, app_name).then((response) => {
                 cy.log("login response", response.body)
