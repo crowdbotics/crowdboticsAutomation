@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
-import { doLogin } from '../pages/loginPage.js';
+import { doSettingLogin } from '../pages/loginPage.js';
 import { doGetCodePackage,app_name_update, doAddLibrary, doGetLibrary, doRemoveLibrary, doAddGcpPlatform, doGetRepoBranch, change_code_privacy_private_to_public, change_code_privacy_public_to_private, delete_app } from '../pages/SettingsPage.js';
 let app_id;
 let app_name;
@@ -10,7 +10,7 @@ let libraryToBeAdded;
 describe("Settings Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Update app name Flow', () => {
-        doLogin().then((response) => {
+        doSettingLogin().then((response) => {
             authKey = response.body.key;
             doCteareApp(authKey, app_name).then((response) => {
                 cy.log("login response", response.body)

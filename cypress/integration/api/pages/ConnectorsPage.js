@@ -88,7 +88,7 @@ export const doDeleteConnector = (auth_key, app_id, connector_id) => {
 
     return cy.request({
         method: 'DELETE',
-        url: Cypress.env('baseUrl') + Cypress.env('deleteConnector1') + app_id + Cypress.env('deleteConnector2') + connector_id,
+        url: Cypress.env('baseUrl') + Cypress.env('deleteConnector1') + app_id + Cypress.env('deleteConnector2') + connector_id+Cypress.env('deleteConnector3'),
         headers: {
             'Authorization': 'Token ' + auth_key
         }

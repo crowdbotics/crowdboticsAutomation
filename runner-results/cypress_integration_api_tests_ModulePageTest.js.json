@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 2,
+  "passes": 1,
+  "pending": 0,
+  "failures": 1,
+  "start": "2024-02-22T18:45:12.747Z",
+  "duration": 12076,
+  "file": "cypress\\integration\\api\\tests\\ModulePageTest.js"
+}

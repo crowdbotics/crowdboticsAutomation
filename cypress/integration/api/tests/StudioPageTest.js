@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
-import { doLogin } from '../pages/loginPage.js';
+import { doStudioLogin } from '../pages/loginPage.js';
 import { doGetStudiopage, getStudioScreen, doGetStudioScreenEdge, doPostCreateStudioScreen } from '../pages/StudioPage.js';
 
 
@@ -13,7 +13,7 @@ let screen_id;
 describe("Studio lnading page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Studio Page flow', () => {
-        doLogin().then((response) => {
+        doStudioLogin().then((response) => {
             authKey = response.body.key;
             doCteareApp(authKey, app_name).then((response) => {
                 cy.log("login response", response.body)

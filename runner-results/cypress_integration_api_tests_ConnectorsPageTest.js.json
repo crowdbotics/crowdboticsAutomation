@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 7,
+  "passes": 3,
+  "pending": 0,
+  "failures": 4,
+  "start": "2024-02-22T18:43:22.308Z",
+  "duration": 13257,
+  "file": "cypress\\integration\\api\\tests\\ConnectorsPageTest.js"
+}

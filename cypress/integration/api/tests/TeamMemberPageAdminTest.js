@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
-import { doLogin } from '../pages/loginPage.js';
+import { doTeammemberLogin } from '../pages/loginPage.js';
 import { doGetAllMemberList, doUpdateMemberjobTitle,doCancelInvitation, doInviteMember, doGetTeamMember, doGetTeamMemberUsingId } from '../pages/TeamMemberPageAdmin.js';
 
 let member_id;
@@ -11,7 +11,7 @@ let authKey;
 describe("Team Member Admin Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Invite Member Flow', () => {
-        doLogin().then((response) => {
+        doTeammemberLogin().then((response) => {
             authKey = response.body.key;
             doCteareApp(authKey, app_name).then((response) => {
                 cy.log("login response", response.body)

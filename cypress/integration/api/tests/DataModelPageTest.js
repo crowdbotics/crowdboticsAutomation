@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
-import { doLogin } from '../pages/loginPage.js';
+import { doDatamodelLogin } from '../pages/loginPage.js';
 import { doAddDataModel, doGetDataModel } from '../pages/DataModelPage.js';
 
 let authKey;
@@ -10,7 +10,7 @@ let app_name;
 describe("DataModel Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Add DataModel Flow', () => {
-        doLogin().then((response) => {
+        doDatamodelLogin().then((response) => {
             authKey = response.body.key;
             doCteareApp(authKey, app_name).then((response) => {
                 cy.log("login response", response.body)

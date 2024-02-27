@@ -2,7 +2,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doGetExistingTaskTemplate,doEditAmountInPaymentMilestone,doCreateTask, doViewTask, doGetTaskById, doAddQuoteInTask, doDeleteTask, doDeleteSubTask, doAddMilestone, doGetAllMilestone, doGetAllSubTask, doGetMilestone, doUpdateMilestone, doDeleteMilestone, doAddTaskIntoMilestone, doUpdateTaskIntoMilestone, doUpdateSubTask, doUpdateOtherSubTask, doPublicTask, doApprovePricing, doUndoApprovePricing, doApprovePayment, doUndoApprovedPayment, doAddPaymentMilestone, doGetPaymentMilestone, doGetAllPaymentMilestone, doDeletePaymentMilestone, doAddQuote, doGetQuoteMilestone, doCheckoutWithAch, doGetJobType, doUpdateJobTypeRate, doGetTaskSharableStatus, doCreateBillingSchedule, doUpdateBillingSchedule, doGetBillingSchedule, doCreateSubTask, doCreateOtherSubTask, doMoveTask, doUpdateMilestoneCostHrs, doTaskIntoWishlist, doSearchTask } from '../pages/TasksPage.js';
-import { doLogin } from '../pages/loginPage.js';
+import { doTaskLogin} from '../pages/loginPage.js';
 
 let authKey;
 let app_id;
@@ -21,7 +21,7 @@ let wishlist_task_name = "taskwishlist";
 describe("Tasks Page", () => {
     let app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Add Milestone', () => {
-        doLogin().then((response) => {
+        doTaskLogin().then((response) => {
             authKey = response.body.key;
             doCteareApp(authKey, app_name).then((response) => {
                 cy.log("login response", response.body)
