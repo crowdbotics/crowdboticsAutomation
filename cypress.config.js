@@ -555,6 +555,12 @@ module.exports = defineConfig({
     getStudioScreenEdge2 : "/edges/?page=1&limit=20",
     postCreateScreen1 : "/api/v2/apps/",
     postCreateScreen2 : "/screens/create-screens/",
+    getPRDPKCategory1 : "/api/v1/prd/",
+    getPRDPKCategory2 : "/category/",
+    postPRDPKCategory1 : "/api/v1/prd/",
+    postPRDPKCategory2 : "/category/",
+
+    
 
     
 
