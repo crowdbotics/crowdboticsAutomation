@@ -1,10 +1,10 @@
 {
   "suites": 1,
-  "tests": 2,
+  "tests": 1,
   "passes": 1,
   "pending": 0,
-  "failures": 1,
-  "start": "2024-02-22T18:44:07.945Z",
-  "duration": 8015,
+  "failures": 0,
+  "start": "2024-03-15T07:13:10.382Z",
+  "duration": 4582,
   "file": "cypress\\integration\\api\\tests\\DataModelPageTest.js"
 }

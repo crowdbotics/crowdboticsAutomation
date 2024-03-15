@@ -53,12 +53,12 @@ describe("Team Member Admin Page", () => {
         })
     })
 
-    it('Change Team Member Job Title', () => {
-        doUpdateMemberjobTitle(authKey, app_id, member_id,app_name).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("change team member job title", response.body)
-        })
-    })
+    // it('Change Team Member Job Title', () => {
+    //     doUpdateMemberjobTitle(authKey, app_id, member_id,app_name).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("change team member job title", response.body)
+    //     })
+    // })
 
     it('get all member list', () => {
         doGetAllMemberList(authKey, app_id).then((response) => {

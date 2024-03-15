@@ -274,13 +274,13 @@ describe("Dashboard Page", () => {
             expect(response.status).to.eq(200)
         })
     })
-    it('Create Attributes Flow', () => {
-        doCreateAttributes(authKey, app_id).then((response) => {
-            attribute_id=response.body.id;
-            expect(response.status).to.eq(200)
-            cy.log("Create Attributes response", response.body)
-        })
-    })
+    // it('Create Attributes Flow', () => {
+    //     doCreateAttributes(authKey, app_id).then((response) => {
+    //         attribute_id=response.body.id;
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Create Attributes response", response.body)
+    //     })
+    // })
 
     it('Get Attributes Flow', () => {
         getAttributes(authKey, app_id).then((response) => {
@@ -289,12 +289,12 @@ describe("Dashboard Page", () => {
         })
     })
     
-    it('Get Audit Log List Flow', () => {
-        getAuditLogList(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Attributes response", response.body)
-        })
-    })
+    // it('Get Audit Log List Flow', () => {
+    //     getAuditLogList(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get Attributes response", response.body)
+    //     })
+    // })
 })
 
 

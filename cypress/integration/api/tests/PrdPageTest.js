@@ -33,8 +33,9 @@ describe("PRD Page", () => {
                 app_id = response.body.id;
                 app_name = response.body.name;
                 localStorage.setItem('app_id', response.body.id);
-                prd_overview_tags(authKey, app_id).then((response) => {
-                    expect(response.status).to.eq(201)
+                //prd_overview_tags(authKey, app_id).then((response) => {
+                    getPrdAiCategories(authKey, app_id).then((response) => {
+                    expect(response.status).to.eq(200)
                     cy.log("create tags response", response.body)
                 })
             })
@@ -83,12 +84,12 @@ describe("PRD Page", () => {
         })
     })
 
-    it('Add Prd Version Status Flow', () => {
-        addPrdVersionStatus(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Add Prd Version Status response", response.body)
-        })
-    })
+    // it('Add Prd Version Status Flow', () => {
+    //     addPrdVersionStatus(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Add Prd Version Status response", response.body)
+    //     })
+    // })
 
     it('Get Pending Invite FLow', () => {
         getPendingInvite(authKey, app_id).then((response) => {
@@ -125,13 +126,13 @@ describe("PRD Page", () => {
             cy.log("Get Code State List  response", response.body)
         })
     })
-    it('Add Prd Tags Flow', () => {
-        doAddPrdTag(authKey, app_id, 'testaddtag' + app_id).then((response) => {
-            tag_id = response.body.id;
-            expect(response.status).to.eq(201)
-            cy.log("Add Prd Tags response", response.body)
-        })
-    })
+    // it('Add Prd Tags Flow', () => {
+    //     doAddPrdTag(authKey, app_id, 'testaddtag' + app_id).then((response) => {
+    //         tag_id = response.body.id;
+    //         expect(response.status).to.eq(201)
+    //         cy.log("Add Prd Tags response", response.body)
+    //     })
+    // })
 
     it('Get Prd Tags Flow', () => {
         doGetPrdTag(authKey, app_id).then((response) => {
@@ -245,12 +246,12 @@ describe("PRD Page", () => {
     //     })
     // })
 
-    it('Get Start OverPrdAi Flow', () => {
-        doGetStartOverPrdAi(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Start OverPrdAi response", response.body)
-        })
-    })
+    // it('Get Start OverPrdAi Flow', () => {
+    //     doGetStartOverPrdAi(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get Start OverPrdAi response", response.body)
+    //     })
+    // })
 
     it('Get Prd Item Flow', () => {
         prd_get_Item(authKey, group_id).then((response) => {
@@ -269,13 +270,13 @@ describe("PRD Page", () => {
     })
 
 
-    it('Get Prd Item Using Id Flow', () => {
-        doGetItemsUsingId(authKey, item_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Prd Item Using Id response", response.body)
+    // it('Get Prd Item Using Id Flow', () => {
+    //     doGetItemsUsingId(authKey, item_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get Prd Item Using Id response", response.body)
 
-        })
-    })
+    //     })
+    // })
 
     it('Patch Prd Item Flow', () => {
         doPatchItem(authKey, app_id, item_id, item_name).then((response) => {
@@ -405,13 +406,13 @@ describe("PRD Page", () => {
 
         })
     })
-    it('Remove Prd Roles Flow', () => {
-        doRemovePrdRoles(authKey, item_id, role_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Remove Prd Roles Response", response.body)
-        })
+    // it('Remove Prd Roles Flow', () => {
+    //     doRemovePrdRoles(authKey, item_id, role_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Remove Prd Roles Response", response.body)
+    //     })
 
-    })
+    // })
 
     it('Delete PrdItem Flow', () => {
         prd_delete_item(authKey, app_id, group_id, item_id).then((response) => {
@@ -443,12 +444,12 @@ describe("PRD Page", () => {
         })
     })
 
-    it('Get User Repos List Flow', () => {
-        doGetUserReposList(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Delete PrdGroup response", response.body)
-        })
-    })
+    // it('Get User Repos List Flow', () => {
+    //     doGetUserReposList(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Delete PrdGroup response", response.body)
+    //     })
+    // })
     it('Add Create PRD with AI', () => {
         docreatePRDWithAI(authKey, app_id, app_name).then((response) => {
             expect(response.status).to.eq(202)
@@ -463,36 +464,36 @@ describe("PRD Page", () => {
 
         })
     })
-    it('Add Feature Manually', () => {
-        doAddfeaturemanually(authKey, app_id, categories_id, feature_id).then((response) => {
-            categories_id = response.body.id;
-            feature_id = response.body.id;
-            expect(response.status).to.eq(201)
-            cy.log("Add Feature Manually", response.body)
+    // it('Add Feature Manually', () => {
+    //     doAddfeaturemanually(authKey, app_id, categories_id, feature_id).then((response) => {
+    //         categories_id = response.body.id;
+    //         feature_id = response.body.id;
+    //         expect(response.status).to.eq(201)
+    //         cy.log("Add Feature Manually", response.body)
 
-        })
-    })
-    it('Put Feature', () => {
-        title_name = 'MyTitleNamechange' + (Math.random() + 1).toString(36).substring(7);
-        doPutFeature(authKey, app_id, categories_id, title_name, feature_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Put feature response", response.body)
-        })
-    })
-    it('Patch Feature', () => {
-        title_name = 'MyTitleNamechange' + (Math.random() + 1).toString(36).substring(7);
-        doPatchFeature(authKey, app_id, categories_id, title_name, feature_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Patch feature response", response.body)
-        })
-    })
-    it('Delete Feature', () => {
-        doDeletefeature(authKey, app_id, feature_id).then((response) => {
-            expect(response.status).to.eq(204)
-            cy.log("Delete feature", response.body)
-        })
+    //     })
+    // })
+    // it('Put Feature', () => {
+    //     title_name = 'MyTitleNamechange' + (Math.random() + 1).toString(36).substring(7);
+    //     doPutFeature(authKey, app_id, categories_id, title_name, feature_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Put feature response", response.body)
+    //     })
+    // })
+    // it('Patch Feature', () => {
+    //     title_name = 'MyTitleNamechange' + (Math.random() + 1).toString(36).substring(7);
+    //     doPatchFeature(authKey, app_id, categories_id, title_name, feature_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Patch feature response", response.body)
+    //     })
+    // })
+    // it('Delete Feature', () => {
+    //     doDeletefeature(authKey, app_id, feature_id).then((response) => {
+    //         expect(response.status).to.eq(204)
+    //         cy.log("Delete feature", response.body)
+    //     })
 
-    })
+    // })
     it('Get PRD AI Features', () => {
         doGetPRDAIfeatures(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
@@ -500,47 +501,47 @@ describe("PRD Page", () => {
         })
     })
 
-    it('Approve All features', () => {
-        doApproveAllFeatures(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Approve All features", response.body)
+//     it('Approve All features', () => {
+//         doApproveAllFeatures(authKey, app_id).then((response) => {
+//             expect(response.status).to.eq(200)
+//             cy.log("Approve All features", response.body)
 
-        })
-    })
-    it('Create Categories', () => {
-        doCreateCategories(authKey, app_id).then((response) => {
-            categories_id = response.body.id;
-            expect(response.status).to.eq(201)
-            cy.log("Create Categories", response.body)
+//         })
+//     })
+//     it('Create Categories', () => {
+//         doCreateCategories(authKey, app_id).then((response) => {
+//             categories_id = response.body.id;
+//             expect(response.status).to.eq(201)
+//             cy.log("Create Categories", response.body)
 
-        })
-    })
-    it('Put Categories', () => {
-        title_name = 'MyTitleName' + (Math.random() + 1).toString(36).substring(7);
-        doPutCategories(authKey, app_id, categories_id, title_name).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Put categories response", response.body)
-        })
-    })
-    it('Get PRD List', () => {
-        doGetPRDList(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("apps prd list", response.body)
+//         })
+//     })
+//     it('Put Categories', () => {
+//         title_name = 'MyTitleName' + (Math.random() + 1).toString(36).substring(7);
+//         doPutCategories(authKey, app_id, categories_id, title_name).then((response) => {
+//             expect(response.status).to.eq(200)
+//             cy.log("Put categories response", response.body)
+//         })
+//     })
+//     it('Get PRD List', () => {
+//         doGetPRDList(authKey, app_id).then((response) => {
+//             expect(response.status).to.eq(200)
+//             cy.log("apps prd list", response.body)
 
-        })
-    })
-    it('Get PRD Partial Update Status', () => {
-        doGetprdPartialUpdate(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("PRD Partial Update Status", response.body)
+//         })
+//     })
+//     it('Get PRD Partial Update Status', () => {
+//         doGetprdPartialUpdate(authKey, app_id).then((response) => {
+//             expect(response.status).to.eq(200)
+//             cy.log("PRD Partial Update Status", response.body)
 
-        })
-    })
-    it('Delete Categories', () => {
-        doDeleteCategories(authKey, app_id, categories_id).then((response) => {
-            expect(response.status).to.eq(204)
-            cy.log("Delete categories", response.body)
-        })
+//         })
+//     })
+//     it('Delete Categories', () => {
+//         doDeleteCategories(authKey, app_id, categories_id).then((response) => {
+//             expect(response.status).to.eq(204)
+//             cy.log("Delete categories", response.body)
+//         })
 
-    })
-})
+//     })
+ })

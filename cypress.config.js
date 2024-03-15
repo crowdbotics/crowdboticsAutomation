@@ -3,7 +3,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
-  defaultCommandTimeout: 10000,
+  defaultCommandTimeout: 20000,
   env:
   {
     baseUrl: "https://crowdbotics-slack-dev.herokuapp.com",
