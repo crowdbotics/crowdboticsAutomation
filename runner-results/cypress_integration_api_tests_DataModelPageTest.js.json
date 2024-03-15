@@ -4,7 +4,7 @@
   "passes": 1,
   "pending": 0,
   "failures": 0,
-  "start": "2024-03-15T07:13:10.382Z",
-  "duration": 4582,
+  "start": "2024-03-15T10:00:59.518Z",
+  "duration": 4945,
   "file": "cypress\\integration\\api\\tests\\DataModelPageTest.js"
 }

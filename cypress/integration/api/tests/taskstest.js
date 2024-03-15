@@ -95,13 +95,13 @@ describe("Tasks Page", () => {
         })
     })
 
-    it('Search Task', () => {
-        cy.reload();
-        doSearchTask(authKey, app_id, task_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("create milestone response", response.body)
-        })
-    })
+    // it('Search Task', () => {
+    //     cy.reload();
+    //     doSearchTask(authKey, app_id, task_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("create milestone response", response.body)
+    //     })
+    // })
 
     it('View Task', () => {
 

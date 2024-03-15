@@ -1,10 +1,10 @@
 {
   "suites": 1,
-  "tests": 20,
+  "tests": 19,
   "passes": 19,
   "pending": 0,
-  "failures": 1,
-  "start": "2024-03-15T07:12:24.607Z",
-  "duration": 21341,
+  "failures": 0,
+  "start": "2024-03-15T10:00:22.143Z",
+  "duration": 17008,
   "file": "cypress\\integration\\api\\tests\\Taskstest.js"
 }

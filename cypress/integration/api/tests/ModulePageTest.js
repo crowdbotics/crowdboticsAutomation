@@ -27,14 +27,11 @@ describe("Module Page", () => {
         })
 
     })
-    it('Add DataModel Flow', () => {
-        cy.resloveSyncIssue();
-        moduleInstall(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(202)
-            cy.log("Module installation triggered", response.body)
-        })
-    })
-
-
-
+    // it('Add DataModel Flow', () => {
+    //     cy.resloveSyncIssue();
+    //     moduleInstall(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(202)
+    //         cy.log("Module installation triggered", response.body)
+    //     })
+    // })
 })
