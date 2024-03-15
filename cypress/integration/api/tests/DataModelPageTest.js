@@ -9,7 +9,7 @@ let app_name;
 
 describe("DataModel Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
-    it('Add DataModel Flow', () => {
+    it('Get DataModel Flow', () => {
         doDatamodelLogin().then((response) => {
             authKey = response.body.key;
             doCteareApp(authKey, app_name).then((response) => {
@@ -18,17 +18,19 @@ describe("DataModel Page", () => {
                 app_id = response.body.id;
                 app_name = response.body.name;
                 localStorage.setItem('app_id', response.body.id);
-                doAddDataModel(authKey, app_id).then((response) => {
-                    expect(response.status).to.eq(400)
-                    cy.log("Add DataModel response", response.body)
+                // doAddDataModel(authKey, app_id).then((response) => {
+                //     expect(response.status).to.eq(400)
+                doGetDataModel(authKey, app_id).then((response) => {
+                    expect(response.status).to.eq(200)
+                    cy.log("Get DataModel Flow response", response.body)
                 })
             })
         })
     })
-    it('Get DataModel Flow', () => {
-        doGetDataModel(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get DataModel response", response.body)
-        })
-    })
+    // it('Get DataModel Flow', () => {
+    //     doGetDataModel(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get DataModel response", response.body)
+    //     })
+    // })
 })

@@ -4,7 +4,7 @@
   "passes": 1,
   "pending": 0,
   "failures": 1,
-  "start": "2024-02-22T18:45:12.747Z",
-  "duration": 12076,
+  "start": "2024-03-15T07:12:45.470Z",
+  "duration": 11605,
   "file": "cypress\\integration\\api\\tests\\ModulePageTest.js"
 }

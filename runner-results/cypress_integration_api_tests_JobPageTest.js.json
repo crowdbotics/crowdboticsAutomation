@@ -1,10 +1,10 @@
 {
   "suites": 1,
   "tests": 5,
-  "passes": 0,
+  "passes": 5,
   "pending": 0,
-  "failures": 5,
-  "start": "2024-02-22T18:43:41.692Z",
-  "duration": 6490,
+  "failures": 0,
+  "start": "2024-03-15T07:13:00.665Z",
+  "duration": 8529,
   "file": "cypress\\integration\\api\\tests\\JobPageTest.js"
 }

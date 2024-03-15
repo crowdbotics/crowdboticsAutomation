@@ -18,7 +18,6 @@ describe("Module Page", () => {
                 cy.log("App Create Response", response.body)
                 app_id = response.body.id;
                 app_name = response.body.name;
-                
                 module_id = 239;
                 doGetapiPreinstallmodule(authKey, app_id, module_id).then((response) => {
                     expect(response.status).to.eq(200)
@@ -39,4 +38,3 @@ describe("Module Page", () => {
 
 
 })
-

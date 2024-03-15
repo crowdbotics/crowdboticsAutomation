@@ -1,10 +1,10 @@
 {
   "suites": 1,
-  "tests": 6,
+  "tests": 5,
   "passes": 5,
   "pending": 0,
-  "failures": 1,
-  "start": "2024-02-22T18:44:51.476Z",
-  "duration": 19570,
+  "failures": 0,
+  "start": "2024-03-15T07:12:23.216Z",
+  "duration": 8767,
   "file": "cypress\\integration\\api\\tests\\TeamMemberPageAdminTest.js"
 }

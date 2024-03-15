@@ -1,10 +1,10 @@
 {
   "suites": 1,
-  "tests": 37,
-  "passes": 2,
+  "tests": 35,
+  "passes": 35,
   "pending": 0,
-  "failures": 35,
-  "start": "2024-02-22T18:43:25.666Z",
-  "duration": 36390,
+  "failures": 0,
+  "start": "2024-03-15T07:13:10.834Z",
+  "duration": 32566,
   "file": "cypress\\integration\\api\\tests\\dashboardtest.js"
 }

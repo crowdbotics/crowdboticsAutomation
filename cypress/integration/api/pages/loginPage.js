@@ -22,7 +22,7 @@ export const doLogin = () => {
 }
 
 export const doCatalogLogin = () => {
-    const tokenvalue = authenticator.generate("HDBDWPLKGK575MHOARNZCNTMGD3GPV2N");
+    const tokenvalue = authenticator.generate("Z24WO37GBZ6BEXCRZQXS73U5UE42XIEZ");
     cy.readFile('cypress/fixtures/api_CatalogLogin.json').then((data) => {
         data.token = parseInt(tokenvalue);
         cy.writeFile('cypress/fixtures/api_CatalogLogin.json', JSON.stringify(data));
