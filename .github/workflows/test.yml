@@ -28,4 +28,4 @@ jobs:
         run: chmod +x node_modules/.bin/cypress-parallel
 
       - name: Run Cypress tests
-        run: npm run cy:parallel   # Adjust this to your Cypress test run command
+        run: npm run test:prd   # Adjust this to your Cypress test run command
