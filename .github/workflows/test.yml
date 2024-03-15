@@ -24,5 +24,8 @@ jobs:
       - name: Install dependencies
         run: npm install cypress --save-dev
 
+      - name: Make cypress-parallel executable
+        run: chmod +x node_modules/.bin/cypress-parallel
+
       - name: Run Cypress tests
         run: npm run cy:parallel   # Adjust this to your Cypress test run command
