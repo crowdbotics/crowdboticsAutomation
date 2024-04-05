@@ -589,6 +589,12 @@ module.exports = defineConfig({
     getStudiopage1:"/api/v2/apps/",
     getStudiopage2:"/",
 
+    getattachmentslist:"/api/v1/attachments/",
+    getmoduleslist1: "/api_v2_apps_modules_list/",
+    getmoduleslist2: "/",
+    postCreatemodules1 :"/api/v2/apps/",
+    postCreatemodules2 :"/modules/",
+
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
     generateOrganizationPRD: " /api/v1/prd/generate-prd/",
@@ -600,6 +606,7 @@ module.exports = defineConfig({
     patchOrganizationPRDById2: "/",
     deleteOrganizationPRD1: "/api/v1/prd/",
     deleteOrganizationPRD2: "/",
+   
 
     
 
