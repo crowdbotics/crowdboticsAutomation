@@ -340,6 +340,20 @@ module.exports = defineConfig({
     getPaymentReceipt2: "/payment-receipts/",
     getUsefullLinks1: "/api/v1/apps/",
     getUsefullLinks2: "/useful-links/",
+    postUsefulLinks1: "/api/v1/apps/",
+    postUsefulLinks2 : "/useful-links/",
+    getidUsefulllinks1: "/api/v1/apps/",
+    getidUsefulllinks2: "/useful-links/",
+    getidUsefulllinks3: "/",
+    putidUsefullLinks1: "/api/v1/apps/",
+    putidUsefullLinks2: "/useful-links/",
+    putidUsefullLinks3: "/",
+    patchidUsefullLinks1: "/api/v1/apps/",
+    patchidUsefullLinks2: "/useful-links/",
+    patchidUsefullLinks3: "/",
+    deleteidUsefulllinks1: "/api/v1/apps/",
+    deleteidUsefulllinks2: "/useful-links/",
+    deleteidUsefulllinks3: "/",
     getStatementOfWork1: "/api/v2/apps/",
     getStatementOfWork2: "/statement-of-work/",
     getCodePackage1: "/api/v2/apps/",
@@ -600,7 +614,6 @@ module.exports = defineConfig({
     patchOrganizationPRDById2: "/",
     deleteOrganizationPRD1: "/api/v1/prd/",
     deleteOrganizationPRD2: "/",
-
     
 
   },
