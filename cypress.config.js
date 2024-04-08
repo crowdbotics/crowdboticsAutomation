@@ -34,7 +34,7 @@ module.exports = defineConfig({
     deleteprdItem: "/api/v1/prd_groups/bulk-delete/?app=",
     deleteprdGroup: "/api/v1/prd_groups/?app=",
     createprdai1: "/api/v1/apps/",
-    createprdai2: "/prd-ai-generator/generate_features/",
+    createprdai2: "/prd-ai-generator/generate-features/",
     createcatalogtemplates: "/api/v1/prd_groups/import-archetype/?app=",
     createprdfeature: "/api/v1/prd_groups/import-features/?app=",
     updateAppName: "/api/v2/apps/",
