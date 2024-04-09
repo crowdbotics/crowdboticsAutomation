@@ -34,7 +34,7 @@ module.exports = defineConfig({
     deleteprdItem: "/api/v1/prd_groups/bulk-delete/?app=",
     deleteprdGroup: "/api/v1/prd_groups/?app=",
     createprdai1: "/api/v1/apps/",
-    createprdai2: "/prd-ai-generator/generate_features/",
+    createprdai2: "/prd-ai-generator/generate-features/",
     createcatalogtemplates: "/api/v1/prd_groups/import-archetype/?app=",
     createprdfeature: "/api/v1/prd_groups/import-features/?app=",
     updateAppName: "/api/v2/apps/",
@@ -603,6 +603,12 @@ module.exports = defineConfig({
     getStudiopage1:"/api/v2/apps/",
     getStudiopage2:"/",
 
+    getattachmentslist:"/api/v1/attachments/",
+    getmoduleslist1: "/api_v2_apps_modules_list/",
+    getmoduleslist2: "/",
+    postCreatemodules1 :"/api/v2/apps/",
+    postCreatemodules2 :"/modules/",
+
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
     generateOrganizationPRD: " /api/v1/prd/generate-prd/",
@@ -614,7 +620,6 @@ module.exports = defineConfig({
     patchOrganizationPRDById2: "/",
     deleteOrganizationPRD1: "/api/v1/prd/",
     deleteOrganizationPRD2: "/",
-    
 
   },
   e2e: {

@@ -1244,4 +1244,12 @@ export const doGetPRDList = (auth_key, app_id) => {
         }
     })
 };
-
+export const doGetattachmentslist = (auth_key, app_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getattachmentslist'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    })
+};

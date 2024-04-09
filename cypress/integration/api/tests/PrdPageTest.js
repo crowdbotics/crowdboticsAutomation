@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doPrdLogin} from '../pages/loginPage.js';
-import { doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doDeletefeature, doPatchFeature, doPutFeature, doPutCategories, doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks,doPostUsefullLinks,doGetidUsefullLinks,doPutUsefullLinks,doPatchUsefullLinks,doDeleteUsefullLinks,doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getCodeStateList, getRolesUsingId, getRoles, getAppPerformanceList, getPendingInvite, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, getAllFeatureFromBacklog, getPrdAiCategories, prd_overview_tags, prd_overview_userRoles, prd_create_group, prd_get_group, prd_delete_group, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually,} from '../pages/PrdPage.js';
+import { doGetattachmentslist,doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doDeletefeature, doPatchFeature, doPutFeature, doPutCategories, doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks,doPostUsefullLinks,doGetidUsefullLinks,doPutUsefullLinks,doPatchUsefullLinks,doDeleteUsefullLinks,doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getCodeStateList, getRolesUsingId, getRoles, getAppPerformanceList, getPendingInvite, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, getAllFeatureFromBacklog, getPrdAiCategories, prd_overview_tags, prd_overview_userRoles, prd_create_group, prd_get_group, prd_delete_group, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually } from '../pages/PrdPage.js';
 
 
 let authKey;
@@ -583,4 +583,10 @@ describe("PRD Page", () => {
 //         })
 
 //     })
+it('Get Attachments List', () => {
+    doGetattachmentslist(authKey, app_id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Get PRD Attachments List", response.body)
+    })
+})
  })
