@@ -452,14 +452,14 @@ describe("PRD Page", () => {
     // })
     it('Add Create PRD with AI', () => {
         docreatePRDWithAI(authKey, app_id, app_name).then((response) => {
-            expect(response.status).to.eq(202)
+            expect(response.status).to.eq(200)
             cy.log("Add Feature with AI", response.body)
 
         })
     })
     it('Add Feature with AI', () => {
         doAddfeaturewithAI(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(202)
+            expect(response.status).to.eq(200)
             cy.log("Add Feature with AI", response.body)
 
         })

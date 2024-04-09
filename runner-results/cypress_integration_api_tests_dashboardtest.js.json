@@ -4,7 +4,7 @@
   "passes": 35,
   "pending": 0,
   "failures": 0,
-  "start": "2024-03-15T10:00:21.972Z",
-  "duration": 28994,
+  "start": "2024-03-15T16:14:58.929Z",
+  "duration": 39558,
   "file": "cypress\\integration\\api\\tests\\dashboardtest.js"
 }
