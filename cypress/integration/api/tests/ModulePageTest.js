@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doModuleLogin } from '../pages/loginPage.js';
-import { moduleInstall, doGetapiPreinstallmodule } from '../pages/ModulePage.js';
+import { doGetmodulelist, moduleInstall, doGetapiPreinstallmodule, doCreateModules } from '../pages/ModulePage.js';
 
 
 let authKey;
@@ -34,4 +34,19 @@ describe("Module Page", () => {
     //         cy.log("Module installation triggered", response.body)
     //     })
     // })
+
+    it('Get Modules List', () => {
+        doGetmodulelist(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Modules List", response.body)
+        })
+    })
+
+    it('Create module', () => {
+        doCreateModules(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(201)
+            cy.log("Create Modules Status response", response.body)
+        })
+    })
+
 })

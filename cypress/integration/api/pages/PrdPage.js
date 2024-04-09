@@ -879,6 +879,80 @@ export const doGetUsefullLinks = (auth_key, app_id) => {
         return response;
     })
 };
+
+export const doPostUsefullLinks = (auth_key, app_id) =>{
+    return cy.fixture('api_postusefullinks.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('postUsefulLinks1') + app_id + Cypress.env('postUsefulLinks2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+
+    }).then((response) => {
+            return response;
+    })
+    })
+};
+
+export const doGetidUsefullLinks = (auth_key, app_id, usefullLinkId) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getidUsefulllinks1') + app_id + Cypress.env('getidUsefulllinks2') + usefullLinkId + Cypress.env('getidUsefulllinks3'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doPutUsefullLinks = (auth_key, app_id, usefullLinkId) => {
+
+    return cy.fixture('api_put_Usefulllinks.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putidUsefullLinks1') + app_id + Cypress.env('putidUsefullLinks2') + usefullLinkId + Cypress.env('putidUsefullLinks3'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doPatchUsefullLinks = (auth_key, app_id, usefullLinkId) => {
+
+    return cy.fixture('api_patchusefulllinks.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchidUsefullLinks1') + app_id + Cypress.env('patchidUsefullLinks2') + usefullLinkId + Cypress.env('patchidUsefullLinks3'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doDeleteUsefullLinks = (auth_key, app_id, usefullLinkId) => {
+        return cy.request({
+            method: 'DELETE',
+            url: Cypress.env('baseUrl') + Cypress.env('deleteidUsefulllinks1') + app_id + Cypress.env('deleteidUdefulllinks2') + usefullLinkId + Cypress.env('deleteidUdefulllinks3'),
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+};
+
 export const doGetStatementOfWork = (auth_key, app_id) => {
     return cy.request({
         method: 'GET',
@@ -1170,4 +1244,12 @@ export const doGetPRDList = (auth_key, app_id) => {
         }
     })
 };
-
+export const doGetattachmentslist = (auth_key, app_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getattachmentslist'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    })
+};

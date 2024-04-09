@@ -34,7 +34,7 @@ module.exports = defineConfig({
     deleteprdItem: "/api/v1/prd_groups/bulk-delete/?app=",
     deleteprdGroup: "/api/v1/prd_groups/?app=",
     createprdai1: "/api/v1/apps/",
-    createprdai2: "/prd-ai-generator/generate_features/",
+    createprdai2: "/prd-ai-generator/generate-features/",
     createcatalogtemplates: "/api/v1/prd_groups/import-archetype/?app=",
     createprdfeature: "/api/v1/prd_groups/import-features/?app=",
     updateAppName: "/api/v2/apps/",
@@ -340,6 +340,20 @@ module.exports = defineConfig({
     getPaymentReceipt2: "/payment-receipts/",
     getUsefullLinks1: "/api/v1/apps/",
     getUsefullLinks2: "/useful-links/",
+    postUsefulLinks1: "/api/v1/apps/",
+    postUsefulLinks2 : "/useful-links/",
+    getidUsefulllinks1: "/api/v1/apps/",
+    getidUsefulllinks2: "/useful-links/",
+    getidUsefulllinks3: "/",
+    putidUsefullLinks1: "/api/v1/apps/",
+    putidUsefullLinks2: "/useful-links/",
+    putidUsefullLinks3: "/",
+    patchidUsefullLinks1: "/api/v1/apps/",
+    patchidUsefullLinks2: "/useful-links/",
+    patchidUsefullLinks3: "/",
+    deleteidUsefulllinks1: "/api/v1/apps/",
+    deleteidUsefulllinks2: "/useful-links/",
+    deleteidUsefulllinks3: "/",
     getStatementOfWork1: "/api/v2/apps/",
     getStatementOfWork2: "/statement-of-work/",
     getCodePackage1: "/api/v2/apps/",
@@ -589,6 +603,12 @@ module.exports = defineConfig({
     getStudiopage1:"/api/v2/apps/",
     getStudiopage2:"/",
 
+    getattachmentslist:"/api/v1/attachments/",
+    getmoduleslist1: "/api_v2_apps_modules_list/",
+    getmoduleslist2: "/",
+    postCreatemodules1 :"/api/v2/apps/",
+    postCreatemodules2 :"/modules/",
+
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
     generateOrganizationPRD: " /api/v1/prd/generate-prd/",
@@ -646,8 +666,6 @@ module.exports = defineConfig({
     getAllPhaseOrganizationPRD1: "/api/v1/prd/",
     getAllPhaseOrganizationPRD2: "/phase/",
 
-
-    
 
     
 
