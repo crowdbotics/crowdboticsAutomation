@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doPrdLogin} from '../pages/loginPage.js';
-import { doGetattachmentslist,doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doDeletefeature, doPatchFeature, doPutFeature, doPutCategories, doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks, doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getCodeStateList, getRolesUsingId, getRoles, getAppPerformanceList, getPendingInvite, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, getAllFeatureFromBacklog, getPrdAiCategories, prd_overview_tags, prd_overview_userRoles, prd_create_group, prd_get_group, prd_delete_group, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually } from '../pages/PrdPage.js';
+import { doGetattachmentslist,doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doDeletefeature, doPatchFeature, doPutFeature, doPutCategories, doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks,doPostUsefullLinks,doGetidUsefullLinks,doPutUsefullLinks,doPatchUsefullLinks,doDeleteUsefullLinks,doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getCodeStateList, getRolesUsingId, getRoles, getAppPerformanceList, getPendingInvite, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, getAllFeatureFromBacklog, getPrdAiCategories, prd_overview_tags, prd_overview_userRoles, prd_create_group, prd_get_group, prd_delete_group, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually } from '../pages/PrdPage.js';
 
 
 let authKey;
@@ -22,6 +22,7 @@ let item_name;
 let added_items = [];
 let task_id = ["6120"];
 let generatePrd_id;
+let usefullLinkId;
 describe("PRD Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Create Tags Flow', () => {
@@ -224,6 +225,44 @@ describe("PRD Page", () => {
             cy.log("Get UsefullLinks response", response.body)
         })
     })
+    
+    it('Post UsefullLinks Flow',() =>{
+        doPostUsefullLinks(authKey, app_id,).then((response) => {
+            usefullLinkId=response.body.id;
+            expect(response.status).to.eq(201)
+            cy.log("add Usefull Links", response.body)
+        })
+
+    })
+
+    it('Get id UsefullLinks Flow', () => {
+        doGetidUsefullLinks(authKey, app_id, usefullLinkId).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get UsefullLinks id in  response", response.body)
+        })
+    })
+
+    it('Put id UsefullLinks Flow', () => {
+        doPutUsefullLinks(authKey, app_id, usefullLinkId).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Put UsefullLinks id in  response", response.body)
+        })
+    })
+
+    it('Patch id UsefullLinks Flow', () => {
+        doPatchUsefullLinks(authKey, app_id, usefullLinkId).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Patch UsefullLinks id in  response", response.body)
+        })
+    })
+    
+    it('Delete id UsefullLinks Flow', () => {
+        doDeleteUsefullLinks(authKey, app_id, usefullLinkId).then((response) => {
+            expect(response.status).to.eq(204)
+            cy.log("Delete UsefullLinks id in  response", response.body)
+        })
+    })
+
     it('Get Statement of Work Flow', () => {
         doGetStatementOfWork(authKey, app_id, app_name).then((response) => {
             expect(response.status).to.eq(200)
