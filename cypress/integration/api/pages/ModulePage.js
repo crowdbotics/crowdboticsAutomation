@@ -58,4 +58,36 @@ export const doCreateModules = (auth_key, app_id) => {
         }).then((response) => {
             return response;
         })
-    })}
+    })
+}
+
+export const doGetReadModules = (auth_key,app_id, module_id) => {
+
+    return cy.request({
+     method: 'GET',
+     url: Cypress.env('baseUrl') + Cypress.env('getreadmodules1') + app_id + Cypress.env('getreadmodules2')+module_id + Cypress.env('getreadmodules3'),
+     headers: {
+         // 'Content-Type': 'application/json',
+         // 'Accept': 'application/json',
+         'Authorization': 'Token ' + auth_key,
+     }
+ }).then((response) => {
+     return response;
+ })
+}
+
+export const doUpdateModule = (auth_key, app_id, module_id) => {
+
+    return cy.fixture('api_updatemodules.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('Putmodules1') + app_id + Cypress.env('Putmodules2') + module_id + Cypress.env('Putmodules3'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}

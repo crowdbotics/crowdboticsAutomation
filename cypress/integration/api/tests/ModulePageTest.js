@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doModuleLogin } from '../pages/loginPage.js';
-import { doGetmodulelist, moduleInstall, doGetapiPreinstallmodule, doCreateModules } from '../pages/ModulePage.js';
+import { doUpdateModule,doGetmodulelist, moduleInstall, doGetapiPreinstallmodule, doCreateModules, doGetReadModules } from '../pages/ModulePage.js';
 
 
 let authKey;
@@ -35,18 +35,32 @@ describe("Module Page", () => {
     //     })
     // })
 
-    it('Get Modules List', () => {
+    it('Get_Modules List', () => {
         doGetmodulelist(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Modules List", response.body)
         })
     })
 
-    it('Create module', () => {
+    it('Create_module', () => {
         doCreateModules(authKey, app_id).then((response) => {
             expect(response.status).to.eq(201)
+            module_id=response.body.id;
             cy.log("Create Modules Status response", response.body)
         })
     })
 
+    it('Read_module', () => {
+        doGetReadModules(authKey, app_id,module_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Read Modules Status response", response.body)
+        })
+    })  
+    it('update_module', () => {
+        doUpdateModule(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            module_id=response.body.id;
+            cy.log("update Modules Status response", response.body)
+        })
+    })
 })

@@ -604,10 +604,17 @@ module.exports = defineConfig({
     getStudiopage2:"/",
 
     getattachmentslist:"/api/v1/attachments/",
-    getmoduleslist1: "/api_v2_apps_modules_list/",
+    getmoduleslist1: "/api/v2/apps/",
     getmoduleslist2: "/",
     postCreatemodules1 :"/api/v2/apps/",
     postCreatemodules2 :"/modules/",
+    getreadmodules1 : "/api/v2/apps/",
+    getreadmodules2 :"/modules/",
+    getreadmodules3 :"/",
+    Putmodules1:"/api/v1/apps/",
+    putmodules2: "modules",
+    putmodules2: "/",
+
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
