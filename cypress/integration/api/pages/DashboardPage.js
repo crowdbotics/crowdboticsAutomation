@@ -595,3 +595,91 @@ export const getAuditLogList = (auth_key, app_id) => {
 
 };
 
+export const dogetCertifications = (auth_key, app_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getcertificstions'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doPostCertifications = (auth_key, app_id) => {
+
+    return cy.fixture('api_post_Certifications.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('postcertifications'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const dogetCertificationsid = (auth_key, app_id,Certifications_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getcertificationsid1') + Certifications_id + Cypress.env('getcertificationsid2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+export const doputCertificationsid = (auth_key, app_id,Certifications_id) => {
+
+    return cy.fixture('api_put_certifications.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putcertificationsid1') + Certifications_id + Cypress.env('putcertificationsid2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+    }).then((response) => {
+        return response;
+    })
+})
+};
+
+export const doPatchCertificationsid = (auth_key, app_id, Certifications_id) => {
+
+    return cy.fixture('api_patch_certifications.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchcertificationsid1') + Certifications_id + Cypress.env('patchcertificationsid2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};    
+
+export const doDeleteCertificationsid = (auth_key, app_id, Certifications_id) => {
+
+        return cy.request({
+            method: 'DELETE',
+            url: Cypress.env('baseUrl') + Cypress.env('deletecertificationsid1') + Certifications_id + Cypress.env('deletecertificationsid2'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+        }).then((response) => {
+            return response;
+        })
+};
