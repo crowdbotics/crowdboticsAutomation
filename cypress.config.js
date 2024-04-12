@@ -608,6 +608,7 @@ module.exports = defineConfig({
     getmoduleslist2: "/",
     postCreatemodules1 :"/api/v2/apps/",
     postCreatemodules2 :"/modules/",
+    
     getreadmodules1 : "/api/v2/apps/",
     getreadmodules2 :"/modules/",
     getreadmodules3 :"/",
@@ -615,6 +616,17 @@ module.exports = defineConfig({
     putmodules2: "modules",
     putmodules2: "/",
 
+
+    getcertificstions:"/api/v2/certifications/",
+    postcertifications:"/api/v2/certifications/",
+    getcertificationsid1: "/api/v2/certifications/",
+    getcertificationsid2:"/",
+    putcertificationsid1: "/api/v2/certifications/",
+    putcertificationsid2:"/",
+    patchcertificationsid1:"/api/v2/certifications/",
+    patchcertificationsid2:"/",
+    deletecertificationsid1:"/api/v2/certifications/",
+    deletecertificationsid2:"/",
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",

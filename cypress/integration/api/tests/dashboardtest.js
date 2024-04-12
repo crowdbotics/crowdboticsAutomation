@@ -1,6 +1,6 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
-import { doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID } from '../pages/DashboardPage.js';
+import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID } from '../pages/DashboardPage.js';
 import { doDashboardLogin } from '../pages/loginPage.js';
 
 let component_id;
@@ -12,6 +12,7 @@ let attribute_id;
 let app_id;
 let bugTask_id;
 let app_type;
+let Certifications_id;
 describe("Dashboard Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Create App Flow', () => {
@@ -295,7 +296,53 @@ describe("Dashboard Page", () => {
     //         cy.log("Get Attributes response", response.body)
     //     })
     // })
+    it('Get Certifications', () => {
+        dogetCertifications(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Certifications", response.body)
+        })
+    })
+
+    it('Post Certifications', () => {
+        doPostCertifications(authKey,app_id).then((response) => {
+            Certifications_id=response.body.id;
+            expect(response.status).to.eq(201)
+            cy.log("Post Certifications id ", response.body)
+
+        })
+    })
+
+    it('Get Certifications for id', () => {
+        dogetCertificationsid(authKey, app_id,Certifications_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Certifications id", response.body)
+        })
+    })
+
+    it('Put Certifications for id', () => {
+        doputCertificationsid(authKey, app_id,Certifications_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Put Certifications id", response.body)
+        })
+    })
+
+    it('Patch Certifications for id', () => {
+        doPatchCertificationsid(authKey,app_id,Certifications_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Patch Certifications for id", response.body)
+
+        })
+    })
+
+    it('Delete Certifiations for id', () => {
+        doDeleteCertificationsid(authKey,app_id,Certifications_id).then((response) => {
+            expect(response.status).to.eq(204)
+            cy.log("Delete Certifications", response.body)
+
+        })
+    })
 })
+
 
 
 
