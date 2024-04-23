@@ -38,5 +38,5 @@ jobs:
           SLACK_USERNAME: anish.kumar
           SLACK_COLOR: ${{ job.status }} # Color changes based on job status
           SLACK_MESSAGE: 'Cypress Test Results: ${{ job.status }}'
-          SLACK_TITLE: 'Test Notification'
+          SLACK_TITLE: 'Test Notification cypress'
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}} # Ensure you've added your Webhook URL to your repository's secrets
