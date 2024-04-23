@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - master # Change this to your main branch name
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    
 
     steps:
       - name: Checkout code
@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 18.17.0 # Use the Node.js version you need for your project
 
-      - name: unInstall dependencies
+      - name: Uninstall dependencies
         run: npm uninstall cypress
 
       - name: Install dependencies
@@ -29,3 +29,13 @@ jobs:
 
       - name: Run Cypress tests
         run: npm run test:prd   # Adjust this to your Cypress test run command
+      
+      - name: Notify Slack
+        if: always() # Ensures that the notification is sent regardless of the previous steps' success or failure
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: your-slack-channel # Channel ID or name
+          SLACK_COLOR: ${{ job.status }} # Color changes based on job status
+          SLACK_MESSAGE: 'Cypress Test Results: ${{ job.status }}'
+          SLACK_TITLE: 'Test Notification'
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}} # Ensure you've added your Webhook URL to your repository's secrets
