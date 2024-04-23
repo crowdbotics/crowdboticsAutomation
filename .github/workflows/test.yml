@@ -34,7 +34,8 @@ jobs:
         if: always() # Ensures that the notification is sent regardless of the previous steps' success or failure
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: your-slack-channel # Channel ID or name
+          SLACK_CHANNEL: automation-tests-results # Channel ID or name
+          SLACK_USERNAME: anish.kumar
           SLACK_COLOR: ${{ job.status }} # Color changes based on job status
           SLACK_MESSAGE: 'Cypress Test Results: ${{ job.status }}'
           SLACK_TITLE: 'Test Notification'
