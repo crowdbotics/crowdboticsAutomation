@@ -4,7 +4,7 @@
   "passes": 5,
   "pending": 0,
   "failures": 0,
-  "start": "2024-03-15T10:00:20.943Z",
-  "duration": 7625,
+  "start": "2024-03-15T16:14:32.855Z",
+  "duration": 8786,
   "file": "cypress\\integration\\api\\tests\\TeamMemberPageAdminTest.js"
 }

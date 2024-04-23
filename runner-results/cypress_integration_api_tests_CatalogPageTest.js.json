@@ -4,7 +4,7 @@
   "passes": 84,
   "pending": 0,
   "failures": 0,
-  "start": "2024-03-15T10:01:00.306Z",
-  "duration": 44632,
+  "start": "2024-03-15T16:14:41.119Z",
+  "duration": 73251,
   "file": "cypress\\integration\\api\\tests\\CatalogPageTest.js"
 }

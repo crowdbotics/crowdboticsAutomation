@@ -4,7 +4,7 @@
   "passes": 3,
   "pending": 0,
   "failures": 0,
-  "start": "2024-03-15T09:59:57.296Z",
-  "duration": 14928,
+  "start": "2024-03-15T16:15:24.526Z",
+  "duration": 9092,
   "file": "cypress\\integration\\api\\tests\\StudioPageTest.js"
 }

@@ -4,7 +4,7 @@
   "passes": 50,
   "pending": 0,
   "failures": 0,
-  "start": "2024-03-15T10:00:43.265Z",
-  "duration": 36987,
+  "start": "2024-03-15T16:14:49.642Z",
+  "duration": 54453,
   "file": "cypress\\integration\\api\\tests\\PrdPageTest.js"
 }
