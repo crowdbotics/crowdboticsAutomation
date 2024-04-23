@@ -29,3 +29,21 @@ jobs:
 
       - name: Run Cypress tests
         run: npm run test:prd   # Adjust this to your Cypress test run command
+
+      - name: Uploading artifact
+        run: actions/upload-artifact@v2
+        if: always()
+        with: 
+          name: cypress-execution-report
+          path: cypress/reports/html
+          retention-day: 30
+        name: slack Notification
+        uses: stCamp/action-slack-notify@v2
+        env:
+           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+           SLACK_USERNAME: anish.kumar
+           SLACK_TITLE: AAPI Test Report
+           SLACK_Message: "New Report Genrated :rocket:"
+           SLACK_COLOR: ${{ job.status}}
+
+          

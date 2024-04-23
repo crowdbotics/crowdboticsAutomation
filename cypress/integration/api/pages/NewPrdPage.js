@@ -110,7 +110,12 @@ export const doGetOrganizationPRDCategoryList = (auth_key,generatePrd_id) => {
         return response;
     })
 };
-export const doCreateOrganizationPRDCategory = (auth_key,generatePrd_id) => {
+export const doCreateOrganizationPRDCategory = (auth_key,generatePrd_id,tiltle,myPhaseId) => {
+    cy.readFile('cypress/fixtures/api_CreateOrganizationPRDCategory.json').then((data) => {
+        data.title = tiltle
+        data.phase = myPhaseId
+        cy.writeFile('cypress/fixtures/api_CreateOrganizationPRDCategory.json', JSON.stringify(data))
+    })
     return cy.fixture('api_CreateOrganizationPRDCategory.json').then((myFixture) => {
         cy.request({
             method: 'POST',
@@ -298,7 +303,7 @@ export const doRemoveModuleIntoFeatureOrganizationPRD = (auth_key,generatePrd_id
 export const doGetAllPhaseOrganizationPRD = (auth_key,generatePrd_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getAllPhaseOrganizationPRD1')+generatePrd_id+ Cypress.env('getAllPhaseOrganizationPRD2'),
+        url: Cypress.env('baseUrl') + Cypress.env('getAllPhaseOrganizationPRD1')+11998+ Cypress.env('getAllPhaseOrganizationPRD2'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
