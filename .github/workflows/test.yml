@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - master # Change this to your main branch name
-
 jobs:
   build:
     runs-on: ubuntu-latest
     
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -16,9 +16,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.17.0' # Always quote version numbers to avoid YAML parsing issues
+          node-version: 18.17.0 # Use the Node.js version you need for your project
 
-      - name: Uninstall dependencies
+      - name: unInstall dependencies
         run: npm uninstall cypress
 
       - name: Install dependencies
@@ -28,22 +28,4 @@ jobs:
         run: chmod +x node_modules/.bin/cypress-parallel
 
       - name: Run Cypress tests
-        run: npm run test:prd   # Adjust this command to match your actual npm script for running tests
-
-      - name: Uploading artifact
-        uses: actions/upload-artifact@v2
-        if: always() # Ensures artifacts are uploaded regardless of the job's success or failure
-        with: 
-          name: cypress-execution-report
-          path: cypress/reports/html
-          retention-days: 30 # Ensure this matches your requirements
-
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
-        if: always() # This will ensure the notification is sent regardless of the job's outcome
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_USERNAME: 'anish.kumar'
-          SLACK_TITLE: 'API Test Report'
-          SLACK_MESSAGE: 'New Report Generated :rocket:'
-          SLACK_COLOR: ${{ job.status == 'success' ? 'good' : 'danger' }}  # Sets color based on job status
+        run: npm run test:prd   # Adjust this to your Cypress test run command
