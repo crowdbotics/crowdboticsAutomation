@@ -6,7 +6,7 @@ module.exports = defineConfig({
   defaultCommandTimeout: 20000,
   env:
   {
-    baseUrl: "https://crowdbotics-slack-dev.herokuapp.com",
+    baseUrl: "https://crowdbotics-slack-dev.crowdbotics.com",
     username: "sneh@crowdbotics.com",
     password: "devstringx@123",
     authenticationToken: "U634c6bd8d6ff4482000de25a378a80e238d336e6",
