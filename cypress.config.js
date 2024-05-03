@@ -618,6 +618,13 @@ module.exports = defineConfig({
     patchcertificationsid2:"/",
     deletecertificationsid1:"/api/v2/certifications/",
     deletecertificationsid2:"/",
+    getCodeComponentslist: "/api/v1/catalog/code-components/",
+    addcodecomponents: "/api/v1/catalog/code-components/",
+    getCodeComponentsById1: "/api/v1/catalog/code-components/",
+    getCodeComponentsById2: "/",
+    patchCodeComponentsById1: "/api/v1/catalog/code-components/",
+    patchCodeComponentsById2: "/",
+
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",

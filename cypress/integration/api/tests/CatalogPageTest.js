@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doCatalogLogin } from '../pages/loginPage.js';
-import { doGetEdges,dopostedge,doGetEdgesByid,doputedge,dopatchedge,dodeleteEdgesByid,doPatchShareableComponent,doGetShareableComponentsById,doCreateShareableComponent,doGetShareableComponentsList,doGetCatalogPlatformList,doGetCatalogResourceList,doGetCatalogSectorList,doGetCatalogTaskList,doGetCatalogFeatureTypeList,doGetCatalogModuleTypeList,doGAddCatalogPlatformCustomDomain,doGetCatalogPlatformCustomDomain,doDeleteCatologModule,doUpdateWithPutCatologModule,doUpdateWithPatchCatologModule,doGetCatologModuleById,doDeleteCatalogArchetype, doUpdateWithPatchCatalogArchetype, doUpdateWithPutCatalogArchetype, doGetCatalogArchetypeById, doCreateCatalogArchetype, doDeleteCatalogAsset, doUpdateWithPatchCatalogAsset, doUpdateWithPutCatalogAsset, doGetCatalogAssetUsingId, doGetCatalogAssetList, doDeleteCatalogBaseType, doUpdateWithPatchCatalogBaseArchetype, doUpdateWithPutCatalogBaseArchetype, doCreateCatalogBaseArchetype, doGetCatalogBaseArchetypeList, doDeleteCatalogCategory, doUpdateWithPatchCatalogCategory, doUpdateWithPutCatalogCategory, doGetCatalogCategoryById, doDeleteCatalogModuleType, doUpdateWithPatchCatalogModuleType, doUpdateWithPutCatalogModuleType, doGetCatalogModuleTypeById, doCreateCatalogModuleType, doDeleteCatalogFeatureType, doUpdateWithPatchCatalogFeatureType, doUpdateWithPutCatalogFeatureType, doGetCatalogFeatureTypeById, doCreateCatalogFeatureType, doDeleteCatalogCodeModule, doUpdateWithPatchCatalogCodeModule, doUpdateWithPutCatalogCodeModule, doGetCatalogCodeModuleById, doDeleteCatalogTask, doUpdateWithPatchCatalogTask, doUpdateWithPutCatalogTask, doGetCatalogTaskById, doCreateCatalogTask, doDeleteCatalogSector, doUpdateWithPatchCatalogSector, doUpdateWithPutCatalogSector, doGetCatalogSectorById, doCreateCatalogSector, doDeleteCatalogResource, doUpdateWithPatchCatalogResource, doUpdateWithPutCatalogResource, doGetCatalogResourceById, doCreateCatalogResource, doDeleteCatalogPlatform, doUpdateWithPatchCatalogPlatform, doUpdateWithPutCatalogPlatform, doGetCatalogPlatformById, doAddCatalogPlatform, doGetSettingsFElist, doAddCatalogFeature, doGetCatologFeature, doAddCatalogCategory, doGetCatologCategoryList, doAddCatalogModule, doGetCatologModuleList, doImportFeature, doImportModule, doGetCatalogArchetypeList, doAddCatalogAsset, doCreateCatalogCodeModule, doGetEmbeddingSearch } from '../pages/CatalogPage.js';
+import { doGetEdges,dopostedge,doGetEdgesByid,doputedge,dopatchedge,dodeleteEdgesByid,doPatchShareableComponent,doGetShareableComponentsById,doCreateShareableComponent,doGetShareableComponentsList,doGetCatalogPlatformList,doGetCatalogResourceList,doGetCatalogSectorList,doGetCatalogTaskList,doGetCatalogFeatureTypeList,doGetCatalogModuleTypeList,doGAddCatalogPlatformCustomDomain,doGetCatalogPlatformCustomDomain,doDeleteCatologModule,doUpdateWithPutCatologModule,doUpdateWithPatchCatologModule,doGetCatologModuleById,doDeleteCatalogArchetype, doUpdateWithPatchCatalogArchetype, doUpdateWithPutCatalogArchetype, doGetCatalogArchetypeById, doCreateCatalogArchetype, doDeleteCatalogAsset, doUpdateWithPatchCatalogAsset, doUpdateWithPutCatalogAsset, doGetCatalogAssetUsingId, doGetCatalogAssetList, doDeleteCatalogBaseType, doUpdateWithPatchCatalogBaseArchetype, doUpdateWithPutCatalogBaseArchetype, doCreateCatalogBaseArchetype, doGetCatalogBaseArchetypeList, doDeleteCatalogCategory, doUpdateWithPatchCatalogCategory, doUpdateWithPutCatalogCategory, doGetCatalogCategoryById, doDeleteCatalogModuleType, doUpdateWithPatchCatalogModuleType, doUpdateWithPutCatalogModuleType, doGetCatalogModuleTypeById, doCreateCatalogModuleType, doDeleteCatalogFeatureType, doUpdateWithPatchCatalogFeatureType, doUpdateWithPutCatalogFeatureType, doGetCatalogFeatureTypeById, doCreateCatalogFeatureType, doDeleteCatalogCodeModule, doUpdateWithPatchCatalogCodeModule, doUpdateWithPutCatalogCodeModule, doGetCatalogCodeModuleById, doDeleteCatalogTask, doUpdateWithPatchCatalogTask, doUpdateWithPutCatalogTask, doGetCatalogTaskById, doCreateCatalogTask, doDeleteCatalogSector, doUpdateWithPatchCatalogSector, doUpdateWithPutCatalogSector, doGetCatalogSectorById, doCreateCatalogSector, doDeleteCatalogResource, doUpdateWithPatchCatalogResource, doUpdateWithPutCatalogResource, doGetCatalogResourceById, doCreateCatalogResource, doDeleteCatalogPlatform, doUpdateWithPatchCatalogPlatform, doUpdateWithPutCatalogPlatform, doGetCatalogPlatformById, doAddCatalogPlatform, doGetSettingsFElist, doAddCatalogFeature, doGetCatologFeature, doAddCatalogCategory, doGetCatologCategoryList, doAddCatalogModule, doGetCatologModuleList, doImportFeature, doImportModule, doGetCatalogArchetypeList, doAddCatalogAsset, doCreateCatalogCodeModule, doGetEmbeddingSearch, doGetCodeComponents, doCreateCodeComponents, doGetCodeComponentsById, doPatchCodeComponent } from '../pages/CatalogPage.js';
 
 let edge_id;
 let authKey;
@@ -40,6 +40,8 @@ let task_id;
 let archtype_id;
 let domain_name;
 let shareableComponent_id;
+let CodeComponents_id = 7;
+
 describe("Catalog Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Add Catalog Feature Flow', () => {
@@ -722,5 +724,34 @@ it('Get Catalog Module Type List Flow', () => {
             cy.log("Patch Shareable Components  response", response.body)
         })
     })
-    
+
+    it('Get Code Components List Flow', () => {
+        doGetCodeComponents(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Shareable Components List response", response.body)
+        })
+    })
+
+    it('Add Code Components Flow', () => {
+        doCreateCodeComponents(authKey).then((response) => {
+            expect(response.status).to.eq(201)
+            cy.log("Add comonents code", response.body)
+            cy.log(CodeComponents_id)
+        })
+    })
+
+    it('Get Code Components Using Id Flow', () => {
+        doGetCodeComponentsById(authKey,CodeComponents_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Code Components Using Id response", response.body)
+        })
+    })
+
+    it('Patch Code Components Using Id Flow', () => {
+        doPatchCodeComponent(authKey,CodeComponents_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Patch Code Components  response", response.body)
+        })
+    })
+       
 })
