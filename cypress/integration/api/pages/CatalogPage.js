@@ -1382,3 +1382,56 @@ export const doPatchShareableComponent = (auth_key,shareableComponent_id) => {
         })
     })
 }
+export const doGetCodeComponents = (auth_key) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getCodeComponentslist'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+export const doCreateCodeComponents = (auth_key) => {
+
+    return cy.fixture('api_add_codecomponents.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('addcodecomponents'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+export const doGetCodeComponentsById = (auth_key,CodeComponents_id) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getCodeComponentsById1')+CodeComponents_id+Cypress.env('getCodeComponentsById2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+export const doPatchCodeComponent = (auth_key,CodeComponents_id) => {
+    return cy.fixture('api_patchCodeComponents.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchCodeComponentsById1')+CodeComponents_id+Cypress.env('patchCodeComponentsById2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
