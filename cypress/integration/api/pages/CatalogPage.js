@@ -34,6 +34,59 @@ export const doGetCatologFeature = (auth_key, feature_id) => {
     })
 };
 
+export const doGettCatologFeatureById = (auth_key,feature_id) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getCatalogFeatureById1')+feature_id+Cypress.env('getCatalogFeatureById2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+export const doPatchCatologFeature = (auth_key,feature_id) => {
+    return cy.fixture('api_patchaddCatalogFeature.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchCatalogFeatureById1')+feature_id+Cypress.env('patchCatalogFeatureById2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+export const doPutCatologFeature = (auth_key, feature_id) => {
+
+    return cy.fixture('api_putCatalogfeature.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putCatalogFeatureById1')+feature_id+Cypress.env('putCatalogFeatureById2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const dodeleteCatologFeatureByid = (auth_key, feature_id) => {
+
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteCatalogFeatureById1')+feature_id+Cypress.env("deleteCatalogFeatureById2"),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+} 
 export const doGetCatologCategoryList = (auth_key) => {
 
     return cy.request({
@@ -1426,6 +1479,21 @@ export const doPatchCodeComponent = (auth_key,CodeComponents_id) => {
         cy.request({
             method: 'PATCH',
             url: Cypress.env('baseUrl') + Cypress.env('patchCodeComponentsById1')+CodeComponents_id+Cypress.env('patchCodeComponentsById2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+export const doPutCodeComponent = (auth_key, CodeComponents_id) => {
+
+    return cy.fixture('api_updatewithputCodeComponents.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putCodeComponentsById1')+CodeComponents_id+Cypress.env('putCodeComponentsById2'),
             headers: {
                 'Authorization': 'Token ' + auth_key
             },

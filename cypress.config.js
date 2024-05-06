@@ -83,6 +83,14 @@ module.exports = defineConfig({
     getAllMilestone2: "/milestones/?current_tab=proposal",
     addCatalogfeature: "/api/v1/catalog/feature/",
     getCatalogFeature: "/api/v1/catalog/feature/",
+    getCatalogFeatureById1: "/api/v1/catalog/feature/",
+    getCatalogFeatureById2: "/",
+    patchCatalogFeatureById1:"/api/v1/catalog/feature/",
+    patchCatalogFeatureById2: "/",
+    putCatalogFeatureById1: "/api/v1/catalog/feature/",
+    putCatalogFeatureById2: "/",
+    deleteCatalogFeatureById1: "/api/v1/catalog/feature/",
+    deleteCatalogFeatureById2: "/",
     addCatalogCategory: "/api/v1/catalog/category/",
     getCatologCategory: "/api/v1/catalog/category/",
     getCatalogCategoryById1: "/api/v1/catalog/category/",
@@ -624,6 +632,8 @@ module.exports = defineConfig({
     getCodeComponentsById2: "/",
     patchCodeComponentsById1: "/api/v1/catalog/code-components/",
     patchCodeComponentsById2: "/",
+    putCodeComponentsById1: "/api/v1/catalog/code-components/",
+    putCodeComponentsById2: "/",
 
 
     // ---------------PRD New FLow----------------------//
