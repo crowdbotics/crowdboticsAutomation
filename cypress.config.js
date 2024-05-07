@@ -645,8 +645,6 @@ module.exports = defineConfig({
     deleteSkillByID1: "/api/v2/skills/",
     deleteSkillByID2: "/",
 
-
-
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
     generateOrganizationPRD: " /api/v1/prd/generate-prd/",
