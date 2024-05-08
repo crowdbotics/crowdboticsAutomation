@@ -1,11 +1,14 @@
 /// <reference types = "cypress"/>
-import { doAddJobRequest, doGetJobRequest, doGetJobRequestUsingId, doEditJobRequest, doDeleteJobRequest } from '../pages/JobPage.js';
+import { doAddJobRequest, doGetJobRequest, doGetJobRequestUsingId, doEditJobRequest, doDeleteJobRequest,doGetjobtype, doAddjobtype, doGetjobtypeById, doPatchjobtype, doputJobtype, dodeleteJobtypeByid } from '../pages/JobPage.js';
 import { doJobLogin } from '../pages/loginPage.js';
 import { doCteareApp } from '../pages/DashboardPage.js';
 let job_id;
 let authKey;
 let app_id;
 let project_description;
+let job_name;
+let job_cost ;
+let jobtype_id;
 describe("Job Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Add Job Request Flow', () => {
@@ -49,9 +52,53 @@ describe("Job Page", () => {
     })
     it('Delete job Request Flow', () => {
 
-        doDeleteJobRequest(authKey, app_id, job_id).then((response) => {
+        doDeleteJobRequest(authKey, app_id, job_id,job_cost).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Delete job Request response", response.body)
         })
     })
+
+    it('Get Job Type  List Flow', () => {
+        doGetjobtype(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Skill List response", response.body)
+        })
+    })
+
+    it('Add Job Type Flow', () => {
+        doAddjobtype(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(201)
+            jobtype_id = response.body.id;
+            cy.log("Add Job Type Status response", response.body)
+        })
+    })
+
+    it('Get Job Type Using Id Flow', () => {
+        doGetjobtypeById(authKey, jobtype_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Job Type Using Id response", response.body)
+        })
+    })
+
+    it('Patch Job Type  Using Id Flow', () => {
+        doPatchjobtype(authKey,job_name,job_cost,app_id,jobtype_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Patch Job Type response", response.body)
+        })
+    })
+
+    it('Put Job type', () => {
+        doputJobtype(authKey,jobtype_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Put Code Components", response.body)
+        })
+    })
+
+    it('Delete Job type Id Flow', () => {
+        dodeleteJobtypeByid(authKey, jobtype_id).then((response) => {
+            expect(response.status).to.eq(204)
+            cy.log("Delete Catalog feature response", response.body)
+        })
+    })
+
 })

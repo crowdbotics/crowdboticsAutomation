@@ -644,6 +644,16 @@ module.exports = defineConfig({
     putSkillById2: "/",
     deleteSkillByID1: "/api/v2/skills/",
     deleteSkillByID2: "/",
+    getJobtype: "/api/v2/job_types/",
+    postJobtype: "/api/v2/job_types/",
+    getJobtypeById1: "/api/v2/job_types/",
+    getJobtypeById2: "/",
+    patchJobTypeId1:"/api/v2/job_types/",
+    patchJobTypeId2: "/",
+    putJobTypeId1:"/api/v2/job_types/",
+    putJobTypeId2: "/",
+    deleteJobtype1: "/api/v2/job_types/",
+    deleteJobtype2: "/", 
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",

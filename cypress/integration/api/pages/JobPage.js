@@ -72,3 +72,94 @@ export const doDeleteJobRequest = (auth_key, app_id, job_id) => {
     })
 
 };
+
+export const doGetjobtype = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getJobtype'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const doAddjobtype= (auth_key, app_id) => {
+    cy.readFile('cypress/fixtures/api_addJobtypes.json').then((data) => {
+        data.app = app_id;
+        cy.writeFile('cypress/fixtures/api_addJobtypes.json', JSON.stringify(data));
+    });
+    return cy.fixture('api_addJobtypes.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('postJobtype'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+export const doGetjobtypeById = (auth_key, jobtype_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getJobtypeById1')+jobtype_id+ Cypress.env('getJobtypeById2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const doPatchjobtype = (auth_key,job_name,job_cost,app_id,jobtype_id) => {
+    cy.readFile('cypress/fixtures/api_updateJobtype.json').then((data) => {
+        data.name = job_name;
+        data.cost = job_cost ;
+        data.app = app_id;
+        cy.writeFile('cypress/fixtures/api_updateJobtype.json', JSON.stringify(data));
+    });
+    return cy.fixture('api_updateJobtype.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchJobTypeId1')+jobtype_id+Cypress.env('patchJobTypeId2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+export const doputJobtype= (auth_key,jobtype_id) => {
+    return cy.fixture('api_putJobtype.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putJobTypeId1')+jobtype_id+Cypress.env('putJobTypeId2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+export const dodeleteJobtypeByid = (auth_key, jobtype_id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteJobtype1')+jobtype_id+Cypress.env("deleteJobtype2"),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
