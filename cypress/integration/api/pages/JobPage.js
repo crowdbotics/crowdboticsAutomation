@@ -137,7 +137,7 @@ export const doPatchjobtype = (auth_key,job_name,job_cost,app_id,jobtype_id) => 
     })
 }
 
-export const doputJobtype= (auth_key,jobtype_id) => {
+export const doPutJobtype= (auth_key,jobtype_id) => {
     return cy.fixture('api_putJobtype.json').then((myFixture) => {
         cy.request({
             method: 'PUT',
@@ -152,7 +152,7 @@ export const doputJobtype= (auth_key,jobtype_id) => {
     })
 }
 
-export const dodeleteJobtypeByid = (auth_key, jobtype_id) => {
+export const doDeleteJobtypeByid = (auth_key, jobtype_id) => {
     return cy.request({
         method: 'DELETE',
         url: Cypress.env('baseUrl') + Cypress.env('deleteJobtype1')+jobtype_id+Cypress.env("deleteJobtype2"),
