@@ -634,7 +634,16 @@ module.exports = defineConfig({
     patchCodeComponentsById2: "/",
     putCodeComponentsById1: "/api/v1/catalog/code-components/",
     putCodeComponentsById2: "/",
-
+    postaddskill: "/api/v2/skills/",
+    getskill: "/api/v2/skills/",
+    getSkillById1: "/api/v2/skills/",
+    getSkillById2: "/",
+    patchSkillById1: "/api/v2/skills/",
+    patchSkillById2: "/",
+    putSkillById1: "/api/v2/skills/",
+    putSkillById2: "/",
+    deleteSkillByID1: "/api/v2/skills/",
+    deleteSkillByID2: "/",
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",

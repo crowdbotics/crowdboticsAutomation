@@ -788,5 +788,49 @@ it('Get Catalog Module Type List Flow', () => {
             cy.log("Put Code Components", response.body)
         })
     })
+    
+    it('Get skill List Flow', () => {
+        doGetSkill(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Skill List response", response.body)
+        })
+    })
+
+    it('Add Skill Flow', () => {
+        doCreateSkill(authKey).then((response) => {
+            expect(response.status).to.eq(201)
+            skills_id = response.body.id;
+            cy.log("Add Skills flow", response.body)
+        })
+    })
+
+    it('Get Skill Using Id Flow', () => {
+        doGetSkillsById(authKey, skills_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Code Components Using Id response", response.body)
+        })
+    })
+
+    it('Patch Skill Using Id Flow', () => {
+        doPatchSkill(authKey, skills_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Patch Code Components  response", response.body)
+        })
+    })
+
+    it('Put Skill', () => {
+        doPutSkill(authKey, skills_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Put Code Components", response.body)
+        })
+    })
+
+    it('Delete Skill Id Flow', () => {
+        dodeleteSkillByid(authKey, skills_id).then((response) => {
+            expect(response.status).to.eq(204)
+            cy.log("Delete Catalog feature response", response.body)
+        })
+    })
+
 
 })
