@@ -8,7 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -29,14 +28,15 @@ jobs:
 
       - name: Run Cypress tests
         run: npm run test:prd   # Adjust this to your Cypress test run command
-      
+
       - name: Notify Slack
-        if: always() # Ensures that the notification is sent regardless of the previous steps' success or failure
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: automation-tests-results # Channel ID or name
+          SLACK_CHANNEL: automation-tests-results # Channel to which the message will be sent
           SLACK_USERNAME: anish.kumar
-          SLACK_COLOR: ${{ job.status }} # Color changes based on job status
-          SLACK_MESSAGE: 'Cypress Test Results: ${{ job.status }}'
-          SLACK_TITLE: 'Test Notification cypress'
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}} # Ensure you've added your Webhook URL to your repository's secrets
+          SLACK_COLOR: '#FF0000' # Color of the strip on message attachment
+          SLACK_MESSAGE: 'Cypress Tests completed' # Custom message
+          SLACK_TITLE: 'Test Notification'
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }} # Ensure you have set this secret in your repo settings
+        if: always() # This ensures the notification always sends, regardless of test results
+  
