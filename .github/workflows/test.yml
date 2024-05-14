@@ -33,7 +33,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_CHANNEL: automation-tests-results # Channel to which the message will be sent
-          SLACK_USERNAME: Ravinder
+          SLACK_USERNAME: Manan Sharma
           SLACK_COLOR: '#FF0000' # Color of the strip on message attachment
           SLACK_MESSAGE: 'Cypress Tests completed' # Custom message
           SLACK_TITLE: 'Test Notification'
