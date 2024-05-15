@@ -43,7 +43,7 @@ jobs:
         if: always() # Send a notification regardless of job success or failure
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_USERNAME: 'Himanshu Sharma'
+          SLACK_USERNAME: 'anish.kumar'
           SLACK_TITLE: 'API Test Report'
           SLACK_MESSAGE: 'New Report Generated :rocket:'
           SLACK_COLOR: ${{ job.status }}
