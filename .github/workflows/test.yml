@@ -42,6 +42,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         if: always() # Send a notification regardless of job success or failure
         env:
+          SLACK_CHANNEL: cb-automation-results
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: 'anish.kumar'
           SLACK_TITLE: 'API Test Report'
