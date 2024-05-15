@@ -32,12 +32,9 @@ jobs:
       - name: Notify Slack
         uses: rtCamp/action-slack-notify@v2
         env:
-           SLACK_CHANNEL: 'automation-tests-results'  # Specify your Slack channel here
-           SLACK_COLOR: '#42e2f4'
-           SLACK_MESSAGE: 'API TEST AUTOMATION JOB COMPLETED'
-           SLACK_TITLE: 'Cypress Test Completion'
-           SLACK_USERNAME: 'Mithilesh Tiwari'
-           SLACK_WEBHOOK: 'https://hooks.slack.com/services/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9'
-           SLACK_MENTIONS: 'UTYMMF2TU'# Ensure you have set this secret in your repo settings
-        if: always() # This ensures the notification always sends, regardless of test results
+          SLACK_CHANNEL: 'cb-automation-results' # Channel ID or name
+          SLACK_COLOR: ${{ job.status }} # Color changes based on job status
+          SLACK_MESSAGE: 'Cypress Test Results: ${{ job.status }}'
+          SLACK_TITLE: 'Test Result'
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
   
