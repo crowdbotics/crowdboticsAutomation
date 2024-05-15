@@ -3,38 +3,43 @@ name: Cypress Tests
 on:
   push:
     branches:
-      - master # Change this to your main branch name
+      - master # Trigger on pushes to the master branch
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Run the job on an Ubuntu VM
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-        
+        uses: actions/checkout@v2  # Checks out the repository code
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 18.17.0 # Use the Node.js version you need for your project
-
-      - name: Uninstall dependencies
-        run: npm uninstall cypress
+          node-version: '18.17.0'  # Set the Node.js version
 
       - name: Install dependencies
-        run: npm install cypress --save-dev
-
-      - name: Make cypress-parallel executable
-        run: chmod +x node_modules/.bin/cypress-parallel
+        run: npm install  # Install npm dependencies
 
       - name: Run Cypress tests
-        run: npm run test:prd   # Adjust this to your Cypress test run command
+        run: npm run test:prd  # Replace with your test command
 
-      - name: Notify Slack
+      - name: Notify Slack on Success
+        if: success()  # Condition to check if the previous steps succeeded
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: 'cb-automation-results' # Channel ID or name
-          SLACK_COLOR: ${{ job.status }} # Color changes based on job status
-          SLACK_MESSAGE: 'Cypress Test Results: ${{ job.status }}'
-          SLACK_TITLE: 'Test Result'
+          SLACK_CHANNEL: cb-automation-results
+          SLACK_COLOR: 'good'  # Green color indicating success
+          SLACK_MESSAGE: 'Cypress Tests Succeeded: ${{ github.run_id }}'
+          SLACK_TITLE: 'Test Success'
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-  
+
+      - name: Notify Slack on Failure
+        if: failure()  # Condition to check if the previous steps failed
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: cb-automation-results
+          SLACK_COLOR: 'danger'  # Red color indicating failure
+          SLACK_MESSAGE: 'Cypress Tests Failed: ${{ github.run_id }}'
+          SLACK_TITLE: 'Test Failure'
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
