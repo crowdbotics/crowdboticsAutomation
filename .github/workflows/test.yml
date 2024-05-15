@@ -44,7 +44,7 @@ jobs:
         env:
           SLACK_CHANNEL: cb-automation-results
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_USERNAME: 'anish.kumar'
+          SLACK_USERNAME: 'Himanshu Sharma'
           SLACK_TITLE: 'API Test Report'
           SLACK_MESSAGE: 'New Report Generated :rocket:'
           SLACK_COLOR: ${{ job.status }}
