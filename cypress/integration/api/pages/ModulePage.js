@@ -34,7 +34,7 @@ export const doGetmodulelist = (auth_key,app_id,module_id) => {
 
     return cy.request({
      method: 'GET',
-     url: Cypress.env('baseUrl') + Cypress.env('getmoduleslist1') + app_id + Cypress.env('getmoduleslist2')+module_id,
+     url: Cypress.env('baseUrl') + Cypress.env('getmoduleslist1') + app_id + Cypress.env('getmoduleslist2'),
      headers: {
          // 'Content-Type': 'application/json',
          // 'Accept': 'application/json',

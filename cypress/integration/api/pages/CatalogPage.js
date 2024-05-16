@@ -575,21 +575,21 @@ export const doDeleteCatalogCodeModule = (auth_key, module_id) => {
 };
 
 
-export const doGetEmbeddingSearch = (auth_key) => {
+// export const doGetEmbeddingSearch = (auth_key) => {
 
-    return cy.fixture('api_catalogEmbeddingSearch.json').then((myFixture) => {
-        cy.request({
-            method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('catalogEmbeddingSearch'),
-            headers: {
-                'Authorization': 'Token ' + auth_key
-            },
-            body: myFixture
-        }).then((response) => {
-            return response;
-        })
-    })
-};
+//     return cy.fixture('api_catalogEmbeddingSearch.json').then((myFixture) => {
+//         cy.request({
+//             method: 'POST',
+//             url: Cypress.env('baseUrl') + Cypress.env('catalogEmbeddingSearch'),
+//             headers: {
+//                 'Authorization': 'Token ' + auth_key
+//             },
+//             body: myFixture
+//         }).then((response) => {
+//             return response;
+//         })
+//     })
+// };
 
 export const doGetCatalogPlatformList = (auth_key) => {
     return cy.request({

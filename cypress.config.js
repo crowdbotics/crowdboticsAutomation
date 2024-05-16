@@ -147,7 +147,7 @@ module.exports = defineConfig({
     deleteCatalogCodeModule2: "/",
 
     // This end point not available in trac list
-    catalogEmbeddingSearch: "/api/v1/embedding-search/",
+    // catalogEmbeddingSearch: "/api/v1/embedding-search/",
     createConnectors1: "/api/v2/apps/",
     createConnectors2: "/connectors/",
     getConnectors1: "/api/v2/apps/",
@@ -373,7 +373,7 @@ module.exports = defineConfig({
     getPrdActivityLog1: "/prd-activity-logs/",
     getPrdAiUserType1: "/api/v1/apps/",
     getPrdAiUserType2: "/prd_ai_usertype/",
-    getAppetizeBuilds1: "/api/v1/apps/",
+    getAppetizeBuilds1: "/api/v2/apps/",
     getAppetizeBuilds2: "/appetize-builds/",
     editAmountInPaymentMilestone1: "/api/v1/apps/",
     editAmountInPaymentMilestone2: "/payment-proposals/",
@@ -464,10 +464,10 @@ module.exports = defineConfig({
     addFeaturewithAI2 : "/prd-ai-generator/generate-features-with-description/",
     addFeaturemanually1 : "/api/v1/apps/",
     addFeaturemanually2 : "/prd_ai_features/",
-    getInstallerInstalledComponents1 : "/api/v1/apps/",
+    getInstallerInstalledComponents1 : "/api/v2/apps/",
     getInstallerInstalledComponents2 : "/installer/installed-components/",
     getpreinstallmodule1 : "/installer/installed-modules/",
-    getpreinstallmodule2 : "/api/v1/apps/",
+    getpreinstallmodule2 : "/api/v2/apps/",
     addmodules1 : "/api/v2/apps/",
     addmodules2 : "/installer/install/",
     cancelPendingInvitation1 : "/api/v2/apps/",
@@ -481,25 +481,25 @@ module.exports = defineConfig({
     createcategories2 : "/prd_ai_categories/",
     deletecategories1 : "/api/v1/apps/",
     deletecategories2 : "/prd_ai_categories/",
-    getEdgeList1 : "/api/v1/apps/",
+    getEdgeList1 : "/api/v2/apps/",
     getEdgeList2 : "/edges/",
 
-    createEdge1 : "/api/v1/apps/",
+    createEdge1 : "/api/v2/apps/",
     createEdge2 : "/edges/",
 
-    getEdgeById1 : "/api/v1/apps/",
+    getEdgeById1 : "/api/v2/apps/",
     getEdgeById2  : "/edges/",
     getEdgeById3  : "/",
 
-    putEdgeById1 : "/api/v1/apps/",
+    putEdgeById1 : "/api/v2/apps/",
     putEdgeById2  : "/edges/",
     putEdgeById3  : "/",
 
-    patchEdgeById1 : "/api/v1/apps/",
+    patchEdgeById1 : "/api/v2/apps/",
     patchEdgeById2  : "/edges/",
     patchEdgeById3  : "/",
 
-    deleteEdgeById1 : "/api/v1/apps/",
+    deleteEdgeById1 : "/api/v2/apps/",
     deleteEdgeById2  : "/edges/",
     deleteEdgeById3  : "/",
     
@@ -612,8 +612,8 @@ module.exports = defineConfig({
     getStudiopage2:"/",
 
     getattachmentslist:"/api/v1/attachments/",
-    getmoduleslist1: "/api_v2_apps_modules_list/",
-    getmoduleslist2: "/",
+    getmoduleslist1: "/api/v2/apps/",
+    getmoduleslist2: "/modules/",
     postCreatemodules1 :"/api/v2/apps/",
     postCreatemodules2 :"/modules/",
     getcertificstions:"/api/v2/certifications/",
