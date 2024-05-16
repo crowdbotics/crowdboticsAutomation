@@ -30,21 +30,19 @@ jobs:
       - name: Run Cypress tests
         run: npm run test:prd   # Adjust this to your Cypress test run command
 
-      - name: Uploading artifact
-        uses: actions/upload-artifact@v2
-        if: always() # This ensures that artifacts are uploaded regardless of the previous steps' success or failure
-        with: 
-          name: cypress-execution-report
-          path: cypress/reports/html
-          retention-days: 30 # Note: Corrected from 'retention-day' to 'retention-days'
+      - name: Cypress Test Report
+        if: always()
+        uses: actions/upload-artifact@v3 
+        with:
+          name: Mochawesome HTML Report
+          path: cypress/reports/html   
+       
 
       - name: Slack Notification
+        if: always()
         uses: rtCamp/action-slack-notify@v2
-        if: always() # Send a notification regardless of job success or failure
         env:
-          SLACK_CHANNEL: cb-automation-results
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_USERNAME: 'anish.kumar'
-          SLACK_TITLE: 'API Test Report'
-          SLACK_MESSAGE: 'New Report Generated :rocket:'
-          SLACK_COLOR: ${{ job.status }}
+          SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
+          SLACK_MESSAGE: 'Test Automation Report https://github.com/Anshita-Bhasin/Cypress-E2E/actions/runs/${{github.run_id}}'
+          SLACK_TITLE: Cypress Web Test
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }} 
