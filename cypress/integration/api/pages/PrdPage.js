@@ -362,6 +362,26 @@ export const prd_get_Item = (auth_key, group_id) => {
         return response;
     })
 };
+export const doPatchItem = (auth_key, app_id, item_id, item_name) => {
+
+    cy.readFile('cypress/fixtures/api_patchGroupItem.json').then((data) => {
+        data.name = item_name;
+        cy.writeFile('cypress/fixtures/api_patchGroupItem.json', JSON.stringify(data))
+    })
+    return cy.fixture('api_patchGroupItem.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchItem1') + item_id + Cypress.env('patchItem1') + app_id,
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+
+        }).then((response) => {
+            return response;
+        })
+    })
+};
 //------Done------
 export const prd_delete_item = (auth_key, app_id, group_id, item_id) => {
 
@@ -409,26 +429,7 @@ export const doPatchGroup = (auth_key, app_id, group_id, group_name) => {
     })
 };
 
-export const doPatchItem = (auth_key, app_id, item_id, item_name) => {
 
-    cy.readFile('cypress/fixtures/api_patchGroupItem.json').then((data) => {
-        data.name = item_name;
-        cy.writeFile('cypress/fixtures/api_patchGroupItem.json', JSON.stringify(data))
-    })
-    return cy.fixture('api_patchGroupItem.json').then((myFixture) => {
-        cy.request({
-            method: 'PATCH',
-            url: Cypress.env('baseUrl') + Cypress.env('patchItem1') + item_id + Cypress.env('patchItem1') + app_id,
-            body: myFixture,
-            headers: {
-                'Authorization': 'Token ' + auth_key,
-            }
-
-        }).then((response) => {
-            return response;
-        })
-    })
-};
 //-----not implemented in python-----------
 export const doApprovePrd = (auth_key, app_id) => {
 
@@ -881,7 +882,7 @@ export const doGetUsefullLinks = (auth_key, app_id) => {
 };
 
 export const doPostUsefullLinks = (auth_key, app_id) =>{
-    return cy.fixture('api_postusefullinks.json').then((myFixture) => {
+    return cy.fixture('api_addUsefullinks.json').then((myFixture) => {
         cy.request({
             method: 'POST',
             url: Cypress.env('baseUrl') + Cypress.env('postUsefulLinks1') + app_id + Cypress.env('postUsefulLinks2'),
@@ -911,7 +912,7 @@ export const doGetidUsefullLinks = (auth_key, app_id, usefullLinkId) => {
 
 export const doPutUsefullLinks = (auth_key, app_id, usefullLinkId) => {
 
-    return cy.fixture('api_put_Usefulllinks.json').then((myFixture) => {
+    return cy.fixture('api_putUsefullinks.json').then((myFixture) => {
         cy.request({
             method: 'PUT',
             url: Cypress.env('baseUrl') + Cypress.env('putidUsefullLinks1') + app_id + Cypress.env('putidUsefullLinks2') + usefullLinkId + Cypress.env('putidUsefullLinks3'),
@@ -925,9 +926,14 @@ export const doPutUsefullLinks = (auth_key, app_id, usefullLinkId) => {
     })
 };
 
-export const doPatchUsefullLinks = (auth_key, app_id, usefullLinkId) => {
-
-    return cy.fixture('api_patchusefulllinks.json').then((myFixture) => {
+export const doPatchUsefullLinks = (auth_key, app_id,useful_title,useful_url, usefullLinkId,) => {
+    cy.readFile('cypress/fixtures/api_patchUsefullinks.json').then((data) => {
+        data.title = useful_title;
+        data.url = useful_url;
+        data.id = usefullLinkId;
+        cy.writeFile('cypress/fixtures/api_patchUsefullinks.json', JSON.stringify(data))
+    })
+    return cy.fixture('api_patchUsefullinks.json').then((myFixture) => {
         cy.request({
             method: 'PATCH',
             url: Cypress.env('baseUrl') + Cypress.env('patchidUsefullLinks1') + app_id + Cypress.env('patchidUsefullLinks2') + usefullLinkId + Cypress.env('patchidUsefullLinks3'),
@@ -1020,7 +1026,7 @@ export const doGetUserReposList = (auth_key) => {
 export const doGetPrdActivityLog = (auth_key, app_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getPrdActivityLog1') + app_id + Cypress.env('getPrdActivityLog2'),
+        url: Cypress.env('baseUrl') + Cypress.env('getPrdActivityLog1')+app_id+Cypress.env('getPrdActivityLog2'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
