@@ -28,7 +28,7 @@ jobs:
         run: chmod +x node_modules/.bin/cypress-parallel
 
       - name: Run Cypress tests
-        run: npm run test:prd   # Adjust this to your Cypress test run command
+        run: npm run test:login   # Adjust this to your Cypress test run command
 
       - name: Cypress Test Report
         if: always()
@@ -43,6 +43,6 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
-          SLACK_MESSAGE: 'Test Automation Report https://github.com/Anshita-Bhasin/Cypress-E2E/actions/runs/${{github.run_id}}'
-          SLACK_TITLE: Cypress Web Test
+          SLACK_MESSAGE: 'Test Automation Report https://github.com/anishcb/crowdbotics_automation/actions/runs/${{github.run_id}}'
+          SLACK_TITLE: Automation Test Report
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }} 
