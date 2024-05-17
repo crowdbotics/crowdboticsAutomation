@@ -34,6 +34,59 @@ export const doGetCatologFeature = (auth_key, feature_id) => {
     })
 };
 
+export const doGettCatologFeatureById = (auth_key,feature_id) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getCatalogFeatureById1')+feature_id+Cypress.env('getCatalogFeatureById2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+export const doPatchCatologFeature = (auth_key,feature_id) => {
+    return cy.fixture('api_patchaddCatalogFeature.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchCatalogFeatureById1')+feature_id+Cypress.env('patchCatalogFeatureById2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+export const doPutCatologFeature = (auth_key, feature_id) => {
+
+    return cy.fixture('api_putCatalogfeature.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putCatalogFeatureById1')+feature_id+Cypress.env('putCatalogFeatureById2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const dodeleteCatologFeatureByid = (auth_key, feature_id) => {
+
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteCatalogFeatureById1')+feature_id+Cypress.env("deleteCatalogFeatureById2"),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+} 
 export const doGetCatologCategoryList = (auth_key) => {
 
     return cy.request({
@@ -522,21 +575,21 @@ export const doDeleteCatalogCodeModule = (auth_key, module_id) => {
 };
 
 
-export const doGetEmbeddingSearch = (auth_key) => {
+// export const doGetEmbeddingSearch = (auth_key) => {
 
-    return cy.fixture('api_catalogEmbeddingSearch.json').then((myFixture) => {
-        cy.request({
-            method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('catalogEmbeddingSearch'),
-            headers: {
-                'Authorization': 'Token ' + auth_key
-            },
-            body: myFixture
-        }).then((response) => {
-            return response;
-        })
-    })
-};
+//     return cy.fixture('api_catalogEmbeddingSearch.json').then((myFixture) => {
+//         cy.request({
+//             method: 'POST',
+//             url: Cypress.env('baseUrl') + Cypress.env('catalogEmbeddingSearch'),
+//             headers: {
+//                 'Authorization': 'Token ' + auth_key
+//             },
+//             body: myFixture
+//         }).then((response) => {
+//             return response;
+//         })
+//     })
+// };
 
 export const doGetCatalogPlatformList = (auth_key) => {
     return cy.request({
@@ -1380,5 +1433,152 @@ export const doPatchShareableComponent = (auth_key,shareableComponent_id) => {
         }).then((response) => {
             return response;
         })
+    })
+}
+export const doGetCodeComponents = (auth_key) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getCodeComponentslist'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+export const doCreateCodeComponents = (auth_key) => {
+
+    return cy.fixture('api_add_codecomponents.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('addcodecomponents'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+export const doGetCodeComponentsById = (auth_key,CodeComponents_id) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getCodeComponentsById1')+CodeComponents_id+Cypress.env('getCodeComponentsById2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+export const doPatchCodeComponent = (auth_key,CodeComponents_id) => {
+    return cy.fixture('api_patchCodeComponents.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchCodeComponentsById1')+CodeComponents_id+Cypress.env('patchCodeComponentsById2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+export const doPutCodeComponent = (auth_key, CodeComponents_id) => {
+
+    return cy.fixture('api_updatewithputCodeComponents.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putCodeComponentsById1')+CodeComponents_id+Cypress.env('putCodeComponentsById2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+export const doGetSkill = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getskill'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const doCreateSkill = (auth_key) => {
+    return cy.fixture('api_addSkill.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('postaddskill'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+export const doGetSkillsById = (auth_key, skills_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getSkillById1') + skills_id + Cypress.env('getSkillById2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const doPatchSkill = (auth_key, skills_id) => {
+    return cy.fixture('api_patchSkill.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchSkillById1') + skills_id + Cypress.env('patchSkillById2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+export const doPutSkill = (auth_key, skills_id) => {
+    return cy.fixture('api_putSkill.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putSkillById1') + skills_id + Cypress.env('putSkillById2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+export const dodeleteSkillByid = (auth_key, skills_id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteSkillByID1') + skills_id + Cypress.env("deleteSkillByID2"),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
     })
 }

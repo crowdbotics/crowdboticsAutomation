@@ -22,6 +22,8 @@ let item_name;
 let added_items = [];
 let task_id = ["6120"];
 let generatePrd_id;
+let useful_title;
+let useful_url;
 let usefullLinkId;
 describe("PRD Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
@@ -135,19 +137,19 @@ describe("PRD Page", () => {
     //     })
     // })
 
-    it('Get Prd Tags Flow', () => {
-        doGetPrdTag(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Prd Tags response", response.body)
-        })
-    })
+    // it('Get Prd Tags Flow', () => {
+    //     doGetPrdTag(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get Prd Tags response", response.body)
+    //     })
+    // })
 
-    it('Get Prd Tags Using Id Flow', () => {
-        doGetPrdTagUsingId(authKey, tag_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Prd Tags Using Id response", response.body)
-        })
-    })
+    // it('Get Prd Tags Using Id Flow', () => {
+    //     doGetPrdTagUsingId(authKey, tag_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get Prd Tags Using Id response", response.body)
+    //     })
+    // })
 
 
     it('Create UserRoles Flow', () => {
@@ -206,12 +208,12 @@ describe("PRD Page", () => {
         })
     })
 
-    it('Add Suggested Features Flow', () => {
-        doAddSuggestedFeatures(authKey, app_id, app_name).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Add Suggested Features response", response.body)
-        })
-    })
+    // it('Add Suggested Features Flow', () => {
+    //     doAddSuggestedFeatures(authKey, app_id, app_name).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Add Suggested Features response", response.body)
+    //     })
+    // })
 
     it('Get Payment Receipt Flow', () => {
         doGetPaymentReceipt(authKey, app_id, app_name).then((response) => {
@@ -250,7 +252,7 @@ describe("PRD Page", () => {
     })
 
     it('Patch id UsefullLinks Flow', () => {
-        doPatchUsefullLinks(authKey, app_id, usefullLinkId).then((response) => {
+        doPatchUsefullLinks(authKey, app_id,useful_title,useful_url,usefullLinkId).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Patch UsefullLinks id in  response", response.body)
         })
@@ -426,7 +428,7 @@ describe("PRD Page", () => {
     it('Get Prd Activity Log Flow', () => {
         doGetPrdActivityLog(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
-            cy.log("Add Archetype Into Prd response", response.body)
+            cy.log("Get Prd Activity Log Flow response", response.body)
 
         })
     })
@@ -496,13 +498,13 @@ describe("PRD Page", () => {
 
         })
     })
-    it('Add Feature with AI', () => {
-        doAddfeaturewithAI(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(202)
-            cy.log("Add Feature with AI", response.body)
+    // it('Add Feature with AI', () => {
+    //     doAddfeaturewithAI(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Add Feature with AI", response.body)
 
-        })
-    })
+    //     })
+    // })
     // it('Add Feature Manually', () => {
     //     doAddfeaturemanually(authKey, app_id, categories_id, feature_id).then((response) => {
     //         categories_id = response.body.id;

@@ -4,7 +4,7 @@
   "passes": 8,
   "pending": 0,
   "failures": 0,
-  "start": "2024-03-15T10:00:59.616Z",
-  "duration": 8588,
+  "start": "2024-03-15T16:15:34.910Z",
+  "duration": 9576,
   "file": "cypress\\integration\\api\\tests\\ConnectorsPageTest.js"
 }
