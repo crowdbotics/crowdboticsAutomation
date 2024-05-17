@@ -259,5 +259,4 @@ export const doAddIcons = (auth_key, project) => {
             return response;
         })
     })
-    
 }
