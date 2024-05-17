@@ -613,7 +613,6 @@ module.exports = defineConfig({
 
     getattachmentslist:"/api/v1/attachments/",
     getmoduleslist1: "/api/v2/apps/",
-    getmoduleslist2: "/",
     getmoduleslist2: "/modules/",
     postCreatemodules1 :"/api/v2/apps/",
     postCreatemodules2 :"/modules/",
