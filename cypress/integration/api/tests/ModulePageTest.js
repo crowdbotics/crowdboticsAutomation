@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doModuleLogin } from '../pages/loginPage.js';
-import { doGetmodulelist, moduleInstall, doGetapiPreinstallmodule, doCreateModules } from '../pages/ModulePage.js';
+import { doGetmodulelist, moduleInstall, doGetapiPreinstallmodule, doCreateModules,doGetModulesById,doPatchModules,doPutModules } from '../pages/ModulePage.js';
 
 
 let authKey;
@@ -45,7 +45,29 @@ describe("Module Page", () => {
     it('Create module', () => {
         doCreateModules(authKey, app_id).then((response) => {
             expect(response.status).to.eq(201)
+            module_id = response.body.id;
             cy.log("Create Modules Status response", response.body)
+        })
+    })
+
+    it('Get modules Id Flow', () => {
+        doGetModulesById(authKey,app_id,module_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get module Using Id response", response.body)
+        })
+    })
+
+    it('Patch modules Id Flow', () => {
+        doPatchModules(authKey,app_id,module_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Patch modules response", response.body)
+        })
+    })
+
+    it('Put modules Id Flow', () => {
+        doPutModules(authKey,app_id,module_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Put modules", response.body)
         })
     })
 

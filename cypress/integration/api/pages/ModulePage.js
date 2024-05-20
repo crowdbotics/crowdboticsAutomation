@@ -59,3 +59,47 @@ export const doCreateModules = (auth_key, app_id) => {
             return response;
         })
     })}
+
+    export const doGetModulesById = (auth_key,app_id, module_id) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getmodulesbyID1')+app_id+Cypress.env('getmodulesbyID2')+module_id+Cypress.env('getmodulesbyID3'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            }
+        }).then((response) => {
+            return response;
+        })
+    }
+
+    export const doPatchModules = (auth_key,app_id, module_id) => {
+        return cy.fixture('api_patchModules.json').then((myFixture) => {
+            cy.request({
+                method: 'PATCH',
+                url: Cypress.env('baseUrl') + Cypress.env('patchmodulesbyID1')+app_id+Cypress.env('patchmodulesbyID2')+module_id+Cypress.env('patchmodulesbyID3'),
+                headers: {
+                    'Authorization': 'Token ' + auth_key
+                },
+                body: myFixture
+            }).then((response) => {
+                return response;
+            })
+        })
+    }
+
+    export const doPutModules = (auth_key,app_id,module_id) => {
+      
+        return cy.fixture('api_putModules.json').then((myFixture) => {
+            cy.request({
+                method: 'PUT',
+                url: Cypress.env('baseUrl') + Cypress.env('putmodulesbyID1')+app_id+Cypress.env('putmodulesbyID2')+module_id+Cypress.env('putmodulesbyID3'),
+                headers: {
+                    'Authorization': 'Token ' + auth_key
+                },
+                body: myFixture
+            }).then((response) => {
+                return response;
+            })
+        })
+    }
+    
