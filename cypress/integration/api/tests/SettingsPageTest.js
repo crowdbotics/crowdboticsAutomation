@@ -1,13 +1,16 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doSettingLogin } from '../pages/loginPage.js';
-import { doGetCodePackage,app_name_update, doAddLibrary, doGetLibrary, doRemoveLibrary, doAddGcpPlatform, doGetRepoBranch, change_code_privacy_private_to_public, change_code_privacy_public_to_private, delete_app } from '../pages/SettingsPage.js';
+import { doGetCodePackage,app_name_update, doAddLibrary, doGetLibrary, doRemoveLibrary, doAddGcpPlatform, doGetRepoBranch, change_code_privacy_private_to_public, change_code_privacy_public_to_private, delete_app, doCreateCodePackage, doGetCodePackageById, doPatchCodePackage, doPutCodePackage } from '../pages/SettingsPage.js';
 let app_id;
 let app_name;
 let authKey;
 let libraryIds;
 let libraryToBeAdded;
+let codepackage_id;
+let  packageName;
 describe("Settings Page", () => {
+    packageName = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Update app name Flow', () => {
         doSettingLogin().then((response) => {
@@ -47,6 +50,36 @@ describe("Settings Page", () => {
             cy.log("Get Library response", response.body)
         })
     })
+
+    it('Add Code Packages Flow', () => {
+        doCreateCodePackage(authKey,packageName).then((response) => {
+            expect(response.status).to.eq(201)
+            codepackage_id = response.body.id;
+            cy.log("Added Code Packages Flow", response.body)
+        })
+    })
+    
+    it('Get Code Packages Id Flow', () => {
+        doGetCodePackageById(authKey, codepackage_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Code Packages Using Id response", response.body)
+        })
+    })
+
+    it('Patch Code Packages Id Flow', () => {
+        doPatchCodePackage(authKey,packageName,codepackage_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Patch Code Packages response", response.body)
+        })
+    })
+
+    it('Put Code Packages Id Flow', () => {
+        doPutCodePackage(authKey,packageName,codepackage_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Put Code Packages", response.body)
+        })
+    })
+
 
     // it('Get CodePackage Flow', () => {
     //     doGetCodePackage(authKey, app_id).then((response) => {
@@ -89,5 +122,5 @@ describe("Settings Page", () => {
             cy.log("delete app response", response.body)
         })
     })
-
+    
 })
