@@ -683,3 +683,87 @@ export const doDeleteCertificationsid = (auth_key, app_id, Certifications_id) =>
             return response;
         })
 };
+
+export const getStatistics = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getStatistics'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const getBuildstages = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getBuildstages'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const getCandidates = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getCandidates'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const getFeedbacks = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getFeedbacks'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const getFeedbacksCategories = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getFeedbacksCategories'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const getReports = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getReports'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
