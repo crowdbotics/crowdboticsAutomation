@@ -1259,3 +1259,85 @@ export const doGetattachmentslist = (auth_key, app_id) => {
         }
     })
 };
+
+export const doGetSUserTypes = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getUserTypes'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const doCreateUserTypes = (auth_key) => {
+    return cy.fixture('api_addUserTypes.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('addUserTypes'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doGetSUserTypesByID = (auth_key, usertypes_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getUserTypesByID1')+Cypress.env('getUserTypesByID2')+usertypes_id+Cypress.env('getUserTypesByID3'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const doPatchUserTypes = (auth_key, usertypes_id) => {
+    return cy.fixture('api_patchUserTypes.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchUserTypesByID1')+Cypress.env('patchUserTypesByID2')+usertypes_id+Cypress.env('patchUserTypesByID3'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+export const doPutUserTypes = (auth_key, usertypes_id) => {
+    return cy.fixture('api_putUserTypes.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putUserTypesByID1')+Cypress.env('putUserTypesByID2')+usertypes_id+Cypress.env('putUserTypesByID3'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+export const dodeleteuserTypesByid = (auth_key, usertypes_id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteUserTypes1')+Cypress.env('deleteUserTypes2')+usertypes_id+Cypress.env('deleteUserTypes3'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
