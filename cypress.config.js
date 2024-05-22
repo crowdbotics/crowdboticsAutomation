@@ -695,6 +695,15 @@ module.exports = defineConfig({
     deleteUserTypes1: "/api/v2/",
     deleteUserTypes2: "user_types/",
     deleteUserTypes3: "/",
+    getShareableConnectors: "/api/v2/shareable-components/",
+    addShareableConnectors: "/api/v2/shareable-components/",
+    getShareableConnectorsById1: "/api/v2/",
+    getShareableConnectorsById2: "shareable-components/",
+    getShareableConnectorsById3: "/",
+    getShareableDataModels: "/api/v2/shareable-data-models/",
+    getShareableDataModelsByID1: "/api/v2/",
+    getShareableDataModelsByID2: "shareable-data-models/",
+    getShareableDataModelsByID3: "/",
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
