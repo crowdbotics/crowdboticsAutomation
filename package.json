@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test:prod": "npx cypress run --spec cypress/integration/api/tests/ProductionApiTest.js",
+
     "test:setting": "npx cypress run --spec cypress/integration/api/tests/SettingsPageTest.js",
     "test:all": "npx cypress run --spec cypress/integration/api/tests/SettingsPageTest.js,cypress/integration/api/tests/PrdPageTest.js,cypress/integration/api/tests/ConnectorsPageTest.js,cypress/integration/api/tests/CatalogPageTest.js,cypress/integration/api/tests/Taskstest.js,cypress/integration/api/tests/dashboardtest.js",
     "test:prd": "npx cypress run --spec cypress/integration/api/tests/PrdPageTest.js",

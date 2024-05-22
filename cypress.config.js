@@ -7,6 +7,7 @@ module.exports = defineConfig({
   env:
   {
     baseUrl: "https://crowdbotics-slack-dev.crowdbotics.com",
+    prodbaseUrl: "https://app.crowdbotics.com",
     username: "sneh@crowdbotics.com",
     password: "devstringx@123",
     authenticationToken: "U634c6bd8d6ff4482000de25a378a80e238d336e6",
