@@ -3,49 +3,42 @@ version: 2.1
 executors:
   node:
     docker:
-      - image: circleci/node:18.17.0 # Use the Node.js version you need for your project
+      - image: circleci/node:14.17.0
     working_directory: ~/repo
 
 jobs:
-  build:
+  install_dependencies:
     executor: node
     steps:
       - checkout
-      
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-
-      - run:
-          name: Uninstall Cypress if installed
-          command: npm uninstall cypress
-
       - run:
           name: Install dependencies
-          command: npm install cypress --save-dev
-
-      - run:
-          name: Make cypress-parallel executable
-          command: chmod +x node_modules/.bin/cypress-parallel
-
-      - run:
-          name: Run Cypress tests
-          command: npm run test:login
-
+          command: npm install
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
+  run_tests:
+    executor: node
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Run Cypress tests
+          command: npm run test:login
       - store_artifacts:
           path: cypress/videos
           destination: videos
-          
       - store_artifacts:
           path: cypress/screenshots
           destination: screenshots
-
       - store_test_results:
           path: cypress/results
 
@@ -53,4 +46,7 @@ workflows:
   version: 2
   test:
     jobs:
-      - build
+      - install_dependencies
+      - run_tests:
+          requires:
+            - install_dependencies
