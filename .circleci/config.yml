@@ -15,7 +15,10 @@ jobs:
           name: Install system dependencies
           command: |
             sudo apt-get update
-            sudo apt-get install -y libnss3 libgtk-3-0 libxss1 libasound2
+            sudo apt-get install -y libnss3 libgtk-3-0 libxss1 libasound2 wget
+            wget http://ftp.us.debian.org/debian/pool/main/n/nss/libnss3_3.49.1-1%2bdeb11u1_amd64.deb
+            sudo dpkg -i libnss3_3.49.1-1+deb11u1_amd64.deb
+            sudo apt-get -f install
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
