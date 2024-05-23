@@ -16,14 +16,16 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
       - run:
-          name: Install dependencies
+          name: Install system dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y libnss3 libgtk-3-0 libxss1 libasound2
+      - run:
+          name: Install Node.js dependencies
           command: npm install
-      
-      - name: Uninstall dependencies
-        run: npm uninstall cypress
-
-      - name: Install dependencies
-        run: npm install cypress --save-dev
+      - run:
+          name: Install Cypress
+          command: npm install cypress --save-dev
       - save_cache:
           paths:
             - node_modules
