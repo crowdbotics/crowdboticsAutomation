@@ -1,29 +1,45 @@
 version: 2.1
 
-executors:
-  cypress/base:
-    docker:
-      - image: cypress/browsers:node12.18.3-chrome83-ff77
-    working_directory: ~/project
-
 jobs:
-  cypress-run:
-    executor: cypress/base
+  cypress-tests:
+    docker:
+      - image: circleci/node:18.17.0-browsers # Use a Node.js image with browsers pre-installed
+    working_directory: ~/project
     steps:
       - checkout
+      
+      - run:
+          name: Setup Node.js
+          command: nvm install 18.17.0
+      
+      - run:
+          name: Uninstall Cypress (if needed)
+          command: npm uninstall cypress
+      
       - run:
           name: Install Dependencies
-          command: npm install
+          command: npm install cypress --save-dev
+      
+      - run:
+          name: Make cypress-parallel executable
+          command: chmod +x node_modules/.bin/cypress-parallel
+
       - run:
           name: Run Cypress Tests
-          command: npm run test -- --browser chrome
-      - store_artifacts:
-          path: cypress/screenshots
-      - store_artifacts:
-          path: cypress/videos
+          command: npm run test:login # Adjust this to your Cypress test run command
 
+      - store_artifacts:
+          path: cypress/reports/html
+          destination: Mochawesome HTML Report
+
+      - run:
+          name: Slack Notification
+          when: always
+          command: |
+            curl -X POST -H 'Content-type: application/json' --data '{"text":"Test Automation Report: https://github.com/anishcb/crowdbotics_automation/actions/runs/${CIRCLE_WORKFLOW_ID}"}' $SLACK_WEBHOOK
+          
 workflows:
   version: 2
   cypress-tests:
     jobs:
-      - cypress-run
+      - cypress-tests
