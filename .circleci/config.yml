@@ -3,7 +3,7 @@ version: 2.1
 executors:
   node:
     docker:
-      - image: circleci/node:14.17.0-buster # Updated to use the Buster image
+      - image: circleci/node:14.17.0-buster
     working_directory: ~/repo
 
 jobs:
@@ -11,21 +11,21 @@ jobs:
     executor: node
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
       - run:
           name: Install system dependencies
           command: |
             sudo apt-get update
             sudo apt-get install -y libnss3 libgtk-3-0 libxss1 libasound2
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       - run:
           name: Install Node.js dependencies
           command: npm install
       - run:
           name: Install Cypress
-          command: npm install cypress@13.2.0 --save-dev
+          command: npm install cypress --save-dev
       - save_cache:
           paths:
             - node_modules
