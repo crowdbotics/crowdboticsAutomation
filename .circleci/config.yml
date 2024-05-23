@@ -3,7 +3,7 @@ version: 2.1
 executors:
   node:
     docker:
-      - image: circleci/node:14.17.0-buster
+      - image: circleci/node:16-buster
     working_directory: ~/repo
 
 jobs:
@@ -11,78 +11,46 @@ jobs:
     executor: node
     steps:
       - checkout
-      # Install packages using apt-get
       - run:
-          name: Install apt packages
+          name: Update system packages
           command: |
             sudo apt-get update
-            sudo apt-get install -y \
-              libgtk2.0-0 \
-              libgtk-3-0 \
-              libgbm-dev \
-              libnotify-dev \
-              libnss3 \
-              libxss1 \
-              libasound2 \
-              libxtst6 \
-              xauth \
-              xvfb
-      # Install packages using pacman
+            sudo apt-get upgrade -y
       - run:
-          name: Install pacman packages
+          name: Install system dependencies
           command: |
-            sudo pacman -Syu --noconfirm
-            sudo pacman -S --noconfirm \
-              gtk2 \
-              gtk3 \
-              alsa-lib \
-              xorg-server-xvfb \
-              libxss \
-              nss \
-              libnotify
-      # Install packages using yum
+            sudo apt-get install -y libgtk-3-0 libxss1 libasound2 libnss3
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       - run:
-          name: Install yum packages
-          command: |
-            sudo yum install -y \
-              xorg-x11-server-Xvfb \
-              gtk2-devel \
-              gtk3-devel \
-              libnotify-devel \
-              GConf2 \
-              nss \
-              libXScrnSaver \
-              alsa-lib
-      # Install packages using dnf
+          name: Install Node.js dependencies
+          command: npm install
       - run:
-          name: Install dnf packages
-          command: |
-            sudo dnf install -y \
-              xorg-x11-server-Xvfb \
-              gtk3-devel \
-              nss \
-              alsa-lib
+          name: Install Cypress
+          command: npm install cypress --save-dev
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
 
   run_tests:
     executor: node
     steps:
       - checkout
-      # Restore installed dependencies
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
-      # Run Cypress tests
       - run:
           name: Run Cypress tests
           command: npm run test:login
-      # Store artifacts
       - store_artifacts:
           path: cypress/videos
           destination: videos
       - store_artifacts:
           path: cypress/screenshots
           destination: screenshots
-      # Store test results
       - store_test_results:
           path: cypress/results
 
