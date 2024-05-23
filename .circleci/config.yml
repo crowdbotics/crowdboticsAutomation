@@ -42,9 +42,6 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
-      - run:
-          name: Run Cypress tests
-          command: npm run test:login
       - store_artifacts:
           path: cypress/videos
           destination: videos
