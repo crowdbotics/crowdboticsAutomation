@@ -1,0 +1,29 @@
+version: 2.1
+
+executors:
+  cypress/base:
+    docker:
+      - image: cypress/browsers:node12.18.3-chrome83-ff77
+    working_directory: ~/project
+
+jobs:
+  cypress-run:
+    executor: cypress/base
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Run Cypress Tests
+          command: npm run test -- --browser chrome
+      - store_artifacts:
+          path: cypress/screenshots
+      - store_artifacts:
+          path: cypress/videos
+
+workflows:
+  version: 2
+  cypress-tests:
+    jobs:
+      - cypress-run
