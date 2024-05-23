@@ -7,46 +7,26 @@ executors:
     working_directory: ~/repo
 
 jobs:
-  install_dependencies:
-    executor: node
+  build:
+    runs-on: ubuntu-latest
+    
     steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-      - run:
-          name: Install dependencies
-          command: npm install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.17.0' # Use the Node.js version you need for your project
 
-  run_tests:
-    executor: node
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-      - run:
-          name: Run Cypress tests
-          command: npx cypress run
-      - store_artifacts:
-          path: cypress/videos
-          destination: videos
-      - store_artifacts:
-          path: cypress/screenshots
-          destination: screenshots
-      - store_test_results:
-          path: cypress/results
+      - name: Uninstall dependencies
+        run: npm uninstall cypress
 
-workflows:
-  version: 2
-  test:
-    jobs:
-      - install_dependencies
-      - run_tests:
-          requires:
-            - install_dependencies
+      - name: Install dependencies
+        run: npm install cypress --save-dev
+
+      - name: Make cypress-parallel executable
+        run: chmod +x node_modules/.bin/cypress-parallel
+
+      - name: Run Cypress tests
+        run: npm run test:login   # Adjust this to your Cypress test run command
