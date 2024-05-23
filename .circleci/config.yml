@@ -28,6 +28,9 @@ jobs:
           name: Install Node.js dependencies
           command: npm install
       - run:
+          name: UnInstall Cypress
+          command: npm uninstall cypress --save-dev
+      - run:
           name: Install Cypress
           command: npm install cypress --save-dev
       - save_cache:
