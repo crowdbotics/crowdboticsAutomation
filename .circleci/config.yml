@@ -25,9 +25,6 @@ jobs:
           command: npm install
       - run:
           name: Install Cypress
-          command: npm uninstall cypress --save-dev
-      - run:
-          name: Install Cypress
           command: npm install cypress --save-dev
       - save_cache:
           paths:
@@ -43,7 +40,7 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Run Cypress tests
-          command: npm run test:login
+          command: npx cypress open
       - store_artifacts:
           path: cypress/videos
           destination: videos
