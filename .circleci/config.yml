@@ -1,45 +1,52 @@
 version: 2.1
 
-jobs:
-  cypress-tests:
+executors:
+  node:
     docker:
-      - image: circleci/node:18.17.0-browsers # Use a Node.js image with browsers pre-installed
-    working_directory: ~/project
+      - image: circleci/node:14.17.0
+    working_directory: ~/repo
+
+jobs:
+  install_dependencies:
+    executor: node
     steps:
       - checkout
-      
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       - run:
-          name: Setup Node.js
-          command: nvm install 18.17.0
-      
-      - run:
-          name: Uninstall Cypress (if needed)
-          command: npm uninstall cypress
-      
-      - run:
-          name: Install Dependencies
-          command: npm install cypress --save-dev
-      
-      - run:
-          name: Make cypress-parallel executable
-          command: chmod +x node_modules/.bin/cypress-parallel
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
 
+  run_tests:
+    executor: node
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
       - run:
-          name: Run Cypress Tests
-          command: npm run test:login # Adjust this to your Cypress test run command
-
+          name: Run Cypress tests
+          command: npx cypress run
       - store_artifacts:
-          path: cypress/reports/html
-          destination: Mochawesome HTML Report
+          path: cypress/videos
+          destination: videos
+      - store_artifacts:
+          path: cypress/screenshots
+          destination: screenshots
+      - store_test_results:
+          path: cypress/results
 
-      - run:
-          name: Slack Notification
-          when: always
-          command: |
-            curl -X POST -H 'Content-type: application/json' --data '{"text":"Test Automation Report: https://github.com/anishcb/crowdbotics_automation/actions/runs/${CIRCLE_WORKFLOW_ID}"}' $SLACK_WEBHOOK
-          
 workflows:
   version: 2
-  cypress-tests:
+  test:
     jobs:
-      - cypress-tests
+      - install_dependencies
+      - run_tests:
+          requires:
+            - install_dependencies
