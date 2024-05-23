@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doConnectorLogin } from '../pages/loginPage.js';
-import { doCreateConnector, doGetConnector, doGetInstallerInstalComponent, doGetConnectorUsingId, doUpdateConnector, doEditConnector, doDeleteConnector, getConnectors, getConnectorscategories } from '../pages/ConnectorsPage.js';
+import { doCreateConnector, doGetConnector, doGetInstallerInstalComponent, doGetConnectorUsingId, doUpdateConnector, doEditConnector, doDeleteConnector, getConnectors, getConnectorscategories,doGetShareableConnectors, doCreateShareableConnectors, doGetShareableConnectorsByID, doGetShareableDataModels, doGetShareableDataModelsByID } from '../pages/ConnectorsPage.js';
 
 let authKey;
 let app_id;
@@ -9,6 +9,8 @@ let app_name;
 let connector_name;
 let connector_description;
 let connector_id;
+let shareableconnectors_id;
+let shareabledatamodels_id;
 
 describe("Connectors Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
@@ -95,6 +97,42 @@ describe("Connectors Page", () => {
             expect(response.status).to.eq(200)
         })
     })
+
+    it('Get Shareable Connectors Flow', () => {
+        doGetShareableConnectors(authKey).then((response) => {
+            cy.log("Get Connectors response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Add Shareable Connectors Flow', () => {
+        doCreateShareableConnectors(authKey).then((response) => {
+            expect(response.status).to.eq(201)
+            shareableconnectors_id = response.body.id;
+            cy.log("AddShareable Connectors", response.body)
+        })
+    })
+
+    it('Get Shareable Connectors Flow', () => {
+        doGetShareableConnectorsByID(authKey, shareableconnectors_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Code Components Using Id response", response.body)
+        })
+    })
     
+    it('Get Shareable Data Models Flow', () => {
+        doGetShareableDataModels(authKey).then((response) => {
+            cy.log("Get Shareable Data Models response", response.body)
+            shareabledatamodels_id = response.body.results[0].id;
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Get Shareable Data Models Flow By ID', () => {
+        doGetShareableDataModelsByID(authKey, shareabledatamodels_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Shareable Data Models Id response", response.body)
+        })
+    })
 
 })

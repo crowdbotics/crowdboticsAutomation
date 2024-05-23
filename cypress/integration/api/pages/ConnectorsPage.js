@@ -137,3 +137,67 @@ export const getConnectorscategories = (auth_key) => {
         return response;
     })
 };
+
+export const doGetShareableConnectors = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getShareableConnectors'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const doCreateShareableConnectors = (auth_key) => {
+    return cy.fixture('api_addShareableConnectors.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('addShareableConnectors'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+}
+
+export const doGetShareableConnectorsByID = (auth_key, shareableconnectors_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getShareableConnectorsById1')+Cypress.env('getShareableConnectorsById2')+shareableconnectors_id+Cypress.env('getShareableConnectorsById3'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+
+export const doGetShareableDataModels = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getShareableDataModels'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const doGetShareableDataModelsByID = (auth_key, shareabledatamodels_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getShareableDataModelsByID1')+Cypress.env('getShareableDataModelsByID2')+shareabledatamodels_id+Cypress.env('getShareableDataModelsByID3'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
