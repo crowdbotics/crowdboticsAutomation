@@ -11,46 +11,78 @@ jobs:
     executor: node
     steps:
       - checkout
+      # Install packages using apt-get
       - run:
-          name: Update system packages
+          name: Install apt packages
           command: |
             sudo apt-get update
-            sudo apt-get upgrade -y
+            sudo apt-get install -y \
+              libgtk2.0-0 \
+              libgtk-3-0 \
+              libgbm-dev \
+              libnotify-dev \
+              libnss3 \
+              libxss1 \
+              libasound2 \
+              libxtst6 \
+              xauth \
+              xvfb
+      # Install packages using pacman
       - run:
-          name: Install system dependencies
+          name: Install pacman packages
           command: |
-            sudo apt-get install -y libgtk-3-0 libxss1 libasound2 libnss3
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+            sudo pacman -Syu --noconfirm
+            sudo pacman -S --noconfirm \
+              gtk2 \
+              gtk3 \
+              alsa-lib \
+              xorg-server-xvfb \
+              libxss \
+              nss \
+              libnotify
+      # Install packages using yum
       - run:
-          name: Install Node.js dependencies
-          command: npm install
+          name: Install yum packages
+          command: |
+            sudo yum install -y \
+              xorg-x11-server-Xvfb \
+              gtk2-devel \
+              gtk3-devel \
+              libnotify-devel \
+              GConf2 \
+              nss \
+              libXScrnSaver \
+              alsa-lib
+      # Install packages using dnf
       - run:
-          name: Install Cypress
-          command: npm install cypress --save-dev
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          name: Install dnf packages
+          command: |
+            sudo dnf install -y \
+              xorg-x11-server-Xvfb \
+              gtk3-devel \
+              nss \
+              alsa-lib
 
   run_tests:
     executor: node
     steps:
       - checkout
+      # Restore installed dependencies
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
+      # Run Cypress tests
       - run:
           name: Run Cypress tests
           command: npm run test:login
+      # Store artifacts
       - store_artifacts:
           path: cypress/videos
           destination: videos
       - store_artifacts:
           path: cypress/screenshots
           destination: screenshots
+      # Store test results
       - store_test_results:
           path: cypress/results
 
