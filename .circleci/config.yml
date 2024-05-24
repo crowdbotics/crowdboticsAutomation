@@ -35,8 +35,8 @@ jobs:
       - run:
           name: Set Permissions for Cypress
           command: |
-            sudo chmod +x node_modules/.bin/cypress
-            sudo chmod +x node_modules/.bin/npx
+            chmod +x node_modules/.bin/cypress
+            chmod +x node_modules/.bin/npx
             ls -l node_modules/.bin/cypress
             ls -l node_modules/.bin/npx
       - save_cache:
@@ -54,12 +54,12 @@ jobs:
       - run:
           name: Debug permissions
           command: |
-            ls -l node_modules/.bin/cypress
-            ls -l node_modules/.bin/npx
+            ls -l node_modules/.bin/cypress || echo "Cypress binary not found"
+            ls -l node_modules/.bin/npx || echo "npx binary not found"
             ls -lR node_modules/.bin/
       - run:
           name: Run Cypress tests
-          command: sudo npm run test:login
+          command: npm run test:login
       - store_artifacts:
           path: cypress/videos
           destination: videos
