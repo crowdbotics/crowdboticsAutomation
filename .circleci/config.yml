@@ -9,6 +9,10 @@ jobs:
       - checkout
 
       - run:
+          name: Install Xvfb
+          command: sudo apt-get update && sudo apt-get install -y xvfb
+
+      - run:
           name: Uninstall dependencies
           command: npm uninstall cypress
 
@@ -17,8 +21,8 @@ jobs:
           command: npm install cypress --save-dev
 
       - run:
-          name: Run Cypress tests
-          command: npm run test:login   # Adjust this to your Cypress test run command
+          name: Run Cypress tests with Xvfb
+          command: xvfb-run npm run test:login   # Run Cypress with Xvfb
 
 workflows:
   version: 2
