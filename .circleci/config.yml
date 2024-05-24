@@ -14,11 +14,21 @@ jobs:
       - run:
           name: Update system packages
           command: |
-            sudo apt-get update && sudo apt-get upgrade -y
+            sudo apt-get update
+            sudo apt-get upgrade -y
       - run:
           name: Install system dependencies
           command: |
             sudo apt-get install -y libgtk-3-0 libxss1 libasound2 libnss3
+      - run:
+          name: Install specific npm version
+          command: sudo npm install -g npm@latest
+      - run:
+          name: Check Node and npm versions
+          command: |
+            node -v
+            npm -v
+            npx -v
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
@@ -27,16 +37,11 @@ jobs:
           name: Install Node.js dependencies
           command: npm install
       - run:
-          name: Uninstall Cypress
-          command: npm uninstall cypress --save-dev  
-      - run:
           name: Install Cypress
           command: npm install cypress --save-dev
       - run:
           name: Set Permissions for Cypress
-          command: |
-            chmod +x node_modules/.bin/cypress
-            ls -l node_modules/.bin/cypress
+          command: chmod +x node_modules/.bin/cypress
       - save_cache:
           paths:
             - node_modules
@@ -49,6 +54,12 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Check Node and npm versions
+          command: |
+            node -v
+            npm -v
+            npx -v
       - run:
           name: Debug permissions
           command: ls -l node_modules/.bin/cypress || echo "Cypress binary not found"
