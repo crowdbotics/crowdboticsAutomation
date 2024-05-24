@@ -53,7 +53,7 @@ jobs:
           command: ls -l node_modules/.bin/cypress
       - run:
           name: Run Cypress tests
-          command: npm run test:login
+          command: sudo npm run test:login
       - store_artifacts:
           path: cypress/videos
           destination: videos
