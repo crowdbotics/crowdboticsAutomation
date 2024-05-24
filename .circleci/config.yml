@@ -36,9 +36,7 @@ jobs:
           name: Set Permissions for Cypress
           command: |
             chmod +x node_modules/.bin/cypress
-            chmod +x node_modules/.bin/npx
             ls -l node_modules/.bin/cypress
-            ls -l node_modules/.bin/npx
       - save_cache:
           paths:
             - node_modules
@@ -53,13 +51,10 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Debug permissions
-          command: |
-            ls -l node_modules/.bin/cypress || echo "Cypress binary not found"
-            ls -l node_modules/.bin/npx || echo "npx binary not found"
-            ls -lR node_modules/.bin/
+          command: ls -l node_modules/.bin/cypress || echo "Cypress binary not found"
       - run:
           name: Run Cypress tests
-          command: npm run test:login
+          command: npx cypress run --spec cypress/integration/api/tests/logintest.js
       - store_artifacts:
           path: cypress/videos
           destination: videos
