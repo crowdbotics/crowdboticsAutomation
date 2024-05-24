@@ -3,7 +3,7 @@ version: 2.1
 executors:
   node:
     docker:
-      - image: circleci/node:16-buster
+      - image: circleci/node:18-buster
     working_directory: ~/repo
 
 jobs:
@@ -21,10 +21,7 @@ jobs:
           command: |
             sudo apt-get install -y libgtk-3-0 libxss1 libasound2 libnss3
       - run:
-          name: Install specific npm version
-          command: sudo npm install -g npm@latest
-      - run:
-          name: Check Node and npm versions
+          name: Check Node, npm, and npx versions
           command: |
             node -v
             npm -v
