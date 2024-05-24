@@ -28,14 +28,14 @@ jobs:
           name: Install Node.js dependencies
           command: npm install
       - run:
-          name: UnInstall Cypress
-          command: npm uninstall cypress --save-dev  
+          name: Uninstall Cypress
+          command: npm uninstall cypress --save-dev
       - run:
           name: Install Cypress
           command: npm install cypress --save-dev
       - run:
           name: Set Cypress permissions
-          command: chmod +x node_modules/.bin/cypress
+          command: sudo chmod +x node_modules/.bin/cypress
       - save_cache:
           paths:
             - node_modules
