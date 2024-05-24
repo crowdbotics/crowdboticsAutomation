@@ -1,76 +1,31 @@
 version: 2.1
 
-executors:
-  node:
-    docker:
-      - image: circleci/node:16-buster
-    working_directory: ~/repo
-
 jobs:
-  install_dependencies:
-    executor: node
-    steps:
-      - checkout
-      - run:
-          name: Update system packages
-          command: |
-            sudo apt-get update
-            sudo apt-get upgrade -y
-      - run:
-          name: Install system dependencies
-          command: |
-            sudo apt-get install -y libgtk-3-0 libxss1 libasound2 libnss3
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-      - run:
-          name: Install Node.js dependencies
-          command: npm install
-      - run:
-          name: Uninstall Cypress
-          command: npm uninstall cypress --save-dev
-      - run:
-          name: Install Cypress
-          command: npm install cypress --save-dev
-      - run:
-          name: Set npm cache directory
-          command: npm config set cache $HOME/.npm-cache --global
-      - run:
-          name: Set Cypress binary permissions
-          command: chmod +x node_modules/.bin/cypress
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+  build:
+    docker:
+      - image: cimg/node:18.17.0
 
-  run_tests:
-    executor: node
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+
       - run:
-          name: Debug permissions
-          command: ls -l node_modules/.bin/cypress
+          name: Uninstall dependencies
+          command: npm uninstall cypress
+
+      - run:
+          name: Install dependencies
+          command: npm install cypress --save-dev
+
       - run:
           name: Run Cypress tests
-          command: npm run test:login
-      - store_artifacts:
-          path: cypress/videos
-          destination: videos
-      - store_artifacts:
-          path: cypress/screenshots
-          destination: screenshots
-      - store_test_results:
-          path: cypress/results
+          command: npm run test:login   # Adjust this to your Cypress test run command
 
 workflows:
   version: 2
-  test:
+  build:
     jobs:
-      - install_dependencies
-      - run_tests:
-          requires:
-            - install_dependencies
+      - build:
+          filters:
+            branches:
+              only:
+                - circelci # Change this to your main branch name
