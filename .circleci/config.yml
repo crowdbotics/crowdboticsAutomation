@@ -26,16 +26,15 @@ jobs:
             - v1-dependencies-
       - run:
           name: Install Node.js dependencies
-          command: npm install
-      - run:
-          name: UnInstall Cypress
-          command: npm uninstall cypress --save-dev  
+          command: npm install 
       - run:
           name: Install Cypress
           command: npm install cypress --save-dev
       - run:
           name: Set Cypress permissions
-          command: chmod +x node_modules/.bin/cypress
+          command: |
+            chmod +x node_modules/.bin/cypress
+            ls -l node_modules/.bin/cypress
       - save_cache:
           paths:
             - node_modules
@@ -50,7 +49,9 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Debug permissions
-          command: ls -l node_modules/.bin/cypress
+          command: |
+            ls -l node_modules/.bin/cypress
+            ls -lR node_modules/.bin/
       - run:
           name: Run Cypress tests
           command: npm run test:login
