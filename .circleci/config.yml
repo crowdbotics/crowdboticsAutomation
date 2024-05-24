@@ -7,7 +7,20 @@ jobs:
 
     steps:
       - checkout
-
+      - run:
+          name: Update system packages
+          command: |
+            sudo apt-get update
+            sudo apt-get upgrade -y
+      - run:
+          name: Install system dependencies
+          command: |
+            sudo apt-get install -y libgtk-3-0 libxss1 libasound2 libnss3
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+            
       - run:
           name: Install Xvfb
           command: sudo apt-get update && sudo apt-get install -y xvfb
