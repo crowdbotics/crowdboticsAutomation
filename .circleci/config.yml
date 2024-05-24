@@ -3,7 +3,7 @@ version: 2.1
 executors:
   node:
     docker:
-      - image: circleci/node:18-buster
+      - image: circleci/node:16-buster
     working_directory: ~/repo
 
 jobs:
@@ -20,12 +20,6 @@ jobs:
           name: Install system dependencies
           command: |
             sudo apt-get install -y libgtk-3-0 libxss1 libasound2 libnss3
-      - run:
-          name: Check Node, npm, and npx versions
-          command: |
-            node -v
-            npm -v
-            npx -v
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
@@ -34,10 +28,13 @@ jobs:
           name: Install Node.js dependencies
           command: npm install
       - run:
+          name: UnInstall Cypress
+          command: npm uninstall cypress --save-dev  
+      - run:
           name: Install Cypress
           command: npm install cypress --save-dev
       - run:
-          name: Set Permissions for Cypress
+          name: Set Cypress permissions
           command: chmod +x node_modules/.bin/cypress
       - save_cache:
           paths:
@@ -52,17 +49,11 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
       - run:
-          name: Check Node and npm versions
-          command: |
-            node -v
-            npm -v
-            npx -v
-      - run:
           name: Debug permissions
-          command: ls -l node_modules/.bin/cypress || echo "Cypress binary not found"
+          command: ls -l node_modules/.bin/cypress
       - run:
           name: Run Cypress tests
-          command: npx cypress run --spec cypress/integration/api/tests/logintest.js
+          command: npm run test:login
       - store_artifacts:
           path: cypress/videos
           destination: videos
