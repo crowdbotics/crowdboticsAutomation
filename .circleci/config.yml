@@ -49,6 +49,9 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
       - run:
+          name: Debug permissions
+          command: ls -l node_modules/.bin/cypress
+      - run:
           name: Run Cypress tests
           command: npm run test:login
       - store_artifacts:
