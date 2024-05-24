@@ -34,8 +34,11 @@ jobs:
           name: Install Cypress
           command: npm install cypress --save-dev
       - run:
-          name: Set Cypress permissions
-          command: sudo chmod +x node_modules/.bin/cypress
+          name: Set npm cache directory
+          command: npm config set cache $HOME/.npm-cache --global
+      - run:
+          name: Set Cypress binary permissions
+          command: chmod +x node_modules/.bin/cypress
       - save_cache:
           paths:
             - node_modules
@@ -53,7 +56,7 @@ jobs:
           command: ls -l node_modules/.bin/cypress
       - run:
           name: Run Cypress tests
-          command: sudo npm run test:login
+          command: npm run test:login
       - store_artifacts:
           path: cypress/videos
           destination: videos
