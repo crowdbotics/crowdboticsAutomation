@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\cypress",
+    "\\cypress\\integration",
+    "\\cypress\\integration\\api",
+    "\\cypress\\integration\\api\\pages",
+    "\\cypress\\integration\\api\\tests"
+  ],
+  "SelectedNode": "\\cypress\\integration\\api\\pages\\CatalogPage.js",
+  "PreviewInSolutionExplorer": false
+}
