@@ -44,9 +44,12 @@ jobs:
       - image: cimg/base:stable
     steps:
       - run:
+          name: Debug Build URL
+          command: echo "CIRCLE_BUILD_URL: $CIRCLE_BUILD_URL"
+      - run:
           name: Notify Slack
           command: |
-            curl -X POST -H 'Content-type: application/json' \
+            curl -v -X POST -H 'Content-type: application/json' \
             --data '{"text":"Build finished: '"$CIRCLE_BUILD_URL"'"}' \
             https://hooks.slack.com/services/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
 
@@ -58,7 +61,7 @@ workflows:
           filters:
             branches:
               only:
-                - circelci # Change this to your main branch name
+                - circleci  # Change this to your main branch name
       - notify:
           requires:
             - build
