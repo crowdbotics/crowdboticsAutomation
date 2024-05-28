@@ -61,7 +61,7 @@ workflows:
           filters:
             branches:
               only:
-                - circelci # Change this to your main branch name
+                - circleci  # Change this to your main branch name
       - notify:
           requires:
             - build
