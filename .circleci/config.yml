@@ -46,7 +46,9 @@ jobs:
       - run:
           name: Notify Slack
           command: |
-            curl -X POST -H 'Content-type: application/json' --data '{"text":"Build finished: $CIRCLE_BUILD_URL"}'
+            curl -X POST -H 'Content-type: application/json' \
+            --data '{"text":"Build finished: '"$CIRCLE_BUILD_URL"'"}' \
+            https://hooks.slack.com/services/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
 
 workflows:
   version: 2
@@ -56,7 +58,7 @@ workflows:
           filters:
             branches:
               only:
-                - circelci # Change this to your main branch name
+                - circleci  # Change this to your main branch name
       - notify:
           requires:
             - build
