@@ -46,7 +46,7 @@ jobs:
       - run:
           name: Notify Slack
           command: |
-           curl -X POST -H 'Content-type: application/json' --data '{"text":"Test message"}' https://hooks.slack.com/services/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
+           curl -X POST -H 'Content-type: application/json' --data '{"text":"Test message"}' CIRCLE_BUILD_URL
 
 
 
