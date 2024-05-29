@@ -1,71 +1,7 @@
 version: 2.1
 
-jobs:
-  build:
-    docker:
-      - image: cimg/node:18.17.0
-
-    steps:
-      - checkout
-      - run:
-          name: Update system packages
-          command: |
-            sudo apt-get update
-            sudo apt-get upgrade -y
-      - run:
-          name: Install system dependencies
-          command: |
-            sudo apt-get install -y libgtk-3-0 libxss1 libasound2 libnss3
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-
-      - run:
-          name: Install Xvfb and libgbm
-          command: |
-            sudo apt-get update && \
-            sudo apt-get install -y xvfb libgbm1
-
-      - run:
-          name: Uninstall dependencies
-          command: npm uninstall cypress
-
-      - run:
-          name: Install dependencies
-          command: npm install cypress --save-dev
-
-      - run:
-          name: Run Cypress tests with Xvfb
-          command: xvfb-run npm run test:login   # Run Cypress with Xvfb
-
-  notify:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run:
-          name: Debug Build URL
-          command: echo "CIRCLE_BUILD_URL: $CIRCLE_BUILD_URL"
-      - run:
-          name: Notify Slack
-          command: |
-            curl -v -X POST -H 'Content-type: application/json' \
-            --data '{"text":"Build finished: '"$CIRCLE_BUILD_URL"'"}' \
-            https://hooks.slack.com/services/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
-
-workflows:
-  version: 2
-  build_and_notify:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only:
-                - circleci  # Change this to your main branch name
-      - notify:
-          requires:
-            - build
-version: 2.1
+orbs:
+  slack: circleci/slack@4.8.0  # Add the Slack orb
 
 jobs:
   build:
@@ -106,29 +42,17 @@ jobs:
           name: Run Cypress tests with Xvfb
           command: xvfb-run npm run test:login   # Run Cypress with Xvfb
 
-  notify:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run:
-          name: Debug Build URL
-          command: echo "CIRCLE_BUILD_URL: $CIRCLE_BUILD_URL"
-      - run:
-          name: Notify Slack
-          command: |
-            curl -v -X POST -H 'Content-type: application/json' \
-            --data '{"text":"Build finished: '"$CIRCLE_BUILD_URL"'"}' \
-            https://hooks.slack.com/services/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
+      - slack/notify: # Notify Slack on build completion
+          event: always
+          template: basic_success
+          channel: your-slack-channel
 
 workflows:
   version: 2
-  build_and_notify:
+  build:
     jobs:
       - build:
           filters:
             branches:
               only:
-                - circleci  # Change this to your main branch name
-      - notify:
-          requires:
-            - build
+                - circelci # Change this to your main branch name
