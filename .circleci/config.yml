@@ -45,7 +45,7 @@ jobs:
       - slack/notify: # Notify Slack on build completion
           event: always
           template: basic_success
-          channel: your-slack-channel
+          channel: automation-tests-results
 
 workflows:
   version: 2
