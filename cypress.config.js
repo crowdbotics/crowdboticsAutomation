@@ -704,6 +704,9 @@ module.exports = defineConfig({
     getShareableDataModelsByID1: "/api/v2/",
     getShareableDataModelsByID2: "shareable-data-models/",
     getShareableDataModelsByID3: "/",
+    getAllCandidates : "/api/v2/candidates/",
+    getCandidatesById1 : "/api/v2/candidates/",
+    getsCandidatesById2 : "/",
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
