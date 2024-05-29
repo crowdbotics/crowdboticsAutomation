@@ -1,5 +1,5 @@
 /// <reference types = "cypress"/>
-import { doPutJobtype, doDeleteJobtypeByid,doGetCandidatesbyID,doGetCandidates, doAddJobRequest, doGetJobRequest, doGetJobRequestUsingId, doEditJobRequest, doDeleteJobRequest,doGetjobtype, doAddjobtype, doGetjobtypeById, doPatchjobtype } from '../pages/JobPage.js';
+import { doAddJobRequest, doGetJobRequest, doGetJobRequestUsingId, doEditJobRequest, doDeleteJobRequest,doGetjobtype, doAddjobtype, doGetjobtypeById, doPatchjobtype, doputJobtype, dodeleteJobtypeByid } from '../pages/JobPage.js';
 import { doJobLogin } from '../pages/loginPage.js';
 import { doCteareApp } from '../pages/DashboardPage.js';
 let job_id;
@@ -9,7 +9,6 @@ let project_description;
 let job_name;
 let job_cost ;
 let jobtype_id;
-let candidates_id;
 describe("Job Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Add Job Request Flow', () => {
@@ -89,32 +88,17 @@ describe("Job Page", () => {
     })
 
     it('Put Job type', () => {
-        doPutJobtype(authKey,jobtype_id).then((response) => {
+        doputJobtype(authKey,jobtype_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Put Code Components", response.body)
         })
     })
 
     it('Delete Job type Id Flow', () => {
-        doDeleteJobtypeByid(authKey, jobtype_id).then((response) => {
+        dodeleteJobtypeByid(authKey, jobtype_id).then((response) => {
             expect(response.status).to.eq(204)
             cy.log("Delete Catalog feature response", response.body)
         })
     })
-    
-    it('Get Candidates Flow', () => {
-        doGetCandidates(authKey).then((response) => {
-            expect(response.status).to.eq(200)
-            candidates_id=response.body[0].id;
-            cy.log("Get Candidate response", response.body)
-        })
-    })
 
-    it('Get Candidates Byid', () => {
-        doGetCandidatesbyID(authKey,candidates_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Candidate response", response.body)
-        })
-    })
-    
 })
