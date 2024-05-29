@@ -1,6 +1,6 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
-import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID } from '../pages/DashboardPage.js';
+import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports} from '../pages/DashboardPage.js';
 import { doDashboardLogin } from '../pages/loginPage.js';
 
 let component_id;
@@ -341,8 +341,51 @@ describe("Dashboard Page", () => {
 
         })
     })
-})
 
+    it('Get Statistics Flow', () => {
+        getStatistics(authKey).then((response) => {
+            cy.log("Get Statistics response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Get Build-Stages Flow', () => {
+        getBuildstages(authKey).then((response) => {
+            cy.log("Get Build-Stages response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+    
+    it('Get Candidates Flow', () => {
+        getCandidates(authKey).then((response) => {
+            cy.log("Get Candidates response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Get Feedbacks Flow', () => {
+        getFeedbacks(authKey).then((response) => {
+            cy.log("Get Feedbacks response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Get FeedbacksCategories Flow', () => {
+        getFeedbacksCategories(authKey).then((response) => {
+            cy.log("Get FeedbacksCategories response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Get Reports Flow', () => {
+        getReports(authKey).then((response) => {
+            cy.log("Get Reports response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+    
+
+})
 
 
 
