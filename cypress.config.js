@@ -704,6 +704,16 @@ module.exports = defineConfig({
     getShareableDataModelsByID1: "/api/v2/",
     getShareableDataModelsByID2: "shareable-data-models/",
     getShareableDataModelsByID3: "/",
+    getConnectorsCategoriesByID1: "/api/v2/",
+    getConnectorsCategoriesByID2: "connectors/categories/",
+    getConnectorsCategoriesByID3: "/",
+    getConnectorsByID1: "/api/v2/",
+    getConnectorsByID2: "connectors/",
+    getConnectorsByID3: "/",
+    getJobtitles: "/api/v2/job_titles/",
+    getJobtitlesByID1 : "/api/v2/",
+    getJobtitlesByID2 : "job_titles/",
+    getJobtitlesByID3 : "/",
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",

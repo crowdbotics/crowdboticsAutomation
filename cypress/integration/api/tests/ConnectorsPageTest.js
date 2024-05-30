@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doConnectorLogin } from '../pages/loginPage.js';
-import { doCreateConnector, doGetConnector, doGetInstallerInstalComponent, doGetConnectorUsingId, doUpdateConnector, doEditConnector, doDeleteConnector, getConnectors, getConnectorscategories,doGetShareableConnectors, doCreateShareableConnectors, doGetShareableConnectorsByID, doGetShareableDataModels, doGetShareableDataModelsByID } from '../pages/ConnectorsPage.js';
+import { doCreateConnector, doGetConnector, doGetInstallerInstalComponent, doGetConnectorUsingId, doUpdateConnector, doEditConnector, doDeleteConnector, getConnectors, getConnectorscategories,doGetShareableConnectors, doCreateShareableConnectors, doGetShareableConnectorsByID, doGetShareableDataModels, doGetShareableDataModelsByID, doGetConnectorscategoriesByID, doGetConnectorsByID } from '../pages/ConnectorsPage.js';
 
 let authKey;
 let app_id;
@@ -11,6 +11,8 @@ let connector_description;
 let connector_id;
 let shareableconnectors_id;
 let shareabledatamodels_id;
+let connectorscategoris_id;
+let connectors_id
 
 describe("Connectors Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
@@ -87,14 +89,30 @@ describe("Connectors Page", () => {
     it('Get Connectors Flow', () => {
         getConnectors(authKey).then((response) => {
             cy.log("Get Connectors response", response.body)
+            connectors_id = response.body.results[0].id;
             expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Get Connectors Flow By ID', () => {
+        doGetConnectorsByID(authKey, connectors_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Connectors Id response", response.body)
         })
     })
     
     it('Get Connectorscategories Flow', () => {
         getConnectorscategories(authKey).then((response) => {
             cy.log("Get Connectorscategories response", response.body)
+            connectorscategoris_id = response.body.results[0].id;
             expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Get Connectors categories Flow By ID', () => {
+        doGetConnectorscategoriesByID(authKey, connectorscategoris_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Connectors categories Id response", response.body)
         })
     })
 

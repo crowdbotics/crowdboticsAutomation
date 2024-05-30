@@ -124,6 +124,18 @@ export const getConnectors = (auth_key) => {
     })
 };
 
+export const doGetConnectorsByID = (auth_key, connectors_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getConnectorsByID1')+Cypress.env('getConnectorsByID2')+connectors_id+Cypress.env('getConnectorsByID3'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
 export const getConnectorscategories = (auth_key) => {
     return cy.request({
         method: 'GET',
@@ -137,6 +149,18 @@ export const getConnectorscategories = (auth_key) => {
         return response;
     })
 };
+
+export const doGetConnectorscategoriesByID = (auth_key, connectorscategoris_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getConnectorsCategoriesByID1')+Cypress.env('getConnectorsCategoriesByID2')+connectorscategoris_id+Cypress.env('getConnectorsCategoriesByID3'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
 
 export const doGetShareableConnectors = (auth_key) => {
     return cy.request({

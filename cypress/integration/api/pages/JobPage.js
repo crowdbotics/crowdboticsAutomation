@@ -163,3 +163,29 @@ export const doDeleteJobtypeByid = (auth_key, jobtype_id) => {
         return response;
     })
 }
+
+export const dogetJobtitles = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getJobtitles'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doGetJobtitlesByID = (auth_key, jobtitles_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getJobtitlesByID1')+Cypress.env('getJobtitlesByID2')+jobtitles_id+Cypress.env('getJobtitlesByID3'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
