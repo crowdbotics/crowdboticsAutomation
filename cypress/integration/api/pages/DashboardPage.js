@@ -757,7 +757,7 @@ export const getFeedbacksCategories = (auth_key) => {
 export const doGetFeedbacksCategoriesByID = (auth_key, feedbacks_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getFeedbacksCategoriesById1')+Cypress.env('getFeedbacksCategoriesById2')+feedbacks_id+Cypress.env('getFeedbacksCategoriesById3'),
+        url: Cypress.env('baseUrl') + Cypress.env('getFeedbacksCategoriesById1')+feedbacks_id+Cypress.env('getFeedbacksCategoriesById2'),
         headers: {
             'Authorization': 'Token ' + auth_key
         }

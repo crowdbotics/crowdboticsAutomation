@@ -127,7 +127,7 @@ export const getConnectors = (auth_key) => {
 export const doGetConnectorsByID = (auth_key, connectors_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getConnectorsByID1')+Cypress.env('getConnectorsByID2')+connectors_id+Cypress.env('getConnectorsByID3'),
+        url: Cypress.env('baseUrl') + Cypress.env('getConnectorsByID1')+connectors_id+Cypress.env('getConnectorsByID2'),
         headers: {
             'Authorization': 'Token ' + auth_key
         }
@@ -153,7 +153,7 @@ export const getConnectorscategories = (auth_key) => {
 export const doGetConnectorscategoriesByID = (auth_key, connectorscategoris_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getConnectorsCategoriesByID1')+Cypress.env('getConnectorsCategoriesByID2')+connectorscategoris_id+Cypress.env('getConnectorsCategoriesByID3'),
+        url: Cypress.env('baseUrl') + Cypress.env('getConnectorsCategoriesByID1')+connectorscategoris_id+Cypress.env('getConnectorsCategoriesByID2'),
         headers: {
             'Authorization': 'Token ' + auth_key
         }

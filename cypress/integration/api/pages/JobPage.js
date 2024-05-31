@@ -206,7 +206,7 @@ export const dogetJobtitles = (auth_key) => {
 export const doGetJobtitlesByID = (auth_key, jobtitles_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getJobtitlesByID1')+Cypress.env('getJobtitlesByID2')+jobtitles_id+Cypress.env('getJobtitlesByID3'),
+        url: Cypress.env('baseUrl') + Cypress.env('getJobtitlesByID1')+jobtitles_id+Cypress.env('getJobtitlesByID2'),
         headers: {
             'Authorization': 'Token ' + auth_key
         }
