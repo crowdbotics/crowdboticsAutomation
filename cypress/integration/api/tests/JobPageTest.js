@@ -1,5 +1,5 @@
 /// <reference types = "cypress"/>
-import { doPutJobtype, doDeleteJobtypeByid,doGetCandidatesbyID,doGetCandidates, doAddJobRequest, doGetJobRequest, doGetJobRequestUsingId, doEditJobRequest, doDeleteJobRequest,doGetjobtype, doAddjobtype, doGetjobtypeById, doPatchjobtype } from '../pages/JobPage.js';
+import { doPutJobtype, doDeleteJobtypeByid,doGetCandidatesbyID,doGetCandidates, doAddJobRequest, doGetJobRequest, doGetJobRequestUsingId, doEditJobRequest, doDeleteJobRequest,doGetjobtype, doAddjobtype, doGetjobtypeById, doPatchjobtype, dogetJobtitles, doGetJobtitlesByID } from '../pages/JobPage.js';
 import { doJobLogin } from '../pages/loginPage.js';
 import { doCteareApp } from '../pages/DashboardPage.js';
 let job_id;
@@ -10,6 +10,7 @@ let job_name;
 let job_cost ;
 let jobtype_id;
 let candidates_id;
+let jobtitles_id;
 describe("Job Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Add Job Request Flow', () => {
@@ -114,6 +115,21 @@ describe("Job Page", () => {
         doGetCandidatesbyID(authKey,candidates_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Candidate response", response.body)
+        })
+    })
+
+    it('Get Job titles Flow', () => {
+        dogetJobtitles(authKey).then((response) => {
+            cy.log("Get Connectors response", response.body)
+            jobtitles_id= response.body[0].id;
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Get Job titles Flow By ID', () => {
+        doGetJobtitlesByID(authKey, jobtitles_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Job titles Id response", response.body)
         })
     })
     
