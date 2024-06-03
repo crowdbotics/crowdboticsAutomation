@@ -1,6 +1,6 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
-import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports} from '../pages/DashboardPage.js';
+import { dopatchcbusersbyId,doputcbusersbyId,dogetcbusersbyId,doPostcbusers,dogetcbusers,doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports} from '../pages/DashboardPage.js';
 import { doDashboardLogin } from '../pages/loginPage.js';
 
 let component_id;
@@ -13,8 +13,10 @@ let app_id;
 let bugTask_id;
 let app_type;
 let Certifications_id;
+let cb_usersid;
 describe("Dashboard Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
+    const username = 'cbrahul' + (Math.random() + 1).toString(36).substring(7);
     it('Create App Flow', () => {
         doDashboardLogin().then((response) => {
             cy.log("login response", response.body.key)
@@ -383,7 +385,43 @@ describe("Dashboard Page", () => {
             expect(response.status).to.eq(200)
         })
     })
+
+    it('Get Cb Users', () => {
+        dogetcbusers(authKey).then((response) => {
+            cy.log("Get Cb users response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Post Cb Users', () => {
+        doPostcbusers(authKey).then((response) => {
+            cb_usersid=response.body.id;
+            expect(response.status).to.eq(201)
+            cy.log("Create Cb users", response.body)
+
+        })
+    })
     
+    it('Get Cb Users by Id', () => {
+        dogetcbusersbyId(authKey,cb_usersid).then((response) => {
+            cy.log("Get Cb users response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('do Put Users ', () => {
+        doputcbusersbyId(authKey,cb_usersid,username).then((response) => {
+            cy.log("Put Cb users response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('do Patch Users ', () => {
+        dopatchcbusersbyId(authKey,cb_usersid,username).then((response) => {
+            cy.log("Patch Cb users response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
 
 })
 
