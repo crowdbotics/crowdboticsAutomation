@@ -708,7 +708,7 @@ module.exports = defineConfig({
     getCandidatesById1 : "/api/v2/candidates/",
     getsCandidatesById2 : "/",
     getcbusers : "/api/v2/cb-users/",
-    dopostcbusers : "/api/v2/cb-users/",
+    postcbusers : "/api/v2/cb-users/",
     getcbusersbyId1 : "/api/v2/cb-users/",
     getcbusersbyId2 : "/",
     putcbusers1 : "/api/v2/cb-users/",

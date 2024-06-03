@@ -787,7 +787,7 @@ export const doPostcbusers = (auth_key, app_id) => {
     return cy.fixture('api_post_cbusers.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('dopostcbusers'),
+            url: Cypress.env('baseUrl') + Cypress.env('postcbusers'),
             headers: {
                 'Authorization': 'Token ' + auth_key
             },
