@@ -394,7 +394,7 @@ describe("Dashboard Page", () => {
     })
 
     it('Post Cb Users', () => {
-        doPostcbusers(authKey,app_id).then((response) => {
+        doPostcbusers(authKey).then((response) => {
             cb_usersid=response.body.id;
             expect(response.status).to.eq(201)
             cy.log("Create Cb users", response.body)

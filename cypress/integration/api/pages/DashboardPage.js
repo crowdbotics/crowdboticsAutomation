@@ -782,7 +782,7 @@ export const dogetcbusers = (auth_key) => {
     })
 };
 
-export const doPostcbusers = (auth_key, app_id) => {
+export const doPostcbusers = (auth_key) => {
 
     return cy.fixture('api_post_cbusers.json').then((myFixture) => {
         cy.request({
