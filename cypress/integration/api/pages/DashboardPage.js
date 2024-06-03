@@ -820,7 +820,7 @@ export const doPostcbusers = (auth_key, app_id) => {
         return cy.fixture('api_put_cbusers.json').then((myFixture) => {
             cy.request({
             method: 'PUT',
-            url: Cypress.env('baseUrl') + Cypress.env('doputcbusers1') + cb_usersid + Cypress.env('doputcbusers2'),
+            url: Cypress.env('baseUrl') + Cypress.env('putcbusers1') + cb_usersid + Cypress.env('putcbusers2'),
             headers : {
                 'Authorization': 'Token ' + auth_key
             },
@@ -840,7 +840,7 @@ export const doPostcbusers = (auth_key, app_id) => {
         return cy.fixture('api_patch_cbusers.json').then((myFixture) => {
             cy.request({
             method: 'PATCH',
-            url: Cypress.env('baseUrl') + Cypress.env('dopatchusers1') + cb_usersid + Cypress.env('dopatchusers2'),
+            url: Cypress.env('baseUrl') + Cypress.env('patchusers1') + cb_usersid + Cypress.env('patchusers2'),
             headers : {
                 'Authorization': 'Token ' + auth_key
             },

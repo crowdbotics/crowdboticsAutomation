@@ -711,10 +711,10 @@ module.exports = defineConfig({
     dopostcbusers : "/api/v2/cb-users/",
     getcbusersbyId1 : "/api/v2/cb-users/",
     getcbusersbyId2 : "/",
-    doputcbusers1 : "/api/v2/cb-users/",
-    doputcbusers2 : "/",
-    dopatchusers1 : "/api/v2/cb-users/",
-    dopatchusers2 : "/",
+    putcbusers1 : "/api/v2/cb-users/",
+    putcbusers2 : "/",
+    patchusers1 : "/api/v2/cb-users/",
+    patchusers2 : "/",
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
