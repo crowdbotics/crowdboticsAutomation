@@ -717,6 +717,14 @@ module.exports = defineConfig({
     getAllCandidates : "/api/v2/candidates/",
     getCandidatesById1 : "/api/v2/candidates/",
     getsCandidatesById2 : "/",
+    getcbusers : "/api/v2/cb-users/",
+    postcbusers : "/api/v2/cb-users/",
+    getcbusersbyId1 : "/api/v2/cb-users/",
+    getcbusersbyId2 : "/",
+    putcbusers1 : "/api/v2/cb-users/",
+    putcbusers2 : "/",
+    patchusers1 : "/api/v2/cb-users/",
+    patchusers2 : "/",
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
