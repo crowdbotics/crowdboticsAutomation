@@ -147,6 +147,18 @@ export const getRolesUsingId = (auth_key, app_id) => {
         return response;
     })
 };
+
+export const doGetRolesByID = (auth_key, roles_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getRolesByID1')+roles_id+Cypress.env('getRolesByID2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
 //----------Get All Feature From Backlog--------------
 export const getAllFeatureFromBacklog = (auth_key, app_id) => {
 

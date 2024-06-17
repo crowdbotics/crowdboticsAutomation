@@ -780,6 +780,18 @@ export const getReports = (auth_key) => {
     })
 };
 
+export const doGetReportsByID = (auth_key, reports_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getReportsBYID1')+reports_id+Cypress.env('getReportsBYID2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
 export const dogetcbusers = (auth_key) => {
     return cy.request({
         method: 'GET',
@@ -864,4 +876,44 @@ export const doPostcbusers = (auth_key) => {
             
     };
 
+    export const doGetDevloperrequest = (auth_key) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getDeveloperrequest'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+        }).then((response) => {
+            return response;
+        })
+    };
+
+    export const doGetDevloperrequestByID = (auth_key, developerrequest_id) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getDeveloperrequestByID1')+developerrequest_id+Cypress.env('getDeveloperrequestByID2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            }
+        }).then((response) => {
+            return response;
+        })
+    }
+
+    export const doGetResponses = (auth_key) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getResponses'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+        }).then((response) => {
+            return response;
+        })
+    };
+  
     
