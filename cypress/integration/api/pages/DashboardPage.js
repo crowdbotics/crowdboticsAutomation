@@ -779,3 +779,89 @@ export const getReports = (auth_key) => {
         return response;
     })
 };
+
+export const dogetcbusers = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getcbusers'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doPostcbusers = (auth_key) => {
+
+    return cy.fixture('api_post_cbusers.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('postcbusers'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};    
+
+    export const dogetcbusersbyId = (auth_key, cb_usersid) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getcbusersbyId1')+ cb_usersid + Cypress.env('getcbusersbyId2'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+        }).then((response) => {
+            return response;
+        })   
+    };         
+
+    export const doputcbusersbyId = (auth_key, cb_usersid, username1) => {
+        cy.readFile('cypress/fixtures/api_put_cbusers.json').then((data) => {
+            data.username = username1;
+            cy.writeFile('cypress/fixtures/api_put_cbusers.json', JSON.stringify(data))
+        })
+        return cy.fixture('api_put_cbusers.json').then((myFixture) => {
+            cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putcbusers1') + cb_usersid + Cypress.env('putcbusers2'),
+            headers : {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })    
+            
+    }; 
+    
+    export const dopatchcbusersbyId = (auth_key, cb_usersid, username1) => {
+        cy.readFile('cypress/fixtures/api_patch_cbusers.json').then((data) => {
+            data.username = username1;
+            cy.writeFile('cypress/fixtures/api_patch_cbusers.json', JSON.stringify(data))
+        })
+        return cy.fixture('api_patch_cbusers.json').then((myFixture) => {
+            cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchusers1') + cb_usersid + Cypress.env('patchusers2'),
+            headers : {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })    
+            
+    };
+
+    
