@@ -145,6 +145,14 @@ module.exports = defineConfig({
     UpdateWithPatchCatalogCodeModuleById2: "/",
     deleteCatalogCodeModule1: "/api/v1/catalog/code-module/",
     deleteCatalogCodeModule2: "/",
+    getConnectorsCategoriesByID1: "/api/v2/connectors/categories/",
+    getConnectorsCategoriesByID2: "/",
+    getConnectorsByID1: "/api/v2/connectors/",
+    getConnectorsByID2: "/",
+    getJobtitles: "/api/v2/job_titles/",
+    getJobtitlesByID1 : "/api/v2/job_titles/",
+    getJobtitlesByID2 : "/",
+
 
     // This end point not available in trac list
     // catalogEmbeddingSearch: "/api/v1/embedding-search/",
@@ -680,6 +688,8 @@ module.exports = defineConfig({
     getConnectorscategories: "/api/v2/connectors/categories/",
     getFeedbacks: "/api/v2/feedbacks/",
     getFeedbacksCategories: "/api/v2/feedbacks/categories/",
+    getFeedbacksCategoriesById1: "/api/v2/feedbacks/categories/",
+    getFeedbacksCategoriesById2: "/",
     getReports: "/api/v2/reports/",
     getUserTypes: "/api/v2/user_types/",
     addUserTypes: "/api/v2/user_types/",

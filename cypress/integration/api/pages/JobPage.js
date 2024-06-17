@@ -188,3 +188,29 @@ export const doGetCandidatesbyID = (auth_key, candidates_id) => {
     })
 
 }; 
+
+export const dogetJobtitles = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getJobtitles'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doGetJobtitlesByID = (auth_key, jobtitles_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getJobtitlesByID1')+jobtitles_id+Cypress.env('getJobtitlesByID2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
