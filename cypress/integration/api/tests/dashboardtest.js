@@ -1,6 +1,8 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
 import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports} from '../pages/DashboardPage.js';
+import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID} from '../pages/DashboardPage.js';
+import { dopatchcbusersbyId,doputcbusersbyId,dogetcbusersbyId,doPostcbusers,dogetcbusers,doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports} from '../pages/DashboardPage.js';
 import { doDashboardLogin } from '../pages/loginPage.js';
 
 let component_id;
@@ -13,6 +15,8 @@ let app_id;
 let bugTask_id;
 let app_type;
 let Certifications_id;
+let feedbacks_id
+let cb_usersid;
 describe("Dashboard Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     const username = 'cbrahul' + (Math.random() + 1).toString(36).substring(7);
