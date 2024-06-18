@@ -269,6 +269,8 @@ module.exports = defineConfig({
     getAppPerformanceList1: "/api/v2/apps/",
     getAppPerformanceList2: "/performance/",
     getRoles: "/api/v2/roles/",
+    getRolesByID1: "/api/v2/roles/",
+    getRolesByID2:"/",
     getCodestateList: "/api/v1/code_stats/?app=",
     getTaskById1: "/api/v2/tasks/",
     getTaskById2: "/",
@@ -691,6 +693,8 @@ module.exports = defineConfig({
     getFeedbacksCategoriesById1: "/api/v2/feedbacks/categories/",
     getFeedbacksCategoriesById2: "/",
     getReports: "/api/v2/reports/",
+    getReportsBYID1: "/api/v2/reports/",
+    getReportsBYID2: "/",
     getUserTypes: "/api/v2/user_types/",
     addUserTypes: "/api/v2/user_types/",
     getUserTypesByID1: "/api/v2/",
@@ -725,6 +729,10 @@ module.exports = defineConfig({
     putcbusers2 : "/",
     patchusers1 : "/api/v2/cb-users/",
     patchusers2 : "/",
+    getDeveloperrequest: "/api/v1/developer_requests/",
+    getDeveloperrequestByID1: "/api/v1/developer_requests/",
+    getDeveloperrequestByID2: "/",
+    getResponses: "/api/v2/responses/",
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",

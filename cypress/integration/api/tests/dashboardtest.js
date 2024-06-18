@@ -1,7 +1,6 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
-import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID} from '../pages/DashboardPage.js';
-import { dopatchcbusersbyId,doputcbusersbyId,dogetcbusersbyId,doPostcbusers,dogetcbusers,doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports} from '../pages/DashboardPage.js';
+import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID,dogetcbusers,doPostcbusers,dogetcbusersbyId,doputcbusersbyId,dopatchcbusersbyId, doGetReportsByID,doGetDevloperrequest,doGetDevloperrequestByID, doGetResponses} from '../pages/DashboardPage.js';
 import { doDashboardLogin } from '../pages/loginPage.js';
 
 let component_id;
@@ -16,6 +15,8 @@ let app_type;
 let Certifications_id;
 let feedbacks_id
 let cb_usersid;
+let reports_id;
+let developerrequest_id;
 describe("Dashboard Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     const username = 'cbrahul' + (Math.random() + 1).toString(36).substring(7);
@@ -385,14 +386,22 @@ describe("Dashboard Page", () => {
     it('GetFeedbacks Categories  Flow By ID', () => {
         doGetFeedbacksCategoriesByID(authKey, feedbacks_id).then((response) => {
             expect(response.status).to.eq(200)
-            cy.log("Get Connectors categories Id response", response.body)
+            cy.log("Get Feedbacks categories Id response", response.body)
         })
     })
 
     it('Get Reports Flow', () => {
         getReports(authKey).then((response) => {
             cy.log("Get Reports response", response.body)
+            reports_id = response.body.results[0].id;
             expect(response.status).to.eq(200)
+        })
+    })
+
+    it('GetReports Flow By ID', () => {
+        doGetReportsByID(authKey, reports_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Reports Id response", response.body)
         })
     })
 
@@ -433,7 +442,28 @@ describe("Dashboard Page", () => {
         })
     })
 
-})
+    it('Get Developer request Flow', () => {
+        doGetDevloperrequest(authKey).then((response) => {
+            cy.log("Get developer request response", response.body)
+            developerrequest_id =response.body.id;
+            expect(response.status).to.eq(200)
+        })
+    })
 
+    it('GetDeveloper Request Flow By ID', () => {
+        doGetDevloperrequestByID(authKey, developerrequest_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Devloper Request Id response", response.body)
+        })
+    })
+
+    it('Get responses Flow', () => {
+        doGetResponses(authKey).then((response) => {
+            cy.log("Get developer request response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+})
 
 
