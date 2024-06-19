@@ -1,6 +1,6 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
-import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID,dogetcbusers,doPostcbusers,dogetcbusersbyId,doputcbusersbyId,dopatchcbusersbyId, doGetReportsByID,doGetDevloperrequest,doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById,doGetLogs,doGetLogsById} from '../pages/DashboardPage.js';
+import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID,dogetcbusers,doPostcbusers,dogetcbusersbyId,doputcbusersbyId,dopatchcbusersbyId, doGetReportsByID,doGetDevloperrequest,doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById,doGetLogs,doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID} from '../pages/DashboardPage.js';
 import { doDashboardLogin } from '../pages/loginPage.js';
 
 let component_id;
@@ -13,12 +13,13 @@ let app_id;
 let bugTask_id;
 let app_type;
 let Certifications_id;
-let feedbacks_id
+let feedbacks_id;
 let cb_usersid;
 let reports_id;
 let developerrequest_id;
 let attributes_id ;
-let logs_id
+let logs_id;
+let memberfeedback_id;
 describe("Dashboard Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     const username = 'cbrahul' + (Math.random() + 1).toString(36).substring(7);
@@ -295,7 +296,7 @@ describe("Dashboard Page", () => {
         getAttributes(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Attributes response", response.body)
-            attributes_id=response.body.id;
+            attributes_id=response.body[0].id;
         })
     })
     
@@ -457,7 +458,7 @@ describe("Dashboard Page", () => {
     it('Get Developer request Flow', () => {
         doGetDevloperrequest(authKey).then((response) => {
             cy.log("Get developer request response", response.body)
-            developerrequest_id =response.body.id;
+            developerrequest_id =response.body[0].id;
             expect(response.status).to.eq(200)
         })
     })
@@ -505,6 +506,29 @@ describe("Dashboard Page", () => {
             expect(response.status).to.eq(200)
             cy.log("Create Bug Task response", response.body)
 
+        })
+    })
+
+    it('Post Dashboard feedback', () => {
+        doPostDashboardfeedbacks(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Post Dashboard feedback ", response.body)
+
+        })
+    })
+
+    it('Get member feedback Flow', () => {
+        doGetMemberfeedback(authKey).then((response) => {
+            cy.log("Get Appetizedevices response", response.body)
+            memberfeedback_id =response.body[0].id;
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Get Member feedback Flow By ID', () => {
+        doGetfeedbackmemberByID(authKey, memberfeedback_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Devloper Request Id response", response.body)
         })
     })
 
