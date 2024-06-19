@@ -740,7 +740,7 @@ module.exports = defineConfig({
     getAttributes2: "/attributes/",
     getAttributes3: "/",
     getLogs1: "/api/v2/apps/",
-    getLogs2: "logs",
+    getLogs2: "/logs/",
     getLogsByID1: "/api/v2/apps/",
     getLogsByID2: "/logs/",
     getLogsByID3: "/",
