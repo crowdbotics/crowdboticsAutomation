@@ -319,8 +319,6 @@ export const getAppSupportType = (auth_key) => {
     })
 };
 
-
-
 export const getAppInfo = (auth_key, app_id) => {
     return cy.request({
         method: 'GET',
@@ -427,8 +425,8 @@ export const doCreateAttributes = (auth_key, app_id) => {
     return cy.fixture('api_createAttributes.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            // url: Cypress.env('baseUrl') + Cypress.env('createAttributes1')+app_id+Cypress.env('createAttributes2'),
-            url: Cypress.env('baseUrl') + '/api/v1/apps/' + app_id + '/attributes/',
+            url: Cypress.env('baseUrl') + Cypress.env('createAttributes1')+app_id+Cypress.env('createAttributes2'),
+            // url: Cypress.env('baseUrl') + '/api/v2/apps/' + app_id + '/attributes/',
 
             headers: {
                 'Content-Type': 'application/json',
@@ -445,8 +443,22 @@ export const doCreateAttributes = (auth_key, app_id) => {
 export const getAttributes = (auth_key, app_id) => {
     return cy.request({
         method: 'GET',
-        // url: Cypress.env('baseUrl') + Cypress.env('getAttributes1')+app_id+Cypress.env('getAttributes2'),  
-        url: Cypress.env('baseUrl') + '/api/v1/apps/' + app_id + '/attributes/',
+        url: Cypress.env('baseUrl') + Cypress.env('getAttributes1')+app_id+Cypress.env('getAttributes2'),  
+        // url: Cypress.env('baseUrl') + '/api/v2/apps/' + app_id + '/attributes/',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doGetAttributesById = (auth_key, app_id, attributes_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getAttributes1') + app_id + Cypress.env('getAttributes2') + attributes_id + Cypress.env('getAttributes3'),
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -915,5 +927,61 @@ export const doPostcbusers = (auth_key) => {
             return response;
         })
     };
-  
+
+    
+    export const doGetAppetizedevices = (auth_key) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getAppetizedevices'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+        }).then((response) => {
+            return response;
+        })
+    };
+
+    export const dogGetAPIspec = (auth_key, app_id) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getAPIspec1') + app_id + Cypress.env('getAPIspec2'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+        }).then((response) => {
+            return response;
+        })
+    };
+
+    export const doGetLogs = (auth_key,app_id) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getlogs1')+ app_id+ Cypress.env('getlogs2'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+        }).then((response) => {
+            return response;
+        })
+    };
+
+    export const doGetLogsById = (auth_key, app_id, logs_id) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getlogs1') + app_id + Cypress.env('getlogs2') + logs_id + Cypress.env('getlogs3'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+        }).then((response) => {
+            return response;
+        })
+    };
     

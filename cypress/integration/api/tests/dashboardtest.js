@@ -1,6 +1,6 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
-import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID,dogetcbusers,doPostcbusers,dogetcbusersbyId,doputcbusersbyId,dopatchcbusersbyId, doGetReportsByID,doGetDevloperrequest,doGetDevloperrequestByID, doGetResponses} from '../pages/DashboardPage.js';
+import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID,dogetcbusers,doPostcbusers,dogetcbusersbyId,doputcbusersbyId,dopatchcbusersbyId, doGetReportsByID,doGetDevloperrequest,doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById,doGetLogs,doGetLogsById} from '../pages/DashboardPage.js';
 import { doDashboardLogin } from '../pages/loginPage.js';
 
 let component_id;
@@ -17,6 +17,8 @@ let feedbacks_id
 let cb_usersid;
 let reports_id;
 let developerrequest_id;
+let attributes_id ;
+let logs_id
 describe("Dashboard Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     const username = 'cbrahul' + (Math.random() + 1).toString(36).substring(7);
@@ -183,6 +185,7 @@ describe("Dashboard Page", () => {
     it('Get AppSupport Type Flow', () => {
         getAppSupportType(authKey).then((response) => {
             cy.log("login response", response.body)
+            appsupport_id = response.body.results[0].id;
             expect(response.status).to.eq(200)
         })
     })
@@ -283,7 +286,7 @@ describe("Dashboard Page", () => {
     // it('Create Attributes Flow', () => {
     //     doCreateAttributes(authKey, app_id).then((response) => {
     //         attribute_id=response.body.id;
-    //         expect(response.status).to.eq(200)
+    //         expect(response.status).to.eq(201)
     //         cy.log("Create Attributes response", response.body)
     //     })
     // })
@@ -292,6 +295,15 @@ describe("Dashboard Page", () => {
         getAttributes(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Attributes response", response.body)
+            attributes_id=response.body.id;
+        })
+    })
+    
+    it('Get Attributes Using Id Flow', () => {
+        doGetAttributesById(authKey,app_id,attributes_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Attributes Using Id response", response.body)
+
         })
     })
     
@@ -464,6 +476,37 @@ describe("Dashboard Page", () => {
         })
     })
 
+    it('Get Appetizedevices Flow', () => {
+        doGetAppetizedevices(authKey).then((response) => {
+            cy.log("Get Appetizedevices response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Create API Spec Flow', () => {
+        dogGetAPIspec(authKey,app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Create API spec response", response.body)
+
+        })
+    })
+
+    it('Get Logs Flow', () => {
+        doGetLogs(authKey,app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Create Logs response", response.body)
+            logs_id = response.body.results[0].id;
+
+        })
+    })
+
+    it('Get logs  Flow By ID', () => {
+        doGetLogsById(authKey,app_id,logs_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Create Bug Task response", response.body)
+
+        })
+    })
+
+
 })
-
-
