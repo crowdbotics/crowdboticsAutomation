@@ -1,6 +1,6 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
-import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID,dogetcbusers,doPostcbusers,dogetcbusersbyId,doputcbusersbyId,dopatchcbusersbyId, doGetReportsByID,doGetDevloperrequest,doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById,doGetLogs,doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID} from '../pages/DashboardPage.js';
+import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID,dogetcbusers,doPostcbusers,dogetcbusersbyId,doputcbusersbyId,dopatchcbusersbyId, doGetReportsByID,doGetDevloperrequest,doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById,doGetLogs,doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID, doGetAddons, doGetAddonsByID, doGetScaffolds, doTOTPdevice, doGetSocialaccounts, doGetSettingsfe} from '../pages/DashboardPage.js';
 import { doDashboardLogin } from '../pages/loginPage.js';
 
 let component_id;
@@ -20,6 +20,7 @@ let developerrequest_id;
 let attributes_id ;
 let logs_id;
 let memberfeedback_id;
+let addons_id;
 describe("Dashboard Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     const username = 'cbrahul' + (Math.random() + 1).toString(36).substring(7);
@@ -532,5 +533,47 @@ describe("Dashboard Page", () => {
         })
     })
 
+    it('Get Addons Flow', () => {
+        doGetAddons(authKey).then((response) => {
+            cy.log("Get Addons response", response.body)
+            addons_id = response.body[0].id;
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Get Addons Flow By ID', () => {
+        doGetAddonsByID(authKey, addons_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Addons Id response", response.body)
+        })
+    })
+
+    it('Get Scaffolds Flow', () => {
+        doGetScaffolds(authKey).then((response) => {
+            cy.log("Get Scaffolds response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Get TOTP Device Flow', () => {
+        doTOTPdevice(authKey).then((response) => {
+            cy.log("Get ToTP Device response", response.body)
+            expect(response.status).to.eq(201)
+        })
+    })
+
+    it('Get Socialaccounts Flow', () => {
+        doGetSocialaccounts(authKey).then((response) => {
+            cy.log("Get Socialaccounts response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Get Settingsfe Flow', () => {
+        doGetSettingsfe(authKey).then((response) => {
+            cy.log("Get Settingsfe response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
 
 })
