@@ -984,4 +984,49 @@ export const doPostcbusers = (auth_key) => {
             return response;
         })
     };
+
+    export const doPostDashboardfeedbacks = (auth_key) => {
+
+        return cy.fixture('api_adddashboardfeedback.json').then((myFixture) => {
+            cy.request({
+                method: 'POST',
+                url: Cypress.env('baseUrl') + Cypress.env('postDashboardfeedback'),
+                headers: {
+                    'Authorization': 'Token ' + auth_key
+                },
+                body: myFixture
+            }).then((response) => {
+                return response;
+            })
+        })
+    };
+
+    export const doGetMemberfeedback = (auth_key) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getMemberfeedback'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+        }).then((response) => {
+            return response;
+        })
+    };
+
+    export const doGetfeedbackmemberByID = (auth_key, memberfeedback_id) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getMemberfeedbackByID1')+memberfeedback_id+Cypress.env('getMemberfeedbackByID2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            }
+        }).then((response) => {
+            return response;
+        })
+    }
+
+
+
     
