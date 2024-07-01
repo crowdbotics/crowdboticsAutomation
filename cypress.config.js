@@ -751,6 +751,14 @@ module.exports = defineConfig({
     getModels: "/api/v2/models/",
     getModelsByID1: "/api/v2/models/",
     getModelsByID2: "/",
+    getAddons: "/api/v2/addons/",
+    getaddonsByID1: "/api/v2/addons/",
+    getaddonsByID2: "/",
+    getScaffolds: "/api/v1/scaffolds/",
+    getTotpdevice: "/api/v2/totp/device/",
+    getSocialaccounts: "/api/v2/socialaccounts/",
+    getSettingsfe: "/api/v2/settings/fe/",
+
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
