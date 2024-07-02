@@ -57,3 +57,19 @@ export const doPostCreateStudioScreen = (auth_key, app_id,screen_id) => {
         })
     };
 
+    export const doPostCLIFeedback = (auth_key) => {
+
+        return cy.fixture('api_addCliFeedback.json').then((myFixture) => {
+            cy.request({
+                method: 'POST',
+                url: Cypress.env('baseUrl') + Cypress.env('CreateCliFeedback'),
+                headers: {
+                    'Authorization': 'Token ' + auth_key
+                },
+                body: myFixture
+            }).then((response) => {
+                return response;
+            })
+        })
+    }; 
+

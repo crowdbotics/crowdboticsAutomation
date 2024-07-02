@@ -340,9 +340,9 @@ module.exports = defineConfig({
     getUserReposList: "/api/v1/user/repos/",
     getAddonsList1: "/api/v1/apps/",
     getAddonsList2: "/addons/",
-    createAttributes1: "/api/v1/apps/",
+    createAttributes1: "/api/v2/apps/",
     createAttributes2: "/attributes/",
-    getAttributes1: "/api/v1/apps/",
+    getAttributes1: "/api/v2/apps/",
     getAttributes2: "/attributes/",
     getAuditLogList1: "/api/v1/apps/",
     getAuditLogList2: "/audit-logs/",
@@ -733,13 +733,6 @@ module.exports = defineConfig({
     getDeveloperrequestByID1: "/api/v1/developer_requests/",
     getDeveloperrequestByID2: "/",
     getResponses: "/api/v2/responses/",
-    getReports1 : "/api/v2/apps/",
-    getReports2 : "/reports/",
-    getSlides1: "/api/v2/apps/",
-    getSlides2: "/slideshow/",
-    postSlides1: "/api/v2/apps/",
-    postSlides2: "/slideshow/",
-    
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
@@ -796,10 +789,7 @@ module.exports = defineConfig({
     removeModuleIntoFeatureOrganizationPRD2: "/feature/",
     removeModuleIntoFeatureOrganizationPRD3: "/remove-module/",
     getAllPhaseOrganizationPRD1: "/api/v1/prd/",
-    getAllPhaseOrganizationPRD2: "/phase/",
-
-
-    
+    getAllPhaseOrganizationPRD2: "/phase/",  
 
   },
   e2e: {
