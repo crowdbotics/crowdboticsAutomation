@@ -101,5 +101,24 @@ export const doCreateModules = (auth_key, app_id) => {
                 return response;
             })
         })
+        
     }
+
+    export const doGetapireports = (auth_key,app_id) => {
+
+        return cy.request({
+         method: 'GET',
+         url: Cypress.env('baseUrl') + Cypress.env('getReports1') + app_id + Cypress.env('getReports2'),
+         headers: {
+             // 'Content-Type': 'application/json',
+             // 'Accept': 'application/json',
+             'Authorization': 'Token ' + auth_key,
+         }
+     }).then((response) => {
+         return response;
+     })
+
+     }
+
+
     

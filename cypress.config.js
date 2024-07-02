@@ -733,6 +733,13 @@ module.exports = defineConfig({
     getDeveloperrequestByID1: "/api/v1/developer_requests/",
     getDeveloperrequestByID2: "/",
     getResponses: "/api/v2/responses/",
+    getReports1 : "/api/v2/apps/",
+    getReports2 : "/reports/",
+    getSlides1: "/api/v2/apps/",
+    getSlides2: "/slideshow/",
+    postSlides1: "/api/v2/apps/",
+    postSlides2: "/slideshow/",
+    
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
