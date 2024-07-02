@@ -1110,4 +1110,30 @@ export const doPostcbusers = (auth_key) => {
             return response;
         })
     };
+
+    export const doGetPeojectClones = (auth_key) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getProjectclones'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+        }).then((response) => {
+            return response;
+        })
+    };
     
+    export const doGetProjectClonesByID = (auth_key, projectclones_id) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getProjectclonesByID1')+projectclones_id+Cypress.env('getProjectclonesByID2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            }
+        }).then((response) => {
+            return response;
+        })
+
+    };

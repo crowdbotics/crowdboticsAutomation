@@ -758,6 +758,11 @@ module.exports = defineConfig({
     getTotpdevice: "/api/v2/totp/device/",
     getSocialaccounts: "/api/v2/socialaccounts/",
     getSettingsfe: "/api/v2/settings/fe/",
+    getProjectclones: "/api/v2/project_clones/",
+    getProjectclonesByID1: "/api/v2/project_clones/",
+    getProjectclonesByID2 : "/",
+    CreateCliFeedback: "/api/v2/cli-feedback/",
+    getOpenAI: "/api/v2/robots/openai/status",
 
 
     // ---------------PRD New FLow----------------------//

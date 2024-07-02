@@ -1353,3 +1353,17 @@ export const dodeleteuserTypesByid = (auth_key, usertypes_id) => {
         return response;
     })
 }
+
+export const doGetOpenAI = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getOpenAI'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
