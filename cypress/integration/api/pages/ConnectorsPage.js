@@ -175,7 +175,7 @@ export const doGetShareableConnectors = (auth_key) => {
 }
 
 export const doCreateShareableConnectors = (auth_key) => {
-    return cy.fixture('api_addShareableConnectors.json').then((myFixture) => {
+    return cy.fixture('api_addShareableconnectors.json').then((myFixture) => {
         cy.request({
             method: 'POST',
             url: Cypress.env('baseUrl') + Cypress.env('addShareableConnectors'),

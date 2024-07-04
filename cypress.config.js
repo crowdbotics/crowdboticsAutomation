@@ -20,8 +20,8 @@ module.exports = defineConfig({
     getInvoice: "/api/v2/billing/invoices/?limit=10&page=1",
     searchInvoice: "/api/v2/billing/invoices/?limit=10&page=1&app_id=",
     getAppLog1: "/api/v2/apps/",
-    getAppLogUsingAppId: "/api/v2/apps_logs/",
     getAppLog2: "/logs/",
+    getAppLogUsingAppId: "/api/v2/apps_logs/",
     checkAppGeneration2: "/logs/",
     searchApp1: "/api/v2/apps/?custom_name=",
     searchApp2: "&page=1&limit=8",
@@ -387,7 +387,7 @@ module.exports = defineConfig({
     putCodePackageById2: "code_packages/",
     putCodePackageById3: "/",
     getUserList: "/api/v2/users/?id=",
-    getEdges1: "/api/v1/apps/",
+    getEdges1: "/api/v2/apps/",
     getEdges2: "/edges/",
     getPrdActivityLog1: "/api/v1/apps/",
     getPrdActivityLog1: "/prd-activity-logs/",
@@ -545,69 +545,69 @@ module.exports = defineConfig({
     deleteFeature2 : "/prd_ai_features/",
 
 
-    getBugTaskList1 : "/api/v1/apps/",
-    getBugTaskList2 : "/bug-tasks/",
+    // getBugTaskList1 : "/api/v1/apps/",
+    // getBugTaskList2 : "/bug-tasks/",
 
-    createBugTask1 : "/api/v1/apps/",
-    createBugTask2 : "/bug-tasks/",
+    // createBugTask1 : "/api/v1/apps/",
+    // createBugTask2 : "/bug-tasks/",
     
-    getBugTaskById1: "/api/v1/apps/",
-    getBugTaskById2: "/bug-tasks/",
-    getBugTaskById3: "/",
+    // getBugTaskById1: "/api/v1/apps/",
+    // getBugTaskById2: "/bug-tasks/",
+    // getBugTaskById3: "/",
 
-    putBugTaskById1: "/api/v1/apps/",
-    putBugTaskById2: "/bug-tasks/",
-    putBugTaskById3: "/",
+    // putBugTaskById1: "/api/v1/apps/",
+    // putBugTaskById2: "/bug-tasks/",
+    // putBugTaskById3: "/",
 
-    patchBugTaskById1: "/api/v1/apps/",
-    patchBugTaskById2: "/bug-tasks/",
-    patchBugTaskById3: "/",
+    // patchBugTaskById1: "/api/v1/apps/",
+    // patchBugTaskById2: "/bug-tasks/",
+    // patchBugTaskById3: "/",
 
-    deleteBugTaskById1: "/api/v1/apps/",
-    deleteBugTaskById2: "/bug-tasks/",
-    deleteBugTaskById3: "/",
+    // deleteBugTaskById1: "/api/v1/apps/",
+    // deleteBugTaskById2: "/bug-tasks/",
+    // deleteBugTaskById3: "/",
     
-    getComponentList1: "/api/v1/apps/",
+    getComponentList1: "/api/v2/apps/",
     getComponentList2: "/components/",
 
-    createComponent1: "/api/v1/apps/",
+    createComponent1: "/api/v2/apps/",
     createComponent2: "/components/",
 
-    getComponentById1: "/api/v1/apps/",
+    getComponentById1: "/api/v2/apps/",
     getComponentById2: "/components/",
     getComponentById3: "/",
 
-    putComponent1: "/api/v1/apps/",
+    putComponent1: "/api/v2/apps/",
     putComponent2: "/components/",
     putComponent3: "/",
 
-    patchComponent1: "/api/v1/apps/",
+    patchComponent1: "/api/v2/apps/",
     patchComponent2: "/components/",
     patchComponent3: "/",
 
-    deleteComponent1: "/api/v1/apps/",
+    deleteComponent1: "/api/v2/apps/",
     deleteComponent2: "/components/",
     deleteComponent3: "/",
 
-    getFilesList1: "/api/v1/apps/",
+    getFilesList1: "/api/v2/apps/",
     getFilesList2: "/files/",
 
-    createFilesList1: "/api/v1/apps/",
+    createFilesList1: "/api/v2/apps/",
     createFilesList2: "/files/",
 
-    getFilesById1: "/api/v1/apps/",
+    getFilesById1: "/api/v2/apps/",
     getFilesById2: "/files/",
     getFilesById3: "/",
 
-    putFilesById1: "/api/v1/apps/",
+    putFilesById1: "/api/v2/apps/",
     putFilesById2: "/files/",
     putFilesById3: "/",
 
-    patchFilesById1: "/api/v1/apps/",
+    patchFilesById1: "/api/v2/apps/",
     patchFilesById2: "/files/",
     patchFilesById3: "/",
 
-    deleteFiles1: "/api/v1/apps/",
+    deleteFiles1: "/api/v2/apps/",
     deleteFiles2: "/files/",
     deleteFiles3: "/",
 
@@ -763,7 +763,9 @@ module.exports = defineConfig({
     getProjectclonesByID2 : "/",
     CreateCliFeedback: "/api/v2/cli-feedback/",
     getOpenAI: "/api/v2/robots/openai/status",
-
+    getMobilebuilds1: "/api/v2/apps/",
+    getMobilebuilds2: "/mobile-builds/",
+    addResendverification: "/api/v1/resend-verification/",
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",

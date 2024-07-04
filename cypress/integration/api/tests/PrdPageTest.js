@@ -115,12 +115,12 @@ describe("PRD Page", () => {
         getRoles(authKey).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Roles response", response.body)
-            roles_id = response.body.id;
+            roles_id =  response.body[0].id;
         })
     })
 
     it('Get Roles Using Id FLow', () => {
-        doGetRolestByID(authKey, app_id).then((response) => {
+        doGetRolesByID(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Roles Using Id response", response.body)
         })
