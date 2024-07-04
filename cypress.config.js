@@ -763,6 +763,12 @@ module.exports = defineConfig({
     getProjectclonesByID2 : "/",
     CreateCliFeedback: "/api/v2/cli-feedback/",
     getOpenAI: "/api/v2/robots/openai/status",
+    getReports1 : "/api/v2/apps/",
+    getReports2 : "/reports/",
+    getSlides1: "/api/v2/apps/",
+    getSlides2: "/slideshow/",
+    postSlides1: "/api/v2/apps/",
+    postSlides2: "/slideshow/",
 
 
     // ---------------PRD New FLow----------------------//
