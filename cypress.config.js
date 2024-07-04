@@ -766,6 +766,13 @@ module.exports = defineConfig({
     getMobilebuilds1: "/api/v2/apps/",
     getMobilebuilds2: "/mobile-builds/",
     addResendverification: "/api/v1/resend-verification/",
+    getReports1 : "/api/v2/apps/",
+    getReports2 : "/reports/",
+    getSlides1: "/api/v2/apps/",
+    getSlides2: "/slideshow/",
+    postSlides1: "/api/v2/apps/",
+    postSlides2: "/slideshow/",
+
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
