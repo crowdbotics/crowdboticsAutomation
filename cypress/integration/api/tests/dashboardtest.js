@@ -1,5 +1,6 @@
 // import LoginPage from '../pages/loginPage';
 /// <reference types = "cypress"/>
+import { doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID,dogetcbusers,doPostcbusers,dogetcbusersbyId,doputcbusersbyId,dopatchcbusersbyId, doGetReportsByID,doGetDevloperrequest,doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById,doGetLogs,doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID, doGetAddons, doGetAddonsByID, doGetScaffolds, doTOTPdevice, doGetSocialaccounts, doGetSettingsfe, doGetPeojectClones, doGetProjectClonesByID, doGetMobilebuilds,doPostresendverification} from '../pages/DashboardPage.js';
 import { doGetSlides,doPostslides,doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID,dogetcbusers,doPostcbusers,dogetcbusersbyId,doputcbusersbyId,dopatchcbusersbyId, doGetReportsByID,doGetDevloperrequest,doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById,doGetLogs,doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID, doGetAddons, doGetAddonsByID, doGetScaffolds, doTOTPdevice, doGetSocialaccounts, doGetSettingsfe, doGetPeojectClones, doGetProjectClonesByID} from '../pages/DashboardPage.js';
 import { doDashboardLogin } from '../pages/loginPage.js';
 
@@ -83,52 +84,60 @@ describe("Dashboard Page", () => {
         })
     })
     
-    it('Get Bug Task List Flow', () => {
-        doGetBugTaskList(authKey,app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Bug Task List response", response.body)
+    // *** Test case is not available on swagger
+    // it('Get Bug Task List Flow', () => {
+    //     doGetBugTaskList(authKey,app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get Bug Task List response", response.body)
 
-        })
-    })
+    //     })
+    // })
 
-    it('Create Bug Task  Flow', () => {
-        doCreateBugTask(authKey,app_id).then((response) => {
-            bugTask_id=response.body.id;
-            expect(response.status).to.eq(201)
-            cy.log("Create Bug Task response", response.body)
+    // *** Test cases is not available on swagger
+    // it('Create Bug Task  Flow', () => {
+    //     doCreateBugTask(authKey,app_id).then((response) => {
+    //         bugTask_id=response.body.id;
+    //         expect(response.status).to.eq(201)
+    //         cy.log("Create Bug Task response", response.body)
 
-        })
-    })
+    //     })
+    // })
 
-    it('Get Bug Task Using Id Flow', () => {
-        doGetBugTaskById(authKey,app_id,bugTask_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Bug Task Using Id response", response.body)
+    // *** Test cases is not available on swagger
+    // it('Get Bug Task Using Id Flow', () => {
+    //     doGetBugTaskById(authKey,app_id,bugTask_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get Bug Task Using Id response", response.body)
 
-        })
-    })
+    //     })
+    // })
 
-    it('Put Bug Task Using Id Flow', () => {
-        doUpdateWithPutBugTask(authKey,app_id,bugTask_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Put Bug Task Using Id response", response.body)
+    // *** Test cases is not available on swagger
+    // it('Put Bug Task Using Id Flow', () => {
+    //     doUpdateWithPutBugTask(authKey,app_id,bugTask_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Put Bug Task Using Id response", response.body)
 
-        })
-    })
-    it('Patch Bug Task Using Id Flow', () => {
-        doUpdateWithPatchBugTask(authKey,app_id,bugTask_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Patch Bug Task Using Id response", response.body)
+    //     })
+    // })
 
-        })
-    })
-    it('Delete Bug Task Flow', () => {
-        doDeleteBugTask(authKey,app_id,bugTask_id).then((response) => {
-            expect(response.status).to.eq(204)
-            cy.log("Delete Bug Task response", response.body)
+    // *** Test cases is not available on swagger
+    // it('Patch Bug Task Using Id Flow', () => {
+    //     doUpdateWithPatchBugTask(authKey,app_id,bugTask_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Patch Bug Task Using Id response", response.body)
 
-        })
-    })
+    //     })
+    // })
+
+    // *** Test cases is not available on swagger
+    // it('Delete Bug Task Flow', () => {
+    //     doDeleteBugTask(authKey,app_id,bugTask_id).then((response) => {
+    //         expect(response.status).to.eq(204)
+    //         cy.log("Delete Bug Task response", response.body)
+
+    //     })
+    // })
  
     it('Get Component List Flow', () => {
         doGetComponentList(authKey,app_id).then((response) => {
@@ -188,7 +197,7 @@ describe("Dashboard Page", () => {
     it('Get AppSupport Type Flow', () => {
         getAppSupportType(authKey).then((response) => {
             cy.log("login response", response.body)
-            appsupport_id = response.body.results[0].id;
+            // appsupport_id = response.body.results[0].id;
             expect(response.status).to.eq(200)
         })
     })
@@ -386,6 +395,7 @@ describe("Dashboard Page", () => {
     it('Get Feedbacks Flow', () => {
         getFeedbacks(authKey).then((response) => {
             cy.log("Get Feedbacks response", response.body)
+            feedbacks_id =response.body[0].id;
             expect(response.status).to.eq(200)
         })
     })
@@ -393,7 +403,6 @@ describe("Dashboard Page", () => {
     it('Get FeedbacksCategories Flow', () => {
         getFeedbacksCategories(authKey).then((response) => {
             cy.log("Get FeedbacksCategories response", response.body)
-            feedbacks_id =response.body.id;
             expect(response.status).to.eq(200)
         })
     })
@@ -592,6 +601,21 @@ describe("Dashboard Page", () => {
         })
     })
 
+    it('Create Mobile Builds Flow', () => {
+        doGetMobilebuilds(authKey,app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Create Mobile Builds response", response.body)
+
+        })
+    })
+
+    it('Get Resend Verification Flow', () => {
+        doPostresendverification(authKey).then((response) => {
+            cy.log("Get Resend Verification response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
     it('Get slides', () => {
         doGetSlides(authKey,app_id).then((response) => {
             cy.log("Get slides of project", response.body)
@@ -605,5 +629,6 @@ describe("Dashboard Page", () => {
             expect(response.status).to.eq(200)
         }) 
     })   
+
 
 })

@@ -108,96 +108,101 @@ export const doGetSkillsList = (auth_key) => {
     })
 };
 
-export const doGetBugTaskList = (auth_key, app_id) => {
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getBugTaskList1') + app_id + Cypress.env('getBugTaskList2'),
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Authorization': 'Token ' + auth_key,
-        },
-    }).then((response) => {
-        return response;
-    })
-};
+// *** Test cases is not available on swagger
+// export const doGetBugTaskList = (auth_key, app_id) => {
+//     return cy.request({
+//         method: 'GET',
+//         url: Cypress.env('baseUrl') + Cypress.env('getBugTaskList1') + app_id + Cypress.env('getBugTaskList2'),
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json',
+//             'Authorization': 'Token ' + auth_key,
+//         },
+//     }).then((response) => {
+//         return response;
+//     })
+// };
 
-export const doCreateBugTask = (auth_key, app_id) => {
+// *** Test cases is not available on swagger
+// export const doCreateBugTask = (auth_key, app_id) => {
 
-    return cy.fixture('api_addBugtask.json').then((myFixture) => {
-        cy.request({
-            method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('createBugTask1') + app_id + Cypress.env('createBugTask2'),
-            headers: {
-                'Authorization': 'Token ' + auth_key
-            },
-            body: myFixture
-        }).then((response) => {
-            return response;
-        })
-    })
-}
+//     return cy.fixture('api_addBugtask.json').then((myFixture) => {
+//         cy.request({
+//             method: 'POST',
+//             url: Cypress.env('baseUrl') + Cypress.env('createBugTask1') + app_id + Cypress.env('createBugTask2'),
+//             headers: {
+//                 'Authorization': 'Token ' + auth_key
+//             },
+//             body: myFixture
+//         }).then((response) => {
+//             return response;
+//         })
+//     })
+// }
 
+// *** Test cases is not available on swagger
+// export const doGetBugTaskById = (auth_key, app_id, bugTask_id) => {
+//     return cy.request({
+//         method: 'GET',
+//         url: Cypress.env('baseUrl') + Cypress.env('getBugTaskById1') + app_id + Cypress.env('getBugTaskById2') + bugTask_id + Cypress.env('getBugTaskById3'),
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json',
+//             'Authorization': 'Token ' + auth_key,
+//         },
+//     }).then((response) => {
+//         return response;
+//     })
+// };
 
-export const doGetBugTaskById = (auth_key, app_id, bugTask_id) => {
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getBugTaskById1') + app_id + Cypress.env('getBugTaskById2') + bugTask_id + Cypress.env('getBugTaskById3'),
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Authorization': 'Token ' + auth_key,
-        },
-    }).then((response) => {
-        return response;
-    })
-};
+// *** Test cases is not available on swagger
+// export const doUpdateWithPutBugTask = (auth_key, app_id, bugTask_id) => {
 
-export const doUpdateWithPutBugTask = (auth_key, app_id, bugTask_id) => {
+//     return cy.fixture('api_updateWithPutBugtask.json').then((myFixture) => {
+//         cy.request({
+//             method: 'PUT',
+//             url: Cypress.env('baseUrl') + Cypress.env('putBugTaskById1') + app_id + Cypress.env('putBugTaskById2') + bugTask_id + Cypress.env('putBugTaskById3'),
+//             headers: {
+//                 'Authorization': 'Token ' + auth_key
+//             },
+//             body: myFixture
+//         }).then((response) => {
+//             return response;
+//         })
+//     })
+// }
 
-    return cy.fixture('api_updateWithPutBugtask.json').then((myFixture) => {
-        cy.request({
-            method: 'PUT',
-            url: Cypress.env('baseUrl') + Cypress.env('putBugTaskById1') + app_id + Cypress.env('putBugTaskById2') + bugTask_id + Cypress.env('putBugTaskById3'),
-            headers: {
-                'Authorization': 'Token ' + auth_key
-            },
-            body: myFixture
-        }).then((response) => {
-            return response;
-        })
-    })
-}
+// *** Test cases is not available on swagger
+// export const doUpdateWithPatchBugTask = (auth_key, app_id, bugTask_id) => {
 
-export const doUpdateWithPatchBugTask = (auth_key, app_id, bugTask_id) => {
+//     return cy.fixture('api_updateWithPatchBugtask.json').then((myFixture) => {
+//         cy.request({
+//             method: 'PATCH',
+//             url: Cypress.env('baseUrl') + Cypress.env('patchBugTaskById1') + app_id + Cypress.env('patchBugTaskById2') + bugTask_id + Cypress.env('patchBugTaskById3'),
+//             headers: {
+//                 'Authorization': 'Token ' + auth_key
+//             },
+//             body: myFixture
+//         }).then((response) => {
+//             return response;
+//         })
+//     })
+// };
 
-    return cy.fixture('api_updateWithPatchBugtask.json').then((myFixture) => {
-        cy.request({
-            method: 'PATCH',
-            url: Cypress.env('baseUrl') + Cypress.env('patchBugTaskById1') + app_id + Cypress.env('patchBugTaskById2') + bugTask_id + Cypress.env('patchBugTaskById3'),
-            headers: {
-                'Authorization': 'Token ' + auth_key
-            },
-            body: myFixture
-        }).then((response) => {
-            return response;
-        })
-    })
-};
-
-export const doDeleteBugTask = (auth_key, app_id, bugTask_id) => {
-    return cy.request({
-        method: 'DELETE',
-        url: Cypress.env('baseUrl') + Cypress.env('deleteBugTaskById1') + app_id + Cypress.env('deleteBugTaskById2') + bugTask_id + Cypress.env('deleteBugTaskById3'),
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Authorization': 'Token ' + auth_key,
-        },
-    }).then((response) => {
-        return response;
-    })
-};
+// *** Test cases is not available on swagger
+// export const doDeleteBugTask = (auth_key, app_id, bugTask_id) => {
+//     return cy.request({
+//         method: 'DELETE',
+//         url: Cypress.env('baseUrl') + Cypress.env('deleteBugTaskById1') + app_id + Cypress.env('deleteBugTaskById2') + bugTask_id + Cypress.env('deleteBugTaskById3'),
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json',
+//             'Authorization': 'Token ' + auth_key,
+//         },
+//     }).then((response) => {
+//         return response;
+//     })
+// };
 
 
 export const doGetComponentList = (auth_key, app_id) => {
@@ -548,7 +553,7 @@ export const doUpdateWithPutFile = (auth_key, app_id, file_id) => {
     return cy.fixture('api_updateWithPutFile.json').then((myFixture) => {
         cy.request({
             method: 'PUT',
-            url: Cypress.env('baseUrl') + Cypress.env('putFilesById1') + app_id + Cypress.env('putFilesById2') + file_id + Cypress.env('putFilesById2'),
+            url: Cypress.env('baseUrl') + Cypress.env('putFilesById1') + app_id + Cypress.env('putFilesById2') + file_id + Cypress.env('putFilesById3'),
             headers: {
                 'Authorization': 'Token ' + auth_key
             },
@@ -623,7 +628,7 @@ export const dogetCertifications = (auth_key, app_id) => {
 
 export const doPostCertifications = (auth_key, app_id) => {
 
-    return cy.fixture('api_post_Certifications.json').then((myFixture) => {
+    return cy.fixture('api_add_Certificaionsdata.json').then((myFixture) => {
         cy.request({
             method: 'POST',
             url: Cypress.env('baseUrl') + Cypress.env('postcertifications'),
@@ -651,7 +656,7 @@ export const dogetCertificationsid = (auth_key, app_id,Certifications_id) => {
 };
 export const doputCertificationsid = (auth_key, app_id,Certifications_id) => {
 
-    return cy.fixture('api_put_certifications.json').then((myFixture) => {
+    return cy.fixture('api_putCertifications.json').then((myFixture) => {
         cy.request({
             method: 'PUT',
             url: Cypress.env('baseUrl') + Cypress.env('putcertificationsid1') + Certifications_id + Cypress.env('putcertificationsid2'),
@@ -667,7 +672,7 @@ export const doputCertificationsid = (auth_key, app_id,Certifications_id) => {
 
 export const doPatchCertificationsid = (auth_key, app_id, Certifications_id) => {
 
-    return cy.fixture('api_patch_certifications.json').then((myFixture) => {
+    return cy.fixture('api_patchCertifications.json').then((myFixture) => {
         cy.request({
             method: 'PATCH',
             url: Cypress.env('baseUrl') + Cypress.env('patchcertificationsid1') + Certifications_id + Cypress.env('patchcertificationsid2'),
@@ -960,7 +965,7 @@ export const doPostcbusers = (auth_key) => {
     export const doGetLogs = (auth_key,app_id) => {
         return cy.request({
             method: 'GET',
-            url: Cypress.env('baseUrl') + Cypress.env('getlogs1')+ app_id+ Cypress.env('getlogs2'),
+            url: Cypress.env('baseUrl') + Cypress.env('getLogs1')+ app_id+ Cypress.env('getLogs2'),
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
@@ -974,7 +979,7 @@ export const doPostcbusers = (auth_key) => {
     export const doGetLogsById = (auth_key, app_id, logs_id) => {
         return cy.request({
             method: 'GET',
-            url: Cypress.env('baseUrl') + Cypress.env('getlogs1') + app_id + Cypress.env('getlogs2') + logs_id + Cypress.env('getlogs3'),
+            url: Cypress.env('baseUrl') + Cypress.env('getLogsByID1') + app_id + Cypress.env('getLogsByID2') + logs_id + Cypress.env('getLogsByID3'),
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
@@ -1138,6 +1143,10 @@ export const doPostcbusers = (auth_key) => {
 
     };
 
+    export const doGetMobilebuilds = (auth_key,app_id) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getMobilebuilds1')+ app_id+ Cypress.env('getMobilebuilds2'),
     export const doGetSlides = (auth_key,app_id) => {
         return cy.request({
             method: 'GET',
@@ -1150,6 +1159,23 @@ export const doPostcbusers = (auth_key) => {
         }).then((response) => {
             return response;
         })
+
+    };
+
+    export const doPostresendverification = (auth_key) => {
+        return cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('addResendverification'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+        }).then((response) => {
+            return response;
+        })
+    };
+
 
     };
 
@@ -1168,3 +1194,4 @@ export const doPostcbusers = (auth_key) => {
                 })
             })
         }; 
+

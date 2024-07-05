@@ -130,23 +130,23 @@ export const getRoles = (auth_key) => {
         return response;
     })
 };
-//----------Get ROles using Id------------------
-export const getRolesUsingId = (auth_key, app_id) => {
+//***This is the invalid test cases this test case already having in the scricpt */
+// export const getRolesUsingId = (auth_key, app_id) => {
 
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getRoles'),
-        headers: {
+//     return cy.request({
+//         method: 'GET',
+//         url: Cypress.env('baseUrl') + Cypress.env('getRoles'),
+//         headers: {
 
-            // 'Content-Type': 'application/json',
-            // 'Accept': 'application/json',
-            'Authorization': 'Token ' + auth_key,
-        }
+//             // 'Content-Type': 'application/json',
+//             // 'Accept': 'application/json',
+//             'Authorization': 'Token ' + auth_key,
+//         }
 
-    }).then((response) => {
-        return response;
-    })
-};
+//     }).then((response) => {
+//         return response;
+//     })
+// };
 
 export const doGetRolesByID = (auth_key, roles_id) => {
     return cy.request({
