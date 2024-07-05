@@ -4,7 +4,7 @@
   "passes": 1,
   "pending": 0,
   "failures": 0,
-  "start": "2024-03-15T16:14:46.430Z",
-  "duration": 2100,
+  "start": "2024-07-05T10:05:38.379Z",
+  "duration": 1290,
   "file": "cypress\\integration\\api\\tests\\logintest.js"
 }
