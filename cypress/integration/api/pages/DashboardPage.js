@@ -1147,6 +1147,10 @@ export const doPostcbusers = (auth_key) => {
         return cy.request({
             method: 'GET',
             url: Cypress.env('baseUrl') + Cypress.env('getMobilebuilds1')+ app_id+ Cypress.env('getMobilebuilds2'),
+    export const doGetSlides = (auth_key,app_id) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getSlides1') + app_id + Cypress.env('getSlides2'),
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
@@ -1155,6 +1159,7 @@ export const doPostcbusers = (auth_key) => {
         }).then((response) => {
             return response;
         })
+
 
     };
     export const doGetSlides = (auth_key,app_id) => {
@@ -1169,6 +1174,7 @@ export const doPostcbusers = (auth_key) => {
         }).then((response) => {
             return response;
         })
+
 
     };
 
@@ -1186,6 +1192,7 @@ export const doPostcbusers = (auth_key) => {
         })
     };
 
+
     export const doPostslides = (auth_key, app_id) => {
 
         return cy.fixture('api_add_slides.json').then((myFixture) => {
@@ -1201,4 +1208,4 @@ export const doPostcbusers = (auth_key) => {
                 })
             })
         }; 
-    
+
