@@ -1160,6 +1160,22 @@ export const doPostcbusers = (auth_key) => {
             return response;
         })
 
+
+    };
+    export const doGetSlides = (auth_key,app_id) => {
+        return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getSlides1') + app_id + Cypress.env('getSlides2'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+        }).then((response) => {
+            return response;
+        })
+
+
     };
 
     export const doPostresendverification = (auth_key) => {
@@ -1176,8 +1192,6 @@ export const doPostcbusers = (auth_key) => {
         })
     };
 
-
-    };
 
     export const doPostslides = (auth_key, app_id) => {
 

@@ -773,7 +773,6 @@ module.exports = defineConfig({
     postSlides1: "/api/v2/apps/",
     postSlides2: "/slideshow/",
 
-
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
     generateOrganizationPRD: " /api/v1/prd/generate-prd/",
