@@ -1,10 +1,10 @@
 {
   "suites": 1,
-  "tests": 50,
-  "passes": 50,
+  "tests": 59,
+  "passes": 46,
   "pending": 0,
-  "failures": 0,
-  "start": "2024-03-15T16:14:49.642Z",
-  "duration": 54453,
+  "failures": 13,
+  "start": "2024-07-05T08:24:15.635Z",
+  "duration": 59519,
   "file": "cypress\\integration\\api\\tests\\PrdPageTest.js"
 }

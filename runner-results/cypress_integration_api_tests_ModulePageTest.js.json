@@ -1,10 +1,10 @@
 {
   "suites": 1,
-  "tests": 1,
-  "passes": 1,
+  "tests": 7,
+  "passes": 7,
   "pending": 0,
   "failures": 0,
-  "start": "2024-03-15T16:15:37.569Z",
-  "duration": 5354,
+  "start": "2024-07-05T08:25:07.807Z",
+  "duration": 10494,
   "file": "cypress\\integration\\api\\tests\\ModulePageTest.js"
 }
