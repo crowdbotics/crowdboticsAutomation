@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 98,
+  "passes": 97,
+  "pending": 0,
+  "failures": 1,
+  "start": "2024-07-05T08:23:57.580Z",
+  "duration": 91055,
+  "file": "cypress\\integration\\api\\tests\\CatalogPageTest.js"
+}
