@@ -4,7 +4,7 @@
   "passes": 15,
   "pending": 0,
   "failures": 0,
-  "start": "2024-07-05T08:24:47.232Z",
-  "duration": 20192,
+  "start": "2024-07-08T11:25:14.405Z",
+  "duration": 16589,
   "file": "cypress\\integration\\api\\tests\\JobPageTest.js"
 }

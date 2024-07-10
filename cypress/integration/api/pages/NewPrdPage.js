@@ -17,7 +17,7 @@ export const doGenerateOrganizationPRD = (auth_key) => {
         cy.request({
             method: 'POST',
            // url: Cypress.env('baseUrl') + Cypress.env('generateOrganizationPRD'),
-            url: 'https://crowdbotics-slack-dev.herokuapp.com/api/v1/prd/generate-prd/',
+            url: 'https://crowdbotics-slack-dev.crowdbotics.com/api/v1/prd/generate-prd/',
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -303,7 +303,7 @@ export const doRemoveModuleIntoFeatureOrganizationPRD = (auth_key,generatePrd_id
 export const doGetAllPhaseOrganizationPRD = (auth_key,generatePrd_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getAllPhaseOrganizationPRD1')+11998+ Cypress.env('getAllPhaseOrganizationPRD2'),
+        url: Cypress.env('baseUrl') + Cypress.env('getAllPhaseOrganizationPRD1')+generatePrd_id+ Cypress.env('getAllPhaseOrganizationPRD2'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }

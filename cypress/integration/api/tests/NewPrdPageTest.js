@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doNewPrdLogin } from '../pages/loginPage.js';
-import { doGetAllPhaseOrganizationPRD,doRemoveModuleIntoFeatureOrganizationPRD,doAddModuleIntofeatureOrganizationPRD,doDeletefeatureUsingIdOrganizationPRD,doPatchfeatureUsingIdOrganizationPRD,doPutfeatureUsingIdOrganizationPRD,doGetfeatureUsingIdOrganizationPRD,doCreatefeatureOrganizationPRD,doGetAllfeatureOrganizationPRD,doMoveFetaureIntoCategoryOrganizationPRD,doDeleteOrganizationPRDCategoryUsingId,doPatchOrganizationPRDCategory,doPutOrganizationPRDCategory,doGetOrganizationPRDCategoryUsingId,doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD } from '../pages/NewPrdPage.js';
+import { doGetPRDWishlist,doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD } from '../pages/NewPrdPage.js';
 
 let app_name;
 let app_id;
@@ -20,81 +20,82 @@ describe("New PRD Page", () => {
             //     expect(response.body.name, "App name is not matching").to.eq(app_name)
             //     app_id = response.body.id;
             //     app_name = response.body.name;
-                // doGetOrganizationPRDList(authKey).then((response) => {
-                //     expect(response.status).to.eq(200)
-                //     cy.log("Get all PRD List by organization User response", response.body)
-                // })
-            })
+            // doGetOrganizationPRDList(authKey).then((response) => {
+            //     expect(response.status).to.eq(200)
+            //     cy.log("Get all PRD List by organization User response", response.body)
+            // })
         })
-   // })
-
-    // it('Generate PRD by organization User without app', () => {
-    //     doGenerateOrganizationPRD(authKey).then((response) => {
-    //         generatePrd_id = response.body.data.id;
-    //         expect(response.status).to.eq(202)
-    //         cy.log("Generate PRD by organization User Response", response.body)
-
-    //     })
-    // })
-    // it('Get generated PRD Using Id by organization User', () => {
-    //     doGetOrganizationPRDById(authKey, generatePrd_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Get generated PRD Using Id by organization User", response.body)
-
-    //     })
-    // })
-    // it('Put generated PRD by organization User', () => {
-    //     doPutOrganizationPRD(authKey, generatePrd_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Put generated PRD by organization User response", response.body)
-    //     })
-    // })
-    // it('Patch generated PRD by organization User', () => {
-    //     doPatchOrganizationPRD(authKey, generatePrd_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Patch generated PRD by organization User response", response.body)
-    //     })
+    })
     // })
 
+    it('Generate PRD by organization User without app', () => {
+        doGenerateOrganizationPRD(authKey).then((response) => {
+            const ids =response.body.data.id;
+            generatePrd_id = ids-1;
+            expect(response.status).to.eq(202)
+            cy.log(ids);
+            cy.log(generatePrd_id);
+            cy.log("Generate PRD by organization User Response", response.body)
+        })
+    })
+    it('Get generated PRD Using Id by organization User', () => {
+        doGetOrganizationPRDById(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get generated PRD Using Id by organization User", response.body)
 
-    // it('Get PRD Estimate by organization User', () => {
-    //     dogetOrganizationPRDEstimate(authKey, generatePrd_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Get PRD Estimate by organization User Response", response.body)
-    //     })
+        })
+    })
+    it('Put generated PRD by organization User', () => {
+        doPutOrganizationPRD(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Put generated PRD by organization User response", response.body)
+        })
+    })
+    it('Patch generated PRD by organization User', () => {
+        doPatchOrganizationPRD(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Patch generated PRD by organization User response", response.body)
+        })
+    })
 
-    // })
-    // it('Get PRD Category List by organization User', () => {
-    //     doGetOrganizationPRDCategoryList(authKey, generatePrd_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Response Body:", JSON.stringify(response.body))
-    //         cy.log("Get PRD Category List by organization User Response", response.body)
-    //     })
 
-    // })
-    it('Get All Phase from PRD for organization User', () => {
-         doGetAllPhaseOrganizationPRD(authKey, generatePrd_id).then((response) => {
-           // cy.wait(120000)
+    it('Get PRD Estimate by organization User', () => {
+        dogetOrganizationPRDEstimate(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get PRD Estimate by organization User Response", response.body)
+        })
+
+    })
+    it('Get PRD Category List by organization User', () => {
+        doGetOrganizationPRDCategoryList(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(200)
             cy.log("Response Body:", JSON.stringify(response.body))
-            // myPhaseId=response.body[0].id;
+            cy.log("Get PRD Category List by organization User Response", response.body)
+        })
+
+    })
+    it('Get All Phase from PRD for organization User', () => {
+        doGetAllPhaseOrganizationPRD(authKey, generatePrd_id).then((response) => {
+            cy.log("Response Body:", JSON.stringify(response.body))
+             myPhaseId=response.body[0].id;
             // cy.log(myPhaseId)
             expect(response.status).to.eq(200)
         })
     })
-    // it('Create PRD Category by organization User', () => {
-    //     const tiltle = 'Cat' + (Math.random() + 1).toString(36).substring(7);
-    //     doCreateOrganizationPRDCategory(authKey, generatePrd_id,tiltle,myPhaseId).then((response) => {
-    //         category_id=response.body.id;
-    //         expect(response.status).to.eq(201)
-    //         cy.log("Create PRD Category by organization User Response", response.body)
-    //     })
-    // })
-    // it('Get category using Id for organization User', () => {
-    //     doGetOrganizationPRDCategoryUsingId(authKey, generatePrd_id,category_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Get category using Id for organization User Response", response.body)
-    //     })
-    // })
+    it('Create PRD Category by organization User', () => {
+        const tiltle = 'Cat' + (Math.random() + 1).toString(36).substring(7);
+        doCreateOrganizationPRDCategory(authKey, generatePrd_id,tiltle,myPhaseId).then((response) => {
+            category_id=response.body.id;
+            expect(response.status).to.eq(201)
+            cy.log("Create PRD Category by organization User Response", response.body)
+        })
+    })
+    it('Get category using Id for organization User', () => {
+        doGetOrganizationPRDCategoryUsingId(authKey, generatePrd_id,category_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get category using Id for organization User Response", response.body)
+        })
+    })
     // it('Put category using Id for organization User', () => {
     //     doPutOrganizationPRDCategory(authKey, generatePrd_id,category_id).then((response) => {
     //         expect(response.status).to.eq(200)
@@ -183,15 +184,13 @@ describe("New PRD Page", () => {
     //     })
 
     // })
-    //
-    // it('Delete generated PRD by organization User', () => {
-    //     doDeleteOrganizationPRD(authKey, generatePrd_id).then((response) => {
-    //         expect(response.status).to.eq(204)
-    //         cy.log("Delete generated PRD by organization User Response", response.body)
-    //     })
+    
+    it('Delete generated PRD by organization User', () => {
+        doDeleteOrganizationPRD(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(204)
+            cy.log("Delete generated PRD by organization User Response", response.body)
+        })
 
-    // })
-
-
+    })    
 })
 

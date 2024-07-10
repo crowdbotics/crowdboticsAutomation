@@ -26,7 +26,7 @@ export const doViewTask = (auth_key, app_id) => {
 
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('viewTask1') + app_id + Cypress.env('viewTask1'),
+        url: Cypress.env('baseUrl') + Cypress.env('viewTask1') + app_id + Cypress.env('viewTask2'),
         headers: {
             'Authorization': 'Token ' + auth_key
         }
@@ -161,7 +161,7 @@ export const doGetMilestone = (auth_key, app_id, milestone_id) => {
 
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getMilestone1') + app_id + Cypress.env('getMilestone2') + milestone_id + Cypress.env('getMilestone2'),
+        url: Cypress.env('baseUrl') + Cypress.env('getMilestone1') + app_id +'/milestones/'+ milestone_id + Cypress.env('getMilestone2'),
         headers: {
             'Authorization': 'Token ' + auth_key
         }

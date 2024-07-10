@@ -383,7 +383,7 @@ export const doPatchItem = (auth_key, app_id, item_id, item_name) => {
     return cy.fixture('api_patchGroupItem.json').then((myFixture) => {
         cy.request({
             method: 'PATCH',
-            url: Cypress.env('baseUrl') + Cypress.env('patchItem1') + item_id + Cypress.env('patchItem1') + app_id,
+            url: Cypress.env('baseUrl') + Cypress.env('patchItem1') + item_id + Cypress.env('patchItem2') + app_id,
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -962,7 +962,8 @@ export const doPatchUsefullLinks = (auth_key, app_id,useful_title,useful_url, us
 export const doDeleteUsefullLinks = (auth_key, app_id, usefullLinkId) => {
         return cy.request({
             method: 'DELETE',
-            url: Cypress.env('baseUrl') + Cypress.env('deleteidUsefulllinks1') + app_id + Cypress.env('deleteidUdefulllinks2') + usefullLinkId + Cypress.env('deleteidUdefulllinks3'),
+            //url: Cypress.env('baseUrl') + Cypress.env('deleteidUsefulllinks1') + app_id + Cypress.env('deleteidUdefulllinks2') + usefullLinkId + Cypress.env('deleteidUdefulllinks3'),
+            url: "https://crowdbotics-slack-dev.crowdbotics.com/api/v2/apps/"+app_id+"/useful-links/"+usefullLinkId+"/",
             headers: {
                 'Authorization': 'Token ' + auth_key,
             }
