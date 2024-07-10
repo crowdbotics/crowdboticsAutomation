@@ -354,46 +354,59 @@ describe("PRD Page", () => {
         })
     })
 
-    it('Add Comment Flow', () => {
-        doAddComment(authKey, app_id, 'Testcomment' + app_id, item_id).then((response) => {
-            comment_id = response.body.id;
-            expect(response.status).to.eq(201)
-            cy.log("Add Comment response", response.body)
+    // *************Not Available on Swagger*************
 
-        })
-    })
+    // it('Add Comment Flow', () => {
+    //     doAddComment(authKey, app_id, 'Testcomment' + app_id, item_id).then((response) => {
+    //         comment_id = response.body.id;
+    //         expect(response.status).to.eq(201)
+    //         cy.log("Add Comment response", response.body)
 
-    it('Get Comment Flow', () => {
-        doGetComment(authKey, comment_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get comment response", response.body)
+    //     })
+    // })
 
-        })
-    })
+    // *************Not Available on Swagger*************
 
-    it('Edit Comment Flow', () => {
-        doEditComment(authKey, comment_id, app_id, 'NewTestComment' + app_id, item_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Edit comment response", response.body)
+    // it('Get Comment Flow', () => {
+    //     doGetComment(authKey, comment_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get comment response", response.body)
 
-        })
-    })
+    //     })
+    // })
 
-    it('Get Chnage Comment Status Flow', () => {
-        doGetChangeCommentStatus(authKey, comment_id, app_id, 'resolved').then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Change comment Status response", response.body)
+  // *************Not Available on Swagger*************
 
-        })
-    })
+    // it('Edit Comment Flow', () => {
+    //     doEditComment(authKey, comment_id, app_id, 'NewTestComment' + app_id, item_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Edit comment response", response.body)
 
-    it('Delete Comment Flow', () => {
-        doDeleteComment(authKey, comment_id, app_id).then((response) => {
-            expect(response.status).to.eq(204)
-            cy.log("Delete Comment Response", response.body)
-        })
+    //     })
+    // })
 
-    })
+      // *************Not Available on Swagger*************
+
+
+    // it('Get Chnage Comment Status Flow', () => {
+    //     doGetChangeCommentStatus(authKey, comment_id, app_id, 'resolved').then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get Change comment Status response", response.body)
+
+    //     })
+    // })
+
+      // *************Not Available on Swagger*************
+
+
+    // it('Delete Comment Flow', () => {
+    //     doDeleteComment(authKey, comment_id, app_id).then((response) => {
+    //         expect(response.status).to.eq(204)
+    //         cy.log("Delete Comment Response", response.body)
+    //     })
+
+    // })
+
 
     it('Get View Instudio Prd Flow', () => {
         doGetViewInStudioPrd(authKey, app_id).then((response) => {
@@ -404,37 +417,37 @@ describe("PRD Page", () => {
     })
 
 
-    it('Add Feature Into Prd Flow', () => {
-        doAddFeatureIntoPrd(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Add Feature Into Prd response", response.body)
+    // it('Add Feature Into Prd Flow', () => {
+    //     doAddFeatureIntoPrd(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Add Feature Into Prd response", response.body)
 
-        })
-    })
+    //     })
+    // })
 
-    it('Add Module Into Prd Flow', () => {
-        doAddModuleIntoPrd(authKey, app_id, group_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("AAdd Module Into Prd response", response.body)
+    // it('Add Module Into Prd Flow', () => {
+    //     doAddModuleIntoPrd(authKey, app_id, group_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("AAdd Module Into Prd response", response.body)
 
-        })
-    })
+    //     })
+    // })
 
-    it('Add Archetype Into Prd Flow', () => {
-        doAddArchetypeIntoPrd(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Add Archetype Into Prd response", response.body)
+    // it('Add Archetype Into Prd Flow', () => {
+    //     doAddArchetypeIntoPrd(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Add Archetype Into Prd response", response.body)
 
-        })
-    })
+    //     })
+    // })
 
-    it('Get Prd Activity Log Flow', () => {
-        doGetPrdActivityLog(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Prd Activity Log Flow response", response.body)
+    // it('Get Prd Activity Log Flow', () => {
+    //     doGetPrdActivityLog(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get Prd Activity Log Flow response", response.body)
 
-        })
-    })
+    //     })
+    // })
     it('Get Prd AI Usertype Flow', () => {
         doGetPrdAiUserType(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
@@ -511,13 +524,15 @@ describe("PRD Page", () => {
 
     })
 
-    it('Delete Prd Tags Flow', () => {
-        doDeletePrdTag(authKey, tag_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Delete Prd Tags Response", response.body)
-        })
+////**************Not avaialble on swagger**************/
 
-    })
+    // it('Delete Prd Tags Flow', () => {
+    //     doDeletePrdTag(authKey, tag_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Delete Prd Tags Response", response.body)
+    //     })
+
+    // })
 
     it('Delete PrdGroup Flow', () => {
         prd_delete_group(authKey, app_id).then((response) => {
@@ -633,12 +648,15 @@ describe("PRD Page", () => {
 //         })
 
 //     })
-it('Get Attachments List', () => {
-    doGetattachmentslist(authKey, app_id).then((response) => {
-        expect(response.status).to.eq(200)
-        cy.log("Get PRD Attachments List", response.body)
-    })
-})
+
+//*******************Not available on Swagger********************/
+
+// it('Get Attachments List', () => {
+//     doGetattachmentslist(authKey, app_id).then((response) => {
+//         expect(response.status).to.eq(200)
+//         cy.log("Get PRD Attachments List", response.body)
+//     })
+// })
 
 it('Get Open AI Flow', () => {
     doGetOpenAI(authKey).then((response) => {

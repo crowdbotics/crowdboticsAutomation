@@ -390,7 +390,7 @@ module.exports = defineConfig({
     getEdges1: "/api/v2/apps/",
     getEdges2: "/edges/",
     getPrdActivityLog1: "/api/v1/apps/",
-    getPrdActivityLog1: "/prd-activity-logs/",
+    getPrdActivityLog2: "/prd-activity-logs/",
     getPrdAiUserType1: "/api/v1/apps/",
     getPrdAiUserType2: "/prd_ai_usertype/",
     getAppetizeBuilds1: "/api/v2/apps/",

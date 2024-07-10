@@ -38,13 +38,15 @@ describe("Tasks Page", () => {
         })
     })
     
-    it('Get Existing Task from template', () => {
+    //********************Not Available on Swagger********************** */
 
-        doGetExistingTaskTemplate(authKey).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Existing Task from template", response.body)
-        })
-    })
+    // it('Get Existing Task from template', () => {
+
+    //     doGetExistingTaskTemplate(authKey).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get Existing Task from template", response.body)
+    //     })
+    // })
 
     it('Get Task SharableStatus Flow', () => {
 

@@ -222,7 +222,7 @@ export const doTeammemberLogin = () => {
 
 }
 export const doNewPrdLogin = () => {
-    const tokenvalue = authenticator.generate("EKOX6IMTMW4TNOGXMRHG2ZZZNYSU6NNC");
+    const tokenvalue = authenticator.generate("EPBQH7G2PVFJUQMMX3VDIIDYKZN2QJDT");
     cy.readFile('cypress/fixtures/api_NewprdLogin.json').then((data) => {
         data.token = parseInt(tokenvalue);
         cy.writeFile('cypress/fixtures/api_NewprdLogin.json', JSON.stringify(data));
