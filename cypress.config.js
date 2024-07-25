@@ -344,7 +344,7 @@ module.exports = defineConfig({
     createAttributes2: "/attributes/",
     getAttributes1: "/api/v2/apps/",
     getAttributes2: "/attributes/",
-    getAuditLogList1: "/api/v1/apps/",
+    getAuditLogList1: "/api/v2/apps/",
     getAuditLogList2: "/audit-logs/",
     addSuggestedFeatures1: "/api/v1/apps/",
     addSuggestedFeatures2: "/prd-ai-generator/suggest_features/",

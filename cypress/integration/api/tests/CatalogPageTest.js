@@ -202,6 +202,7 @@ describe("Catalog Page", () => {
         })
     })
 
+    //**Need to fix */
     // it('Import Module', () => {
     //     group_id="PRD Group Test"+app_id;
     //     doImportModule(authKey, app_id,group_id).then((response) => {
@@ -339,6 +340,7 @@ describe("Catalog Page", () => {
             cy.log("Catalog Code Module response", response.body)
         })
     })
+    //**Not avialble on swagger and app */
     // it('Get Embedding Search Flow', () => {
     //     doGetEmbeddingSearch(authKey).then((response) => {
     //          expect(response.status).to.eq(200)
@@ -363,6 +365,7 @@ describe("Catalog Page", () => {
         })
     })
   
+    //**Error: 500 Internal Server Error */
     // it('Get Catalog Platform Custom Domain', () => {
     //     doGetCatalogPlatformCustomDomain(authKey, platform_id,app_id).then((response) => {
     //         expect(response.status).to.eq(200)
@@ -370,6 +373,7 @@ describe("Catalog Page", () => {
     //     })
     // })
    
+    //** Error: 500 Internal Server Error*/
     // it('Add Catalog Platform Custom Domain Flow', () => {
     //     domain_name = 'TestPlatformSlug' + (Math.random() + 1).toString(36).substring(7);
     //     doGAddCatalogPlatformCustomDomain(authKey, platform_id,app_id,domain_name).then((response) => {
@@ -725,6 +729,7 @@ it('Get Catalog Module Type List Flow', () => {
         })
     })
 
+    //**Error: Bad Gateway */
     // it('Get Shareable Components List Flow', () => {
     //     doGetShareableComponentsList(authKey).then((response) => {
     //         expect(response.status).to.eq(200)

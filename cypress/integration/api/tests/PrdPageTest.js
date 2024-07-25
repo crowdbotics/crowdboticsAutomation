@@ -547,13 +547,13 @@ describe("PRD Page", () => {
             cy.log("Delete PrdGroup response", response.body)
         })
     })
-
-    // it('Get User Repos List Flow', () => {
-    //     doGetUserReposList(authKey, app_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Delete PrdGroup response", response.body)
-    //     })
-    // })
+    // test
+    it('Get User Repos List Flow', () => {
+        doGetUserReposList(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get PrdGroup response", response.body)
+        })
+    })
     it('Add Create PRD with AI', () => {
         docreatePRDWithAI(authKey, app_id, app_name).then((response) => {
             expect(response.status).to.eq(202)

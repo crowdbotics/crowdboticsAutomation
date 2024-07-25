@@ -597,8 +597,8 @@ export const doDeleteFile = (auth_key, app_id, file_id) => {
 export const getAuditLogList = (auth_key, app_id) => {
     return cy.request({
         method: 'GET',
-        //url: Cypress.env('baseUrl') + Cypress.env('getAuditLogList1')+app_id+Cypress.env('getAuditLogList2'),  
-        url: Cypress.env('baseUrl') + '/api/v1/apps/' + app_id + '/audit-logs/',
+        url: Cypress.env('baseUrl') + Cypress.env('getAuditLogList1')+app_id+Cypress.env('getAuditLogList2'),  
+        // url: Cypress.env('baseUrl') + '/api/v1/apps/' + app_id + '/audit-logs/',
 
         headers: {
             'Content-Type': 'application/json',

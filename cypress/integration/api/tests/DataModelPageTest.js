@@ -28,12 +28,12 @@ describe("DataModel Page", () => {
             })
         })
     })
-    // it('Get DataModel Flow', () => {
-    //     doGetDataModel(authKey, app_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Get DataModel response", response.body)
-    //     })
-    // })
+    it('Get DataModel Flow', () => {
+        doGetDataModel(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get DataModel response", response.body)
+        })
+    })
 
     it('Get Models Flow', () => {
         doGetModels(authKey).then((response) => {

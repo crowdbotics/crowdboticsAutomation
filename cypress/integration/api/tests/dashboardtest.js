@@ -294,6 +294,8 @@ describe("Dashboard Page", () => {
             expect(response.status).to.eq(200)
         })
     })
+
+    // 500 Internal server error
     // it('Create Attributes Flow', () => {
     //     doCreateAttributes(authKey, app_id).then((response) => {
     //         attribute_id=response.body.id;
@@ -318,12 +320,13 @@ describe("Dashboard Page", () => {
         })
     })
     
-    // it('Get Audit Log List Flow', () => {
-    //     getAuditLogList(authKey, app_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Get Attributes response", response.body)
-    //     })
-    // })
+    it('Get Audit Log List Flow', () => {
+        getAuditLogList(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Attributes response", response.body)
+        })
+    })
+
     it('Get Certifications', () => {
         dogetCertifications(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)

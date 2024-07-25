@@ -81,12 +81,12 @@ describe("Settings Page", () => {
     })
 
 
-    // it('Get CodePackage Flow', () => {
-    //     doGetCodePackage(authKey, app_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Get CodePackage response", response.body)
-    //     })
-    // })
+    it('Get CodePackage Flow', () => {
+        doGetCodePackage(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get CodePackage response", response.body)
+        })
+    })
     it('Remove Library Flow', () => {
         doRemoveLibrary(authKey, app_id, libraryToBeAdded).then((response) => {
             expect(response.status).to.eq(200)

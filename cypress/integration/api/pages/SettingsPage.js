@@ -213,23 +213,6 @@ export const doRemoveLibrary = (auth_key, app_id, library_id) => {
     })
 }
 
-// export const doAddGcpPlatform = (auth_key, app_id) => {
-//     return cy.fixture('api_addGcpPlatform.json').then((myFixture) => {
-//         cy.request({
-//             method: 'POST',
-//             url: Cypress.env('baseUrl') + Cypress.env('addGcpPlatform1') + app_id + Cypress.env('addGcpPlatform2'),
-//             body: myFixture,
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Accept': 'application/json',
-//                 'Authorization': 'Token ' + auth_key,
-//             }
-//         }).then((response) => {
-//             return response;
-//         })
-//     })
-
-// }
 export const doGetRepoBranch = (auth_key, app_id) => {
 
     return cy.request({

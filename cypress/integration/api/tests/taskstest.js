@@ -119,48 +119,50 @@ describe("Tasks Page", () => {
 //             expect(response.status).to.eq(200)
 //             cy.log("create milestone response" + response.body)
 //         })
-//         doCreateTask(authKey, app_id, wishlist_task_name, task_hours, task_cost).then((response) => {
-//             task_wishlist_id = response.body.id;
-//             expect(response.status).to.eq(201)
-//             cy.log("create milestone response", response.body)
-//         })
-//         doTaskIntoWishlist(authKey, app_id,milestone_wishlist_id,task_wishlist_id).then((response) => {
-//             task_wishlist_id = response.body.id;
-//             expect(response.status).to.eq(200)
-//             cy.log("create milestone response", response.body)
-//         })
-        
+    it('Create Tasks', () => {
+        doCreateTask(authKey, app_id, wishlist_task_name, task_hours, task_cost).then((response) => {
+            task_wishlist_id = response.body.id;
+            expect(response.status).to.eq(201)
+            cy.log("create milestone response", response.body)
+        })
+    })
+    // it('Add wishlist tasks', () => {
+    //     doTaskIntoWishlist(authKey, app_id,milestone_wishlist_id,task_wishlist_id).then((response) => {
+    //         task_wishlist_id = response.body.id;
+    //         expect(response.status).to.eq(200)
+    //         cy.log("create milestone response", response.body)
+    //     })
+    // })
 
-//     })
 
-//     it('View Wish List Task Info', () => {
-//         doGetTaskById(authKey, app_id,task_wishlist_id).then((response) => {
-//             expect(response.status).to.eq(200)
-//             cy.log("create milestone response", response.body)
-//         })
-//     })
+    it('View Wish List Task Info', () => {
+        doGetTaskById(authKey, app_id,task_wishlist_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("create milestone response", response.body)
+        })
+    })
 
-//     it('Create Subtask Flow', () => {
-//         doCreateSubTask(authKey, task_id).then((response) => {
-//             fe_subtask_id = response.body.subtasks[0].id;
-//             expect(response.status).to.eq(200)
-//             cy.log("create milestone response", response.body)
-//         })
-//     })
+    it('Create Subtask Flow', () => {
+        doCreateSubTask(authKey, task_id).then((response) => {
+            fe_subtask_id = response.body.subtasks[0].id;
+            expect(response.status).to.eq(200)
+            cy.log("create milestone response", response.body)
+        })
+    })
 
-//     it('Create Other Subtask Flow', () => {
-//         doCreateOtherSubTask(authKey,app_id, task_id,"New Subtask").then((response) => {
-//             expect(response.status).to.eq(201)
-//             cy.log("create milestone response", response.body)
-//         })
-//     })
+    it('Create Other Subtask Flow', () => {
+        doCreateOtherSubTask(authKey,app_id, task_id,"New Subtask").then((response) => {
+            expect(response.status).to.eq(201)
+            cy.log("create milestone response", response.body)
+        })
+    })
 
-//     it('Get Subtask Details Flow', () => {
-//         doGetAllSubTask(authKey,app_id, task_id).then((response) => {
-//             expect(response.status).to.eq(200)
-//             cy.log("create milestone response", response.body)
-//         })
-//     })
+    it('Get Subtask Details Flow', () => {
+        doGetAllSubTask(authKey,app_id, task_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("create milestone response", response.body)
+        })
+    })
 
 
 // it('Update Task Into Milestone Flow', () => {
@@ -170,12 +172,12 @@ describe("Tasks Page", () => {
 //     })
 // })
 
-// it('Update Subtask Flow', () => {
-//     doUpdateSubTask(authKey,fe_subtask_id,"Front-End Dev tool").then((response) => {
-//         expect(response.status).to.eq(200)
-//         cy.log("create milestone response", response.body)
-//     })
-// })
+it('Update Subtask Flow', () => {
+    doUpdateSubTask(authKey,fe_subtask_id,"Front-End Dev tool").then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("create milestone response", response.body)
+    })
+})
 
     it('Add Payment Milestone FLow', () => {
         const currentDate = new Date();
@@ -209,21 +211,21 @@ describe("Tasks Page", () => {
         })
     })
 
-    // it('Approve Payment Flow', () => {
+    it('Approve Payment Flow', () => {
 
-    //     doApprovePayment(authKey, app_id).then((response) => {
-    //         expect(response.status).to.eq(404)
-    //         cy.log("Approve Payment response", response.body)
-    //     })
-    // })
+        doApprovePayment(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(201)
+            cy.log("Approve Payment response", response.body)
+        })
+    })
 
-    // it('Create Billing Schedule Flow', () => {
+    it('Create Billing Schedule Flow', () => {
 
-    //     doCreateBillingSchedule(authKey, app_id, "100_percent_upfront").then((response) => {
-    //         expect(response.status).to.eq(201)
-    //         cy.log("Create Billing Schedule response", response.body)
-    //     })
-    // })
+        doCreateBillingSchedule(authKey, app_id, "100_percent_upfront").then((response) => {
+            expect(response.status).to.eq(201)
+            cy.log("Create Billing Schedule response", response.body)
+        })
+    })
 
     it('Get Billing Schedule Flow', () => {
 
@@ -241,13 +243,13 @@ describe("Tasks Page", () => {
         })
     })
   
-    // it('Update Billing Schedule Flow', () => {
+    it('Update Billing Schedule Flow', () => {
 
-    //     doUpdateBillingSchedule(authKey, app_id, "50_50").then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Update Billing Schedule response", response.body)
-    //     })
-    // })
+        doUpdateBillingSchedule(authKey, app_id, "50_50").then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Update Billing Schedule response", response.body)
+        })
+    })
 
     it('Get Billing Schedule After Update Billing', () => {
 
@@ -257,13 +259,13 @@ describe("Tasks Page", () => {
         })
     })
 
-    // it('Approve Payment After Billing Schedule ', () => {
+    it('Approve Payment After Billing Schedule ', () => {
 
-    //     doApprovePayment(authKey, app_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Approve Payment response", response.body)
-    //     })
-    // })
+        doApprovePayment(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Approve Payment response", response.body)
+        })
+    })
    
 
     it('Get All Milestone', () => {
@@ -307,7 +309,6 @@ describe("Tasks Page", () => {
 
 
 })
-
 
 
 
