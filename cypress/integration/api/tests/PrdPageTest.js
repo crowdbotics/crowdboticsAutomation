@@ -547,7 +547,7 @@ describe("PRD Page", () => {
             cy.log("Delete PrdGroup response", response.body)
         })
     })
-    // test
+
     it('Get User Repos List Flow', () => {
         doGetUserReposList(authKey).then((response) => {
             expect(response.status).to.eq(200)

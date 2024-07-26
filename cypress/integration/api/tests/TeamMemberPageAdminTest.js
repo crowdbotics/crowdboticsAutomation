@@ -53,7 +53,7 @@ describe("Team Member Admin Page", () => {
         })
     })
 
-    // timeout issue 
+    // Right now we are facing timeout issue on swagger
     // it('Change Team Member Job Title', () => {
     //     doUpdateMemberjobTitle(authKey, app_id, member_id,app_name).then((response) => {
     //         expect(response.status).to.eq(200)

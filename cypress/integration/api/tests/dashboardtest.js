@@ -295,7 +295,7 @@ describe("Dashboard Page", () => {
         })
     })
 
-    // 500 Internal server error
+    //In swagger Getting an 500 Internal server error
     // it('Create Attributes Flow', () => {
     //     doCreateAttributes(authKey, app_id).then((response) => {
     //         attribute_id=response.body.id;
