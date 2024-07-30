@@ -365,7 +365,7 @@ describe("Catalog Page", () => {
         })
     })
   
-    //**API is not working getting an Error: 500 Internal Server Error */
+    //**Need to connect with dev */
     // it('Get Catalog Platform Custom Domain', () => {
     //     doGetCatalogPlatformCustomDomain(authKey, platform_id,app_id).then((response) => {
     //         expect(response.status).to.eq(200)
@@ -373,7 +373,7 @@ describe("Catalog Page", () => {
     //     })
     // })
    
-    //**API is not working getting an Error: 500 Internal Server Error*/
+    //**Need to connect with dev*/
     // it('Add Catalog Platform Custom Domain Flow', () => {
     //     domain_name = 'TestPlatformSlug' + (Math.random() + 1).toString(36).substring(7);
     //     doGAddCatalogPlatformCustomDomain(authKey, platform_id,app_id,domain_name).then((response) => {
