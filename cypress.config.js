@@ -152,6 +152,7 @@ module.exports = defineConfig({
     getJobtitles: "/api/v2/job_titles/",
     getJobtitlesByID1 : "/api/v2/job_titles/",
     getJobtitlesByID2 : "/",
+    adddashboardfeature: "/api/v2/dashboard-feedback/",
 
 
     // This end point not available in trac list
@@ -772,6 +773,11 @@ module.exports = defineConfig({
     getSlides2: "/slideshow/",
     postSlides1: "/api/v2/apps/",
     postSlides2: "/slideshow/",
+    addMagiclink: "/api/v2/magic-link/",
+    postOutgrow: "/api/v2/outgrow/",
+    getSocialapps: "/api/v2/socialapps/",
+    getSocialappsByID1:"/api/v2/socialapps/",
+    getSocialappsByID2: "/",
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
