@@ -634,28 +634,28 @@ describe("Dashboard Page", () => {
         }) 
     })   
 
-    it('Post Dashboard Feedback', () => {
+    it('post Dashboard Feedback', () => {
         doPostDashboardFeedack(authKey).then((response) => {
-            cy.log("Post Dashboard Feedback", response.body)
             expect(response.status).to.eq(200)
+            cy.log("Post Dashboard Feedback", response.body)
         }) 
     })   
 
-    it('Post Magic Link', () => {
+    it('post Magic Link', () => {
         doPostMagicLink(authKey).then((response) => {
-            cy.log("Magic link sent successfully", response.body)
             expect(response.status).to.eq(200)
+            cy.log("Magic link sent successfully", response.body)
         }) 
     })
 
-    it('Post Out Grow', () => {
+    it('post Out Grow', () => {
         doPostOutGrow(authKey).then((response) => {
-            cy.log("Get Resend Verification response", response.body)
             expect(response.status).to.eq(200)
+            cy.log("Get Resend Verification response", response.body)
         })
     })
 
-    it('Get Social APP', () => {
+    it('get Social APP', () => {
         doGetSocialApp(authKey).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Social APP", response.body)
@@ -663,7 +663,7 @@ describe("Dashboard Page", () => {
     })
 
     
-    it('Get Social APP By ID', () => {
+    it('get Social APP By ID', () => {
         doGetSocialAppByID(authKey, social_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Social APP Id response", response.body)
