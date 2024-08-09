@@ -835,8 +835,9 @@ module.exports = defineConfig({
     removeModuleIntoFeatureOrganizationPRD3: "/remove-module/",
     getAllPhaseOrganizationPRD1: "/api/v1/prd/",
     getAllPhaseOrganizationPRD2: "/phase/",
-
-
+    getDemophase: "/api/v1/demo-phase/",
+    getDemoroles: "/api/v1/demo-roles/",
+    getDemoticket:"/api/v1/demo-tickets/",
     
 
   },
