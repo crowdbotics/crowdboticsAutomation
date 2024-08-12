@@ -829,6 +829,21 @@ module.exports = defineConfig({
     removeModuleIntoFeatureOrganizationPRD3: "/remove-module/",
     getAllPhaseOrganizationPRD1: "/api/v1/prd/",
     getAllPhaseOrganizationPRD2: "/phase/",
+    addPhaseOrganizationPRD1: "/api/v1/prd/",
+    addPhaseOrganizationPRD2: "/phase/create-phase/",
+    getPhaseByIdByoriganization1: "/api/v1/prd/",
+    getPhaseByIdByoriganization2: "/phase/",
+    getPhaseByIdByoriganization3: "/",
+    putPhaseByIdByoriganization1: "/api/v1/prd/",
+    putPhaseByIdByoriganization2: "/phase/",
+    putPhaseByIdByoriganization3: "/",
+    patchPhaseByIdByoriganization1: "/api/v1/prd/",
+    patchPhaseByIdByoriganization2: "/phase/",
+    patchPhaseByIdByoriganization3: "/",
+    deletePhaseByIdByoriganization1: "/api/v1/prd/",
+    deletePhaseByIdByoriganization2: "/phase/",
+    deletePhaseByIdByoriganization3: "/",
+   
 
 
     
