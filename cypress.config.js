@@ -152,6 +152,7 @@ module.exports = defineConfig({
     getJobtitles: "/api/v2/job_titles/",
     getJobtitlesByID1 : "/api/v2/job_titles/",
     getJobtitlesByID2 : "/",
+    adddashboardfeature: "/api/v2/dashboard-feedback/",
 
 
     // This end point not available in trac list
@@ -344,7 +345,7 @@ module.exports = defineConfig({
     createAttributes2: "/attributes/",
     getAttributes1: "/api/v2/apps/",
     getAttributes2: "/attributes/",
-    getAuditLogList1: "/api/v1/apps/",
+    getAuditLogList1: "/api/v2/apps/",
     getAuditLogList2: "/audit-logs/",
     addSuggestedFeatures1: "/api/v1/apps/",
     addSuggestedFeatures2: "/prd-ai-generator/suggest_features/",
@@ -772,6 +773,11 @@ module.exports = defineConfig({
     getSlides2: "/slideshow/",
     postSlides1: "/api/v2/apps/",
     postSlides2: "/slideshow/",
+    addMagiclink: "/api/v2/magic-link/",
+    postOutgrow: "/api/v2/outgrow/",
+    getSocialapps: "/api/v2/socialapps/",
+    getSocialappsByID1:"/api/v2/socialapps/",
+    getSocialappsByID2: "/",
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",
@@ -829,22 +835,6 @@ module.exports = defineConfig({
     removeModuleIntoFeatureOrganizationPRD3: "/remove-module/",
     getAllPhaseOrganizationPRD1: "/api/v1/prd/",
     getAllPhaseOrganizationPRD2: "/phase/",
-    addPhaseOrganizationPRD1: "/api/v1/prd/",
-    addPhaseOrganizationPRD2: "/phase/create-phase/",
-    getPhaseByIdByoriganization1: "/api/v1/prd/",
-    getPhaseByIdByoriganization2: "/phase/",
-    getPhaseByIdByoriganization3: "/",
-    putPhaseByIdByoriganization1: "/api/v1/prd/",
-    putPhaseByIdByoriganization2: "/phase/",
-    putPhaseByIdByoriganization3: "/",
-    patchPhaseByIdByoriganization1: "/api/v1/prd/",
-    patchPhaseByIdByoriganization2: "/phase/",
-    patchPhaseByIdByoriganization3: "/",
-    deletePhaseByIdByoriganization1: "/api/v1/prd/",
-    deletePhaseByIdByoriganization2: "/phase/",
-    deletePhaseByIdByoriganization3: "/",
-   
-
 
     
 

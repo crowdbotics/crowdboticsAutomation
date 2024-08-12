@@ -574,7 +574,7 @@ export const doDeleteCatalogCodeModule = (auth_key, module_id) => {
     })
 };
 
-
+//**It's not available on swagger */
 // export const doGetEmbeddingSearch = (auth_key) => {
 
 //     return cy.fixture('api_catalogEmbeddingSearch.json').then((myFixture) => {

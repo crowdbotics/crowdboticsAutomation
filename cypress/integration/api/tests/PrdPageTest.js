@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doPrdLogin} from '../pages/loginPage.js';
-import { doGetattachmentslist,doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doDeletefeature, doPatchFeature, doPutFeature, doPutCategories, doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks,doPostUsefullLinks,doGetidUsefullLinks,doPutUsefullLinks,doPatchUsefullLinks,doDeleteUsefullLinks,doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getCodeStateList, getRolesUsingId, getRoles, getAppPerformanceList, getPendingInvite, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, getAllFeatureFromBacklog, getPrdAiCategories, prd_overview_tags, prd_overview_userRoles, prd_create_group, prd_get_group, prd_delete_group, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually,doGetSUserTypes, doCreateUserTypes, doGetSUserTypesByID, doPatchUserTypes,doPutUserTypes, dodeleteuserTypesByid,doGetRolesByID, doGetOpenAI } from '../pages/PrdPage.js';
+import { doGetattachmentslist,doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doDeletefeature, doPatchFeature, doPutFeature, doPutCategories, doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks,doPostUsefullLinks,doGetidUsefullLinks,doPutUsefullLinks,doPatchUsefullLinks,doDeleteUsefullLinks,doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getCodeStateList, getRolesUsingId, getRoles, getAppPerformanceList, getPendingInvite, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, getAllFeatureFromBacklog, getPrdAiCategories, prd_overview_tags, prd_overview_userRoles, prd_create_group, prd_get_group, prd_delete_group, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually,doGetSUserTypes, doCreateUserTypes, doGetSUserTypesByID, doPatchUserTypes,doPutUserTypes, dodeleteuserTypesByid,doGetRolesByID, doGetOpenAI,doGetDemoPhase,doGetDemoRoles,doGetDemoticket } from '../pages/PrdPage.js';
 
 
 let authKey;
@@ -548,12 +548,12 @@ describe("PRD Page", () => {
         })
     })
 
-    // it('Get User Repos List Flow', () => {
-    //     doGetUserReposList(authKey, app_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Delete PrdGroup response", response.body)
-    //     })
-    // })
+    it('Get User Repos List Flow', () => {
+        doGetUserReposList(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get PrdGroup response", response.body)
+        })
+    })
     it('Add Create PRD with AI', () => {
         docreatePRDWithAI(authKey, app_id, app_name).then((response) => {
             expect(response.status).to.eq(202)
@@ -662,6 +662,27 @@ it('Get Open AI Flow', () => {
     doGetOpenAI(authKey).then((response) => {
         cy.log("Get Open AI response", response.body)
         expect(response.status).to.eq(200)
+    })
+})
+
+it('get Demo phase Flow', () => {
+    doGetDemoPhase(authKey).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Get Demo phase response", response.body)
+    })
+})
+
+it('get Demo Roles Flow', () => {
+    doGetDemoRoles(authKey).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Get Demo Roles response", response.body)
+    })
+})
+
+it('get Demo Ticket Flow', () => {
+    doGetDemoticket(authKey).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Get Demo ticket response", response.body)
     })
 })
 

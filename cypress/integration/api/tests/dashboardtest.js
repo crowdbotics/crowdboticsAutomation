@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 
-import { doGetMobilebuilds,doPostresendverification,doGetSlides,doPostslides,doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID,dogetcbusers,doPostcbusers,dogetcbusersbyId,doputcbusersbyId,dopatchcbusersbyId, doGetReportsByID,doGetDevloperrequest,doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById,doGetLogs,doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID, doGetAddons, doGetAddonsByID, doGetScaffolds, doTOTPdevice, doGetSocialaccounts, doGetSettingsfe, doGetPeojectClones, doGetProjectClonesByID} from '../pages/DashboardPage.js';
+import { doGetMobilebuilds,doPostresendverification,doGetSlides,doPostslides,doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID,dogetcbusers,doPostcbusers,dogetcbusersbyId,doputcbusersbyId,dopatchcbusersbyId, doGetReportsByID,doGetDevloperrequest,doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById,doGetLogs,doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID, doGetAddons, doGetAddonsByID, doGetScaffolds, doTOTPdevice, doGetSocialaccounts, doGetSettingsfe, doGetPeojectClones, doGetProjectClonesByID,doPostDashboardFeedack,doPostMagicLink,doPostOutGrow,doGetSocialApp,doGetSocialAppByID} from '../pages/DashboardPage.js';
 import { doDashboardLogin } from '../pages/loginPage.js';
 
 let component_id;
@@ -22,6 +22,7 @@ let logs_id;
 let memberfeedback_id;
 let addons_id;
 let projectclones_id ;
+let social_id = 1 ;
 describe("Dashboard Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     const username = 'cbrahul' + (Math.random() + 1).toString(36).substring(7);
@@ -294,6 +295,8 @@ describe("Dashboard Page", () => {
             expect(response.status).to.eq(200)
         })
     })
+
+    //In swagger Getting an 500 Internal server error
     // it('Create Attributes Flow', () => {
     //     doCreateAttributes(authKey, app_id).then((response) => {
     //         attribute_id=response.body.id;
@@ -318,12 +321,13 @@ describe("Dashboard Page", () => {
         })
     })
     
-    // it('Get Audit Log List Flow', () => {
-    //     getAuditLogList(authKey, app_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Get Attributes response", response.body)
-    //     })
-    // })
+    it('Get Audit Log List Flow', () => {
+        getAuditLogList(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Attributes response", response.body)
+        })
+    })
+
     it('Get Certifications', () => {
         dogetCertifications(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
@@ -629,6 +633,43 @@ describe("Dashboard Page", () => {
             expect(response.status).to.eq(200)
         }) 
     })   
+
+    it('post Dashboard Feedback', () => {
+        doPostDashboardFeedack(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Post Dashboard Feedback", response.body)
+        }) 
+    })   
+
+    it('post Magic Link', () => {
+        doPostMagicLink(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Magic link sent successfully", response.body)
+        }) 
+    })
+
+    it('post Out Grow', () => {
+        doPostOutGrow(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Resend Verification response", response.body)
+        })
+    })
+
+    it('get Social APP', () => {
+        doGetSocialApp(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Social APP", response.body)
+        })
+    })
+
+    
+    it('get Social APP By ID', () => {
+        doGetSocialAppByID(authKey, social_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Social APP Id response", response.body)
+        })
+    })
+
 
 
 })
