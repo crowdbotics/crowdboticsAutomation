@@ -16,7 +16,7 @@ export const doGenerateOrganizationPRD = (auth_key) => {
     return cy.fixture('api_generateOrganizationPRD.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-           // url: Cypress.env('baseUrl') + Cypress.env('generateOrganizationPRD'),
+            // url: Cypress.env('baseUrl') + Cypress.env('generateOrganizationPRD'),
             url: 'https://crowdbotics-slack-dev.crowdbotics.com/api/v1/prd/generate-prd/',
             body: myFixture,
             headers: {
@@ -28,11 +28,11 @@ export const doGenerateOrganizationPRD = (auth_key) => {
     })
 };
 
-export const doGetOrganizationPRDById = (auth_key,generatePrd_id) => {
+export const doGetOrganizationPRDById = (auth_key, generatePrd_id) => {
 
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getOrganizationPRDById1')+generatePrd_id+ Cypress.env('getOrganizationPRDById2'),
+        url: Cypress.env('baseUrl') + Cypress.env('getOrganizationPRDById1') + generatePrd_id + Cypress.env('getOrganizationPRDById2'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -40,11 +40,11 @@ export const doGetOrganizationPRDById = (auth_key,generatePrd_id) => {
         return response;
     })
 };
-export const doPutOrganizationPRD = (auth_key,generatePrd_id) => {
+export const doPutOrganizationPRD = (auth_key, generatePrd_id) => {
     return cy.fixture('api_putGenerateOrganizationPRD.json').then((myFixture) => {
         cy.request({
             method: 'PUT',
-            url: Cypress.env('baseUrl') + Cypress.env('putOrganizationPRDById1')+generatePrd_id+ Cypress.env('putOrganizationPRDById2'),
+            url: Cypress.env('baseUrl') + Cypress.env('putOrganizationPRDById1') + generatePrd_id + Cypress.env('putOrganizationPRDById2'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -55,11 +55,11 @@ export const doPutOrganizationPRD = (auth_key,generatePrd_id) => {
     })
 };
 
-export const doPatchOrganizationPRD = (auth_key,generatePrd_id) => {
+export const doPatchOrganizationPRD = (auth_key, generatePrd_id) => {
     return cy.fixture('api_patchGenerateOrganizationPRD.json').then((myFixture) => {
         cy.request({
             method: 'PATCH',
-            url: Cypress.env('baseUrl') + Cypress.env('patchOrganizationPRDById1')+generatePrd_id+ Cypress.env('patchOrganizationPRDById2'),
+            url: Cypress.env('baseUrl') + Cypress.env('patchOrganizationPRDById1') + generatePrd_id + Cypress.env('patchOrganizationPRDById2'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -70,11 +70,11 @@ export const doPatchOrganizationPRD = (auth_key,generatePrd_id) => {
     })
 };
 
-export const doDeleteOrganizationPRD = (auth_key,generatePrd_id) => {
+export const doDeleteOrganizationPRD = (auth_key, generatePrd_id) => {
 
     return cy.request({
         method: 'DELETE',
-        url: Cypress.env('baseUrl') + Cypress.env('deleteOrganizationPRD1')+generatePrd_id+Cypress.env('deleteOrganizationPRD2'),
+        url: Cypress.env('baseUrl') + Cypress.env('deleteOrganizationPRD1') + generatePrd_id + Cypress.env('deleteOrganizationPRD2'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -83,11 +83,11 @@ export const doDeleteOrganizationPRD = (auth_key,generatePrd_id) => {
     })
 };
 
-export const dogetOrganizationPRDEstimate = (auth_key,generatePrd_id) => {
+export const dogetOrganizationPRDEstimate = (auth_key, generatePrd_id) => {
     return cy.fixture('api_generateOrganizationPRD.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('getOrganizationPRDEstimate1')+generatePrd_id+Cypress.env('getOrganizationPRDEstimate2'),
+            url: Cypress.env('baseUrl') + Cypress.env('getOrganizationPRDEstimate1') + generatePrd_id + Cypress.env('getOrganizationPRDEstimate2'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -98,11 +98,11 @@ export const dogetOrganizationPRDEstimate = (auth_key,generatePrd_id) => {
     })
 };
 
-export const doGetOrganizationPRDCategoryList = (auth_key,generatePrd_id) => {
+export const doGetOrganizationPRDCategoryList = (auth_key, generatePrd_id) => {
 
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getOrganizationPRDCategoryList1')+generatePrd_id+ Cypress.env('getOrganizationPRDCategoryList2'),
+        url: Cypress.env('baseUrl') + Cypress.env('getOrganizationPRDCategoryList1') + generatePrd_id + Cypress.env('getOrganizationPRDCategoryList2'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -110,7 +110,7 @@ export const doGetOrganizationPRDCategoryList = (auth_key,generatePrd_id) => {
         return response;
     })
 };
-export const doCreateOrganizationPRDCategory = (auth_key,generatePrd_id,tiltle,myPhaseId) => {
+export const doCreateOrganizationPRDCategory = (auth_key, generatePrd_id, tiltle, myPhaseId) => {
     cy.readFile('cypress/fixtures/api_CreateOrganizationPRDCategory.json').then((data) => {
         data.title = tiltle
         data.phase = myPhaseId
@@ -119,7 +119,7 @@ export const doCreateOrganizationPRDCategory = (auth_key,generatePrd_id,tiltle,m
     return cy.fixture('api_CreateOrganizationPRDCategory.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('createOrganizationPRDCategory1')+generatePrd_id+Cypress.env('createOrganizationPRDCategory2'),
+            url: Cypress.env('baseUrl') + Cypress.env('createOrganizationPRDCategory1') + generatePrd_id + Cypress.env('createOrganizationPRDCategory2'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -129,10 +129,10 @@ export const doCreateOrganizationPRDCategory = (auth_key,generatePrd_id,tiltle,m
         })
     })
 };
-export const doGetOrganizationPRDCategoryUsingId = (auth_key,generatePrd_id,category_id) => {
+export const doGetOrganizationPRDCategoryUsingId = (auth_key, generatePrd_id, category_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getOrganizationPRDCategoryUsingId1')+generatePrd_id+ Cypress.env('getOrganizationPRDCategoryUsingId2')+category_id+Cypress.env('getOrganizationPRDCategoryUsingId3'),
+        url: Cypress.env('baseUrl') + Cypress.env('getOrganizationPRDCategoryUsingId1') + generatePrd_id + Cypress.env('getOrganizationPRDCategoryUsingId2') + category_id + Cypress.env('getOrganizationPRDCategoryUsingId3'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -140,11 +140,16 @@ export const doGetOrganizationPRDCategoryUsingId = (auth_key,generatePrd_id,cate
         return response;
     })
 };
-export const doPutOrganizationPRDCategory = (auth_key,generatePrd_id,category_id) => {
+export const doPutOrganizationPRDCategory = (auth_key, generatePrd_id, category_id,tiltle,myPhaseId) => {
+    cy.readFile('cypress/fixtures/api_putOrganizationPRDCategoryUsingId.json').then((data) => {
+        data.title = tiltle;
+        data.phase = myPhaseId;
+        cy.writeFile('cypress/fixtures/api_putOrganizationPRDCategoryUsingId.json', JSON.stringify(data))
+    })
     return cy.fixture('api_putOrganizationPRDCategoryUsingId.json').then((myFixture) => {
         cy.request({
             method: 'PUT',
-            url: Cypress.env('baseUrl') + Cypress.env('putOrganizationPRDCategoryUsingId1')+generatePrd_id+Cypress.env('putOrganizationPRDCategoryUsingId2')+category_id+Cypress.env('putOrganizationPRDCategoryUsingId3'),
+            url: Cypress.env('baseUrl') + Cypress.env('putOrganizationPRDCategoryUsingId1') + generatePrd_id + Cypress.env('putOrganizationPRDCategoryUsingId2') + category_id + Cypress.env('putOrganizationPRDCategoryUsingId3'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -155,11 +160,16 @@ export const doPutOrganizationPRDCategory = (auth_key,generatePrd_id,category_id
     })
 };
 
-export const doPatchOrganizationPRDCategory = (auth_key,generatePrd_id,category_id) => {
+export const doPatchOrganizationPRDCategory = (auth_key, generatePrd_id, category_id,tiltle,myPhaseId) => {
+    cy.readFile('cypress/fixtures/api_patchOrganizationPRDCategoryUsingId.json').then((data) => {
+        data.title = tiltle;
+        data.phase = myPhaseId;
+        cy.writeFile('cypress/fixtures/api_patchOrganizationPRDCategoryUsingId.json', JSON.stringify(data))
+    })
     return cy.fixture('api_patchOrganizationPRDCategoryUsingId.json').then((myFixture) => {
         cy.request({
             method: 'PATCH',
-            url: Cypress.env('baseUrl') + Cypress.env('patchOrganizationPRDCategoryUsingId1')+generatePrd_id+Cypress.env('patchOrganizationPRDCategoryUsingId2')+category_id+Cypress.env('patchOrganizationPRDCategoryUsingId3'),
+            url: Cypress.env('baseUrl') + Cypress.env('patchOrganizationPRDCategoryUsingId1') + generatePrd_id + Cypress.env('patchOrganizationPRDCategoryUsingId2') + category_id + Cypress.env('patchOrganizationPRDCategoryUsingId3'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -170,10 +180,10 @@ export const doPatchOrganizationPRDCategory = (auth_key,generatePrd_id,category_
     })
 };
 
-export const doDeleteOrganizationPRDCategoryUsingId = (auth_key,generatePrd_id,category_id) => {
+export const doDeleteOrganizationPRDCategoryUsingId = (auth_key, generatePrd_id, category_id) => {
     return cy.request({
         method: 'DELETE',
-        url: Cypress.env('baseUrl') + Cypress.env('deleteOrganizationPRDCategoryUsingId1')+generatePrd_id+ Cypress.env('deleteOrganizationPRDCategoryUsingId2')+category_id+Cypress.env('deleteOrganizationPRDCategoryUsingId3'),
+        url: Cypress.env('baseUrl') + Cypress.env('deleteOrganizationPRDCategoryUsingId1') + generatePrd_id + Cypress.env('deleteOrganizationPRDCategoryUsingId2') + category_id + Cypress.env('deleteOrganizationPRDCategoryUsingId3'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -181,11 +191,11 @@ export const doDeleteOrganizationPRDCategoryUsingId = (auth_key,generatePrd_id,c
         return response;
     })
 };
-export const doMoveFetaureIntoCategoryOrganizationPRD = (auth_key,generatePrd_id,category_id) => {
+export const doMoveFetaureIntoCategoryOrganizationPRD = (auth_key, generatePrd_id, category_id) => {
     return cy.fixture('api_moveFeatureIntoCategory.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('moveFeatureIntoCategory1')+generatePrd_id+Cypress.env('moveFeatureIntoCategory2')+category_id+Cypress.env('moveFeatureIntoCategory3'),
+            url: Cypress.env('baseUrl') + Cypress.env('moveFeatureIntoCategory1') + generatePrd_id + Cypress.env('moveFeatureIntoCategory2') + category_id + Cypress.env('moveFeatureIntoCategory3'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -195,10 +205,10 @@ export const doMoveFetaureIntoCategoryOrganizationPRD = (auth_key,generatePrd_id
         })
     })
 };
-export const doGetAllfeatureOrganizationPRD = (auth_key,generatePrd_id) => {
+export const doGetAllfeatureOrganizationPRD = (auth_key, generatePrd_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getAllfeatureOrganizationPRD1')+generatePrd_id+ Cypress.env('getAllfeatureOrganizationPRD1'),
+        url: Cypress.env('baseUrl') + Cypress.env('getAllfeatureOrganizationPRD1') + generatePrd_id + Cypress.env('getAllfeatureOrganizationPRD1'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -206,11 +216,11 @@ export const doGetAllfeatureOrganizationPRD = (auth_key,generatePrd_id) => {
         return response;
     })
 };
-export const doCreatefeatureOrganizationPRD = (auth_key,generatePrd_id) => {
+export const doCreatefeatureOrganizationPRD = (auth_key, generatePrd_id) => {
     return cy.fixture('api_createFeaturePRD.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('createfeatureOrganizationPRD1')+generatePrd_id+Cypress.env('createfeatureOrganizationPRD1'),
+            url: Cypress.env('baseUrl') + Cypress.env('createfeatureOrganizationPRD1') + generatePrd_id + Cypress.env('createfeatureOrganizationPRD1'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -220,10 +230,10 @@ export const doCreatefeatureOrganizationPRD = (auth_key,generatePrd_id) => {
         })
     })
 };
-export const doGetfeatureUsingIdOrganizationPRD = (auth_key,generatePrd_id,feature_id) => {
+export const doGetfeatureUsingIdOrganizationPRD = (auth_key, generatePrd_id, feature_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getfeatureUsingIdOrganizationPRD1')+generatePrd_id+ Cypress.env('getfeatureUsingIdOrganizationPRD2')+feature_id+Cypress.env('getfeatureUsingIdOrganizationPRD3'),
+        url: Cypress.env('baseUrl') + Cypress.env('getfeatureUsingIdOrganizationPRD1') + generatePrd_id + Cypress.env('getfeatureUsingIdOrganizationPRD2') + feature_id + Cypress.env('getfeatureUsingIdOrganizationPRD3'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -231,11 +241,11 @@ export const doGetfeatureUsingIdOrganizationPRD = (auth_key,generatePrd_id,featu
         return response;
     })
 };
-export const doPutfeatureUsingIdOrganizationPRD = (auth_key,generatePrd_id,feature_id) => {
+export const doPutfeatureUsingIdOrganizationPRD = (auth_key, generatePrd_id, feature_id) => {
     return cy.fixture('api_PutfeatureUsingIdOrganizationPRD.json').then((myFixture) => {
         cy.request({
             method: 'PUT',
-            url: Cypress.env('baseUrl') + Cypress.env('putfeatureUsingIdOrganizationPRD1')+generatePrd_id+Cypress.env('putfeatureUsingIdOrganizationPRD2')+feature_id+Cypress.env('putfeatureUsingIdOrganizationPRD3'),
+            url: Cypress.env('baseUrl') + Cypress.env('putfeatureUsingIdOrganizationPRD1') + generatePrd_id + Cypress.env('putfeatureUsingIdOrganizationPRD2') + feature_id + Cypress.env('putfeatureUsingIdOrganizationPRD3'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -245,11 +255,11 @@ export const doPutfeatureUsingIdOrganizationPRD = (auth_key,generatePrd_id,featu
         })
     })
 };
-export const doPatchfeatureUsingIdOrganizationPRD = (auth_key,generatePrd_id,feature_id) => {
+export const doPatchfeatureUsingIdOrganizationPRD = (auth_key, generatePrd_id, feature_id) => {
     return cy.fixture('api_PatchfeatureUsingIdOrganizationPRD.json').then((myFixture) => {
         cy.request({
             method: 'PATCH',
-            url: Cypress.env('baseUrl') + Cypress.env('patchfeatureUsingIdOrganizationPRD1')+generatePrd_id+Cypress.env('patchfeatureUsingIdOrganizationPRD2')+feature_id+Cypress.env('patchfeatureUsingIdOrganizationPRD3'),
+            url: Cypress.env('baseUrl') + Cypress.env('patchfeatureUsingIdOrganizationPRD1') + generatePrd_id + Cypress.env('patchfeatureUsingIdOrganizationPRD2') + feature_id + Cypress.env('patchfeatureUsingIdOrganizationPRD3'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -260,10 +270,10 @@ export const doPatchfeatureUsingIdOrganizationPRD = (auth_key,generatePrd_id,fea
     })
 };
 
-export const doDeletefeatureUsingIdOrganizationPRD = (auth_key,generatePrd_id,feature_id) => {
+export const doDeletefeatureUsingIdOrganizationPRD = (auth_key, generatePrd_id, feature_id) => {
     return cy.request({
         method: 'DELETE',
-        url: Cypress.env('baseUrl') + Cypress.env('deletefeatureUsingIdOrganizationPRD1')+generatePrd_id+ Cypress.env('deletefeatureUsingIdOrganizationPRD2')+feature_id+Cypress.env('deletefeatureUsingIdOrganizationPRD3'),
+        url: Cypress.env('baseUrl') + Cypress.env('deletefeatureUsingIdOrganizationPRD1') + generatePrd_id + Cypress.env('deletefeatureUsingIdOrganizationPRD2') + feature_id + Cypress.env('deletefeatureUsingIdOrganizationPRD3'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -271,11 +281,11 @@ export const doDeletefeatureUsingIdOrganizationPRD = (auth_key,generatePrd_id,fe
         return response;
     })
 };
-export const doAddModuleIntofeatureOrganizationPRD = (auth_key,generatePrd_id,feature_id) => {
+export const doAddModuleIntofeatureOrganizationPRD = (auth_key, generatePrd_id, feature_id) => {
     return cy.fixture('api_addModuleIntoFeatureOrganizationPRD.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('addModuleIntoFeatureOrganizationPRD1')+generatePrd_id+Cypress.env('addModuleIntoFeatureOrganizationPRD2')+feature_id+Cypress.env('addModuleIntoFeatureOrganizationPRD3'),
+            url: Cypress.env('baseUrl') + Cypress.env('addModuleIntoFeatureOrganizationPRD1') + generatePrd_id + Cypress.env('addModuleIntoFeatureOrganizationPRD2') + feature_id + Cypress.env('addModuleIntoFeatureOrganizationPRD3'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -286,11 +296,11 @@ export const doAddModuleIntofeatureOrganizationPRD = (auth_key,generatePrd_id,fe
     })
 };
 
-export const doRemoveModuleIntoFeatureOrganizationPRD = (auth_key,generatePrd_id,feature_id) => {
+export const doRemoveModuleIntoFeatureOrganizationPRD = (auth_key, generatePrd_id, feature_id) => {
     return cy.fixture('api_removeModuleIntoFeatureOrganizationPRD.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('removeModuleIntoFeatureOrganizationPRD1')+generatePrd_id+Cypress.env('removeModuleIntoFeatureOrganizationPRD2')+feature_id+Cypress.env('removeModuleIntoFeatureOrganizationPRD3'),
+            url: Cypress.env('baseUrl') + Cypress.env('removeModuleIntoFeatureOrganizationPRD1') + generatePrd_id + Cypress.env('removeModuleIntoFeatureOrganizationPRD2') + feature_id + Cypress.env('removeModuleIntoFeatureOrganizationPRD3'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -300,10 +310,10 @@ export const doRemoveModuleIntoFeatureOrganizationPRD = (auth_key,generatePrd_id
         })
     })
 };
-export const doGetAllPhaseOrganizationPRD = (auth_key,generatePrd_id) => {
+export const doGetAllPhaseOrganizationPRD = (auth_key, generatePrd_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getAllPhaseOrganizationPRD1')+generatePrd_id+ Cypress.env('getAllPhaseOrganizationPRD2'),
+        url: Cypress.env('baseUrl') + Cypress.env('getAllPhaseOrganizationPRD1') + generatePrd_id + Cypress.env('getAllPhaseOrganizationPRD2'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -311,3 +321,78 @@ export const doGetAllPhaseOrganizationPRD = (auth_key,generatePrd_id) => {
         return response;
     })
 };
+export const doCreatePhaseOrganizationPRD = (auth_key, generatePrd_id) => {
+    return cy.fixture('api_add_PhaseOrganizationalUser.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('addPhaseOrganizationPRD1') + generatePrd_id + Cypress.env('addPhaseOrganizationPRD2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const doGetPhaseByIdOrganizationPRD = (auth_key, generatePrd_id, phase_id) => {
+    return cy.request({
+        method: 'GET',
+        //url: Cypress.env('baseUrl') + Cypress.env('getPhaseByIdByoriganization1')+generatePrd_id+ Cypress.env('getPhaseByIdByoriganization2')+phase_id+Cypress.env('getPhaseByIdByoriganization3'), 
+        url: Cypress.env('baseUrl') + "/api/v1/prd/" + generatePrd_id + "/phase/" + phase_id + "/",
+
+
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doPutPhaseOrganizationPRD = (auth_key, generatePrd_id, phase_id) => {
+    return cy.fixture('api_put_PhaseOrganizationalUser.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putPhaseByIdByoriganization1') + generatePrd_id + Cypress.env('putPhaseByIdByoriganization2') + phase_id + Cypress.env('putPhaseByIdByoriganization3'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const doPatchPhaseOrganizationPRD = (auth_key, generatePrd_id, phase_id) => {
+    return cy.fixture('api_patch_PhaseOrganizationalUser.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchPhaseByIdByoriganization1') + generatePrd_id + Cypress.env('patchPhaseByIdByoriganization2') + phase_id + Cypress.env('patchPhaseByIdByoriganization3'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const doDeletePhaseByIdOrganizationPRD = (auth_key, generatePrd_id, phase_id) => {
+    return cy.request({
+        method: 'DELETE',
+        //url: Cypress.env('baseUrl') + Cypress.env('getPhaseByIdByoriganization1')+generatePrd_id+ Cypress.env('getPhaseByIdByoriganization2')+phase_id+Cypress.env('getPhaseByIdByoriganization3'), 
+        url: Cypress.env('baseUrl') + "/api/v1/prd/" + generatePrd_id + "/phase/" + phase_id + "/",
+
+
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+
+
+
