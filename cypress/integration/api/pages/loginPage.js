@@ -222,12 +222,12 @@ export const doTeammemberLogin = () => {
 
 }
 export const doNewPrdLogin = () => {
-    const tokenvalue = authenticator.generate("EPBQH7G2PVFJUQMMX3VDIIDYKZN2QJDT");
-    cy.readFile('cypress/fixtures/api_NewprdLogin.json').then((data) => {
+    const tokenvalue = authenticator.generate("EQ2WUPX7QC3VIPGPMQ5M5AOYADH4XMHT");
+    cy.readFile('cypress/fixtures/api_login.json').then((data) => {
         data.token = parseInt(tokenvalue);
-        cy.writeFile('cypress/fixtures/api_NewprdLogin.json', JSON.stringify(data));
+        cy.writeFile('cypress/fixtures/api_login.json', JSON.stringify(data));
     });
-    return cy.fixture('api_NewprdLogin.json').then((myFixture) => {
+    return cy.fixture('api_login.json').then((myFixture) => {
         cy.request({
             method: 'POST',
             url: Cypress.env('baseUrl') + Cypress.env('loginEndPoint'),

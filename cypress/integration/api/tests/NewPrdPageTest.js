@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doNewPrdLogin } from '../pages/loginPage.js';
-import { doGetPRDWishlist,doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD } from '../pages/NewPrdPage.js';
+import { doDeleteUserRoleByIdOrganizationPRD, doPatchUserRoleOrganizationPRD, doPutUserRoleOrganizationPRD, doGetUserRoleByIdOrganizationPRD, doCreateUserRolesOrganizationPRD, doGetAllUserRolesOrganizationPRD, doGetPRDWishlist, doDeletePhaseByIdOrganizationPRD, doPutPhaseOrganizationPRD, doPatchPhaseOrganizationPRD, doCreatePhaseOrganizationPRD, doGetPhaseByIdOrganizationPRD, doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD } from '../pages/NewPrdPage.js';
 
 let app_name;
 let app_id;
@@ -10,28 +10,24 @@ let generatePrd_id;
 let category_id;
 let feature_id;
 let myPhaseId;
+let userRoles_id;
 describe("New PRD Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Get all PRD List by organization User', () => {
         doNewPrdLogin().then((response) => {
             authKey = response.body.key;
-            // doCteareApp(authKey, app_name).then((response) => {
-            //     cy.log("login response", response.body)
-            //     expect(response.body.name, "App name is not matching").to.eq(app_name)
-            //     app_id = response.body.id;
-            //     app_name = response.body.name;
-            // doGetOrganizationPRDList(authKey).then((response) => {
-            //     expect(response.status).to.eq(200)
-            //     cy.log("Get all PRD List by organization User response", response.body)
-            // })
+            doGetOrganizationPRDList(authKey).then((response) => {
+                expect(response.status).to.eq(200)
+                cy.log("Get all PRD List by organization User response", response.body)
+            })
         })
     })
     // })
 
     it('Generate PRD by organization User without app', () => {
         doGenerateOrganizationPRD(authKey).then((response) => {
-            const ids =response.body.data.id;
-            generatePrd_id = ids-1;
+            let ids = response.body.data.id;
+            generatePrd_id = ids - 1;
             expect(response.status).to.eq(202)
             cy.log(ids);
             cy.log(generatePrd_id);
@@ -74,40 +70,74 @@ describe("New PRD Page", () => {
         })
 
     })
+
+
     it('Get All Phase from PRD for organization User', () => {
         doGetAllPhaseOrganizationPRD(authKey, generatePrd_id).then((response) => {
-            cy.log("Response Body:", JSON.stringify(response.body))
-             myPhaseId=response.body[0].id;
-            // cy.log(myPhaseId)
-            expect(response.status).to.eq(200)
+            cy.log("Response Body:", JSON.stringify(response.body));
+            expect(response.status).to.eq(200);
         })
     })
+    it('Create Phase by PRD organizational user', () => {
+        doCreatePhaseOrganizationPRD(authKey, generatePrd_id).then((response) => {
+            myPhaseId = response.body.id;
+            expect(response.status).to.eq(201);
+            cy.log("Response Body:", JSON.stringify(response.body));
+
+        })
+    })
+    it('Get Phase by ID PRD organizational user', () => {
+        doGetPhaseByIdOrganizationPRD(authKey, generatePrd_id, myPhaseId).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Response Body:", JSON.stringify(response.body))
+
+        })
+    })
+    it('Put Phase by ID PRD organizational user', () => {
+        doPutPhaseOrganizationPRD(authKey, generatePrd_id, myPhaseId).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Response Body:", JSON.stringify(response.body))
+
+        })
+    })
+    it('Patch Phase by ID PRD organizational user', () => {
+        doPatchPhaseOrganizationPRD(authKey, generatePrd_id, myPhaseId).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Response Body:", JSON.stringify(response.body))
+
+        })
+    })
+   
+
     it('Create PRD Category by organization User', () => {
         const tiltle = 'Cat' + (Math.random() + 1).toString(36).substring(7);
-        doCreateOrganizationPRDCategory(authKey, generatePrd_id,tiltle,myPhaseId).then((response) => {
-            category_id=response.body.id;
+        doCreateOrganizationPRDCategory(authKey, generatePrd_id, tiltle, myPhaseId).then((response) => {
+            category_id = response.body.id;
             expect(response.status).to.eq(201)
             cy.log("Create PRD Category by organization User Response", response.body)
         })
     })
     it('Get category using Id for organization User', () => {
-        doGetOrganizationPRDCategoryUsingId(authKey, generatePrd_id,category_id).then((response) => {
+        doGetOrganizationPRDCategoryUsingId(authKey, generatePrd_id, category_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get category using Id for organization User Response", response.body)
         })
     })
-    // it('Put category using Id for organization User', () => {
-    //     doPutOrganizationPRDCategory(authKey, generatePrd_id,category_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Put category using Id for organization User Response", response.body)
-    //     })
+    it('Put category using Id for organization User', () => {
+       const tiltleput = 'CatPut' + (Math.random() + 1).toString(36).substring(7);
+        doPutOrganizationPRDCategory(authKey, generatePrd_id, category_id, tiltleput, myPhaseId).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Put category using Id for organization User Response", response.body)
+        })
 
-    //  })
-    // it('Patch category using Id for organization User', () => {
-    //     doPatchOrganizationPRDCategory(authKey, generatePrd_id,category_id).then((response) => {
-    //         expect(response.status).to.eq(200)
-    //         cy.log("Patch category using Id for organization User Response", response.body)
-    //     })
+    })
+    it('Patch category using Id for organization User', () => {
+        const tiltlepatch = 'CatPatch' + (Math.random() + 1).toString(36).substring(7);
+        doPatchOrganizationPRDCategory(authKey, generatePrd_id, category_id,tiltlepatch,myPhaseId).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Patch category using Id for organization User Response", response.body)
+        })
+    })
 
     // })
     // it('Move feature one category to another for organization User', () => {
@@ -184,13 +214,21 @@ describe("New PRD Page", () => {
     //     })
 
     // })
-    
+
+    // it('Delete Phase by ID PRD organizational user', () => {
+    //     doDeletePhaseByIdOrganizationPRD(authKey, generatePrd_id, myPhaseId).then((response) => {
+    //         expect(response.status).to.eq(204);
+    //         cy.log("Response Body:", JSON.stringify(response.body))
+
+    //     })
+    // })
+
     it('Delete generated PRD by organization User', () => {
         doDeleteOrganizationPRD(authKey, generatePrd_id).then((response) => {
             expect(response.status).to.eq(204)
             cy.log("Delete generated PRD by organization User Response", response.body)
         })
 
-    })    
+    })
 })
 
