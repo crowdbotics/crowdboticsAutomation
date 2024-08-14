@@ -107,7 +107,48 @@ describe("New PRD Page", () => {
 
         })
     })
-   
+    it('Get All User Roles from PRD for organization User', () => {
+        doGetAllUserRolesOrganizationPRD(authKey, generatePrd_id).then((response) => {
+            cy.log("Response Body:", JSON.stringify(response.body));
+            expect(response.status).to.eq(200);
+        })
+    })
+    it('Create User Roles  by PRD organizational user', () => {
+        doCreateUserRolesOrganizationPRD(authKey, generatePrd_id).then((response) => {
+            userRoles_id = response.body.id;
+            expect(response.status).to.eq(201);
+            cy.log("Response Body:", JSON.stringify(response.body));
+
+        })
+    })
+    it('Get User Roles by ID PRD organizational user', () => {
+        doGetUserRoleByIdOrganizationPRD(authKey, generatePrd_id, userRoles_id).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Response Body:", JSON.stringify(response.body))
+
+        })
+    })
+    it('Put User Roles by ID PRD organizational user', () => {
+        doPutUserRoleOrganizationPRD(authKey, generatePrd_id, userRoles_id).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Response Body:", JSON.stringify(response.body))
+
+        })
+    })
+    it('Patch User Roles by ID PRD organizational user', () => {
+        doPatchUserRoleOrganizationPRD(authKey, generatePrd_id, userRoles_id).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Response Body:", JSON.stringify(response.body))
+
+        })
+    })
+    it('Delete User Roles by ID PRD organizational user', () => {
+        doDeleteUserRoleByIdOrganizationPRD(authKey, generatePrd_id, userRoles_id).then((response) => {
+            expect(response.status).to.eq(204);
+            cy.log("Response Body:", JSON.stringify(response.body))
+
+        })
+    })
 
     it('Create PRD Category by organization User', () => {
         const tiltle = 'Cat' + (Math.random() + 1).toString(36).substring(7);
@@ -124,7 +165,7 @@ describe("New PRD Page", () => {
         })
     })
     it('Put category using Id for organization User', () => {
-       const tiltleput = 'CatPut' + (Math.random() + 1).toString(36).substring(7);
+        const tiltleput = 'CatPut' + (Math.random() + 1).toString(36).substring(7);
         doPutOrganizationPRDCategory(authKey, generatePrd_id, category_id, tiltleput, myPhaseId).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Put category using Id for organization User Response", response.body)
@@ -133,7 +174,7 @@ describe("New PRD Page", () => {
     })
     it('Patch category using Id for organization User', () => {
         const tiltlepatch = 'CatPatch' + (Math.random() + 1).toString(36).substring(7);
-        doPatchOrganizationPRDCategory(authKey, generatePrd_id, category_id,tiltlepatch,myPhaseId).then((response) => {
+        doPatchOrganizationPRDCategory(authKey, generatePrd_id, category_id, tiltlepatch, myPhaseId).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Patch category using Id for organization User Response", response.body)
         })
