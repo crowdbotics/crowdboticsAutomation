@@ -140,7 +140,7 @@ export const doGetOrganizationPRDCategoryUsingId = (auth_key, generatePrd_id, ca
         return response;
     })
 };
-export const doPutOrganizationPRDCategory = (auth_key, generatePrd_id, category_id,tiltle,myPhaseId) => {
+export const doPutOrganizationPRDCategory = (auth_key, generatePrd_id, category_id, tiltle, myPhaseId) => {
     cy.readFile('cypress/fixtures/api_putOrganizationPRDCategoryUsingId.json').then((data) => {
         data.title = tiltle;
         data.phase = myPhaseId;
@@ -160,7 +160,7 @@ export const doPutOrganizationPRDCategory = (auth_key, generatePrd_id, category_
     })
 };
 
-export const doPatchOrganizationPRDCategory = (auth_key, generatePrd_id, category_id,tiltle,myPhaseId) => {
+export const doPatchOrganizationPRDCategory = (auth_key, generatePrd_id, category_id, tiltle, myPhaseId) => {
     cy.readFile('cypress/fixtures/api_patchOrganizationPRDCategoryUsingId.json').then((data) => {
         data.title = tiltle;
         data.phase = myPhaseId;
@@ -392,7 +392,88 @@ export const doDeletePhaseByIdOrganizationPRD = (auth_key, generatePrd_id, phase
         return response;
     })
 };
+export const doGetAllUserRolesOrganizationPRD = (auth_key, generatePrd_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getAllRolesOrganizationPRD1') + generatePrd_id + Cypress.env('getAllRolesOrganizationPRD2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+export const doCreateUserRolesOrganizationPRD = (auth_key, generatePrd_id) => {
+    return cy.fixture('api_add_RolesOrganizationalUser.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('addUserRolesOrganizationPRD1') + generatePrd_id + Cypress.env('addUserRolesOrganizationPRD2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const doGetUserRoleByIdOrganizationPRD = (auth_key, generatePrd_id, userRole_id) => {
+    return cy.request({
+        method: 'GET',
+        //url: Cypress.env('baseUrl') + Cypress.env('getUserRolesByIdByoriganization1')+generatePrd_id+ Cypress.env('getUserRolesByIdByoriganization2')+userRole_id+Cypress.env('getUserRolesByIdByoriganization3'), 
+        url: Cypress.env('baseUrl') + "/api/v1/prd/" + generatePrd_id + "/roles/" + userRole_id + "/",
 
+
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doPutUserRoleOrganizationPRD = (auth_key, generatePrd_id, userRole_id) => {
+    return cy.fixture('api_put_userRolesOrganizationalUser.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putUserRolesByIdByoriganization1') + generatePrd_id + Cypress.env('putUserRolesByIdByoriganization2') + userRole_id + Cypress.env('putUserRolesByIdByoriganization3'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const doPatchUserRoleOrganizationPRD = (auth_key, generatePrd_id, userRole_id) => {
+    return cy.fixture('api_patch_userRolesOrganizationalUser.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchUserRolesByIdByoriganization1') + generatePrd_id + Cypress.env('patchUserRolesByIdByoriganization2') + userRole_id + Cypress.env('patchUserRolesByIdByoriganization3'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const doDeleteUserRoleByIdOrganizationPRD = (auth_key, generatePrd_id, userRole_id) => {
+    return cy.request({
+        method: 'DELETE',
+        //url: Cypress.env('baseUrl') + Cypress.env('deleteUserRolesByIdByoriganization1')+generatePrd_id+ Cypress.env('deleteUserRolesByIdByoriganization2')+userRole_id+Cypress.env('deleteUserRolesByIdByoriganization3'), 
+        url: Cypress.env('baseUrl') + "/api/v1/prd/" + generatePrd_id + "/roles/" + userRole_id + "/",
+
+
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
 
 
 
