@@ -678,21 +678,21 @@ describe("Dashboard Page", () => {
         })
     })
 
-    it('get User', () => {
+    it('get check User', () => {
         doGetUser(authKey).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get User", response.body)
         })
     })
 
-    it('do put User ', () => {
+    it('do put check User ', () => {
         doPutUser(authKey).then((response) => {
             cy.log("Put user response", response.body)
             expect(response.status).to.eq(200)
         })
     })
 
-    it('get Users', () => {
+    it('get all Users', () => {
         doGetUsers(authKey,users_id).then((response) => {
             users_id=response.body.id;
             expect(response.status).to.eq(200)
@@ -700,7 +700,7 @@ describe("Dashboard Page", () => {
         })
     })
 
-    it('get Users By ID', () => {
+    it('get all Users By ID', () => {
         doGetUsersByID(authKey, users_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Social APP Id response", response.body)
