@@ -1305,10 +1305,6 @@ export const doGetUser = (auth_key) => {
 };
 
 export const doPutUser = (auth_key) => {
-    cy.readFile('cypress/fixtures/api_addPut_User.json').then((data) => {
-
-        cy.writeFile('cypress/fixtures/api_addPut_User.json', JSON.stringify(data))
-    })
     return cy.fixture('api_addPut_User.json').then((myFixture) => {
         cy.request({
             method: 'PUT',
