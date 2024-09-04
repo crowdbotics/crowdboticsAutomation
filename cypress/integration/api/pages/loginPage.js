@@ -60,7 +60,7 @@ export const doConnectorLogin = () => {
 }
 
 export const doDashboardLogin = () => {
-    const tokenvalue = authenticator.generate("HLDRWK222OVYTMCAC7R2JST5LWB5QAT6");
+    const tokenvalue = authenticator.generate("WP465RPUQHEL744Z3EQJ5XNJ7F5NQKQT");
     cy.readFile('cypress/fixtures/api_DashboardLogin.json').then((data) => {
         data.token = parseInt(tokenvalue);
         cy.writeFile('cypress/fixtures/api_DashboardLogin.json', JSON.stringify(data));

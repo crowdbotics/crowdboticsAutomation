@@ -153,7 +153,13 @@ module.exports = defineConfig({
     getJobtitlesByID1 : "/api/v2/job_titles/",
     getJobtitlesByID2 : "/",
     adddashboardfeature: "/api/v2/dashboard-feedback/",
-
+    addRemovetotpdisabled: "/api/v2/totp/device/remove/",
+    getUser: "/api/v2/user/",
+    putUser: "/api/v2/user/",
+    getUsers1: "/api/v2/users/",
+    getUsers2: "/",
+    getUsersByID1: "/api/v2/users/",
+    getUsersByID2: "/",
 
     // This end point not available in trac list
     // catalogEmbeddingSearch: "/api/v1/embedding-search/",

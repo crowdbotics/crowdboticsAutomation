@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 
-import { doGetMobilebuilds,doPostresendverification,doGetSlides,doPostslides,doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID,dogetcbusers,doPostcbusers,dogetcbusersbyId,doputcbusersbyId,dopatchcbusersbyId, doGetReportsByID,doGetDevloperrequest,doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById,doGetLogs,doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID, doGetAddons, doGetAddonsByID, doGetScaffolds, doTOTPdevice, doGetSocialaccounts, doGetSettingsfe, doGetPeojectClones, doGetProjectClonesByID,doPostDashboardFeedack,doPostMagicLink,doPostOutGrow,doGetSocialApp,doGetSocialAppByID} from '../pages/DashboardPage.js';
+import { doGetMobilebuilds,doPostresendverification,doGetSlides,doPostslides,doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID,dogetcbusers,doPostcbusers,dogetcbusersbyId,doputcbusersbyId,dopatchcbusersbyId, doGetReportsByID,doGetDevloperrequest,doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById,doGetLogs,doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID, doGetAddons, doGetAddonsByID, doGetScaffolds, doTOTPdevice, doGetSocialaccounts, doGetSettingsfe, doGetPeojectClones, doGetProjectClonesByID,doPostDashboardFeedack,doPostMagicLink,doPostOutGrow,doGetSocialApp,doGetSocialAppByID,doPostTotpDeviceRemove,doGetUser,doPutUser,doGetUsers,doGetUsersByID} from '../pages/DashboardPage.js';
 import { doDashboardLogin } from '../pages/loginPage.js';
 
 let component_id;
@@ -23,6 +23,7 @@ let memberfeedback_id;
 let addons_id;
 let projectclones_id ;
 let social_id = 1 ;
+let users_id = 1;
 describe("Dashboard Page", () => {
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     const username = 'cbrahul' + (Math.random() + 1).toString(36).substring(7);
@@ -670,6 +671,41 @@ describe("Dashboard Page", () => {
         })
     })
 
+    it('post Remove Totp Device', () => {
+        doPostTotpDeviceRemove(authKey).then((response) => {
+            expect(response.status).to.eq(201)
+            cy.log("Get 2FA disabled successfully", response.body)
+        })
+    })
+
+    it('get check User', () => {
+        doGetUser(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get User", response.body)
+        })
+    })
+
+    it('do put check User ', () => {
+        doPutUser(authKey).then((response) => {
+            cy.log("Put user response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('get all Users', () => {
+        doGetUsers(authKey,users_id).then((response) => {
+            users_id=response.body.id;
+            expect(response.status).to.eq(200)
+            cy.log("Get User", response.body)
+        })
+    })
+
+    it('get all Users By ID', () => {
+        doGetUsersByID(authKey, users_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Social APP Id response", response.body)
+        })
+    })
 
 
 })
