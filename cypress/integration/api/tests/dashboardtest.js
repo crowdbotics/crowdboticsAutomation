@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 
-import { doGetMobilebuilds,doPostresendverification,doGetSlides,doPostslides,doDeleteCertificationsid,doPatchCertificationsid,doputCertificationsid,dogetCertificationsid,doPostCertifications, dogetCertifications,doDeleteFile,doUpdateWithPatchFile,doUpdateWithPutFile,doGetFileById,doCreateFile,doDeleteComponent,doUpdateWithPatchComponent,doUpdateWithPutComponent,doGetComponentById,doCreateComponent,doGetComponentList,doDeleteBugTask,doUpdateWithPatchBugTask,doUpdateWithPutBugTask,doGetBugTaskById,doCreateBugTask,doGetBugTaskList,doGetAppetizeBuilds,getAppListById,dogGetFilesList,getEdges,getUserList,getAuditLogList,getAttributes,doCreateAttributes,getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories,getReports, doGetFeedbacksCategoriesByID,dogetcbusers,doPostcbusers,dogetcbusersbyId,doputcbusersbyId,dopatchcbusersbyId, doGetReportsByID,doGetDevloperrequest,doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById,doGetLogs,doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID, doGetAddons, doGetAddonsByID, doGetScaffolds, doTOTPdevice, doGetSocialaccounts, doGetSettingsfe, doGetPeojectClones, doGetProjectClonesByID,doPostDashboardFeedack,doPostMagicLink,doPostOutGrow,doGetSocialApp,doGetSocialAppByID,doPostTotpDeviceRemove,doGetUser,doPutUser,doGetUsers,doGetUsersByID} from '../pages/DashboardPage.js';
-import { doDashboardLogin } from '../pages/loginPage.js';
+import { doGetMobilebuilds, doPostresendverification, doGetSlides, doPostslides, doDeleteCertificationsid, doPatchCertificationsid, doputCertificationsid, dogetCertificationsid, doPostCertifications, dogetCertifications, doDeleteFile, doUpdateWithPatchFile, doUpdateWithPutFile, doGetFileById, doCreateFile, doDeleteComponent, doUpdateWithPatchComponent, doUpdateWithPutComponent, doGetComponentById, doCreateComponent, doGetComponentList, doDeleteBugTask, doUpdateWithPatchBugTask, doUpdateWithPutBugTask, doGetBugTaskById, doCreateBugTask, doGetBugTaskList, doGetAppetizeBuilds, getAppListById, dogGetFilesList, getEdges, getUserList, getAuditLogList, getAttributes, doCreateAttributes, getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories, getReports, doGetFeedbacksCategoriesByID, dogetcbusers, doPostcbusers, dogetcbusersbyId, doputcbusersbyId, dopatchcbusersbyId, doGetReportsByID, doGetDevloperrequest, doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById, doGetLogs, doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID, doGetAddons, doGetAddonsByID, doGetScaffolds, doTOTPdevice, doGetSocialaccounts, doGetSettingsfe, doGetPeojectClones, doGetProjectClonesByID, doPostDashboardFeedack, doPostMagicLink, doPostOutGrow, doGetSocialApp, doGetSocialAppByID, doPostTotpDeviceRemove, doGetUser, doPutUser, doGetUsers, doGetUsersByID, doGetProjectlogs, doGetProjectlogsByID } from '../pages/DashboardPage.js';
+import { doDashboardLogin, doDatamodelLogin } from '../pages/loginPage.js';
 
 let component_id;
 let appname;
@@ -17,19 +17,26 @@ let feedbacks_id;
 let cb_usersid;
 let reports_id;
 let developerrequest_id;
-let attributes_id ;
+let attributes_id;
 let logs_id;
 let memberfeedback_id;
 let addons_id;
-let projectclones_id ;
-let social_id = 1 ;
+let projectclones_id;
+let social_id = 1;
 let users_id = 1;
+let projectlogs_id;
 describe("Dashboard Page", () => {
+
+    it('login into the application', () => {
+        doDashboardLogin().then((response) => {
+            authKey = response.body.key;
+            
+        })
+    })
     const app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
-    const username = 'cbrahul' + (Math.random() + 1).toString(36).substring(7);
+    //  const username = 'cbrahul' + (Math.random() + 1).toString(36).substring(7);
     it('Create App Flow', () => {
         doDashboardLogin().then((response) => {
-            cy.log("login response", response.body.key)
             authKey = response.body.key;
             doCteareApp(authKey, app_name).then((response) => {
                 appname = response.body.name;
@@ -40,7 +47,7 @@ describe("Dashboard Page", () => {
             })
         })
     })
-    
+
     it('Get Notification Flow', () => {
         getNotification(authKey, app_id).then((response) => {
             cy.log("login response", response.body)
@@ -63,28 +70,28 @@ describe("Dashboard Page", () => {
     })
 
     it('Get Appetize Builds Flow', () => {
-        doGetAppetizeBuilds(authKey,app_id).then((response) => {
+        doGetAppetizeBuilds(authKey, app_id).then((response) => {
             cy.log("login response", response.body)
             expect(response.status).to.eq(200)
         })
     })
-    
+
     it('Apptype List By Id Flow', () => {
         getAppListById(authKey).then((response) => {
             cy.log("login response", response.body)
             expect(response.status).to.eq(200)
         })
     })
-   
 
-    
+
+
     it('Get Skill List Flow', () => {
         doGetSkillsList(authKey).then((response) => {
             cy.log("login response", response.body)
             expect(response.status).to.eq(200)
         })
     })
-    
+
     // *** Test case is not available on swagger
     // it('Get Bug Task List Flow', () => {
     //     doGetBugTaskList(authKey,app_id).then((response) => {
@@ -139,9 +146,9 @@ describe("Dashboard Page", () => {
 
     //     })
     // })
- 
+
     it('Get Component List Flow', () => {
-        doGetComponentList(authKey,app_id).then((response) => {
+        doGetComponentList(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Component List response", response.body)
 
@@ -149,8 +156,8 @@ describe("Dashboard Page", () => {
     })
 
     it('Create Component Flow', () => {
-        doCreateComponent(authKey,app_id).then((response) => {
-            component_id=response.body.id;
+        doCreateComponent(authKey, app_id).then((response) => {
+            component_id = response.body.id;
             expect(response.status).to.eq(201)
             cy.log("Create Component response", response.body)
 
@@ -158,7 +165,7 @@ describe("Dashboard Page", () => {
     })
 
     it('Get Component Using Id Flow', () => {
-        doGetComponentById(authKey,app_id,component_id).then((response) => {
+        doGetComponentById(authKey, app_id, component_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Component Using Id response", response.body)
 
@@ -166,21 +173,21 @@ describe("Dashboard Page", () => {
     })
 
     it('Put Component Using Id Flow', () => {
-        doUpdateWithPutComponent(authKey,app_id,component_id).then((response) => {
+        doUpdateWithPutComponent(authKey, app_id, component_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Put Component Using Id response", response.body)
 
         })
     })
     it('Patch Component Using Id Flow', () => {
-        doUpdateWithPatchComponent(authKey,app_id,component_id).then((response) => {
+        doUpdateWithPatchComponent(authKey, app_id, component_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Patch Component Using Id response", response.body)
 
         })
     })
     it('Delete Component Flow', () => {
-        doDeleteComponent(authKey,app_id,component_id).then((response) => {
+        doDeleteComponent(authKey, app_id, component_id).then((response) => {
             expect(response.status).to.eq(204)
             cy.log("Delete Component response", response.body)
 
@@ -216,8 +223,8 @@ describe("Dashboard Page", () => {
         })
     })
 
-    
-     it('Get User List Flow', () => {
+
+    it('Get User List Flow', () => {
         getUserList(authKey, app_id).then((response) => {
             cy.log("Get User Listresponse", response.body)
             expect(response.status).to.eq(200)
@@ -231,8 +238,8 @@ describe("Dashboard Page", () => {
     })
 
     it('Create File Flow', () => {
-        doCreateFile(authKey,app_id).then((response) => {
-            file_id=response.body.id;
+        doCreateFile(authKey, app_id).then((response) => {
+            file_id = response.body.id;
             expect(response.status).to.eq(201)
             cy.log("Create File response", response.body)
 
@@ -240,7 +247,7 @@ describe("Dashboard Page", () => {
     })
 
     it('Get File Using Id Flow', () => {
-        doGetFileById(authKey,app_id,file_id).then((response) => {
+        doGetFileById(authKey, app_id, file_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get File Using Id response", response.body)
 
@@ -248,27 +255,27 @@ describe("Dashboard Page", () => {
     })
 
     it('Put File Using Id Flow', () => {
-        doUpdateWithPutFile(authKey,app_id,file_id).then((response) => {
+        doUpdateWithPutFile(authKey, app_id, file_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Put File Using Id response", response.body)
 
         })
     })
     it('Patch File Using Id Flow', () => {
-        doUpdateWithPatchFile(authKey,app_id,file_id).then((response) => {
+        doUpdateWithPatchFile(authKey, app_id, file_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Patch File Using Id response", response.body)
 
         })
     })
     it('Delete File Flow', () => {
-        doDeleteFile(authKey,app_id,file_id).then((response) => {
+        doDeleteFile(authKey, app_id, file_id).then((response) => {
             expect(response.status).to.eq(204)
             cy.log("Delete File response", response.body)
 
         })
     })
-    
+
     it('Get Edge List Flow', () => {
         getEdges(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
@@ -310,18 +317,18 @@ describe("Dashboard Page", () => {
         getAttributes(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Attributes response", response.body)
-            attributes_id=response.body[0].id;
+            attributes_id = response.body[0].id;
         })
     })
-    
+
     it('Get Attributes Using Id Flow', () => {
-        doGetAttributesById(authKey,app_id,attributes_id).then((response) => {
+        doGetAttributesById(authKey, app_id, attributes_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Attributes Using Id response", response.body)
 
         })
     })
-    
+
     it('Get Audit Log List Flow', () => {
         getAuditLogList(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
@@ -337,8 +344,8 @@ describe("Dashboard Page", () => {
     })
 
     it('Post Certifications', () => {
-        doPostCertifications(authKey,app_id).then((response) => {
-            Certifications_id=response.body.id;
+        doPostCertifications(authKey, app_id).then((response) => {
+            Certifications_id = response.body.id;
             expect(response.status).to.eq(201)
             cy.log("Post Certifications id ", response.body)
 
@@ -346,21 +353,21 @@ describe("Dashboard Page", () => {
     })
 
     it('Get Certifications for id', () => {
-        dogetCertificationsid(authKey, app_id,Certifications_id).then((response) => {
+        dogetCertificationsid(authKey, app_id, Certifications_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Certifications id", response.body)
         })
     })
 
     it('Put Certifications for id', () => {
-        doputCertificationsid(authKey, app_id,Certifications_id).then((response) => {
+        doputCertificationsid(authKey, app_id, Certifications_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Put Certifications id", response.body)
         })
     })
 
     it('Patch Certifications for id', () => {
-        doPatchCertificationsid(authKey,app_id,Certifications_id).then((response) => {
+        doPatchCertificationsid(authKey, app_id, Certifications_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Patch Certifications for id", response.body)
 
@@ -368,7 +375,7 @@ describe("Dashboard Page", () => {
     })
 
     it('Delete Certifiations for id', () => {
-        doDeleteCertificationsid(authKey,app_id,Certifications_id).then((response) => {
+        doDeleteCertificationsid(authKey, app_id, Certifications_id).then((response) => {
             expect(response.status).to.eq(204)
             cy.log("Delete Certifications", response.body)
 
@@ -388,7 +395,7 @@ describe("Dashboard Page", () => {
             expect(response.status).to.eq(200)
         })
     })
-    
+
     it('Get Candidates Flow', () => {
         getCandidates(authKey).then((response) => {
             cy.log("Get Candidates response", response.body)
@@ -399,7 +406,7 @@ describe("Dashboard Page", () => {
     it('Get Feedbacks Flow', () => {
         getFeedbacks(authKey).then((response) => {
             cy.log("Get Feedbacks response", response.body)
-            feedbacks_id =response.body[0].id;
+            feedbacks_id = response.body[0].id;
             expect(response.status).to.eq(200)
         })
     })
@@ -443,29 +450,29 @@ describe("Dashboard Page", () => {
 
     it('Post Cb Users', () => {
         doPostcbusers(authKey).then((response) => {
-            cb_usersid=response.body.id;
+            cb_usersid = response.body.id;
             expect(response.status).to.eq(201)
             cy.log("Create Cb users", response.body)
 
         })
     })
-    
+
     it('Get Cb Users by Id', () => {
-        dogetcbusersbyId(authKey,cb_usersid).then((response) => {
+        dogetcbusersbyId(authKey, cb_usersid).then((response) => {
             cy.log("Get Cb users response", response.body)
             expect(response.status).to.eq(200)
         })
     })
 
     it('do Put Users ', () => {
-        doputcbusersbyId(authKey,cb_usersid,username).then((response) => {
+        doputcbusersbyId(authKey, cb_usersid, username).then((response) => {
             cy.log("Put Cb users response", response.body)
             expect(response.status).to.eq(200)
         })
     })
 
     it('do Patch Users ', () => {
-        dopatchcbusersbyId(authKey,cb_usersid,username).then((response) => {
+        dopatchcbusersbyId(authKey, cb_usersid, username).then((response) => {
             cy.log("Patch Cb users response", response.body)
             expect(response.status).to.eq(200)
         })
@@ -474,7 +481,7 @@ describe("Dashboard Page", () => {
     it('Get Developer request Flow', () => {
         doGetDevloperrequest(authKey).then((response) => {
             cy.log("Get developer request response", response.body)
-            developerrequest_id =response.body[0].id;
+            developerrequest_id = response.body[0].id;
             expect(response.status).to.eq(200)
         })
     })
@@ -501,7 +508,7 @@ describe("Dashboard Page", () => {
     })
 
     it('Create API Spec Flow', () => {
-        dogGetAPIspec(authKey,app_id).then((response) => {
+        dogGetAPIspec(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Create API spec response", response.body)
 
@@ -509,7 +516,7 @@ describe("Dashboard Page", () => {
     })
 
     it('Get Logs Flow', () => {
-        doGetLogs(authKey,app_id).then((response) => {
+        doGetLogs(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Create Logs response", response.body)
             logs_id = response.body.results[0].id;
@@ -518,7 +525,7 @@ describe("Dashboard Page", () => {
     })
 
     it('Get logs  Flow By ID', () => {
-        doGetLogsById(authKey,app_id,logs_id).then((response) => {
+        doGetLogsById(authKey, app_id, logs_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Create Bug Task response", response.body)
 
@@ -536,7 +543,7 @@ describe("Dashboard Page", () => {
     it('Get member feedback Flow', () => {
         doGetMemberfeedback(authKey).then((response) => {
             cy.log("Get Appetizedevices response", response.body)
-            memberfeedback_id =response.body[0].id;
+            memberfeedback_id = response.body[0].id;
             expect(response.status).to.eq(200)
         })
     })
@@ -594,7 +601,7 @@ describe("Dashboard Page", () => {
     it('Get Poroject Clones Flow', () => {
         doGetPeojectClones(authKey).then((response) => {
             cy.log("Get Poroject Clones response", response.body)
-            projectclones_id =  response.body[0].id;
+            projectclones_id = response.body[0].id;
             expect(response.status).to.eq(200)
         })
     })
@@ -607,7 +614,7 @@ describe("Dashboard Page", () => {
     })
 
     it('Create Mobile Builds Flow', () => {
-        doGetMobilebuilds(authKey,app_id).then((response) => {
+        doGetMobilebuilds(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Create Mobile Builds response", response.body)
 
@@ -622,31 +629,31 @@ describe("Dashboard Page", () => {
     })
 
     it('Get slides', () => {
-        doGetSlides(authKey,app_id).then((response) => {
+        doGetSlides(authKey, app_id).then((response) => {
             cy.log("Get slides of project", response.body)
             expect(response.status).to.eq(200)
         })
     })
 
     it('Post Slides', () => {
-        doPostslides(authKey,app_id).then((response) => {
+        doPostslides(authKey, app_id).then((response) => {
             cy.log("Post slides of project", response.body)
             expect(response.status).to.eq(200)
-        }) 
-    })   
+        })
+    })
 
     it('post Dashboard Feedback', () => {
         doPostDashboardFeedack(authKey).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Post Dashboard Feedback", response.body)
-        }) 
-    })   
+        })
+    })
 
     it('post Magic Link', () => {
         doPostMagicLink(authKey).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Magic link sent successfully", response.body)
-        }) 
+        })
     })
 
     it('post Out Grow', () => {
@@ -663,7 +670,7 @@ describe("Dashboard Page", () => {
         })
     })
 
-    
+
     it('get Social APP By ID', () => {
         doGetSocialAppByID(authKey, social_id).then((response) => {
             expect(response.status).to.eq(200)
@@ -693,8 +700,8 @@ describe("Dashboard Page", () => {
     })
 
     it('get all Users', () => {
-        doGetUsers(authKey,users_id).then((response) => {
-            users_id=response.body.id;
+        doGetUsers(authKey, users_id).then((response) => {
+            users_id = response.body.id;
             expect(response.status).to.eq(200)
             cy.log("Get User", response.body)
         })
@@ -702,6 +709,22 @@ describe("Dashboard Page", () => {
 
     it('get all Users By ID', () => {
         doGetUsersByID(authKey, users_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Social APP Id response", response.body)
+        })
+    })
+
+    it('get verify the project logs', () => {
+        doGetProjectlogs(authKey).then((response) => {
+            projectlogs_id = response.body[0].id;
+            expect(response.status).to.eq(200)
+            cy.log("Get User", response.body)
+        })
+    })
+
+
+    it('get verify the project logs By ID', () => {
+        doGetProjectlogsByID(authKey, projectlogs_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Social APP Id response", response.body)
         })
