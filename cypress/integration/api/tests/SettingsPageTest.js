@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doSettingLogin } from '../pages/loginPage.js';
-import { doGetCodePackage,app_name_update, doAddLibrary, doGetLibrary, doRemoveLibrary, doAddGcpPlatform, doGetRepoBranch, change_code_privacy_private_to_public, change_code_privacy_public_to_private, delete_app, doCreateCodePackage, doGetCodePackageById, doPatchCodePackage, doPutCodePackage } from '../pages/SettingsPage.js';
+import { doGetCodePackage,app_name_update, doAddLibrary, doGetLibrary, doRemoveLibrary, doAddGcpPlatform, doGetRepoBranch, change_code_privacy_private_to_public, change_code_privacy_public_to_private, delete_app, doCreateCodePackage, doGetCodePackageById, doPatchCodePackage, doPutCodePackage, dopostdeployment, dopostcanceldeployment } from '../pages/SettingsPage.js';
 let app_id;
 let app_name;
 let authKey;
@@ -112,6 +112,20 @@ describe("Settings Page", () => {
         change_code_privacy_public_to_private(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Change code privacy public to private response", response.body)
+        })
+    })
+
+    it('post deployment', () => {
+        dopostdeployment(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Deployment started", response.body)
+        })
+    })
+
+    it('post cancel deployment', () => {
+        dopostcanceldeployment(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Deployment cancelled", response.body)
         })
     })
 
