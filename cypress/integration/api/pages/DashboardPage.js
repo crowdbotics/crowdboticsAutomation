@@ -1347,3 +1347,32 @@ export const doGetUsersByID = (auth_key,users_id) => {
         return response;
     })
 };
+
+export const doGetProjectlogs = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getProjectlogs'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doGetProjectlogsByID = (auth_key,projectlogs_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getprojectlogsByID1')+projectlogs_id + Cypress.env('getprojectlogsByID2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+

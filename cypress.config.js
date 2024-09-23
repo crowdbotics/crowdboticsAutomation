@@ -12,6 +12,7 @@ module.exports = defineConfig({
     authenticationToken: "U634c6bd8d6ff4482000de25a378a80e238d336e6",
     token_key: "",
     loginEndPoint: "/api/v2/totp-login/",
+    normallogin : '/api/v2/login/',
     logoutEndPoint: "/api/v2/logout/",
     createApp: "/api/v1/github-repos/",
     getAppInfo1: "/api/v2/apps/",
@@ -160,6 +161,9 @@ module.exports = defineConfig({
     getUsers2: "/",
     getUsersByID1: "/api/v2/users/",
     getUsersByID2: "/",
+    getProjectlogs: "/api/v1/project-logs/",
+    getprojectlogsByID1: "/api/v1/project-logs/",
+    getprojectlogsByID2: "/",
 
     // This end point not available in trac list
     // catalogEmbeddingSearch: "/api/v1/embedding-search/",
