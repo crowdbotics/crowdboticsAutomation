@@ -896,7 +896,22 @@ module.exports = defineConfig({
     patchDocumentById3:"/",
     deleteDocumentById1:"/api/v1/apps/",
     deleteDocumentById2:"/document/",
-    deleteDocumentById3:"/"
+    deleteDocumentById3:"/",
+
+    getListOfCodePackages: "/api/v2/code_packages/",
+    createCodePackages: "/api/v2/code_packages/",
+    getCodePackagesById1: "/api/v2/code_packages/",
+    getCodePackagesById2: "/",
+    putCodePackagesById1: "/api/v2/code_packages/",
+    putCodePackagesById2: "/",
+    patchCodePackagesById1: "/api/v2/code_packages/",
+    patchCodePackagesById2: "/",
+
+   
+   
+
+
+    
 
   },
   e2e: {
