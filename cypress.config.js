@@ -907,7 +907,20 @@ module.exports = defineConfig({
     patchCodePackagesById1: "/api/v2/code_packages/",
     patchCodePackagesById2: "/",
 
-   
+   getAllChatMessage1: "/api/v1/prd/",
+   getAllChatMessage2: "/chat/message/",
+   createChatMessage1:"/api/v1/prd/",
+   createChatMessage2: "/chat/message/",
+   getChatMessageById1: "/api/v1/prd/",
+   getChatMessageById2: "/chat/message/",
+   getChatMessageById3: "/",
+   deleteChatMessageById1: "/api/v1/prd/",
+   deleteChatMessageById2: "/chat/message/",
+   deleteChatMessageById3: "/",
+   clearAllChatMessage1: "/api/v1/prd/",
+   clearAllChatMessage2: "/chat/message/clear/",
+
+
    
 
 

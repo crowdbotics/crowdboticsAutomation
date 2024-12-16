@@ -475,5 +475,65 @@ export const doDeleteUserRoleByIdOrganizationPRD = (auth_key, generatePrd_id, us
     })
 };
 
+export const doGetAllChatMessage = (auth_key, generatePrd_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getAllChatMessage1') + generatePrd_id + Cypress.env('getAllChatMessage2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+export const doCreateChatMessage = (auth_key, generatePrd_id) => {
+    return cy.fixture('api_CreateChatMessage.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createChatMessage1') + generatePrd_id + Cypress.env('createChatMessage2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const doGetChatMessageById = (auth_key, generatePrd_id,chat_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getChatMessageById1') + generatePrd_id + Cypress.env('getChatMessageById2')+ chat_id + Cypress.env('getChatMessageById3'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+export const doDeleteChatMessageById = (auth_key, generatePrd_id,chat_id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteChatMessageById1')+generatePrd_id+ Cypress.env('deleteChatMessageById2')+chat_id+Cypress.env('deleteChatMessageById3'), 
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+export const doClearChatMessage = (auth_key, generatePrd_id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('clearAllChatMessage1')+generatePrd_id+ Cypress.env('clearAllChatMessage2'), 
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+
 
 
