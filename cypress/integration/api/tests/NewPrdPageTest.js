@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doNewPrdLogin } from '../pages/loginPage.js';
-import { doDeleteUserRoleByIdOrganizationPRD, doPatchUserRoleOrganizationPRD, doPutUserRoleOrganizationPRD, doGetUserRoleByIdOrganizationPRD, doCreateUserRolesOrganizationPRD, doGetAllUserRolesOrganizationPRD, doGetPRDWishlist, doDeletePhaseByIdOrganizationPRD, doPutPhaseOrganizationPRD, doPatchPhaseOrganizationPRD, doCreatePhaseOrganizationPRD, doGetPhaseByIdOrganizationPRD, doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD } from '../pages/NewPrdPage.js';
+import { doGetAllChatMessage,doCreateChatMessage,doGetChatMessageById,doDeleteChatMessageById,doClearChatMessage,doDeleteUserRoleByIdOrganizationPRD, doPatchUserRoleOrganizationPRD, doPutUserRoleOrganizationPRD, doGetUserRoleByIdOrganizationPRD, doCreateUserRolesOrganizationPRD, doGetAllUserRolesOrganizationPRD, doGetPRDWishlist, doDeletePhaseByIdOrganizationPRD, doPutPhaseOrganizationPRD, doPatchPhaseOrganizationPRD, doCreatePhaseOrganizationPRD, doGetPhaseByIdOrganizationPRD, doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD } from '../pages/NewPrdPage.js';
 
 let app_name;
 let app_id;
@@ -11,6 +11,7 @@ let category_id;
 let feature_id;
 let myPhaseId;
 let userRoles_id;
+let chat_id;
 describe("New PRD Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Get all PRD List by organization User', () => {
@@ -263,6 +264,37 @@ describe("New PRD Page", () => {
 
     //     })
     // })
+    it('Get All Chat Message', () => {
+        doGetAllChatMessage(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get All Chat Message Response", response.body)
+        })
+     })
+     it('Create Chat Message', () => {
+        doCreateChatMessage(authKey, generatePrd_id).then((response) => {
+            chat_id=response.body.id;
+            expect(response.status).to.eq(201)
+            cy.log("Create Chat Message Response", response.body)
+        })
+     })
+     it('Get Chat Message using Id', () => {
+        doGetChatMessageById(authKey, generatePrd_id,chat_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Chat Message using Id Response", response.body)
+        })
+     })
+     it('Delete Chat Message using Id', () => {
+        doDeleteChatMessageById(authKey, generatePrd_id,chat_id).then((response) => {
+            expect(response.status).to.eq(204)
+            cy.log("Delete Chat Message using Id Response", response.body)
+        })
+     })
+     it('Clear All Chat Message', () => {
+        doClearChatMessage(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(204)
+            cy.log("Clear All Chat Message Response", response.body)
+        })
+     })
 
     it('Delete generated PRD by organization User', () => {
         doDeleteOrganizationPRD(authKey, generatePrd_id).then((response) => {
@@ -270,6 +302,6 @@ describe("New PRD Page", () => {
             cy.log("Delete generated PRD by organization User Response", response.body)
         })
 
-    })
+     })
 })
 
