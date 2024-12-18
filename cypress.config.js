@@ -920,8 +920,22 @@ module.exports = defineConfig({
    clearAllChatMessage1: "/api/v1/prd/",
    clearAllChatMessage2: "/chat/message/clear/",
 
-
-   
+   getJiraSetup1: "/api/v1/prd/",
+   getJiraSetup2: "/jira_setup/",
+   createJiraSetup1: "/api/v1/prd/",
+   createJiraSetup2: "/jira_setup/",   
+   getJiraSetupById1: "/api/v1/prd/",
+   getJiraSetupById2: "/jira_setup/",
+   getJiraSetupById3: "/",
+   putJiraSetupById1: "/api/v1/prd/",
+   putJiraSetupById2: "/jira_setup/",
+   putJiraSetupById3: "/",
+   patchJiraSetupById1: "/api/v1/prd/",
+   patchJiraSetupById2: "/jira_setup/",
+   patchJiraSetupById3: "/",
+   deleteJiraSetupById1: "/api/v1/prd/",
+   deleteJiraSetupById2: "/jira_setup/",
+   deleteJiraSetupById3: "/",
 
 
     
