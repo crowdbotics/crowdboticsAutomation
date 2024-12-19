@@ -937,6 +937,7 @@ module.exports = defineConfig({
    deleteJiraSetupById2: "/jira_setup/",
    deleteJiraSetupById3: "/",
 
+   
 
     
 

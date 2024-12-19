@@ -348,5 +348,6 @@ describe("New PRD Page", () => {
             cy.log("Delete Jira Setup using Id Response", response.body)
         })
      })
+     
 })
 
