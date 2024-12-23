@@ -920,6 +920,10 @@ module.exports = defineConfig({
    clearAllChatMessage1: "/api/v1/prd/",
    clearAllChatMessage2: "/chat/message/clear/",
 
+   downloadPrd1: "/api/v1/prd/",
+   downloadPrd2: "/download/",
+   
+
 
    
 

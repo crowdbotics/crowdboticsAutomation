@@ -533,6 +533,17 @@ export const doClearChatMessage = (auth_key, generatePrd_id) => {
         return response;
     })
 };
+export const downloadPrd = (auth_key, generatePrd_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('downloadPrd1') + generatePrd_id + Cypress.env('downloadPrd2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
 
 
 
