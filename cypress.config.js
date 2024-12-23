@@ -938,8 +938,7 @@ module.exports = defineConfig({
    deleteJiraSetupById3: "/",
 
    
-
-    
+ 
 
   },
   e2e: {
