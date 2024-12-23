@@ -632,4 +632,3 @@ export const doDeletejiraSetupById = (auth_key, generatePrd_id,jira_id) => {
 
 
 
-
