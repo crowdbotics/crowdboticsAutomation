@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doNewPrdLogin } from '../pages/loginPage.js';
-import { downloadPrd,doGetAllChatMessage,doCreateChatMessage,doGetChatMessageById,doDeleteChatMessageById,doClearChatMessage,doDeleteUserRoleByIdOrganizationPRD, doPatchUserRoleOrganizationPRD, doPutUserRoleOrganizationPRD, doGetUserRoleByIdOrganizationPRD, doCreateUserRolesOrganizationPRD, doGetAllUserRolesOrganizationPRD, doGetPRDWishlist, doDeletePhaseByIdOrganizationPRD, doPutPhaseOrganizationPRD, doPatchPhaseOrganizationPRD, doCreatePhaseOrganizationPRD, doGetPhaseByIdOrganizationPRD, doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD } from '../pages/NewPrdPage.js';
+import { addFeatureMaually,generateAzureCostEstimation,unlinkJiraUrl,getStarterCode,requestTechnicalRecomandation,generateStarterCode,getTecnicalReconmondationList,featureAutoEstimation,featureDecompose, deleteFeatureCommet, patchFeatureComments, putFeatureComments, getFeatureCommentById, addCommentsIntoFeature, getAllFeatureComments, downloadPrd, doGetAllChatMessage, doCreateChatMessage, doGetChatMessageById, doDeleteChatMessageById, doClearChatMessage, doDeleteUserRoleByIdOrganizationPRD, doPatchUserRoleOrganizationPRD, doPutUserRoleOrganizationPRD, doGetUserRoleByIdOrganizationPRD, doCreateUserRolesOrganizationPRD, doGetAllUserRolesOrganizationPRD, doGetPRDWishlist, doDeletePhaseByIdOrganizationPRD, doPutPhaseOrganizationPRD, doPatchPhaseOrganizationPRD, doCreatePhaseOrganizationPRD, doGetPhaseByIdOrganizationPRD, doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD } from '../pages/NewPrdPage.js';
 
 let app_name;
 let app_id;
@@ -12,6 +12,8 @@ let feature_id;
 let myPhaseId;
 let userRoles_id;
 let chat_id;
+let comment_id;
+let newFaetiureId;
 describe("New PRD Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Get all PRD List by organization User', () => {
@@ -269,44 +271,151 @@ describe("New PRD Page", () => {
             expect(response.status).to.eq(200)
             cy.log("Get All Chat Message Response", response.body)
         })
-     })
-     it('Create Chat Message', () => {
+    })
+    it('Create Chat Message', () => {
         doCreateChatMessage(authKey, generatePrd_id).then((response) => {
-            chat_id=response.body.id;
+            chat_id = response.body.id;
             expect(response.status).to.eq(201)
             cy.log("Create Chat Message Response", response.body)
         })
-     })
-     it('Get Chat Message using Id', () => {
-        doGetChatMessageById(authKey, generatePrd_id,chat_id).then((response) => {
+    })
+    it('Get Chat Message using Id', () => {
+        doGetChatMessageById(authKey, generatePrd_id, chat_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Chat Message using Id Response", response.body)
         })
-     })
-     it('Delete Chat Message using Id', () => {
-        doDeleteChatMessageById(authKey, generatePrd_id,chat_id).then((response) => {
+    })
+    it('Delete Chat Message using Id', () => {
+        doDeleteChatMessageById(authKey, generatePrd_id, chat_id).then((response) => {
             expect(response.status).to.eq(204)
             cy.log("Delete Chat Message using Id Response", response.body)
         })
-     })
-     it('Clear All Chat Message', () => {
+    })
+    it('Clear All Chat Message', () => {
         doClearChatMessage(authKey, generatePrd_id).then((response) => {
             expect(response.status).to.eq(204)
             cy.log("Clear All Chat Message Response", response.body)
         })
-     })
-     it('download PRD ', () => {
+    })
+    it('download PRD ', () => {
         downloadPrd(authKey, generatePrd_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("download PRD Response", response.body)
         })
-     })
+    })
+
+    it('Get All comment from feature', () => {
+        getAllFeatureComments(authKey, generatePrd_id, feature_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get All comment from feature", response.body)
+        })
+    })
+    it('Add comment into the feature', () => {
+        addCommentsIntoFeature(authKey, generatePrd_id, feature_id).then((response) => {
+            comment_id = response.body.id;
+            expect(response.status).to.eq(201)
+            cy.log("Add comment into the feature Response", response.body)
+        })
+    })
+    it('Get comment from feature using ID', () => {
+        getFeatureCommentById(authKey, generatePrd_id, feature_id, comment_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get comment from feature using ID Response", response.body)
+        })
+
+    })
+
+    it('Update comment into the feature using put', () => {
+        putFeatureComments(authKey, generatePrd_id, feature_id, comment_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Update comment into the feature using put Response", response.body)
+        })
+
+    })
+    it('Update comment into the feature using patch', () => {
+        patchFeatureComments(authKey, generatePrd_id, feature_id, comment_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Update comment into the feature using patch Response", response.body)
+        })
+
+    })
+    it('Delete comment from feature', () => {
+        deleteFeatureCommet(authKey, generatePrd_id, comment_id).then((response) => {
+            expect(response.status).to.eq(204)
+            cy.log("Delete comment from feature Response", response.body)
+        })
+
+    })
+    
+    it('Feature decompose flow', () => {
+        newFaetiureId = feature_id - 1;
+        featureDecompose(authKey, generatePrd_id, newFaetiureId).then((response) => {
+            expect(response.status).to.eq(202)
+            cy.log("Feature decompose flow Response", response.body)
+        })
+    })
+    
+    it('Feature Auto Estimation flow', () => {
+        featureAutoEstimation(authKey, generatePrd_id, newFaetiureId).then((response) => {
+            expect(response.status).to.eq(202)
+            cy.log("Feature Auto Estimation flow Response", response.body)
+        })
+    })
+    
+    it('Get All Technical Recomandation flow', () => {
+        getTecnicalReconmondationList (authKey, generatePrd_id, newFaetiureId).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get All Technical Recomandation flow Response", response.body)
+        })
+    })
+    
+    it('Generate Starter Code flow', () => {
+        generateStarterCode(authKey, generatePrd_id, newFaetiureId).then((response) => {
+            expect(response.status).to.eq(202)
+            cy.log("Generate Starter Code flow Response", response.body)
+        })
+    })
+    
+    it('Request Tecnical Recomandation flow', () => {
+        requestTechnicalRecomandation(authKey, generatePrd_id, newFaetiureId).then((response) => {
+            expect(response.status).to.eq(202)
+            cy.log("Request Tecnical Recomandation flow Response", response.body)
+        })
+    })
+    
+    it('Get Starter Code flow', () => {
+        getStarterCode (authKey, generatePrd_id, newFaetiureId).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Starter Code flow Response", response.body)
+        })
+    })
+    
+    it('Unlink Jira Url flow', () => {
+        unlinkJiraUrl (authKey, generatePrd_id, newFaetiureId).then((response) => {
+            expect(response.status).to.eq(204)
+            cy.log("Unlink Jira Url flow Response", response.body)
+        })
+    })
+   
+    it('Generate Azure Cost Estimation  flow', () => {
+        generateAzureCostEstimation(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(202)
+            cy.log("Generate Azure Cost Estimation  flow Response", response.body)
+        })
+    })
+    
+    it('Add Feature Manually flow', () => {
+        addFeatureMaually(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(201)
+            cy.log("Add Feature Manually flow Response", response.body)
+        })
+    })
     it('Delete generated PRD by organization User', () => {
         doDeleteOrganizationPRD(authKey, generatePrd_id).then((response) => {
             expect(response.status).to.eq(204)
             cy.log("Delete generated PRD by organization User Response", response.body)
         })
 
-     })
+    })
 })
 
