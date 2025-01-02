@@ -194,19 +194,20 @@ describe("New PRD Page", () => {
 
     // it('Get all feature from category for organization User', () => {
     //     doGetAllfeatureOrganizationPRD(authKey, generatePrd_id).then((response) => {
-    //         expect(response.status).to.eq(200)
+    //  
+    //        expect(response.status).to.eq(200)
     //         cy.log("Get all feature from category for organization User Response", response.body)
     //     })
 
     // })
-    // it('Create Feature into category for organization User', () => {
-    //     doCreatefeaDtureOrganizationPRD(authKey, generatePrd_id).then((response) => {
-    //         feature_id=response.body.id;
-    //         expect(response.status).to.eq(201)
-    //         cy.log("Create Feature into category for organization User Response", response.body)
-    //     })
+    it('Create Feature into category for organization User', () => {
+        doCreatefeatureOrganizationPRD(authKey, generatePrd_id).then((response) => {
+            feature_id=response.body.id;
+            expect(response.status).to.eq(201)
+            cy.log("Create Feature into category for organization User Response", response.body)
+        })
 
-    // })
+    })
 
     // it('Get Feature using Id from category for organization User', () => {
     //     doGetfeatureUsingIdOrganizationPRD(authKey, generatePrd_id,feature_id).then((response) => {
@@ -339,13 +340,6 @@ describe("New PRD Page", () => {
         })
 
     })
-    it('Delete comment from feature', () => {
-        deleteFeatureCommet(authKey, generatePrd_id, comment_id).then((response) => {
-            expect(response.status).to.eq(204)
-            cy.log("Delete comment from feature Response", response.body)
-        })
-
-    })
     
     it('Feature decompose flow', () => {
         newFaetiureId = feature_id - 1;
@@ -374,6 +368,7 @@ describe("New PRD Page", () => {
             expect(response.status).to.eq(202)
             cy.log("Generate Starter Code flow Response", response.body)
         })
+
     })
     
     it('Request Tecnical Recomandation flow', () => {
@@ -417,5 +412,13 @@ describe("New PRD Page", () => {
         })
 
     })
+
+    //  it('Delete comment from feature', () => {
+    //     deleteFeatureCommet(authKey, generatePrd_id, comment_id).then((response) => {
+    //         expect(response.status).to.eq(204)
+    //         cy.log("Delete comment from feature Response", response.body)
+    //     })
+
+    // })
 })
 
