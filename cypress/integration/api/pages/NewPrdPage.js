@@ -220,7 +220,7 @@ export const doCreatefeatureOrganizationPRD = (auth_key, generatePrd_id) => {
     return cy.fixture('api_createFeaturePRD.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('createfeatureOrganizationPRD1') + generatePrd_id + Cypress.env('createfeatureOrganizationPRD1'),
+            url: Cypress.env('baseUrl') + Cypress.env('createfeatureOrganizationPRD1') + generatePrd_id + Cypress.env('createfeatureOrganizationPRD2'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -573,7 +573,7 @@ export const addCommentsIntoFeature = (auth_key, generatePrd_id,feature_id) => {
 export const getFeatureCommentById = (auth_key, generatePrd_id,feature_id,comment_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getFeatureCommentById1') + generatePrd_id + Cypress.env('getFeatureCommentById2')+feature_id+Cypress.env('getFeatureCommentById3')+comment_id+Cypress.env('getFeatureCommentById4'),
+        url: Cypress.env('baseUrl') + Cypress.env('getFeatureCommentById1') + generatePrd_id + Cypress.env('getFeatureCommentById2') + feature_id + Cypress.env('getFeatureCommentById3') + comment_id + Cypress.env('getFeatureCommentById4'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -610,17 +610,7 @@ export const patchFeatureComments = (auth_key, generatePrd_id,feature_id,comment
         })
     })
 };
-export const deleteFeatureCommet = (auth_key, generatePrd_id,feature_id,comment_id) => {
-    return cy.request({
-        method: 'DELETE',
-        url: Cypress.env('baseUrl') + Cypress.env('deleteFeatureCommentById1') + generatePrd_id + Cypress.env('deleteFeatureCommentById2')+feature_id+Cypress.env('deleteFeatureCommentById3')+comment_id+Cypress.env('deleteFeatureCommentById4'),
-        headers: {
-            'Authorization': 'Token ' + auth_key,
-        }
-    }).then((response) => {
-        return response;
-    })
-};
+
 export const featureDecompose = (auth_key, generatePrd_id,feature_id) => {
     return cy.fixture('api_feature_decompose.json').then((myFixture) => {
         cy.request({
@@ -736,5 +726,18 @@ export const addFeatureMaually = (auth_key, generatePrd_id) => {
         }).then((response) => {
             return response;
         })
+    })
+
+};
+
+export const deleteFeatureCommet = (auth_key, generatePrd_id,feature_id,comment_id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteFeatureCommentById1') + generatePrd_id + Cypress.env('deleteFeatureCommentById2')+feature_id+Cypress.env('deleteFeatureCommentById3')+comment_id + Cypress.env('deleteFeatureCommentById4'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
     })
 };
