@@ -343,6 +343,8 @@ describe("New PRD Page", () => {
     
     it('Feature decompose flow', () => {
         newFaetiureId = feature_id - 1;
+        cy.log("Feature ID:", feature_id);
+        cy.log("New Feature ID:", newFaetiureId);
         featureDecompose(authKey, generatePrd_id, newFaetiureId).then((response) => {
             expect(response.status).to.eq(202)
             cy.log("Feature decompose flow Response", response.body)
@@ -413,12 +415,15 @@ describe("New PRD Page", () => {
 
     })
 
-    //  it('Delete comment from feature', () => {
-    //     deleteFeatureCommet(authKey, generatePrd_id, comment_id).then((response) => {
-    //         expect(response.status).to.eq(204)
-    //         cy.log("Delete comment from feature Response", response.body)
-    //     })
+     it('Delete comment from feature', () => {
+        deleteFeatureCommet(authKey, generatePrd_id, comment_id,feature_id).then((response) => {
+            cy.log("Auth Key:", authKey);
+            cy.log("Generated PRD ID:", generatePrd_id);
+            cy.log("Comment ID:", comment_id);
+            expect(response.status).to.eq(204)
+            cy.log("Delete comment from feature Response", response.body)
+        })
 
-    // })
+    })
 })
 
