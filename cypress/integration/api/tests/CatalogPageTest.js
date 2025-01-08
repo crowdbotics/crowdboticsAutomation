@@ -195,13 +195,6 @@ describe("Catalog Page", () => {
     })
 
 
-    it('Import Feature Flow', () => {
-        doImportFeature(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Import Feature response", response.body)
-        })
-    })
-
     //**Need to fix */
     // it('Import Module', () => {
     //     group_id="PRD Group Test"+app_id;

@@ -280,24 +280,6 @@ export const doDeleteCatologModule = (auth_key,module_id) => {
     })
 };
 
-
-
-export const doImportFeature = (auth_key, app_id) => {
-
-    return cy.fixture('api_ImportFeature.json').then((myFixture) => {
-        cy.request({
-            method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('importFeature') + app_id,
-            headers: {
-                'Authorization': 'Token ' + auth_key
-            },
-            body: myFixture
-        }).then((response) => {
-            return response;
-        })
-    })
-};
-
 export const doImportModule = (auth_key, app_id, group_id) => {
 
     return cy.fixture('api_importModule.json').then((myFixture) => {

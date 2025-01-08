@@ -112,7 +112,6 @@ module.exports = defineConfig({
     updateWithPatchCatalogModulesById2: "/",
     deleteCatalogModules1: "/api/v1/catalog/module/",
     deleteCatalogModules2: "/",
-    importFeature: "/api/v1/prd_groups/import-features/?app=",
     importModule1: "/api/v1/prd_groups/",
     importModule2: "/import-from-catalog/?app=",
     importCatalog1: "/api/v1/prd_groups/",
