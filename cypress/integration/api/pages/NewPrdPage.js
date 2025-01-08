@@ -533,6 +533,112 @@ export const doClearChatMessage = (auth_key, generatePrd_id) => {
         return response;
     })
 };
+export const downloadPrd = (auth_key, generatePrd_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('downloadPrd1') + generatePrd_id + Cypress.env('downloadPrd2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doGetJiraSetup = (auth_key, generatePrd_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getJiraSetup1') + generatePrd_id + Cypress.env('getJiraSetup2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doCreateJiraSetUp = (auth_key, generatePrd_id,jira_id,prd) => {
+    cy.readFile('cypress/fixtures/api_CreateJiraSetup.json').then((data) => {
+        data.jira_id = jira_id
+        data.prd = prd
+        cy.writeFile('cypress/fixtures/api_CreateJiraSetup.json', JSON.stringify(data))
+    })
+    return cy.fixture('api_CreateJiraSetup.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createJiraSetup1') + generatePrd_id + Cypress.env('createJiraSetup2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+
+};
+
+export const doGetJiraSetupById = (auth_key, generatePrd_id,jira_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getJiraSetupById1') + generatePrd_id + Cypress.env('getJiraSetupById2')+ jira_id + Cypress.env('getJiraSetupById3'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doPutJiraSetup = (auth_key, generatePrd_id,jira_id) => {
+    cy.readFile('cypress/fixtures/api_put_JiraSetup.json').then((data) => {
+        data.prd = generatePrd_id;
+        cy.writeFile('cypress/fixtures/api_put_JiraSetup.json', JSON.stringify(data))
+    })
+    return cy.fixture('api_put_JiraSetup.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putJiraSetupById1') + generatePrd_id + Cypress.env('putJiraSetupById2') + jira_id + Cypress.env('putJiraSetupById3'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doPatchJiraSetup= (auth_key, generatePrd_id,jira_id) => {
+    cy.readFile('cypress/fixtures/api_patch_JiraSetup.json').then((data) => {
+        data.prd = generatePrd_id
+        cy.writeFile('cypress/fixtures/api_patch_JiraSetup.json', JSON.stringify(data))
+    })
+    return cy.fixture('api_patch_JiraSetup.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchJiraSetupById1') + generatePrd_id + Cypress.env('patchJiraSetupById2') + jira_id + Cypress.env('patchJiraSetupById3'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const doDeletejiraSetupById = (auth_key, generatePrd_id,jira_id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteJiraSetupById1')+generatePrd_id+ Cypress.env('deleteJiraSetupById2')+jira_id+Cypress.env('deleteJiraSetupById3'), 
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+
+};
 
 export const doGetJiraSetup = (auth_key, generatePrd_id) => {
     return cy.request({
