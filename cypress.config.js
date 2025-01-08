@@ -790,8 +790,12 @@ module.exports = defineConfig({
     getSocialappsByID2: "/",
     postdeployment1:"/api/v2/apps/",
     postdeployment2:"/deploy/",
+    postdeployment3:"/platforms/",
     postcanceldeployment1:"/api/v2/apps/",
     postcanceldeployment2:"/deploy/cancel/",
+    getplan :"/api/v2/plans/",
+    getplanById1:"/api/v2/plans/",
+    getplanById2:"/",
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",

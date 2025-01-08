@@ -25,6 +25,7 @@ let projectclones_id;
 let social_id = 1;
 let users_id = 1;
 let projectlogs_id;
+let username;
 describe("Dashboard Page", () => {
 
     it('login into the application', () => {
@@ -465,7 +466,7 @@ describe("Dashboard Page", () => {
     })
 
     it('do Put Users ', () => {
-        doputcbusersbyId(authKey, cb_usersid, username).then((response) => {
+        doputcbusersbyId(authKey, cb_usersid).then((response) => {
             cy.log("Put Cb users response", response.body)
             expect(response.status).to.eq(200)
         })

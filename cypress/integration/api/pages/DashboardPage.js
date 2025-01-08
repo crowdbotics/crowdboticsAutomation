@@ -826,6 +826,7 @@ export const dogetcbusers = (auth_key) => {
 export const doPostcbusers = (auth_key) => {
 
     return cy.fixture('api_post_cbusers.json').then((myFixture) => {
+        myFixture.email = "testadded" + Math.floor(Math.random() * 1000) + "@crowdbotics.com";
         cy.request({
             method: 'POST',
             url: Cypress.env('baseUrl') + Cypress.env('postcbusers'),
@@ -853,12 +854,13 @@ export const dogetcbusersbyId = (auth_key, cb_usersid) => {
     })
 };
 
-export const doputcbusersbyId = (auth_key, cb_usersid, username1) => {
+export const doputcbusersbyId = (auth_key, cb_usersid,) => {
     cy.readFile('cypress/fixtures/api_put_cbusers.json').then((data) => {
-        data.username = username1;
+        // data.username = username1;
         cy.writeFile('cypress/fixtures/api_put_cbusers.json', JSON.stringify(data))
     })
     return cy.fixture('api_put_cbusers.json').then((myFixture) => {
+        myFixture.email = "rahul" + Math.floor(Math.random() * 1000) + "@crowdbotics.com";
         cy.request({
             method: 'PUT',
             url: Cypress.env('baseUrl') + Cypress.env('putcbusers1') + cb_usersid + Cypress.env('putcbusers2'),

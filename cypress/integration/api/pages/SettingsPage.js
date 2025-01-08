@@ -244,11 +244,28 @@ export const doAddIcons = (auth_key, project) => {
     })
 }
 
-export const dopostdeployment = (auth_key, app_id) => {
+export const doGetPlatformID = (auth_key, app_id) => {
+    app_id = app_id-1;
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('deployeApp1') + app_id + Cypress.env('deployeApp2'),
+
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const dopostdeployment = (auth_key, app_id, platform_id) => {
+
     return cy.fixture('api_post_deployments.json').then((myFixture) => {
+        
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('postdeployment1') + app_id + Cypress.env('postdeployment2'),
+            url: Cypress.env('baseUrl') + Cypress.env('postdeployment1') + app_id + Cypress.env('postdeployment3') + platform_id + Cypress.env('postdeployment2'),
             body: myFixture,
             headers: {
                 'Content-Type': 'application/json',
@@ -262,11 +279,12 @@ export const dopostdeployment = (auth_key, app_id) => {
 
 }
 
-export const dopostcanceldeployment = (auth_key, app_id) => {
+export const dopostcanceldeployment = (auth_key, app_id, platform_id) => {
     return cy.fixture('api_post_cancel_deployments.json').then((myFixture) => {
+       
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('postcanceldeployment1') + app_id + Cypress.env('postcanceldeployment2'),
+            url: Cypress.env('baseUrl') + Cypress.env('postdeployment1') + app_id + Cypress.env('postdeployment3') + platform_id + Cypress.env('postdeployment2'),
             body: myFixture,
             headers: {
                 'Content-Type': 'application/json',
@@ -279,3 +297,31 @@ export const dopostcanceldeployment = (auth_key, app_id) => {
     })
 
 }
+
+export const doGetPlan = (auth_key, app_id,) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getplan'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+
+export const doGetPlanbyId = (auth_key,planresponse_id) => {
+    return cy.request({
+            method: 'GET',
+            url: Cypress.env('baseUrl') + Cypress.env('getplanById1') + planresponse_id + Cypress.env('getplanById2'),
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+        }).then((response) => {
+            return response;
+        })
+    }
