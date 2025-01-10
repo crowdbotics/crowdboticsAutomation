@@ -966,6 +966,7 @@ module.exports = defineConfig({
    unlinkJiraUrl1 :"/api/v1/prd/",
    unlinkJiraUrl2 :"/feature/",
    unlinkJiraUrl3 :"/unlink-jira-url/",
+   
    generateAzureCostEstimation1: "/api/v1/prd/",
    generateAzureCostEstimation2:"/generate-azure-cost-estimation/",
    addFeatureManually1: "/api/v1/prd/",

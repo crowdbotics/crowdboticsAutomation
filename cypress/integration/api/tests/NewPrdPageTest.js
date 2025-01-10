@@ -415,7 +415,7 @@ describe("New PRD Page", () => {
 
     })
 
-     it('Delete comment from feature', () => {
+     it('delete comment from feature', () => {
         deleteFeatureCommet(authKey, generatePrd_id, comment_id,feature_id).then((response) => {
             cy.log("Auth Key:", authKey);
             cy.log("Generated PRD ID:", generatePrd_id);

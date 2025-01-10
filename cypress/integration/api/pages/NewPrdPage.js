@@ -714,6 +714,7 @@ export const generateAzureCostEstimation = (auth_key, generatePrd_id) => {
         })
     })
 };
+
 export const addFeatureMaually = (auth_key, generatePrd_id) => {
     return cy.fixture('api_add_feature_manually.json').then((myFixture) => {
         cy.request({
