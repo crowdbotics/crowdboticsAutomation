@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doPrdLogin} from '../pages/loginPage.js';
-import { doGetattachmentslist,doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doDeletefeature, doPatchFeature, doPutFeature, doPutCategories, doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks,doPostUsefullLinks,doGetidUsefullLinks,doPutUsefullLinks,doPatchUsefullLinks,doDeleteUsefullLinks,doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getCodeStateList, getRolesUsingId, getRoles, getAppPerformanceList, getPendingInvite, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, getAllFeatureFromBacklog, getPrdAiCategories, prd_overview_tags, prd_overview_userRoles, prd_create_group, prd_get_group, prd_delete_group, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually,doGetSUserTypes, doCreateUserTypes, doGetSUserTypesByID, doPatchUserTypes,doPutUserTypes, dodeleteuserTypesByid,doGetRolesByID, doGetOpenAI,doGetDemoPhase,doGetDemoRoles,doGetDemoticket } from '../pages/PrdPage.js';
+import { doGetattachmentslist,doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doDeletefeature, doPatchFeature, doPutFeature, doPutCategories, doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks,doPostUsefullLinks,doGetidUsefullLinks,doPutUsefullLinks,doPatchUsefullLinks,doDeleteUsefullLinks,doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getRolesUsingId, getRoles, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, prd_overview_tags, prd_overview_userRoles, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually,doGetSUserTypes, doCreateUserTypes, doGetSUserTypesByID, doPatchUserTypes,doPutUserTypes, dodeleteuserTypesByid,doGetRolesByID, doGetOpenAI,doGetDemoPhase,doGetDemoRoles,doGetDemoticket } from '../pages/PrdPage.js';
 
 
 let authKey;
@@ -47,20 +47,6 @@ describe("PRD Page", () => {
         })
     })
 
-    it('Get Prd Ai Categories Flow', () => {
-        getPrdAiCategories(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Prd Ai Categories response", response.body)
-        })
-    })
-
-    it('Get All Feature from Backlog Flow', () => {
-        getAllFeatureFromBacklog(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get All Feature from Backlog response", response.body)
-        })
-    })
-
     it('Get Currently Approved Prd Version Flow', () => {
         getCurrentlyApprovedPrdVersion(authKey, app_id).then((response) => {
             expect(response.status).to.eq(200)
@@ -96,20 +82,6 @@ describe("PRD Page", () => {
     //     })
     // })
 
-    it('Get Pending Invite FLow', () => {
-        getPendingInvite(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Pending Invite response", response.body)
-        })
-    })
-
-    it('Get App Performance List FLow', () => {
-        getAppPerformanceList(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get App Performance List response", response.body)
-        })
-    })
-
 
     it('Get Roles FLow', () => {
         getRoles(authKey).then((response) => {
@@ -126,12 +98,6 @@ describe("PRD Page", () => {
         })
     })
 
-    it('Get Code State List FLow', () => {
-        getCodeStateList(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Code State List  response", response.body)
-        })
-    })
     // it('Add Prd Tags Flow', () => {
     //     doAddPrdTag(authKey, app_id, 'testaddtag' + app_id).then((response) => {
     //         tag_id = response.body.id;
@@ -170,46 +136,17 @@ describe("PRD Page", () => {
         })
     })
 
-    it('Create PrdGroup Flow', () => {
-        prd_create_group(authKey, app_id, 'PRD GROUP TEST' + app_id).then((response) => {
-            group_id = response.body.id;
-            group_name = response.body.name;
-            expect(response.status).to.eq(201)
-            cy.log("Create PrdGroup response", response.body)
-        })
-    })
-
-    it('Get PrdGroup Flow', () => {
-        prd_get_group(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get PrdGroup response", response.body)
-        })
-    })
-
-    it('Get PrdGroup Using Id Flow', () => {
-        doGetGroupUsingId(authKey, group_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get PrdGroup Using Id response", response.body)
-        })
-    })
-
-    it('Patch PrdGroup Flow', () => {
-        doPatchGroup(authKey, app_id, group_id, group_name).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Patch PrdGroup response", response.body)
-        })
-    })
-
-    it('Create PrdItem Flow', () => {
-        prd_create_item(authKey, app_id, group_id, 'PRD ITEM TEST' + app_id).then((response) => {
-            item_id = response.body.id;
-            const addedItemId = cy.wrap(response).its('body.id').then((id) => id);
-            addedItemId.then((id) => added_items.push(id));
-            added_items = added_items.sort(() => Math.random() - 0.5);
-            expect(response.status).to.eq(201)
-            cy.log("Create PrdItem response", response.body)
-        })
-    })
+    //Not Avaialble on UI
+    // it('Create PrdItem Flow', () => {
+    //     prd_create_item(authKey, app_id, group_id, 'PRD ITEM TEST' + app_id).then((response) => {
+    //         item_id = response.body.id;
+    //         const addedItemId = cy.wrap(response).its('body.id').then((id) => id);
+    //         addedItemId.then((id) => added_items.push(id));
+    //         added_items = added_items.sort(() => Math.random() - 0.5);
+    //         expect(response.status).to.eq(201)
+    //         cy.log("Create PrdItem response", response.body)
+    //     })
+    // })
 
     // it('Add Suggested Features Flow', () => {
     //     doAddSuggestedFeatures(authKey, app_id, app_name).then((response) => {
@@ -297,21 +234,22 @@ describe("PRD Page", () => {
     //     })
     // })
 
-    it('Get Prd Item Flow', () => {
-        prd_get_Item(authKey, group_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Prd Item response", response.body)
+    // Not Available on UI
+    // it('Get Prd Item Flow', () => {
+    //     prd_get_Item(authKey, group_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get Prd Item response", response.body)
 
-        })
-    })
+    //     })
+    // })
 
-    it('Patch Item Update Order Flow', () => {
-        doPatchItemUpdateOrder(authKey, group_id, added_items).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Patch Item Update Order response", response.body)
+    // it('Patch Item Update Order Flow', () => {
+    //     doPatchItemUpdateOrder(authKey, group_id, added_items).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Patch Item Update Order response", response.body)
 
-        })
-    })
+    //     })
+    // })
 
 
     // it('Get Prd Item Using Id Flow', () => {
@@ -322,21 +260,23 @@ describe("PRD Page", () => {
     //     })
     // })
 
-    it('Patch Prd Item Flow', () => {
-        doPatchItem(authKey, app_id, item_id, item_name).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Patch Prd Item response", response.body)
+    //Not Avaialble on swagger
+    // it('Patch Prd Item Flow', () => {
+    //     doPatchItem(authKey, app_id, item_id, item_name).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Patch Prd Item response", response.body)
 
-        })
-    })
+    //     })
+    // })
 
-    it('Update Prd Version Staus Flow', () => {
-        doUpdatePrdVersionStatus(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Update Prd Version Staus response", response.body)
+    //Not Avialble on UI
+    // it('Update Prd Version Staus Flow', () => {
+    //     doUpdatePrdVersionStatus(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Update Prd Version Staus response", response.body)
 
-        })
-    })
+    //     })
+    // })
 
     it('Get Prd Version  Flow', () => {
         doGetPrdVersions(authKey, app_id).then((response) => {
@@ -346,13 +286,14 @@ describe("PRD Page", () => {
         })
     })
 
-    it('Import Catalog Flow', () => {
-        doImportCatalog(authKey, app_id, group_id, task_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Import Catalog response", response.body)
+    // Not Available on UI
+    // it('Import Catalog Flow', () => {
+    //     doImportCatalog(authKey, app_id, group_id, task_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Import Catalog response", response.body)
 
-        })
-    })
+    //     })
+    // })
 
     // *************Not Available on Swagger*************
 
@@ -448,13 +389,14 @@ describe("PRD Page", () => {
 
     //     })
     // })
-    it('Get Prd AI Usertype Flow', () => {
-        doGetPrdAiUserType(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Add Archetype Into Prd response", response.body)
+    // Not Avaialble on UI
+    // it('Get Prd AI Usertype Flow', () => {
+    //     doGetPrdAiUserType(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Add Archetype Into Prd response", response.body)
 
-        })
-    })
+    //     })
+    // })
     
     it('Get User types Flow', () => {
         doGetSUserTypes(authKey).then((response) => {
@@ -500,14 +442,14 @@ describe("PRD Page", () => {
         })
     })
 
-    //doGetPrdAiUserType
-    it('Get Code Status Prd Flow', () => {
-        doGetCodeStatusPrd(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Code Status Prd response", response.body)
+    // Not Avaiable on UI
+    // it('Get Code Status Prd Flow', () => {
+    //     doGetCodeStatusPrd(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get Code Status Prd response", response.body)
 
-        })
-    })
+    //     })
+    // })
     // it('Remove Prd Roles Flow', () => {
     //     doRemovePrdRoles(authKey, item_id, role_id).then((response) => {
     //         expect(response.status).to.eq(200)
@@ -516,13 +458,14 @@ describe("PRD Page", () => {
 
     // })
 
-    it('Delete PrdItem Flow', () => {
-        prd_delete_item(authKey, app_id, group_id, item_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Delete PrdItem Response", response.body)
-        })
+    // Not Avaiable on UI
+    // it('Delete PrdItem Flow', () => {
+    //     prd_delete_item(authKey, app_id, group_id, item_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Delete PrdItem Response", response.body)
+    //     })
 
-    })
+    // })
 
 ////**************Not avaialble on swagger**************/
 
@@ -533,13 +476,6 @@ describe("PRD Page", () => {
     //     })
 
     // })
-
-    it('Delete PrdGroup Flow', () => {
-        prd_delete_group(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Delete PrdGroup response", response.body)
-        })
-    })
 
     it('Get Current Prd Pdf Flow', () => {
         doGetCurrentPrdPdf(authKey, app_id).then((response) => {
@@ -598,12 +534,13 @@ describe("PRD Page", () => {
     //     })
 
     // })
-    it('Get PRD AI Features', () => {
-        doGetPRDAIfeatures(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get PRD AI Features response", response.body)
-        })
-    })
+    // Not Avaiable on UI
+    // it('Get PRD AI Features', () => {
+    //     doGetPRDAIfeatures(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get PRD AI Features response", response.body)
+    //     })
+    // })
 
 //     it('Approve All features', () => {
 //         doApproveAllFeatures(authKey, app_id).then((response) => {

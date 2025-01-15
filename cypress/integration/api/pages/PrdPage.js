@@ -44,75 +44,6 @@ export const addPrdVersionStatus = (auth_key, app_id) => {
     })
 };
 
-//------Get Prd AI Categories--------
-export const getPrdAiCategories = (auth_key, app_id) => {
-
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getPrdAiCategories1') + app_id + Cypress.env('getPrdAiCategories2'),
-        headers: {
-
-            // 'Content-Type': 'application/json',
-            // 'Accept': 'application/json',
-            'Authorization': 'Token ' + auth_key,
-        }
-
-    }).then((response) => {
-        return response;
-    })
-};
-//-------Get Pending Invite-----
-export const getPendingInvite = (auth_key, app_id) => {
-
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getPendingInvite1') + app_id + Cypress.env('getPendingInvite2'),
-        headers: {
-
-            // 'Content-Type': 'application/json',
-            // 'Accept': 'application/json',
-            'Authorization': 'Token ' + auth_key,
-        }
-
-    }).then((response) => {
-        return response;
-    })
-};
-//-----Get App Performance list--------------
-export const getAppPerformanceList = (auth_key, app_id) => {
-
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getAppPerformanceList1') + app_id + Cypress.env('getAppPerformanceList2'),
-        headers: {
-
-            // 'Content-Type': 'application/json',
-            // 'Accept': 'application/json',
-            'Authorization': 'Token ' + auth_key,
-        }
-
-    }).then((response) => {
-        return response;
-    })
-};
-//-------------Get Code State List-------------
-export const getCodeStateList = (auth_key, app_id) => {
-
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getCodestateList') + app_id,
-        headers: {
-
-            // 'Content-Type': 'application/json',
-            // 'Accept': 'application/json',
-            'Authorization': 'Token ' + auth_key,
-        }
-
-    }).then((response) => {
-        return response;
-    })
-};
-
 //-------Get Roles----------------
 export const getRoles = (auth_key) => {
 
@@ -159,24 +90,6 @@ export const doGetRolesByID = (auth_key, roles_id) => {
         return response;
     })
 }
-//----------Get All Feature From Backlog--------------
-export const getAllFeatureFromBacklog = (auth_key, app_id) => {
-
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getAllFeatureFromBacklog1') + app_id + Cypress.env('getAllFeatureFromBacklog2'),
-        headers: {
-
-            // 'Content-Type': 'application/json',
-            // 'Accept': 'application/json',
-            'Authorization': 'Token ' + auth_key,
-        }
-
-    }).then((response) => {
-        return response;
-    })
-};
-
 
 //-----------Get Currently Approved Prd Version---------------
 export const getCurrentlyApprovedPrdVersion = (auth_key, app_id) => {
@@ -272,153 +185,93 @@ export const prd_overview_userRoles = (auth_key, app_id) => {
         })
     })
 };
-//---Done----
-export const prd_create_group = (auth_key, app_id, group_name) => {
 
-    cy.readFile('cypress/fixtures/api_createPRDGroup.json').then((data) => {
-        data.app = app_id
-        data.name = group_name
-        cy.writeFile('cypress/fixtures/api_createPRDGroup.json', JSON.stringify(data))
-    })
-    return cy.fixture('api_createPRDGroup.json').then((myFixture) => {
-        cy.request({
-            method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('createprdGroup') + app_id,
-            body: myFixture,
-            headers: {
-
-                // 'Content-Type': 'application/json',
-                // 'Accept': 'application/json',
-                'Authorization': 'Token ' + auth_key,
-            }
-
-        }).then((response) => {
-            return response;
-        })
-    })
-};
-//---Done---
-export const prd_get_group = (auth_key, app_id) => {
-
-
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getprdGroup') + app_id,
-        headers: {
-
-            // 'Content-Type': 'application/json',
-            // 'Accept': 'application/json',
-            'Authorization': 'Token ' + auth_key,
-        }
-
-    }).then((response) => {
-        return response;
-    })
-};
-//---Done----
-export const prd_delete_group = (auth_key, app_id) => {
-
-
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('deleteprdGroup') + app_id,
-        headers: {
-
-            // 'Content-Type': 'application/json',
-            // 'Accept': 'application/json',
-            'Authorization': 'Token ' + auth_key,
-        }
-
-    }).then((response) => {
-        return response;
-    })
-};
 //----Done-----
-export const prd_create_item = (auth_key, app_id, group_id, item_name) => {
+// export const prd_create_item = (auth_key, app_id, group_id, item_name) => {
 
-    cy.readFile('cypress/fixtures/api_createPRDItem.json').then((data) => {
-        data.name = item_name
-        data.group = group_id
-        cy.writeFile('cypress/fixtures/api_createPRDItem.json', JSON.stringify(data))
-    })
-    return cy.fixture('api_createPRDItem.json').then((myFixture) => {
-        cy.request({
-            method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('createprdItem') + app_id,
-            body: myFixture,
-            headers: {
+//     cy.readFile('cypress/fixtures/api_createPRDItem.json').then((data) => {
+//         data.name = item_name
+//         data.group = group_id
+//         cy.writeFile('cypress/fixtures/api_createPRDItem.json', JSON.stringify(data))
+//     })
+//     return cy.fixture('api_createPRDItem.json').then((myFixture) => {
+//         cy.request({
+//             method: 'POST',
+//             url: Cypress.env('baseUrl') + Cypress.env('createprdItem') + app_id,
+//             body: myFixture,
+//             headers: {
 
-                // 'Content-Type': 'application/json',
-                // 'Accept': 'application/json',
-                'Authorization': 'Token ' + auth_key,
-            }
+//                 // 'Content-Type': 'application/json',
+//                 // 'Accept': 'application/json',
+//                 'Authorization': 'Token ' + auth_key,
+//             }
 
-        }).then((response) => {
-            return response;
-        })
-    })
-};
+//         }).then((response) => {
+//             return response;
+//         })
+//     })
+// };
 //-----Done-----
-export const prd_get_Item = (auth_key, group_id) => {
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getprdItem') + group_id,
-        headers: {
+// export const prd_get_Item = (auth_key, group_id) => {
+//     return cy.request({
+//         method: 'GET',
+//         url: Cypress.env('baseUrl') + Cypress.env('getprdItem') + group_id,
+//         headers: {
 
-            // 'Content-Type': 'application/json',
-            // 'Accept': 'application/json',
-            'Authorization': 'Token ' + auth_key,
-        }
+//             // 'Content-Type': 'application/json',
+//             // 'Accept': 'application/json',
+//             'Authorization': 'Token ' + auth_key,
+//         }
 
-    }).then((response) => {
-        return response;
-    })
-};
-export const doPatchItem = (auth_key, app_id, item_id, item_name) => {
+//     }).then((response) => {
+//         return response;
+//     })
+// };
+// export const doPatchItem = (auth_key, app_id, item_id, item_name) => {
 
-    cy.readFile('cypress/fixtures/api_patchGroupItem.json').then((data) => {
-        data.name = item_name;
-        cy.writeFile('cypress/fixtures/api_patchGroupItem.json', JSON.stringify(data))
-    })
-    return cy.fixture('api_patchGroupItem.json').then((myFixture) => {
-        cy.request({
-            method: 'PATCH',
-            url: Cypress.env('baseUrl') + Cypress.env('patchItem1') + item_id + Cypress.env('patchItem2') + app_id,
-            body: myFixture,
-            headers: {
-                'Authorization': 'Token ' + auth_key,
-            }
+//     cy.readFile('cypress/fixtures/api_patchGroupItem.json').then((data) => {
+//         data.name = item_name;
+//         cy.writeFile('cypress/fixtures/api_patchGroupItem.json', JSON.stringify(data))
+//     })
+//     return cy.fixture('api_patchGroupItem.json').then((myFixture) => {
+//         cy.request({
+//             method: 'PATCH',
+//             url: Cypress.env('baseUrl') + Cypress.env('patchItem1') + item_id + Cypress.env('patchItem2') + app_id,
+//             body: myFixture,
+//             headers: {
+//                 'Authorization': 'Token ' + auth_key,
+//             }
 
-        }).then((response) => {
-            return response;
-        })
-    })
-};
+//         }).then((response) => {
+//             return response;
+//         })
+//     })
+// };
 //------Done------
-export const prd_delete_item = (auth_key, app_id, group_id, item_id) => {
+// export const prd_delete_item = (auth_key, app_id, group_id, item_id) => {
 
-    cy.readFile('cypress/fixtures/api_deleteprdItem.json').then((data) => {
-        data.group_ids = [group_id];
-        data.item_ids = [item_id];
-        cy.writeFile('cypress/fixtures/api_deleteprdItem.json', JSON.stringify(data))
-    })
-    return cy.fixture('api_deleteprdItem.json').then((myFixture) => {
-        cy.request({
-            method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('deleteprdItem') + app_id,
-            body: myFixture,
-            headers: {
+//     cy.readFile('cypress/fixtures/api_deleteprdItem.json').then((data) => {
+//         data.group_ids = [group_id];
+//         data.item_ids = [item_id];
+//         cy.writeFile('cypress/fixtures/api_deleteprdItem.json', JSON.stringify(data))
+//     })
+//     return cy.fixture('api_deleteprdItem.json').then((myFixture) => {
+//         cy.request({
+//             method: 'POST',
+//             url: Cypress.env('baseUrl') + Cypress.env('deleteprdItem') + app_id,
+//             body: myFixture,
+//             headers: {
 
-                // 'Content-Type': 'application/json',
-                // 'Accept': 'application/json',
-                'Authorization': 'Token ' + auth_key,
-            }
+//                 // 'Content-Type': 'application/json',
+//                 // 'Accept': 'application/json',
+//                 'Authorization': 'Token ' + auth_key,
+//             }
 
-        }).then((response) => {
-            return response;
-        })
-    })
-};
+//         }).then((response) => {
+//             return response;
+//         })
+//     })
+// };
 //---done----
 export const doPatchGroup = (auth_key, app_id, group_id, group_name) => {
 
@@ -464,47 +317,47 @@ export const doApprovePrd = (auth_key, app_id) => {
     })
 };
 
-export const doUpdatePrdVersionStatus = (auth_key, app_id) => {
+// export const doUpdatePrdVersionStatus = (auth_key, app_id) => {
 
-    cy.readFile('cypress/fixtures/api_approvePrd.json').then((data) => {
-        data.app = app_id;
-        cy.writeFile('cypress/fixtures/api_approvePrd.json', JSON.stringify(data))
-    })
-    return cy.fixture('api_approvePrd.json').then((myFixture) => {
-        cy.request({
-            method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('updatePrdVersionStatus'),
-            body: myFixture,
-            headers: {
-                'Authorization': 'Token ' + auth_key,
-            }
+//     cy.readFile('cypress/fixtures/api_approvePrd.json').then((data) => {
+//         data.app = app_id;
+//         cy.writeFile('cypress/fixtures/api_approvePrd.json', JSON.stringify(data))
+//     })
+//     return cy.fixture('api_approvePrd.json').then((myFixture) => {
+//         cy.request({
+//             method: 'POST',
+//             url: Cypress.env('baseUrl') + Cypress.env('updatePrdVersionStatus'),
+//             body: myFixture,
+//             headers: {
+//                 'Authorization': 'Token ' + auth_key,
+//             }
 
-        }).then((response) => {
-            return response;
-        })
-    })
-};
+//         }).then((response) => {
+//             return response;
+//         })
+//     })
+// };
 
-export const doImportCatalog = (auth_key, app_id, group_id, task_id) => {
+// export const doImportCatalog = (auth_key, app_id, group_id, task_id) => {
 
-    cy.readFile('cypress/fixtures/api_importCatalog.json').then((data) => {
-        data.tasks_ids = task_id;
-        cy.writeFile('cypress/fixtures/api_importCatalog.json', JSON.stringify(data))
-    })
-    return cy.fixture('api_importCatalog.json').then((myFixture) => {
-        cy.request({
-            method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('importCatalog1') + group_id + Cypress.env('importCatalog2'),
-            body: myFixture,
-            headers: {
-                'Authorization': 'Token ' + auth_key,
-            }
+//     cy.readFile('cypress/fixtures/api_importCatalog.json').then((data) => {
+//         data.tasks_ids = task_id;
+//         cy.writeFile('cypress/fixtures/api_importCatalog.json', JSON.stringify(data))
+//     })
+//     return cy.fixture('api_importCatalog.json').then((myFixture) => {
+//         cy.request({
+//             method: 'POST',
+//             url: Cypress.env('baseUrl') + Cypress.env('importCatalog1') + group_id + Cypress.env('importCatalog2'),
+//             body: myFixture,
+//             headers: {
+//                 'Authorization': 'Token ' + auth_key,
+//             }
 
-        }).then((response) => {
-            return response;
-        })
-    })
-};
+//         }).then((response) => {
+//             return response;
+//         })
+//     })
+// };
 
 export const doGetGroupUsingId = (auth_key, group_id) => {
     return cy.request({
@@ -519,26 +372,26 @@ export const doGetGroupUsingId = (auth_key, group_id) => {
     })
 };
 
-export const doPatchItemUpdateOrder = (auth_key, group_id, item_name) => {
+// export const doPatchItemUpdateOrder = (auth_key, group_id, item_name) => {
 
-    cy.readFile('cypress/fixtures/api_reorderPrdItems.json').then((data) => {
-        data.new_order = item_name;
-        cy.writeFile('cypress/fixtures/api_reorderPrdItems.json', JSON.stringify(data))
-    })
-    return cy.fixture('api_reorderPrdItems.json').then((myFixture) => {
-        cy.request({
-            method: 'PATCH',
-            url: Cypress.env('baseUrl') + Cypress.env('patchItemUpdateOrder1') + group_id + Cypress.env('patchItemUpdateOrder2'),
-            body: myFixture,
-            headers: {
-                'Authorization': 'Token ' + auth_key,
-            }
+//     cy.readFile('cypress/fixtures/api_reorderPrdItems.json').then((data) => {
+//         data.new_order = item_name;
+//         cy.writeFile('cypress/fixtures/api_reorderPrdItems.json', JSON.stringify(data))
+//     })
+//     return cy.fixture('api_reorderPrdItems.json').then((myFixture) => {
+//         cy.request({
+//             method: 'PATCH',
+//             url: Cypress.env('baseUrl') + Cypress.env('patchItemUpdateOrder1') + group_id + Cypress.env('patchItemUpdateOrder2'),
+//             body: myFixture,
+//             headers: {
+//                 'Authorization': 'Token ' + auth_key,
+//             }
 
-        }).then((response) => {
-            return response;
-        })
-    })
-};
+//         }).then((response) => {
+//             return response;
+//         })
+//     })
+// };
 
 export const doGetItemsUsingId = (auth_key, item_id) => {
     return cy.request({
@@ -843,18 +696,18 @@ export const doAddArchetypeIntoPrd = (auth_key, app_id) => {
     })
 };
 //---Done-----
-export const doGetCodeStatusPrd = (auth_key, app_id) => {
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getCodeStatusPrd') + app_id,
-        headers: {
-            'Authorization': 'Token ' + auth_key,
-        }
+// export const doGetCodeStatusPrd = (auth_key, app_id) => {
+//     return cy.request({
+//         method: 'GET',
+//         url: Cypress.env('baseUrl') + Cypress.env('getCodeStatusPrd') + app_id,
+//         headers: {
+//             'Authorization': 'Token ' + auth_key,
+//         }
 
-    }).then((response) => {
-        return response;
-    })
-};
+//     }).then((response) => {
+//         return response;
+//     })
+// };
 export const doGetStartOverPrdAi = (auth_key, app_id) => {
     return cy.request({
         method: 'GET',
@@ -1026,7 +879,7 @@ export const doGetCurrentPrdPdf = (auth_key, app_id) => {
 export const doGetUserReposList = (auth_key) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getUserReposList'),
+        url: Cypress.env('baseUrl') + Cypress.env('getUserReposLists'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -1049,18 +902,18 @@ export const doGetPrdActivityLog = (auth_key, app_id) => {
     })
 };
 
-export const doGetPrdAiUserType = (auth_key, app_id) => {
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getPrdAiUserType1') + app_id + Cypress.env('getPrdAiUserType2'),
-        headers: {
-            'Authorization': 'Token ' + auth_key,
-        }
+// export const doGetPrdAiUserType = (auth_key, app_id) => {
+//     return cy.request({
+//         method: 'GET',
+//         url: Cypress.env('baseUrl') + Cypress.env('getPrdAiUserType1') + app_id + Cypress.env('getPrdAiUserType2'),
+//         headers: {
+//             'Authorization': 'Token ' + auth_key,
+//         }
 
-    }).then((response) => {
-        return response;
-    })
-};
+//     }).then((response) => {
+//         return response;
+//     })
+// };
 export const docreatePRDWithAI = (auth_key, app_id, app_name1) => {
     cy.readFile('cypress/fixtures/api_add_PrdwithAI.json').then((data) => {
         data.app_name = app_name1;
@@ -1115,18 +968,18 @@ export const doAddfeaturemanually = (auth_key, app_id, categories_id, feature_id
         })
     })
 };
-export const doGetPRDAIfeatures = (auth_key, app_id) => {
-    return cy.request({
-        method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getprdfeatures1') + app_id + Cypress.env('getprdaifeatures2'),
-        headers: {
-            'Authorization': 'Token ' + auth_key,
-        }
+// export const doGetPRDAIfeatures = (auth_key, app_id) => {
+//     return cy.request({
+//         method: 'GET',
+//         url: Cypress.env('baseUrl') + Cypress.env('getprdfeatures1') + app_id + Cypress.env('getprdaifeatures2'),
+//         headers: {
+//             'Authorization': 'Token ' + auth_key,
+//         }
 
-    }).then((response) => {
-        return response;
-    })
-};
+//     }).then((response) => {
+//         return response;
+//     })
+// };
 export const doApproveAllFeatures = (auth_key, app_id) => {
     return cy.fixture('api_approveallfeatures.json').then((myFixture) => {
         cy.request({
