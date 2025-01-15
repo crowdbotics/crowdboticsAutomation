@@ -9,6 +9,7 @@ export const doLogin = () => {
         cy.writeFile('cypress/fixtures/api_login.json', JSON.stringify(data));
     });
     return cy.fixture('api_login.json').then((myFixture) => {
+        cy.wait(5000);
         cy.request({
             method: 'POST',
             url: Cypress.env('baseUrl') + Cypress.env('loginEndPoint'),
@@ -119,7 +120,8 @@ export const doModuleLogin = () => {
     //     data.token = parseInt(tokenvalue);
     //     cy.writeFile('cypress/fixtures/api_moduleLogin.json', JSON.stringify(data));
     // });
-    return cy.fixture('api_moduleLogin.json').then((myFixture) => {
+  //  return cy.fixture('api_moduleLogin.json').then((myFixture) => {
+    return cy.fixture('api_PrdLogin.json').then((myFixture) => {
         cy.request({
             method: 'POST',
             url: Cypress.env('baseUrl') + Cypress.env('normallogin'),
