@@ -981,7 +981,20 @@ module.exports = defineConfig({
    deleteJiraSetupById1: "/api/v1/prd/",
    deleteJiraSetupById2: "/jira_setup/",
    deleteJiraSetupById3: "/",
-   
+   createCodetospec1: "/api/v1/apps/",
+   createCodetospec2: "/code-to-spec/start-code-spec/",
+   getCodetospecById1: "/api/v1/apps/",
+   getCodetospecById2: "/code-to-spec/",
+   getCodetospecById3: "/",
+   putCodetospecById1: "/api/v1/apps/",
+   putCodetospecById2: "/code-to-spec/",
+   putCodetospecById3: "/",
+   patchCodetospecById1: "/api/v1/apps/",
+   patchCodetospecById2: "/code-to-spec/",
+   patchCodetospecById3: "/",
+   deleteCodetospecById1: "/api/v1/apps/",
+   deleteCodetospecById2: "/code-to-spec/",
+   deleteCodetospecById3: "/",
    
   },
   e2e: {
