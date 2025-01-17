@@ -995,6 +995,19 @@ module.exports = defineConfig({
    deleteCodetospecById1: "/api/v1/apps/",
    deleteCodetospecById2: "/code-to-spec/",
    deleteCodetospecById3: "/",
+   createCodetospecgeneratedependencies1: "/api/v1/apps/",
+   createCodetospecgeneratedependencies2: "/code-to-spec/generate-dependencies/",
+   getCodepackages1: "/api/v1/apps/",
+   getCodepackages2: "/code_packages/",
+   createCodepackagesinstall1:"/api/v1/apps/",
+   createCodepackagesinstall2:"/code_packages/",
+   createCodepackagesinstall3:"/install/",
+   getCodetospecerrorlog1: "/api/v1/apps/",
+   getCodetospecerrorlog2: "/code-to-spec/error-log/",
+   createCodetospecresetstatus1:"/api/v1/apps/",
+   createCodetospecresetstatus2:"/code-to-spec/reset-status/",
+
+
    
   },
   e2e: {
