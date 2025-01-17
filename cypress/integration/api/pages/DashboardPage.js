@@ -824,6 +824,11 @@ export const dogetcbusers = (auth_key) => {
 };
 
 export const doPostcbusers = (auth_key) => {
+    cy.readFile('cypress/fixtures/api_post_cbusers.json').then((data) => {
+        const randomNumber = Math.floor(Math.random() * 1000);
+        data.email = `testadded${randomNumber}@crowdbotics.com`;
+        cy.writeFile('cypress/fixtures/api_post_cbusers.json', JSON.stringify(data));
+    })
 
     return cy.fixture('api_post_cbusers.json').then((myFixture) => {
         cy.request({
@@ -853,10 +858,11 @@ export const dogetcbusersbyId = (auth_key, cb_usersid) => {
     })
 };
 
-export const doputcbusersbyId = (auth_key, cb_usersid, username1) => {
+export const doputcbusersbyId = (auth_key, cb_usersid) => {
     cy.readFile('cypress/fixtures/api_put_cbusers.json').then((data) => {
-        data.username = username1;
-        cy.writeFile('cypress/fixtures/api_put_cbusers.json', JSON.stringify(data))
+        const randomNumber = Math.floor(Math.random() * 1000);
+        data.email = `rahul1${randomNumber}@crowdbotics.com`;
+        cy.writeFile('cypress/fixtures/api_put_cbusers.json', JSON.stringify(data));
     })
     return cy.fixture('api_put_cbusers.json').then((myFixture) => {
         cy.request({
@@ -873,10 +879,11 @@ export const doputcbusersbyId = (auth_key, cb_usersid, username1) => {
 
 };
 
-export const dopatchcbusersbyId = (auth_key, cb_usersid, username1) => {
+export const dopatchcbusersbyId = (auth_key, cb_usersid) => {
     cy.readFile('cypress/fixtures/api_patch_cbusers.json').then((data) => {
-        data.username = username1;
-        cy.writeFile('cypress/fixtures/api_patch_cbusers.json', JSON.stringify(data))
+        const randomNumber = Math.floor(Math.random() * 1000);
+        data.email = `rahul1${randomNumber}@crowdbotics.com`
+        cy.writeFile('cypress/fixtures/api_patch_cbusers.json', JSON.stringify(data));
     })
     return cy.fixture('api_patch_cbusers.json').then((myFixture) => {
         cy.request({
@@ -1276,19 +1283,7 @@ export const doGetSocialAppByID = (auth_key,social_id) => {
 
 };
 
-export const doPostTotpDeviceRemove = (auth_key) => {
-    return cy.request({
-        method: 'POST',
-        url: Cypress.env('baseUrl') + Cypress.env('addRemovetotpdisabled'),
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Authorization': 'Token ' + auth_key,
-        },
-    }).then((response) => {
-        return response;
-    })
-};
+
 
 export const doGetUser = (auth_key) => {
     return cy.request({

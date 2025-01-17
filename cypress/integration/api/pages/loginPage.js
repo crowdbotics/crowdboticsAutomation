@@ -22,6 +22,20 @@ export const doLogin = () => {
 
 }
 
+export const doPostTotpDeviceRemove = (auth_key) => {
+    return cy.request({
+        method: 'POST',
+        url: Cypress.env('baseUrl') + Cypress.env('addRemovetotpdisabled'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
 export const doCatalogLogin = () => {
     // const tokenvalue = authenticator.generate("Z24WO37GBZ6BEXCRZQXS73U5UE42XIEZ");
     // cy.readFile('cypress/fixtures/api_CatalogLogin.json').then((data) => {

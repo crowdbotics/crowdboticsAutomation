@@ -25,6 +25,8 @@ let projectclones_id;
 let social_id = 1;
 let users_id = 1;
 let projectlogs_id;
+let username;
+
 describe("Dashboard Page", () => {
 
     it('login into the application', () => {
@@ -465,14 +467,14 @@ describe("Dashboard Page", () => {
     })
 
     it('do Put Users ', () => {
-        doputcbusersbyId(authKey, cb_usersid, username).then((response) => {
+        doputcbusersbyId(authKey, cb_usersid).then((response) => {
             cy.log("Put Cb users response", response.body)
             expect(response.status).to.eq(200)
         })
     })
 
     it('do Patch Users ', () => {
-        dopatchcbusersbyId(authKey, cb_usersid, username).then((response) => {
+        dopatchcbusersbyId(authKey, cb_usersid).then((response) => {
             cy.log("Patch Cb users response", response.body)
             expect(response.status).to.eq(200)
         })
@@ -678,12 +680,7 @@ describe("Dashboard Page", () => {
         })
     })
 
-    it('post Remove Totp Device', () => {
-        doPostTotpDeviceRemove(authKey).then((response) => {
-            expect(response.status).to.eq(201)
-            cy.log("Get 2FA disabled successfully", response.body)
-        })
-    })
+    
 
     it('get check User', () => {
         doGetUser(authKey).then((response) => {
