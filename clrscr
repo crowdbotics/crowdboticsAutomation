@@ -1,0 +1,143 @@
+[33mf7fcaf14[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m Merge pull request #79 from anishcb/fix1
+[33m94b6a287[m[33m ([m[1;31morigin/fix1[m[33m, [m[1;32mfix1[m[33m)[m CatalogSpecFix
+[33m76dbdfc3[m Fixed the API's (#78)
+[33m05592830[m Fixed the changes in NewPRD spec file (#77)
+[33mb5935e87[m new apis (#76)
+[33m37fb2c93[m prd download code (#74)
+[33m2762b70d[m chat_functionality (#73)
+[33mc6e7b042[m Changes made in fixtures file (#72)
+[33md996a375[m code_package (#70)
+[33mcddb11da[m Merge pull request #68 from anishcb/Catalog_Fix
+[33mf7393f6a[m Merge pull request #69 from anishcb/doc
+[33m48537a52[m[33m ([m[1;31morigin/doc[m[33m, [m[1;32mdoc[m[33m)[m Document_apis
+[33m32095d4d[m Catalog Fixes
+[33m5473b0b4[m Merge pull request #66 from anishcb/api_deployment_branch
+[33m68e151ef[m[33m ([m[1;31morigin/api_deployment_branch[m[33m)[m Merge branch 'master' into api_deployment_branch
+[33md00b3787[m Merge pull request #67 from anishcb/projectlogs
+[33md5cac680[m[33m ([m[1;31morigin/projectlogs[m[33m)[m Automated  API's Update login flow
+[33m82fcb6ca[m deployment apis
+[33m3233b464[m[33m ([m[1;32mfix[m[33m)[m Merge pull request #64 from anishcb/totpapi
+[33m0c47e5da[m[33m ([m[1;31morigin/totpapi[m[33m)[m Done some changes in page file
+[33mb7ac77bb[m Updated the name of method
+[33m4437f98c[m Merge pull request #65 from anishcb/UserRoles
+[33m52521aac[m[33m ([m[1;31morigin/UserRoles[m[33m, [m[1;32mUserRoles[m[33m)[m UserRoles
+[33mbf0b7526[m Merge branch 'master' into totpapi
+[33meaf8d3ad[m Automated 5 test cases
+[33md2175439[m Merge pull request #63 from anishcb/newprd_anish
+[33mc92c6853[m[33m ([m[1;31morigin/newprd_anish[m[33m, [m[1;32mnewprd_anish[m[33m)[m resolve
+[33m53df39e3[m phases
+[33mc05d7e09[m Merge pull request #62 from anishcb/demophase
+[33md75ecf0a[m Added new API test cases
+[33md5c24591[m Merge pull request #61 from anishcb/feedback1
+[33mba6f0f22[m updated flow
+[33mf8c7613d[m Automated new 5 API test cases
+[33mc510b5b1[m Merge pull request #60 from anishcb/testcasesfix
+[33mbfcdc8db[m Update text message
+[33m9c8873b1[m Removed and add some text messages
+[33m812cb94f[m Add one of the line.
+[33ma1d311b5[m Fixed commented test cases
+[33mc5d4ea48[m[33m ([m[1;32mcopilot[m[33m)[m Merge pull request #59 from anishcb/newfixes
+[33m16fd36db[m updated
+[33m69acd1c0[m updated code
+[33ma02960d7[m[33m ([m[1;31morigin/checktes[m[33m)[m message
+[33m551f4f4a[m Update DashboardPage.js
+[33mf4541725[m fixes
+[33m5304aa50[m Merge pull request #58 from anishcb/fixprdtestcases
+[33m925b3d14[m[33m ([m[1;31morigin/fixprdtestcases[m[33m)[m Merge branch 'fixprdtestcases' of https://github.com/anishcb/crowdbotics_automation into fixprdtestcases
+[33m583b1d3a[m message
+[33mbf98d417[m Merge pull request #57 from anishcb/fixprdtestcases
+[33m84500fb2[m Merge branch 'master' into fixprdtestcases
+[33m3bd6825c[m save
+[33m4628b0d5[m Merge pull request #56 from anishcb/mobilebuilds
+[33m1e5ab1b8[m Merge branch 'master' into mobilebuilds
+[33mf1550012[m Fixed test cases
+[33m0b664732[m Merge pull request #55 from anishcb/slides_apis
+[33m8399ca2e[m Fixtures file added
+[33m863306d9[m New test case added
+[33m5545e542[m Merge pull request #54 from anishcb/projectclones
+[33me2bc2118[m[33m ([m[1;31morigin/projectclones[m[33m)[m Added new 4 test cases
+[33mb755ecfe[m Merge pull request #53 from anishcb/addons1
+[33madfa5948[m[33m ([m[1;31morigin/addons1[m[33m)[m Automated 6 test cases
+[33m5510cada[m Merge pull request #52 from anishcb/feedback
+[33m9f50a4cd[m[33m ([m[1;31morigin/feedback[m[33m)[m add
+[33ma99e4610[m Automated 5 new test cases and fixed some test cases
+[33m10ae12a4[m Merge pull request #51 from anishcb/appsupporttype
+[33m8f747743[m[33m ([m[1;31morigin/appsupporttype[m[33m)[m Automated 5 test cases
+[33made87c57[m Merge pull request #50 from anishcb/reportsresponse
+[33m743a1830[m[33m ([m[1;31morigin/reportsresponse[m[33m)[m Automated 5 test cases
+[33m4e81bfcb[m Merge branch 'master' into reportsresponse
+[33m78d6101d[m Merge pull request #49 from anishcb/catfeed
+[33mf99497a5[m[33m ([m[1;31morigin/catfeed[m[33m)[m Merge branch 'master' into catfeed
+[33m58899ec4[m Merge branch 'master' into catfeed
+[33m23dbdaf8[m Merge pull request #48 from anishcb/cb_user_api
+[33m12159f44[m[33m ([m[1;31morigin/cb_user_api[m[33m)[m add put file
+[33mb47fad03[m App id removed
+[33m0a20893b[m Changes done in post command
+[33mabb8e0fd[m Changes done in the code
+[33m8d0312e0[m jobendpointt
+[33m599e82ff[m jobendpoint
+[33m2051edf3[m Test case automated
+[33ma0d34e07[m Merge pull request #47 from anishcb/api_candidates
+[33m6c90246c[m[33m ([m[1;31morigin/api_candidates[m[33m)[m Changes committed
+[33m6d5a57f0[m Merge pull request #46 from anishcb/shareableconnectors
+[33m1bf7f4a1[m[33m ([m[1;31morigin/shareableconnectors[m[33m)[m Automated 5 New test cases
+[33m258b46ee[m Merge pull request #45 from anishcb/billingstatistics
+[33mf3bec8d1[m Automated 15 new test cases
+[33m3d148f0b[m Merge pull request #44 from anishcb/workonmodules
+[33m49879fa4[m[33m ([m[1;31morigin/workonmodules[m[33m)[m Automated 3 new test cases
+[33m0a53cb84[m Merge pull request #43 from anishcb/codepackages
+[33m044ffa46[m remove space
+[33m6936bf1a[m Automated 4 new test cases
+[33m61a3ebe3[m Merge pull request #42 from anishcb/automationnew
+[33mec8d5fb3[m Fixed and updated test cases of PRD
+[33me7496a3f[m Merge pull request #41 from anishcb/Fixed_apis
+[33mcaf05218[m[33m ([m[1;31morigin/Fixed_apis[m[33m)[m Fixed failed API test cases
+[33m3346ec39[m Update test.yml
+[33m198e2249[m Update test.yml
+[33m4fc9ff06[m Update test.yml
+[33mbad0a6d7[m Update test.yml
+[33ma3288c70[m Update test.yml
+[33m5ea25994[m Update test.yml
+[33ma9f9dfe3[m Update test.yml
+[33m5759a407[m Update test.yml
+[33m1fa6d74f[m Update test.yml
+[33m59001b8c[m Merge pull request #40 from anishcb/jobtypes
+[33meae7f588[m Update test.yml
+[33mbfb0173e[m Update test.yml
+[33md2542a58[m Update test.yml
+[33m82b7ad39[m Update test.yml
+[33ma834a575[m New Update test.yml
+[33m591dc45b[m[33m ([m[1;31morigin/jobtypes[m[33m)[m update letters
+[33m83960fce[m extra line remove
+[33m4a057bb6[m Merge branch 'master' into jobtypes
+[33m717a3d71[m Merge pull request #39 from anishcb/addskills
+[33me5b5f31f[m Automated new 6 job type test cases
+[33m6a45283c[m[33m ([m[1;31morigin/addskills[m[33m)[m remove extra space
+[33m3742528f[m add formeting
+[33me99686ed[m update description
+[33mac508fa8[m[33m ([m[1;31morigin/addskill[m[33m)[m Merge branch 'master' into addskill
+[33m331e8fbb[m Automated 6 New api test cases
+[33m7748e79e[m Merge pull request #38 from anishcb/catalogfeatures
+[33m34f003de[m Automated 5 new API's test cases of catalog modules (catalog features & code components)
+[33m6e7709d7[m Merge branch 'master' into catalogfeatures
+[33m9a04a8e5[m Automated 4 new Api test cases of catalog module (code components) (#37)
+[33mbeaa0242[m updated the description
+[33m7b226761[m updated the description
+[33m937369d9[m remove extra lines
+[33m6aa59e2c[m Automated 4 test cases of catalog module (code comonents)
+[33mfa470d89[m As per the new URL changes, URL updated from automation scricpt (#36)
+[33md680d856[m Update test.yml
+[33m0bb7ef98[m Update test.yml
+[33mf1541667[m Update test.yml
+[33mab8e4522[m Update test.yml
+[33m1093aae9[m Update test.yml
+[33m5c0d5b82[m Merge pull request #33 from anishcb/newprd
+[33me38067a2[m[33m ([m[1;31morigin/newprd[m[33m)[m message
+[33m345de87a[m Merge pull request #34 from anishcb/certifications_api_branch
+[33m39a13c65[m Certifications tests
+[33mbe8a149a[m new prd testcase
+[33m436d6296[m new Prd Testcases
+[33m4ae7e0a2[m Merge pull request #32 from anishcb/usefullinks
+[33m2df542df[m Merge branch 'master' into usefullinks
+[33meb557188[m Usefull Links API
+[33mff35f1e7[m[33m ([m[1;31morigin/paymentProposals[m[33m)[m Merg

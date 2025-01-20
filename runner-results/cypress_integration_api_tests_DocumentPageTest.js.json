@@ -1,0 +1,10 @@
+{
+  "suites": 1,
+  "tests": 10,
+  "passes": 5,
+  "pending": 0,
+  "failures": 5,
+  "start": "2025-01-03T16:34:00.265Z",
+  "duration": 54020,
+  "file": "cypress\\integration\\api\\tests\\DocumentPageTest.js"
+}
