@@ -1264,4 +1264,151 @@ export const doGetDemoticket = (auth_key) => {
     })
 };
 
+export const doCreateStartcodespec = (auth_key, app_id) => {
+    return cy.fixture('api_add_codeto_spec.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createCodetospec1') + app_id + Cypress.env('createCodetospec2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+
+};
+
+export const doGetCodetospecById = (auth_key, app_id,codetospec) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getCodetospecById1') + app_id + Cypress.env('getCodetospecById2')+ codetospec + Cypress.env('getCodetospecById3'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doPutCodetospec = (auth_key, app_id,codetospec) => {
+    return cy.fixture('api_add_put_Codeto_spec.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putCodetospecById1') + app_id + Cypress.env('putCodetospecById2') + codetospec + Cypress.env('putCodetospecById3'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doPatchCodetospec = (auth_key, app_id,codetospec) => {
+    return cy.fixture('api_patch_Codeto_spec.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchCodetospecById1') + app_id + Cypress.env('patchCodetospecById2') + codetospec + Cypress.env('patchCodetospecById3'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doDeleteCodetospecById = (auth_key, app_id,codetospec) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteCodetospecById1')+app_id+ Cypress.env('deleteCodetospecById2')+codetospec+Cypress.env('deleteCodetospecById3'), 
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+
+};
+
+export const doCreatecodespecgeneratedependencies = (auth_key, app_id) => {
+    return cy.fixture('api_add_codetospec_generatedependencies.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createCodetospecgeneratedependencies1') + app_id + Cypress.env('createCodetospecgeneratedependencies2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+
+};
+
+export const doGetCodepackages = (auth_key,app_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getCodepackages1')+ app_id + Cypress.env('getCodepackages2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doCreateCodespacpackagesinstall = (auth_key, app_id,user_id) => {
+    return cy.fixture('api_add_Codepackages_install.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createCodepackagesinstall1') + app_id + Cypress.env('createCodepackagesinstall2')+ user_id + Cypress.env('createCodepackagesinstall3'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+
+};
+
+export const doGetCodetospecerrorlog = (auth_key,app_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getCodetospecerrorlog1')+ app_id + Cypress.env('getCodetospecerrorlog2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doCreateCodetospecresetstatus = (auth_key, app_id) => {
+    return cy.fixture('api_codetospec_resetstatus.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createCodetospecresetstatus1') + app_id + Cypress.env('createCodetospecresetstatus2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+
+};
+
 
