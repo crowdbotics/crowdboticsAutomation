@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doPrdLogin} from '../pages/loginPage.js';
-import { doGetattachmentslist,doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doDeletefeature, doPatchFeature, doPutFeature, doPutCategories, doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks,doPostUsefullLinks,doGetidUsefullLinks,doPutUsefullLinks,doPatchUsefullLinks,doDeleteUsefullLinks,doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getRolesUsingId, getRoles, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, prd_overview_tags, prd_overview_userRoles, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually,doGetSUserTypes, doCreateUserTypes, doGetSUserTypesByID, doPatchUserTypes,doPutUserTypes, dodeleteuserTypesByid,doGetRolesByID, doGetOpenAI,doGetDemoPhase,doGetDemoRoles,doGetDemoticket } from '../pages/PrdPage.js';
+import { doGetattachmentslist,doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doDeletefeature, doPatchFeature, doPutFeature, doPutCategories, doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks,doPostUsefullLinks,doGetidUsefullLinks,doPutUsefullLinks,doPatchUsefullLinks,doDeleteUsefullLinks,doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getRolesUsingId, getRoles, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, prd_overview_tags, prd_overview_userRoles, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually,doGetSUserTypes, doCreateUserTypes, doGetSUserTypesByID, doPatchUserTypes,doPutUserTypes, dodeleteuserTypesByid,doGetRolesByID, doGetOpenAI,doGetDemoPhase,doGetDemoRoles,doGetDemoticket,doCreateStartcodespec,doGetCodetospecById,doPutCodetospec,doPatchCodetospec,doDeleteCodetospecById,doCreatecodespecgeneratedependencies,doGetCodepackages,doCreateCodespacpackagesinstall,doGetCodetospecerrorlog,doCreateCodetospecresetstatus } from '../pages/PrdPage.js';
 
 
 let authKey;
@@ -27,6 +27,8 @@ let useful_url;
 let usefullLinkId;
 let usertypes_id;
 let roles_id
+let codetospec;
+let user_id = ["4473"];
 describe("PRD Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Create Tags Flow', () => {
@@ -622,5 +624,76 @@ it('get Demo Ticket Flow', () => {
         cy.log("Get Demo ticket response", response.body)
     })
 })
+
+it('Create Code to Spec', () => {
+    doCreateStartcodespec(authKey, app_id).then((response) => {
+        codetospec=response.body.id;
+        expect(response.status).to.eq(200)
+        cy.log("Create code to spec Message Response", response.body)
+    })
+ })
+
+ it('Get Code to spec using Id', () => {
+    doGetCodetospecById(authKey, app_id,codetospec).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Get code to spec using Id Response", response.body)
+    })
+ })
+
+ it('Put Code to spec using Id', () => {
+    doPutCodetospec(authKey, app_id,codetospec).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Put code to spec using Id Response", response.body)
+    })
+ })
+
+ it('Patch Code to spec using Id', () => {
+    doPatchCodetospec(authKey, app_id,codetospec).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Patch code to spec using Id Response", response.body)
+    })
+ })
+
+ it('Delete Code to spec using Id', () => {
+    doDeleteCodetospecById(authKey, app_id,codetospec).then((response) => {
+        expect(response.status).to.eq(204)
+        cy.log("Delete code to spec using Id Response", response.body)
+    })
+ })
+
+ it('Create Code to Spec generate dependencies', () => {
+    doCreatecodespecgeneratedependencies(authKey, app_id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Create Code to Spec generate dependencies Message Response", response.body)
+    })
+ })
+
+ it('get Code Packages Flow', () => {
+    doGetCodepackages(authKey,app_id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Get Demo ticket response", response.body)
+    })
+})
+
+ it('Create Code Package intsall', () => {
+    doCreateCodespacpackagesinstall(authKey, app_id,user_id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Create code to spec Message Response", response.body)
+    })
+ })
+
+ it('get Code to spec error log', () => {
+    doGetCodetospecerrorlog(authKey,app_id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Get Code to spec error log response", response.body)
+    })
+})
+
+ it('Create Code to spec reset status', () => {
+    doCreateCodetospecresetstatus(authKey, app_id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Create Code to spec reset status Message Response", response.body)
+    })
+ })
 
 })
