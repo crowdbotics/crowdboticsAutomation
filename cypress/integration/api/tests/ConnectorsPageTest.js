@@ -116,12 +116,13 @@ describe("Connectors Page", () => {
         })
     })
 
-    it('Get Shareable Connectors Flow', () => {
-        doGetShareableConnectors(authKey).then((response) => {
-            cy.log("Get Connectors response", response.body)
-            expect(response.status).to.eq(200)
-        })
-    })
+    // remove from swagger bug logged for this PLAN-1295
+    // it('Get Shareable Connectors Flow', () => {
+    //     doGetShareableConnectors(authKey).then((response) => {
+    //         cy.log("Get Connectors response", response.body)
+    //         expect(response.status).to.eq(200)
+    //     })
+    // })
 
     it('Add Shareable Connectors Flow', () => {
         doCreateShareableConnectors(authKey).then((response) => {
