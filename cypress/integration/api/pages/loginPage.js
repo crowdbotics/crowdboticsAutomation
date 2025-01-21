@@ -242,6 +242,20 @@ export const doNewPrdLogin = () => {
 
 }
 
+export const doPostTotpDeviceRemove = (auth_key) => {
+    return cy.request({
+        method: 'POST',
+        url: Cypress.env('baseUrl') + Cypress.env('addRemovetotpdisabled'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
 export const doLogout = (auth_key) => {
     // ******************* Logout ******************** //
 
