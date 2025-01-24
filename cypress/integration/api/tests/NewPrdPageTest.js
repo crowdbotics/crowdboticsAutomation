@@ -1,7 +1,8 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
+import { doPrdLogin } from '../pages/PrdPage.js';
 import { doNewPrdLogin } from '../pages/loginPage.js';
-import { addFeatureMaually,generateAzureCostEstimation,unlinkJiraUrl,getStarterCode,requestTechnicalRecomandation,generateStarterCode,getTecnicalReconmondationList,featureAutoEstimation,featureDecompose, deleteFeatureCommet, patchFeatureComments, putFeatureComments, getFeatureCommentById, addCommentsIntoFeature, getAllFeatureComments, downloadPrd, doGetAllChatMessage, doCreateChatMessage, doGetChatMessageById, doDeleteChatMessageById, doClearChatMessage, doDeleteUserRoleByIdOrganizationPRD, doPatchUserRoleOrganizationPRD, doPutUserRoleOrganizationPRD, doGetUserRoleByIdOrganizationPRD, doCreateUserRolesOrganizationPRD, doGetAllUserRolesOrganizationPRD, doGetPRDWishlist, doDeletePhaseByIdOrganizationPRD, doPutPhaseOrganizationPRD, doPatchPhaseOrganizationPRD, doCreatePhaseOrganizationPRD, doGetPhaseByIdOrganizationPRD, doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD,doGetJiraSetup,doCreateJiraSetUp,doGetJiraSetupById,doPutJiraSetup,doPatchJiraSetup,doDeletejiraSetupById } from '../pages/NewPrdPage.js';
+import { addFeatureMaually,generateAzureCostEstimation,unlinkJiraUrl,getStarterCode,requestTechnicalRecomandation,generateStarterCode,getTecnicalReconmondationList,featureAutoEstimation,featureDecompose, deleteFeatureCommet, patchFeatureComments, putFeatureComments, getFeatureCommentById, addCommentsIntoFeature, getAllFeatureComments, downloadPrd, doGetAllChatMessage, doCreateChatMessage, doGetChatMessageById, doDeleteChatMessageById, doClearChatMessage, doDeleteUserRoleByIdOrganizationPRD, doPatchUserRoleOrganizationPRD, doPutUserRoleOrganizationPRD, doGetUserRoleByIdOrganizationPRD, doCreateUserRolesOrganizationPRD, doGetAllUserRolesOrganizationPRD, doGetPRDWishlist, doDeletePhaseByIdOrganizationPRD, doPutPhaseOrganizationPRD, doPatchPhaseOrganizationPRD, doCreatePhaseOrganizationPRD, doGetPhaseByIdOrganizationPRD, doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD,doGetJiraSetup,doCreateJiraSetUp,doGetJiraSetupById,doPutJiraSetup,doPatchJiraSetup,doDeletejiraSetupById,doGetPrdanalyzerisks,doCreateGeneratesugesstfeature,docreateStartoverprd } from '../pages/NewPrdPage.js';
 
 let app_name;
 let app_id;
@@ -46,7 +47,7 @@ describe("New PRD Page", () => {
         })
     })
     it('Put generated PRD by organization User', () => {
-        doPutOrganizationPRD(authKey, generatePrd_id).then((response) => {
+        doPutOrganizationPRD(authKey, F).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Put generated PRD by organization User response", response.body)
         })
@@ -470,6 +471,29 @@ describe("New PRD Page", () => {
             cy.log("Delete Jira Setup using Id Response", response.body)
         })
      })
+
+    it('Get Prd analyze risks', () => {
+        doGetPrdanalyzerisks(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(202)
+            cy.log("Get Prd analyze risks Response", response.body)
+        })
+     })
+
+
+    it('Create Generate AI Suggest features', () => {
+        doCreateGeneratesugesstfeature(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(202)
+            cy.log("Create Generate AI Suggest features Response", response.body)
+        })
+
+    })
+
+     it('Create Start over PRD', () => {
+        docreateStartoverprd(authKey,generatePrd_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Create Start over PRD response", response.body)
+        })
+    })
     
 })
 

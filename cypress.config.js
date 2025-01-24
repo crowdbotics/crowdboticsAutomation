@@ -1006,7 +1006,16 @@ module.exports = defineConfig({
    getCodetospecerrorlog2: "/code-to-spec/error-log/",
    createCodetospecresetstatus1:"/api/v1/apps/",
    createCodetospecresetstatus2:"/code-to-spec/reset-status/",
-   
+   creategeneratecodetospec1: "/api/v1/apps/",
+   creategeneratecodetospec2: "/code-to-spec/generate-prd/",
+   getPrdanalyzerisks1: "/api/v1/prd/",
+   getPrdanalyzerisks2:"/prd-ai-analyze-risks/",
+   creategeneratesugeestfeature1:"/api/v1/prd/",
+   creategeneratesugeestfeature2: "/prd-ai-generator/suggest-features/",
+   createproxyaccess1:"/api/v2/apps/",
+   createproxyaccess2: "/proxy-access/",
+   createstartoverprd1:"/api/v1/prd/",
+   createstartoverprd2:"/start-over-prd/",
    
   },
   e2e: {

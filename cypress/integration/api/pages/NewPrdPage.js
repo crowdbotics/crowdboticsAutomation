@@ -837,3 +837,46 @@ export const doDeletejiraSetupById = (auth_key, generatePrd_id,jira_id) => {
 
 };
 
+export const doGetPrdanalyzerisks = (auth_key, generatePrd_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getPrdanalyzerisks1') + generatePrd_id + Cypress.env('getPrdanalyzerisks2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key,
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+
+export const doCreateGeneratesugesstfeature = (auth_key, generatePrd_id) => {
+    return cy.fixture('api_add_Generatesuggestfeatures').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('creategeneratesugeestfeature1') + generatePrd_id + Cypress.env('creategeneratesugeestfeature2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const docreateStartoverprd = (auth_key,generatePrd_id) => {
+    return cy.request({
+        method: 'POST',
+        url: Cypress.env('baseUrl') + Cypress.env('createstartoverprd1')+ generatePrd_id + Cypress.env('createstartoverprd2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+
