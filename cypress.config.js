@@ -1,5 +1,6 @@
 const cypress = require("cypress");
 const { defineConfig } = require("cypress");
+const { get } = require("lodash");
 
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
@@ -780,8 +781,12 @@ module.exports = defineConfig({
     getSocialappsByID2: "/",
     postdeployment1:"/api/v2/apps/",
     postdeployment2:"/deploy/",
+    postdeployment3:"/platforms/",
     postcanceldeployment1:"/api/v2/apps/",
     postcanceldeployment2:"/deploy/cancel/",
+    postcanceldeployment3:"/platforms/",
+    getPlatformID1:"/api/v2/apps/",
+    getPlatformID2:"/platforms/",
 
     // ---------------PRD New FLow----------------------//
     getOrganizationPRDList: "/api/v1/prd/",

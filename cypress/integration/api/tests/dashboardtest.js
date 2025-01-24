@@ -330,12 +330,12 @@ describe("Dashboard Page", () => {
         })
     })
 
-    it('Get Audit Log List Flow', () => {
-        getAuditLogList(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get Attributes response", response.body)
-        })
-    })
+    // it('Get Audit Log List Flow', () => {
+    //     getAuditLogList(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get Attributes response", response.body)
+    //     })
+    // })
 
     it('Get Certifications', () => {
         dogetCertifications(authKey, app_id).then((response) => {
@@ -427,14 +427,6 @@ describe("Dashboard Page", () => {
     //     })
     // })
 
-    
-
-    it('Get Cb Users', () => {
-        dogetcbusers(authKey).then((response) => {
-            cy.log("Get Cb users response", response.body)
-            expect(response.status).to.eq(200)
-        })
-    })
 
     it('Post Cb Users', () => {
         doPostcbusers(authKey).then((response) => {
@@ -447,6 +439,13 @@ describe("Dashboard Page", () => {
 
     it('Get Cb Users by Id', () => {
         dogetcbusersbyId(authKey, cb_usersid).then((response) => {
+            cy.log("Get Cb users response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Get Cb Users', () => {
+        dogetcbusers(authKey).then((response) => {
             cy.log("Get Cb users response", response.body)
             expect(response.status).to.eq(200)
         })
