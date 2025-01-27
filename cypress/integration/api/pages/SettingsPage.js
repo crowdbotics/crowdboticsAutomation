@@ -266,7 +266,7 @@ export const dopostdeployment = (auth_key, app_id, platform_id) => {
     return cy.fixture('api_post_deployments.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('postdeployment1') + app_id + Cypress.env('postdeployment3') + platform_id + Cypress.env('postdeployment2'),
+            url: Cypress.env('baseUrl') + Cypress.env('postdeployment1') + app_id + Cypress.env('postdeployment2') + platform_id + Cypress.env('postdeployment3'),
             body: myFixture,
             headers: {
                 'Content-Type': 'application/json',
@@ -284,7 +284,7 @@ export const dopostcanceldeployment = (auth_key, app_id, platform_id) => {
     return cy.fixture('api_post_cancel_deployments.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('postcanceldeployment1') + app_id + Cypress.env('postcanceldeployment3') + platform_id + Cypress.env('postcanceldeployment2'),
+            url: Cypress.env('baseUrl') + Cypress.env('postcanceldeployment1') + app_id + Cypress.env('postcanceldeployment2') + platform_id + Cypress.env('postcanceldeployment3'),
             body: myFixture,
             headers: {
                 'Content-Type': 'application/json',
