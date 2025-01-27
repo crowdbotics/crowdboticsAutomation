@@ -47,7 +47,7 @@ describe("New PRD Page", () => {
         })
     })
     it('Put generated PRD by organization User', () => {
-        doPutOrganizationPRD(authKey, F).then((response) => {
+        doPutOrganizationPRD(authKey,generatePrd_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Put generated PRD by organization User response", response.body)
         })
