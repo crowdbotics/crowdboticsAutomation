@@ -1,14 +1,17 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doSettingLogin } from '../pages/loginPage.js';
-import { doGetCodePackage,app_name_update, doAddLibrary, doGetLibrary, doRemoveLibrary, doAddGcpPlatform, doGetRepoBranch, change_code_privacy_private_to_public, change_code_privacy_public_to_private, delete_app, doCreateCodePackage, doGetCodePackageById, doPatchCodePackage, doPutCodePackage, dopostdeployment, dopostcanceldeployment } from '../pages/SettingsPage.js';
+import { doGetCodePackage,app_name_update, doAddLibrary, doGetLibrary, doRemoveLibrary, doAddGcpPlatform, doGetRepoBranch, change_code_privacy_private_to_public, change_code_privacy_public_to_private, delete_app, doCreateCodePackage, doGetCodePackageById, doPatchCodePackage, doPutCodePackage, dopostdeployment, dopostcanceldeployment, doGetPlatformID } from '../pages/SettingsPage.js';
 let app_id;
 let app_name;
 let authKey;
 let libraryIds;
 let libraryToBeAdded;
 let codepackage_id;
-let  packageName;
+let packageName;
+
+
+
 describe("Settings Page", () => {
     packageName = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
@@ -115,19 +118,42 @@ describe("Settings Page", () => {
         })
     })
 
-    it('post deployment', () => {
-        dopostdeployment(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Deployment started", response.body)
+    it('Get Platform ID', () => {
+        doGetPlatformID(authKey, app_id).then((response) => {
+            let platform_id = response.body.id;
+            cy.log("Platform ID", platform_id);
+            expect(response.status).to.eq(200);
+            cy.log("Get Platform ID", response.body);
+            
         })
     })
 
-    it('post cancel deployment', () => {
-        dopostcanceldeployment(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Deployment cancelled", response.body)
-        })
+    
+    it('post deployment', () => {
+
+        it('Fetch and store platform ID', () => {
+            doGetPlatformID(authKey, app_id).then((response) => {
+                const platformId = response.body[0].id;
+                cy.log("Fetched Platform ID:", platformId);
+                cy.wrap(platformId).as('platformId');
+                cy.get('@platformId').then((platformId) => {
+                    dopostdeployment(authKey, app_id, platformId).then((deploymentResponse) => {
+                        expect(deploymentResponse.status).to.eq(200);
+                        cy.log("Deployment started with Platform ID:", platformId);
+                    });
+                });
+            });
+        });
+        
     })
+
+    // it('post cancel deployment', () => {
+        
+    //     dopostcanceldeployment(authKey, app_id, platform_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Deployment cancelled", response.body)
+    //     })
+    // })
 
 
     it('delete App Flow', () => {
