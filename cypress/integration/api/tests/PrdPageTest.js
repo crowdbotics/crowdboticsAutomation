@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doPrdLogin} from '../pages/loginPage.js';
-import { doGetattachmentslist,doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doDeletefeature, doPatchFeature, doPutFeature, doPutCategories, doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks,doPostUsefullLinks,doGetidUsefullLinks,doPutUsefullLinks,doPatchUsefullLinks,doDeleteUsefullLinks,doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getRolesUsingId, getRoles, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, prd_overview_tags, prd_overview_userRoles, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually,doGetSUserTypes, doCreateUserTypes, doGetSUserTypesByID, doPatchUserTypes,doPutUserTypes, dodeleteuserTypesByid,doGetRolesByID, doGetOpenAI,doGetDemoPhase,doGetDemoRoles,doGetDemoticket,doCreateStartcodespec,doGetCodetospecById,doPutCodetospec,doPatchCodetospec,doDeleteCodetospecById,doCreatecodespecgeneratedependencies,doGetCodepackages,doCreateCodespacpackagesinstall,doGetCodetospecerrorlog,doCreateCodetospecresetstatus } from '../pages/PrdPage.js';
+import { doGetattachmentslist,doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doDeletefeature, doPatchFeature, doPutFeature, doPutCategories, doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks,doPostUsefullLinks,doGetidUsefullLinks,doPutUsefullLinks,doPatchUsefullLinks,doDeleteUsefullLinks,doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getRolesUsingId, getRoles, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, prd_overview_tags, prd_overview_userRoles, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually,doGetSUserTypes, doCreateUserTypes, doGetSUserTypesByID, doPatchUserTypes,doPutUserTypes, dodeleteuserTypesByid,doGetRolesByID, doGetOpenAI,doGetDemoPhase,doGetDemoRoles,doGetDemoticket,doCreateStartcodespec,doGetCodetospecById,doPutCodetospec,doPatchCodetospec,doDeleteCodetospecById,doCreatecodespecgeneratedependencies,doGetCodepackages,doCreateCodespacpackagesinstall,doGetCodetospecerrorlog,doCreateCodetospecresetstatus,doCreateCodetospegenerate,docreateProxyaccess } from '../pages/PrdPage.js';
 
 
 let authKey;
@@ -695,5 +695,19 @@ it('Create Code to Spec', () => {
         cy.log("Create Code to spec reset status Message Response", response.body)
     })
  })
+
+ it('Create Code to spec generate', () => {
+    doCreateCodetospegenerate(authKey, app_id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Create Code to spec generate Message Response", response.body)
+    })
+ })
+
+ it('Create Proxy access Flow', () => {
+    docreateProxyaccess(authKey,app_id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Create Proxy access Flow response", response.body)
+    })
+})
 
 })
