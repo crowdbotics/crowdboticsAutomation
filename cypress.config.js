@@ -1032,7 +1032,7 @@ module.exports = defineConfig({
    createcontactsales: "/api/v1/prd/contact-sales/",
    getmoduledeploystatus1: "/api/v1/apps/",
    getmoduledeploystatus2: "/prd/",
-   getmoduledeploystatus3: "/module-deploy-status/"
+   getmoduledeploystatus3: "/module-deploy-status/",
    
   },
   e2e: {
