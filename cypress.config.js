@@ -1021,6 +1021,15 @@ module.exports = defineConfig({
    createproxyaccess2: "/proxy-access/",
    createstartoverprd1:"/api/v1/prd/",
    createstartoverprd2:"/start-over-prd/",
+   creategeneratemodelwithai1: "/api/v2/apps/",
+   creategeneratemodelwithai2: "/generate-model-with-ai/",
+   createprdgetestimate1:"/api/v1/prd/",
+   createprdgetestimate2: "/get-estimate/",
+   createtoggleselfserveestimation1: "/api/v1/prd/",
+   createtoggleselfserveestimation2: "/toggle-self-serve-estimation/",
+   createupdatecontextstore1: "/api/v1/prd/",
+   createupdatecontextstore2: "/update-context-store/",
+   createcontactsales: "/api/v1/prd/contact-sales/",
    
   },
   e2e: {
