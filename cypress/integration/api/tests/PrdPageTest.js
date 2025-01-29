@@ -715,7 +715,7 @@ it('Create Code to Spec', () => {
 it('Get module deploy status', () => {
     doGetmoduledeploystatus(authKey, app_id,getPRDId).then((response) => {
         expect(response.status).to.eq(200)
-        cy.log("Reports get result", response.body)
+        cy.log("Report get result", response.body)
     })
 })
 

@@ -1441,10 +1441,10 @@ export const docreateProxyaccess = (auth_key,app_id) => {
     })
 };
 
-export const doGetmoduledeploystatus = (auth_key,app_id,generatePrd_id) => {
+export const doGetmoduledeploystatus = (auth_key,app_id,prd_id) => {
     return cy.request({
      method: 'GET',
-     url: Cypress.env('baseUrl') + Cypress.env('getmoduledeploystatus1') + app_id + Cypress.env('getmoduledeploystatus2')+generatePrd_id+Cypress.env('getmoduledeploystatus3'),
+     url: Cypress.env('baseUrl') + Cypress.env('getmoduledeploystatus1') + app_id + Cypress.env('getmoduledeploystatus2')+prd_id+Cypress.env('getmoduledeploystatus3'),
      headers: {
          'Authorization': 'Token ' + auth_key,
      }
