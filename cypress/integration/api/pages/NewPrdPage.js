@@ -500,10 +500,10 @@ export const doCreateChatMessage = (auth_key, generatePrd_id) => {
         })
     })
 };
-export const doGetChatMessageById = (auth_key, generatePrd_id,chat_id) => {
+export const doGetChatMessageById = (auth_key, generatePrd_id, chat_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getChatMessageById1') + generatePrd_id + Cypress.env('getChatMessageById2')+ chat_id + Cypress.env('getChatMessageById3'),
+        url: Cypress.env('baseUrl') + Cypress.env('getChatMessageById1') + generatePrd_id + Cypress.env('getChatMessageById2') + chat_id + Cypress.env('getChatMessageById3'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -511,10 +511,10 @@ export const doGetChatMessageById = (auth_key, generatePrd_id,chat_id) => {
         return response;
     })
 };
-export const doDeleteChatMessageById = (auth_key, generatePrd_id,chat_id) => {
+export const doDeleteChatMessageById = (auth_key, generatePrd_id, chat_id) => {
     return cy.request({
         method: 'DELETE',
-        url: Cypress.env('baseUrl') + Cypress.env('deleteChatMessageById1')+generatePrd_id+ Cypress.env('deleteChatMessageById2')+chat_id+Cypress.env('deleteChatMessageById3'), 
+        url: Cypress.env('baseUrl') + Cypress.env('deleteChatMessageById1') + generatePrd_id + Cypress.env('deleteChatMessageById2') + chat_id + Cypress.env('deleteChatMessageById3'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -525,7 +525,7 @@ export const doDeleteChatMessageById = (auth_key, generatePrd_id,chat_id) => {
 export const doClearChatMessage = (auth_key, generatePrd_id) => {
     return cy.request({
         method: 'DELETE',
-        url: Cypress.env('baseUrl') + Cypress.env('clearAllChatMessage1')+generatePrd_id+ Cypress.env('clearAllChatMessage2'), 
+        url: Cypress.env('baseUrl') + Cypress.env('clearAllChatMessage1') + generatePrd_id + Cypress.env('clearAllChatMessage2'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -545,10 +545,10 @@ export const downloadPrd = (auth_key, generatePrd_id) => {
     })
 };
 //-----------------------------
-export const getAllFeatureComments = (auth_key, generatePrd_id,feature_id) => {
+export const getAllFeatureComments = (auth_key, generatePrd_id, feature_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getAllFeatureComments1') + generatePrd_id + Cypress.env('getAllFeatureComments2')+feature_id+Cypress.env('getAllFeatureComments3'),
+        url: Cypress.env('baseUrl') + Cypress.env('getAllFeatureComments1') + generatePrd_id + Cypress.env('getAllFeatureComments2') + feature_id + Cypress.env('getAllFeatureComments3'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -556,11 +556,11 @@ export const getAllFeatureComments = (auth_key, generatePrd_id,feature_id) => {
         return response;
     })
 };
-export const addCommentsIntoFeature = (auth_key, generatePrd_id,feature_id) => {
+export const addCommentsIntoFeature = (auth_key, generatePrd_id, feature_id) => {
     return cy.fixture('api_addCommentsFeature.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('addCommentFeature1') + generatePrd_id + Cypress.env('addCommentFeature2')+feature_id+Cypress.env('addCommentFeature3'),
+            url: Cypress.env('baseUrl') + Cypress.env('addCommentFeature1') + generatePrd_id + Cypress.env('addCommentFeature2') + feature_id + Cypress.env('addCommentFeature3'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -570,7 +570,7 @@ export const addCommentsIntoFeature = (auth_key, generatePrd_id,feature_id) => {
         })
     })
 };
-export const getFeatureCommentById = (auth_key, generatePrd_id,feature_id,comment_id) => {
+export const getFeatureCommentById = (auth_key, generatePrd_id, feature_id, comment_id) => {
     return cy.request({
         method: 'GET',
         url: Cypress.env('baseUrl') + Cypress.env('getFeatureCommentById1') + generatePrd_id + Cypress.env('getFeatureCommentById2') + feature_id + Cypress.env('getFeatureCommentById3') + comment_id + Cypress.env('getFeatureCommentById4'),
@@ -582,11 +582,11 @@ export const getFeatureCommentById = (auth_key, generatePrd_id,feature_id,commen
     })
 };
 
-export const putFeatureComments = (auth_key, generatePrd_id,feature_id,comment_id) => {
+export const putFeatureComments = (auth_key, generatePrd_id, feature_id, comment_id) => {
     return cy.fixture('api_putFeatureComments.json').then((myFixture) => {
         cy.request({
             method: 'PUT',
-            url: Cypress.env('baseUrl') + Cypress.env('putFeatureCommentById1') + generatePrd_id + Cypress.env('putFeatureCommentById2')+feature_id+Cypress.env('putFeatureCommentById3')+comment_id+Cypress.env('putFeatureCommentById4'),
+            url: Cypress.env('baseUrl') + Cypress.env('putFeatureCommentById1') + generatePrd_id + Cypress.env('putFeatureCommentById2') + feature_id + Cypress.env('putFeatureCommentById3') + comment_id + Cypress.env('putFeatureCommentById4'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -596,11 +596,11 @@ export const putFeatureComments = (auth_key, generatePrd_id,feature_id,comment_i
         })
     })
 };
-export const patchFeatureComments = (auth_key, generatePrd_id,feature_id,comment_id) => {
+export const patchFeatureComments = (auth_key, generatePrd_id, feature_id, comment_id) => {
     return cy.fixture('api_patchFeatureComment.json').then((myFixture) => {
         cy.request({
             method: 'PATCH',
-            url: Cypress.env('baseUrl') + Cypress.env('patchFeatureCommentById1') + generatePrd_id + Cypress.env('patchFeatureCommentById2')+feature_id+Cypress.env('patchFeatureCommentById3')+comment_id+Cypress.env('patchFeatureCommentById4'),
+            url: Cypress.env('baseUrl') + Cypress.env('patchFeatureCommentById1') + generatePrd_id + Cypress.env('patchFeatureCommentById2') + feature_id + Cypress.env('patchFeatureCommentById3') + comment_id + Cypress.env('patchFeatureCommentById4'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -611,11 +611,11 @@ export const patchFeatureComments = (auth_key, generatePrd_id,feature_id,comment
     })
 };
 
-export const featureDecompose = (auth_key, generatePrd_id,newFaetiureId) => {
+export const featureDecompose = (auth_key, generatePrd_id, newFaetiureId) => {
     return cy.fixture('api_feature_decompose.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('prdFeatureDesompose1') + generatePrd_id + Cypress.env('prdFeatureDesompose2')+newFaetiureId+Cypress.env('prdFeatureDesompose3'),
+            url: Cypress.env('baseUrl') + Cypress.env('prdFeatureDesompose1') + generatePrd_id + Cypress.env('prdFeatureDesompose2') + newFaetiureId + Cypress.env('prdFeatureDesompose3'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -625,11 +625,11 @@ export const featureDecompose = (auth_key, generatePrd_id,newFaetiureId) => {
         })
     })
 };
-export const featureAutoEstimation = (auth_key, generatePrd_id,newFaetiureId) => {
+export const featureAutoEstimation = (auth_key, generatePrd_id, newFaetiureId) => {
     return cy.fixture('api_feature_auto_estimation.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('featureAutoEstimation1') + generatePrd_id + Cypress.env('featureAutoEstimation2')+newFaetiureId+Cypress.env('featureAutoEstimation3'),
+            url: Cypress.env('baseUrl') + Cypress.env('featureAutoEstimation1') + generatePrd_id + Cypress.env('featureAutoEstimation2') + newFaetiureId + Cypress.env('featureAutoEstimation3'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -639,22 +639,22 @@ export const featureAutoEstimation = (auth_key, generatePrd_id,newFaetiureId) =>
         })
     })
 };
-export const getTecnicalReconmondationList = (auth_key, generatePrd_id,feature_id) => {
+export const getTecnicalReconmondationList = (auth_key, generatePrd_id, feature_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getAllTechRecomandation1') + generatePrd_id + Cypress.env('getAllTechRecomandation2')+feature_id+Cypress.env('getAllTechRecomandation3'),
-                headers: {
+        url: Cypress.env('baseUrl') + Cypress.env('getAllTechRecomandation1') + generatePrd_id + Cypress.env('getAllTechRecomandation2') + feature_id + Cypress.env('getAllTechRecomandation3'),
+        headers: {
             'Authorization': 'Token ' + auth_key,
         }
     }).then((response) => {
         return response;
     })
 };
-export const generateStarterCode = (auth_key, generatePrd_id,newFaetiureId) => {
+export const generateStarterCode = (auth_key, generatePrd_id, newFaetiureId) => {
     return cy.fixture('api_generate_starter_code.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('generateStarterCode1') + generatePrd_id + Cypress.env('generateStarterCode2')+ newFaetiureId + Cypress.env('generateStarterCode3'),
+            url: Cypress.env('baseUrl') + Cypress.env('generateStarterCode1') + generatePrd_id + Cypress.env('generateStarterCode2') + newFaetiureId + Cypress.env('generateStarterCode3'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -664,11 +664,11 @@ export const generateStarterCode = (auth_key, generatePrd_id,newFaetiureId) => {
         })
     })
 };
-export const requestTechnicalRecomandation = (auth_key, generatePrd_id,feature_id) => {
+export const requestTechnicalRecomandation = (auth_key, generatePrd_id, feature_id) => {
     return cy.fixture('api_request_tecnical_recomandation.json').then((myFixture) => {
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('requestTechRecomandation1') + generatePrd_id + Cypress.env('requestTechRecomandation2')+feature_id+Cypress.env('requestTechRecomandation3'),
+            url: Cypress.env('baseUrl') + Cypress.env('requestTechRecomandation1') + generatePrd_id + Cypress.env('requestTechRecomandation2') + feature_id + Cypress.env('requestTechRecomandation3'),
             body: myFixture,
             headers: {
                 'Authorization': 'Token ' + auth_key,
@@ -678,21 +678,21 @@ export const requestTechnicalRecomandation = (auth_key, generatePrd_id,feature_i
         })
     })
 };
-export const getStarterCode = (auth_key, generatePrd_id,newFaetiureId) => {
+export const getStarterCode = (auth_key, generatePrd_id, newFaetiureId) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getStarterCode1') + generatePrd_id + Cypress.env('getStarterCode2')+newFaetiureId+Cypress.env('getStarterCode3'),
-                headers: {
+        url: Cypress.env('baseUrl') + Cypress.env('getStarterCode1') + generatePrd_id + Cypress.env('getStarterCode2') + newFaetiureId + Cypress.env('getStarterCode3'),
+        headers: {
             'Authorization': 'Token ' + auth_key,
         }
     }).then((response) => {
         return response;
     })
 };
-export const unlinkJiraUrl= (auth_key, generatePrd_id,feature_id) => {
+export const unlinkJiraUrl = (auth_key, generatePrd_id, feature_id) => {
     return cy.request({
         method: 'DELETE',
-        url: Cypress.env('baseUrl') + Cypress.env('unlinkJiraUrl1') + generatePrd_id + Cypress.env('unlinkJiraUrl2')+feature_id+Cypress.env('unlinkJiraUrl3'),
+        url: Cypress.env('baseUrl') + Cypress.env('unlinkJiraUrl1') + generatePrd_id + Cypress.env('unlinkJiraUrl2') + feature_id + Cypress.env('unlinkJiraUrl3'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -730,10 +730,10 @@ export const addFeatureMaually = (auth_key, generatePrd_id) => {
 
 };
 
-export const deleteFeatureCommet = (auth_key, generatePrd_id,feature_id,comment_id) => {
+export const deleteFeatureCommet = (auth_key, generatePrd_id, feature_id, comment_id) => {
     return cy.request({
         method: 'DELETE',
-        url: Cypress.env('baseUrl') + Cypress.env('deleteFeatureCommentById1') + generatePrd_id + Cypress.env('deleteFeatureCommentById2')+comment_id+Cypress.env('deleteFeatureCommentById3')+ feature_id  + Cypress.env('deleteFeatureCommentById4'),
+        url: Cypress.env('baseUrl') + Cypress.env('deleteFeatureCommentById1') + generatePrd_id + Cypress.env('deleteFeatureCommentById2') + comment_id + Cypress.env('deleteFeatureCommentById3') + feature_id + Cypress.env('deleteFeatureCommentById4'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -754,7 +754,7 @@ export const doGetJiraSetup = (auth_key, generatePrd_id) => {
     })
 };
 
-export const doCreateJiraSetUp = (auth_key, generatePrd_id,jira_id,prd) => {
+export const doCreateJiraSetUp = (auth_key, generatePrd_id, jira_id, prd) => {
     cy.readFile('cypress/fixtures/api_CreateJiraSetup.json').then((data) => {
         data.jira_id = jira_id
         data.prd = prd
@@ -775,10 +775,10 @@ export const doCreateJiraSetUp = (auth_key, generatePrd_id,jira_id,prd) => {
 
 };
 
-export const doGetJiraSetupById = (auth_key, generatePrd_id,jira_id) => {
+export const doGetJiraSetupById = (auth_key, generatePrd_id, jira_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getJiraSetupById1') + generatePrd_id + Cypress.env('getJiraSetupById2')+ jira_id + Cypress.env('getJiraSetupById3'),
+        url: Cypress.env('baseUrl') + Cypress.env('getJiraSetupById1') + generatePrd_id + Cypress.env('getJiraSetupById2') + jira_id + Cypress.env('getJiraSetupById3'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -787,7 +787,7 @@ export const doGetJiraSetupById = (auth_key, generatePrd_id,jira_id) => {
     })
 };
 
-export const doPutJiraSetup = (auth_key, generatePrd_id,jira_id) => {
+export const doPutJiraSetup = (auth_key, generatePrd_id, jira_id) => {
     cy.readFile('cypress/fixtures/api_put_JiraSetup.json').then((data) => {
         data.prd = generatePrd_id;
         cy.writeFile('cypress/fixtures/api_put_JiraSetup.json', JSON.stringify(data))
@@ -806,7 +806,7 @@ export const doPutJiraSetup = (auth_key, generatePrd_id,jira_id) => {
     })
 };
 
-export const doPatchJiraSetup= (auth_key, generatePrd_id,jira_id) => {
+export const doPatchJiraSetup = (auth_key, generatePrd_id, jira_id) => {
     cy.readFile('cypress/fixtures/api_patch_JiraSetup.json').then((data) => {
         data.prd = generatePrd_id
         cy.writeFile('cypress/fixtures/api_patch_JiraSetup.json', JSON.stringify(data))
@@ -824,10 +824,10 @@ export const doPatchJiraSetup= (auth_key, generatePrd_id,jira_id) => {
         })
     })
 };
-export const doDeletejiraSetupById = (auth_key, generatePrd_id,jira_id) => {
+export const doDeletejiraSetupById = (auth_key, generatePrd_id, jira_id) => {
     return cy.request({
         method: 'DELETE',
-        url: Cypress.env('baseUrl') + Cypress.env('deleteJiraSetupById1')+generatePrd_id+ Cypress.env('deleteJiraSetupById2')+jira_id+Cypress.env('deleteJiraSetupById3'), 
+        url: Cypress.env('baseUrl') + Cypress.env('deleteJiraSetupById1') + generatePrd_id + Cypress.env('deleteJiraSetupById2') + jira_id + Cypress.env('deleteJiraSetupById3'),
         headers: {
             'Authorization': 'Token ' + auth_key,
         }
@@ -865,10 +865,10 @@ export const doCreateGeneratesugesstfeature = (auth_key, generatePrd_id) => {
     })
 };
 
-export const docreateStartoverprd = (auth_key,generatePrd_id) => {
+export const docreateStartoverprd = (auth_key, generatePrd_id) => {
     return cy.request({
         method: 'POST',
-        url: Cypress.env('baseUrl') + Cypress.env('createstartoverprd1')+ generatePrd_id + Cypress.env('createstartoverprd2'),
+        url: Cypress.env('baseUrl') + Cypress.env('createstartoverprd1') + generatePrd_id + Cypress.env('createstartoverprd2'),
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -879,4 +879,78 @@ export const docreateStartoverprd = (auth_key,generatePrd_id) => {
     })
 };
 
+export const doCreateGeneratemodelwithai = (auth_key, app_id) => {
+    return cy.fixture('api_add_Generatemodelwithai.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('creategeneratemodelwithai1') + app_id + Cypress.env('creategeneratemodelwithai2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doCreateprdGetestimate = (auth_key, generatePrd_id) => {
+    return cy.fixture('api_add_Prdgetestimate.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createprdgetestimate1') + generatePrd_id + Cypress.env('createprdgetestimate2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doCreatetoggleselfserveestimation = (auth_key, generatePrd_id) => {
+    return cy.fixture('api_add_Toggleselfserveestimation.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createtoggleselfserveestimation1') + generatePrd_id + Cypress.env('createtoggleselfserveestimation2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doCreateUpdatecontextstore = (auth_key, generatePrd_id) => {
+    return cy.fixture('api_add_Updatecontextstore.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createupdatecontextstore1') + generatePrd_id + Cypress.env('createupdatecontextstore2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doCreateContactsales = (auth_key) => {
+    return cy.fixture('api_add_Contactsales.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createcontactsales'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
 
