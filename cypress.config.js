@@ -1033,6 +1033,12 @@ module.exports = defineConfig({
    getmoduledeploystatus1: "/api/v1/apps/",
    getmoduledeploystatus2: "/prd/",
    getmoduledeploystatus3: "/module-deploy-status/",
+   createupdateproposal1: "/api/v1/apps/",
+   createupdateproposal2: "/prd/",
+   createupdateproposal3: "/update-proposal/",
+   addtoggleselfserveestimation1: "/api/v1/apps/",
+   addtoggleselfserveestimation2:  "/prd/",
+   addtoggleselfserveestimation3: "/toggle-self-serve-estimation/",
    
   },
   e2e: {

@@ -1,10 +1,10 @@
 /// <reference types = "cypress"/>
-import { doPutJobtype, doDeleteJobtypeByid,doGetCandidatesbyID,doGetCandidates, doAddJobRequest, doGetJobRequest, doGetJobRequestUsingId, doEditJobRequest, doDeleteJobRequest,doGetjobtype, doAddjobtype, doGetjobtypeById, doPatchjobtype, dogetJobtitles, doGetJobtitlesByID } from '../pages/JobPage.js';
+import { doPutJobtype, doDeleteJobtypeByid,doGetCandidatesbyID,doGetCandidates, doAddJobRequest, doGetJobRequest, doGetJobRequestUsingId, doEditJobRequest, doDeleteJobRequest,doGetjobtype, doAddjobtype, doGetjobtypeById, doPatchjobtype, dogetJobtitles, doGetJobtitlesByID,doGetPendinginvitations } from '../pages/JobPage.js';
 import { doJobLogin } from '../pages/loginPage.js';
 import { doCteareApp } from '../pages/DashboardPage.js';
 let job_id;
 let authKey;
-let app_id;
+let app_id ;
 let project_description;
 let job_name;
 let job_cost ;
@@ -130,6 +130,13 @@ describe("Job Page", () => {
         doGetJobtitlesByID(authKey, jobtitles_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Job titles Id response", response.body)
+        })
+    })
+
+    it('Get Pending initations', () => {
+        doGetPendinginvitations(authKey, app_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Pending initations response", response.body)
         })
     })
     
