@@ -213,4 +213,16 @@ export const doGetJobtitlesByID = (auth_key, jobtitles_id) => {
     }).then((response) => {
         return response;
     })
-}
+};
+
+export const doGetPendinginvitations = (auth_key, app_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getPendingInvite1')+app_id+Cypress.env('getPendingInvite2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};

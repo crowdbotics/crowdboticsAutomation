@@ -1453,3 +1453,32 @@ export const doGetmoduledeploystatus = (auth_key,app_id,generatePrd_id) => {
  })
 
 };
+
+export const docreateUpdateproposal = (auth_key,app_id,generatePrd_id) => {
+    return cy.request({
+        method: 'POST',
+        url: Cypress.env('baseUrl') + Cypress.env('createupdateproposal1')+ app_id + Cypress.env('createupdateproposal2')+generatePrd_id+ Cypress.env('createupdateproposal3'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doaddToggleselfserveestimation = (auth_key,app_id, generatePrd_id) => {
+    return cy.fixture('api_add_Toggleselfserveestimation.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('addtoggleselfserveestimation1') + app_id + Cypress.env('addtoggleselfserveestimation2')+generatePrd_id+ Cypress.env('addtoggleselfserveestimation3'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
