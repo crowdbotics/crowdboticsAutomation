@@ -1030,6 +1030,9 @@ module.exports = defineConfig({
    createupdatecontextstore1: "/api/v1/prd/",
    createupdatecontextstore2: "/update-context-store/",
    createcontactsales: "/api/v1/prd/contact-sales/",
+   getmoduledeploystatus1: "/api/v1/apps/",
+   getmoduledeploystatus2: "/prd/",
+   getmoduledeploystatus3: "/module-deploy-status/",
    
   },
   e2e: {
