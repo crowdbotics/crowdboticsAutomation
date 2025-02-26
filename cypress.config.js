@@ -1039,6 +1039,10 @@ module.exports = defineConfig({
    addtoggleselfserveestimation1: "/api/v1/apps/",
    addtoggleselfserveestimation2:  "/prd/",
    addtoggleselfserveestimation3: "/toggle-self-serve-estimation/",
+   getPlans: "/api/v2/plans/",
+   getPlansByID1: "/api/v2/plans/",
+   getPlansByID2: "/",
+   getProdcutmetrics: "/api/v2/product-metrics/",
    
   },
   e2e: {
