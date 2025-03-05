@@ -80,15 +80,16 @@ describe("Studio lnading page", () => {
     it('Post Screen AI Jobs', () => {
         doPostScreenAIJobs(authKey, app_id).then((response) => {
             expect(response.status).to.eq(201)
-            cy.log("Post Screen AI Jobs ", response.body)
             screen_id = response.body.id; 
+            cy.log("Post Screen AI Jobs ", response.body)
+            
         })
     })
 
     it('Get Screen AI Jobs With ID', () => {
         doGetScreenAIWithID(authKey, app_id, screen_id).then((response) => {
             expect(response.status).to.eq(200)
-            cy.log("Post Screen AI Jobs ", response.body)
+            cy.log("Get Screen AI Jobs with ID", response.body)
         })
     })
 
