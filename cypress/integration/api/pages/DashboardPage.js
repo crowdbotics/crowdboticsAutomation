@@ -295,6 +295,37 @@ export const doDeleteComponent = (auth_key, app_id, component_id) => {
     })
 };
 
+export const doGetModuleOptions = (auth_key, app_id, Component_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getModuleOptions1') + app_id + Cypress.env('getModuleOptions2') + Component_id + Cypress.env('getModuleOptions3'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doCreateModuleOptions = (auth_key, app_id, Component_id) => {
+
+    return cy.fixture('api_addComponent.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('postModuleOptions1') + app_id + Cypress.env('postModuleOptions2') + Component_id + Cypress.env('postModuleOptions3'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
 
 export const getCertificateList = (auth_key) => {
     return cy.request({

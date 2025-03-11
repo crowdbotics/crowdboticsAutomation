@@ -1050,6 +1050,14 @@ module.exports = defineConfig({
    postScreenAI2: "/screens-ai/jobs/",
    getScreenAIWithID1: "/api/v2/apps/",
    getScreenAIWithID2: "/screens-ai/jobs/",
+
+   getModuleOptions1: "/api/v2/apps/",
+   getModuleOptions2: "/components/",
+   getModuleOptions3: "/module-options/",
+
+   postModuleOptions1: "/api/v2/apps/",
+   postModuleOptions2: "/components/",
+   postModuleOptions3: "/module-options/",
    
   },
   e2e: {

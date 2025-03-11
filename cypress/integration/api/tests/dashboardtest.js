@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 
-import { doGetMobilebuilds, doPostresendverification, doGetSlides, doPostslides, doDeleteCertificationsid, doPatchCertificationsid, doputCertificationsid, dogetCertificationsid, doPostCertifications, dogetCertifications, doDeleteFile, doUpdateWithPatchFile, doUpdateWithPutFile, doGetFileById, doCreateFile, doDeleteComponent, doUpdateWithPatchComponent, doUpdateWithPutComponent, doGetComponentById, doCreateComponent, doGetComponentList, doDeleteBugTask, doUpdateWithPatchBugTask, doUpdateWithPutBugTask, doGetBugTaskById, doCreateBugTask, doGetBugTaskList, doGetAppetizeBuilds, getAppListById, dogGetFilesList, getEdges, getUserList, getAuditLogList, getAttributes, doCreateAttributes, getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories, getReports, doGetFeedbacksCategoriesByID, dogetcbusers, doPostcbusers, dogetcbusersbyId, doputcbusersbyId, dopatchcbusersbyId, doGetReportsByID, doGetDevloperrequest, doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById, doGetLogs, doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID, doGetAddons, doGetAddonsByID, doGetScaffolds, doTOTPdevice, doGetSocialaccounts, doGetSettingsfe, doGetPeojectClones, doGetProjectClonesByID, doPostDashboardFeedack, doPostMagicLink, doPostOutGrow, doGetSocialApp, doGetSocialAppByID, doPostTotpDeviceRemove, doGetUser, doPutUser, doGetUsers, doGetUsersByID, doGetProjectlogs, doGetProjectlogsByID,doGetPlans,doGetPlansByID,doGetProductmetrics } from '../pages/DashboardPage.js';
+import { doGetMobilebuilds, doPostresendverification, doGetSlides, doPostslides, doDeleteCertificationsid, doPatchCertificationsid, doputCertificationsid, dogetCertificationsid, doPostCertifications, dogetCertifications, doDeleteFile, doUpdateWithPatchFile, doUpdateWithPutFile, doGetFileById, doCreateFile, doDeleteComponent, doUpdateWithPatchComponent, doUpdateWithPutComponent, doGetComponentById, doCreateComponent, doGetComponentList, doDeleteBugTask, doUpdateWithPatchBugTask, doUpdateWithPutBugTask, doGetBugTaskById, doCreateBugTask, doGetBugTaskList, doGetAppetizeBuilds, getAppListById, dogGetFilesList, getEdges, getUserList, getAuditLogList, getAttributes, doCreateAttributes, getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories, getReports, doGetFeedbacksCategoriesByID, dogetcbusers, doPostcbusers, dogetcbusersbyId, doputcbusersbyId, dopatchcbusersbyId, doGetReportsByID, doGetDevloperrequest, doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById, doGetLogs, doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID, doGetAddons, doGetAddonsByID, doGetScaffolds, doTOTPdevice, doGetSocialaccounts, doGetSettingsfe, doGetPeojectClones, doGetProjectClonesByID, doPostDashboardFeedack, doPostMagicLink, doPostOutGrow, doGetSocialApp, doGetSocialAppByID, doPostTotpDeviceRemove, doGetUser, doPutUser, doGetUsers, doGetUsersByID, doGetProjectlogs, doGetProjectlogsByID,doGetPlans,doGetPlansByID,doGetProductmetrics, doGetModuleOptions, doCreateModuleOptions } from '../pages/DashboardPage.js';
 import { doDashboardLogin, doDatamodelLogin } from '../pages/loginPage.js';
 
 let component_id;
@@ -170,6 +170,22 @@ describe("Dashboard Page", () => {
         doGetComponentById(authKey, app_id, component_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Component Using Id response", response.body)
+
+        })
+    })
+
+    it('Get Module Options', () => {
+        doGetModuleOptions(authKey, app_id, component_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Module Options response", response.body)
+
+        })
+    })
+
+    it('Create Module Options', () => {
+        doCreateModuleOptions(authKey, app_id, component_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Create Module Options response", response.body)
 
         })
     })
