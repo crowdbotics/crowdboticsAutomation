@@ -1059,10 +1059,11 @@ module.exports = defineConfig({
    postModuleOptions2: "/components/",
    postModuleOptions3: "/module-options/",
 
-   updateAttributes1: "/api/v2/apps/",
-   updateAttributes2: "/attributes/",
-   updateAttributes3: "/api/v2/apps/",
-   updateAttributes4: "/attributes/",
+   putAttributes1: "/api/v2/apps/",
+   putAttributes2: "/attributes/",
+
+   patchAttributes1: "/api/v2/apps/",
+   patchAttributes2: "/attributes/",
 
    deleteAttributes1: "/api/v2/apps/",
    deleteAttributes2: "/attributes/",
