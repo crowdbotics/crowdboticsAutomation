@@ -1058,6 +1058,12 @@ module.exports = defineConfig({
    postModuleOptions1: "/api/v2/apps/",
    postModuleOptions2: "/components/",
    postModuleOptions3: "/module-options/",
+
+   updateAttributes1: "/api/v2/apps/",
+   updateAttributes2: "/attributes/",
+
+   deleteAttributes1: "/api/v2/apps/",
+   deleteAttributes2: "/attributes/",
    
   },
   e2e: {

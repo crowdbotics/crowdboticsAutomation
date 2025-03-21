@@ -505,6 +505,52 @@ export const doGetAttributesById = (auth_key, app_id, attributes_id) => {
     })
 };
 
+export const doUpdateAttributesByPut = (auth_key, app_id,attributes_id) => {
+
+    return cy.fixture('api_updateAttribute.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('updateAttributes1') + app_id + Cypress.env('updateAttributes2') + attributes_id ,
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doUpdateAttributesByPatch = (auth_key, app_id,attributes_id) => {
+
+    return cy.fixture('api_updateAttribute.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('updateAttributes1') + app_id + Cypress.env('updateAttributes2') + attributes_id ,
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doDeleteAttributes = (auth_key, app_id, attributes_id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteAttributes1') + app_id + Cypress.env('deleteAttributes2') + attributes_id,
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
 export const getUserList = (auth_key, app_id) => {
     return cy.request({
         method: 'GET',
