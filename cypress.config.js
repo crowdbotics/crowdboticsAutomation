@@ -1068,6 +1068,10 @@ module.exports = defineConfig({
    deleteAttributes1: "/api/v2/apps/",
    deleteAttributes2: "/attributes/",
 
+   getSuggestedChatbotQuestions:"/api/v1/suggested-chatbot-questions/",
+
+   getSuggestedChatbotQuestionsById:"/api/v1/suggested-chatbot-questions/"
+
   },
   e2e: {
     setupNodeEvents(on, config) {
