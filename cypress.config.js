@@ -1058,7 +1058,16 @@ module.exports = defineConfig({
    postModuleOptions1: "/api/v2/apps/",
    postModuleOptions2: "/components/",
    postModuleOptions3: "/module-options/",
-   
+
+   putAttributes1: "/api/v2/apps/",
+   putAttributes2: "/attributes/",
+
+   patchAttributes1: "/api/v2/apps/",
+   patchAttributes2: "/attributes/",
+
+   deleteAttributes1: "/api/v2/apps/",
+   deleteAttributes2: "/attributes/",
+
   },
   e2e: {
     setupNodeEvents(on, config) {
