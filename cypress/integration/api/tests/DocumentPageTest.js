@@ -2,13 +2,14 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doCatalogLogin } from '../pages/loginPage.js';
-import { doCreateDocument, doGetDocumentById, doPutDocumentById, doPatchDocumentById, doDeleteDocumentById, doGetListCodePackages, doCreateCodePackages, doGetCodePackagestById, doPutCodePackageById, doPatchCodePackageById } from '../pages/DocumentPage.js';
+import { doGetSuggestedChatbotQuestionsById,doGetSuggestedChatbotQuestions,doCreateDocument, doGetDocumentById, doPutDocumentById, doPatchDocumentById, doDeleteDocumentById, doGetListCodePackages, doCreateCodePackages, doGetCodePackagestById, doPutCodePackageById, doPatchCodePackageById } from '../pages/DocumentPage.js';
 
 let document_id;
 let app_id;
 let app_name;
 let authKey;
 let codepackage_id;
+let chatbotQuestionId;
 describe("Document Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Create document flow', () => {
@@ -89,6 +90,21 @@ describe("Document Page", () => {
             codepackage_id = response.body.id;
             expect(response.status).to.eq(200)
             cy.log("Create new code packages flow response", response.body)
+        })
+    })
+
+    it('Get Suggested Chatbot Questions flow', () => {
+        doGetSuggestedChatbotQuestions(authKey).then((response) => {
+            chatbotQuestionId = response.body[0].id;
+            expect(response.status).to.eq(200)
+            cy.log("Get Suggested Chatbot Questions flow response", response.body)
+        })
+    })
+
+    it('Get Suggested Chatbot Questions By Id flow', () => {
+        doGetSuggestedChatbotQuestionsById(authKey,chatbotQuestionId).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Suggested Chatbot Questions flow response", response.body)
         })
     })
 })
