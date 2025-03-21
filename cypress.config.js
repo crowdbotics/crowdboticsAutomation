@@ -1061,10 +1061,12 @@ module.exports = defineConfig({
 
    updateAttributes1: "/api/v2/apps/",
    updateAttributes2: "/attributes/",
+   updateAttributes3: "/api/v2/apps/",
+   updateAttributes4: "/attributes/",
 
    deleteAttributes1: "/api/v2/apps/",
    deleteAttributes2: "/attributes/",
-   
+
   },
   e2e: {
     setupNodeEvents(on, config) {

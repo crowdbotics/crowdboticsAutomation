@@ -526,7 +526,7 @@ export const doUpdateAttributesByPatch = (auth_key, app_id,attributes_id) => {
     return cy.fixture('api_updateAttribute.json').then((myFixture) => {
         cy.request({
             method: 'PATCH',
-            url: Cypress.env('baseUrl') + Cypress.env('updateAttributes1') + app_id + Cypress.env('updateAttributes2') + attributes_id ,
+            url: Cypress.env('baseUrl') + Cypress.env('updateAttributes3') + app_id + Cypress.env('updateAttributes4') + attributes_id ,
             headers: {
                 'Authorization': 'Token ' + auth_key
             },
