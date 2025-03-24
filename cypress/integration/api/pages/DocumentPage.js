@@ -174,3 +174,29 @@ export const doGetSuggestedChatbotQuestionsById = (auth_key,chatbotQuestionsId) 
         return response;
     })
 }
+
+export const doGetAllAppCreatedBySpecificRepo = (auth_key) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getAppListByrepo'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const doGetUserRepoList = (auth_key) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getUserRepoList'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}

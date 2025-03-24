@@ -2,7 +2,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doCatalogLogin } from '../pages/loginPage.js';
-import { doGetSuggestedChatbotQuestionsById,doGetSuggestedChatbotQuestions,doCreateDocument, doGetDocumentById, doPutDocumentById, doPatchDocumentById, doDeleteDocumentById, doGetListCodePackages, doCreateCodePackages, doGetCodePackagestById, doPutCodePackageById, doPatchCodePackageById } from '../pages/DocumentPage.js';
+import { doGetUserRepoList,doGetAllAppCreatedBySpecificRepo,doGetSuggestedChatbotQuestionsById,doGetSuggestedChatbotQuestions,doCreateDocument, doGetDocumentById, doPutDocumentById, doPatchDocumentById, doDeleteDocumentById, doGetListCodePackages, doCreateCodePackages, doGetCodePackagestById, doPutCodePackageById, doPatchCodePackageById } from '../pages/DocumentPage.js';
 
 let document_id;
 let app_id;
@@ -107,4 +107,18 @@ describe("Document Page", () => {
             cy.log("Get Suggested Chatbot Questions flow response", response.body)
         })
     })
+    it('Get All app created by specific repo  flow', () => {
+        doGetAllAppCreatedBySpecificRepo(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get All app created by specific repo  flow response", response.body)
+        })
+    })
+    it('Get User Repo List flow', () => {
+        doGetUserRepoList(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get User Repo List flow response", response.body)
+        })
+    })
 })
+
+
