@@ -543,11 +543,10 @@ describe("New PRD Page", () => {
 
     })
 
-    it('Get Copilot Flow', () => {
+    it('Get PRD Copilot Flow', () => {
         doGetCopilot(authKey).then((response) => {
-            copilot_id = response.body.results[0].id;
             expect(response.status).to.eq(200)
-            cy.log("Get Copilot Flow response", response.body)
+            cy.log("Get PRD Copilot response", response.body)
         })
     })
 

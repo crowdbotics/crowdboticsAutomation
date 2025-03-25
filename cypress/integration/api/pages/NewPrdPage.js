@@ -957,7 +957,7 @@ export const doCreateContactsales = (auth_key) => {
 export const doGetCopilot = (auth_key) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getcopilot'),
+        url: Cypress.env('baseUrl') + Cypress.env('getCopilot'),
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
