@@ -954,3 +954,89 @@ export const doCreateContactsales = (auth_key) => {
     })
 };
 
+export const doGetCopilot = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getcopilot'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doGetCopilotByID = (auth_key,copilot_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getCopilotByID1')+copilot_id + Cypress.env('getCopilotByID2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doGetPrddemo = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getprddemo'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doCreateLoadPrdintochat = (auth_key, generatePrd_id) => {
+    return cy.fixture('api_add_createloadprdintochat.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createloadprdintochat1') + generatePrd_id + Cypress.env('createloadprdintochat2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doCreatesendmessagetocopilot = (auth_key, generatePrd_id) => {
+    return cy.fixture('api_add_Sendmessagetocopilot.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createsendmessagetocopilot1') + generatePrd_id + Cypress.env('createsendmessagetocopilot2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doCreateSyncPRDtocopilotagent = (auth_key, generatePrd_id) => {
+    return cy.fixture('api_add_Syncprdtocopilotagent.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('createSyncPRDtocopilot1') + generatePrd_id + Cypress.env('createSyncPRDtocopilot2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
