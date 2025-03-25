@@ -546,8 +546,8 @@ describe("New PRD Page", () => {
     it('Get Copilot Flow', () => {
         doGetCopilot(authKey).then((response) => {
             copilot_id = response.body.results[0].id;
-            cy.log("Get Copilot Flow response", response.body)
             expect(response.status).to.eq(200)
+            cy.log("Get Copilot Flow response", response.body)
         })
     })
 
@@ -560,8 +560,8 @@ describe("New PRD Page", () => {
 
     it('Get PRD Demo Flow', () => {
         doGetPrddemo(authKey).then((response) => {
-            cy.log("Get PRD Demo response", response.body)
             expect(response.status).to.eq(200)
+            cy.log("Get PRD Demo response", response.body)
         })
     })
 
