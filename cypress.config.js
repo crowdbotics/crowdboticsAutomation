@@ -1076,8 +1076,8 @@ module.exports = defineConfig({
 
    getUserRepoList: "/api/v1/user/repos/",
    getCopilot: "/api/v1/prd-copilot/",
-   getCopilotByID1:"/api/v1/prd-copilot/",
-   getCopilotByID2:"/",
+   getCopilotByID1: "/api/v1/prd-copilot/",
+   getCopilotByID2: "/",
    getprddemo: "/api/v1/prd-demo/",
    createloadprdintochat1: "/api/v1/prd/",
    createloadprdintochat2: "/chat/message/load-prd-into-chat/",

@@ -971,7 +971,7 @@ export const doGetCopilot = (auth_key) => {
 export const doGetCopilotByID = (auth_key,copilot_id) => {
     return cy.request({
         method: 'GET',
-        url: Cypress.env('baseUrl') + Cypress.env('getcopilot1')+copilot_id + Cypress.env('getcopilot2'),
+        url: Cypress.env('baseUrl') + Cypress.env('getCopilotByID1')+copilot_id + Cypress.env('getCopilotByID2'),
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
