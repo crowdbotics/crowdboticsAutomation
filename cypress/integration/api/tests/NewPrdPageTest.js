@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doNewPrdLogin } from '../pages/loginPage.js';
-import { addFeatureMaually, generateAzureCostEstimation, unlinkJiraUrl, getStarterCode, requestTechnicalRecomandation, generateStarterCode, getTecnicalReconmondationList, featureAutoEstimation, featureDecompose, deleteFeatureCommet, patchFeatureComments, putFeatureComments, getFeatureCommentById, addCommentsIntoFeature, getAllFeatureComments, downloadPrd, doGetAllChatMessage, doCreateChatMessage, doGetChatMessageById, doDeleteChatMessageById, doClearChatMessage, doDeleteUserRoleByIdOrganizationPRD, doPatchUserRoleOrganizationPRD, doPutUserRoleOrganizationPRD, doGetUserRoleByIdOrganizationPRD, doCreateUserRolesOrganizationPRD, doGetAllUserRolesOrganizationPRD, doGetPRDWishlist, doDeletePhaseByIdOrganizationPRD, doPutPhaseOrganizationPRD, doPatchPhaseOrganizationPRD, doCreatePhaseOrganizationPRD, doGetPhaseByIdOrganizationPRD, doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doGetJiraSetup, doCreateJiraSetUp, doGetJiraSetupById, doPutJiraSetup, doPatchJiraSetup, doDeletejiraSetupById, doGetPrdanalyzerisks, doCreateGeneratesugesstfeature, docreateStartoverprd, doCreateGeneratemodelwithai, doCreateprdGetestimate, doCreatetoggleselfserveestimation, doCreateUpdatecontextstore, doCreateContactsales } from '../pages/NewPrdPage.js';
+import { addFeatureMaually, generateAzureCostEstimation, unlinkJiraUrl, getStarterCode, requestTechnicalRecomandation, generateStarterCode, getTecnicalReconmondationList, featureAutoEstimation, featureDecompose, deleteFeatureCommet, patchFeatureComments, putFeatureComments, getFeatureCommentById, addCommentsIntoFeature, getAllFeatureComments, downloadPrd, doGetAllChatMessage, doCreateChatMessage, doGetChatMessageById, doDeleteChatMessageById, doClearChatMessage, doDeleteUserRoleByIdOrganizationPRD, doPatchUserRoleOrganizationPRD, doPutUserRoleOrganizationPRD, doGetUserRoleByIdOrganizationPRD, doCreateUserRolesOrganizationPRD, doGetAllUserRolesOrganizationPRD, doGetPRDWishlist, doDeletePhaseByIdOrganizationPRD, doPutPhaseOrganizationPRD, doPatchPhaseOrganizationPRD, doCreatePhaseOrganizationPRD, doGetPhaseByIdOrganizationPRD, doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doGetJiraSetup, doCreateJiraSetUp, doGetJiraSetupById, doPutJiraSetup, doPatchJiraSetup, doDeletejiraSetupById, doGetPrdanalyzerisks, doCreateGeneratesugesstfeature, docreateStartoverprd, doCreateGeneratemodelwithai, doCreateprdGetestimate, doCreatetoggleselfserveestimation, doCreateUpdatecontextstore, doCreateContactsales, doGetCopilot,doGetCopilotByID,doGetPrddemo,doCreateLoadPrdintochat,doCreatesendmessagetocopilot,doCreateSyncPRDtocopilotagent } from '../pages/NewPrdPage.js';
 
 let app_name;
 let app_id;
@@ -16,6 +16,7 @@ let comment_id;
 let newFaetiureId;
 let jira_id;
 let ids;
+let copilot_id;
 describe("New PRD Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Get all PRD List by organization User', () => {
@@ -541,6 +542,51 @@ describe("New PRD Page", () => {
         })
 
     })
+
+    it('Get Copilot Flow', () => {
+        doGetCopilot(authKey).then((response) => {
+            copilot_id = response.body.results[0].id;
+            cy.log("Get Copilot Flow response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('get verify the copilot By ID', () => {
+        doGetCopilotByID(authKey, copilot_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get copilot Id response", response.body)
+        })
+    })
+
+    it('Get PRD Demo Flow', () => {
+        doGetPrddemo(authKey).then((response) => {
+            cy.log("Get PRD Demo response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Create Loard PRD into chat Message', () => {
+        doCreateLoadPrdintochat(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Create Loard PRD into chat Response", response.body)
+        })
+    })
+
+    it('Create Send message to copilot', () => {
+        doCreatesendmessagetocopilot(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Create Send message to copilot Response", response.body)
+        })
+    })
+
+    it('Create Sync PRD to copilot agent', () => {
+        doCreateSyncPRDtocopilotagent(authKey, generatePrd_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Create Sync PRD to copilot agent Response", response.body)
+        })
+    })
+
+
 
 })
 
