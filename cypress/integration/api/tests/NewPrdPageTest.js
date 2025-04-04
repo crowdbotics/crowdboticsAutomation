@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doNewPrdLogin } from '../pages/loginPage.js';
-import { addFeatureMaually, generateAzureCostEstimation, unlinkJiraUrl, getStarterCode, requestTechnicalRecomandation, generateStarterCode, getTecnicalReconmondationList, featureAutoEstimation, featureDecompose, deleteFeatureCommet, patchFeatureComments, putFeatureComments, getFeatureCommentById, addCommentsIntoFeature, getAllFeatureComments, downloadPrd, doGetAllChatMessage, doCreateChatMessage, doGetChatMessageById, doDeleteChatMessageById, doClearChatMessage, doDeleteUserRoleByIdOrganizationPRD, doPatchUserRoleOrganizationPRD, doPutUserRoleOrganizationPRD, doGetUserRoleByIdOrganizationPRD, doCreateUserRolesOrganizationPRD, doGetAllUserRolesOrganizationPRD, doGetPRDWishlist, doDeletePhaseByIdOrganizationPRD, doPutPhaseOrganizationPRD, doPatchPhaseOrganizationPRD, doCreatePhaseOrganizationPRD, doGetPhaseByIdOrganizationPRD, doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doGetJiraSetup, doCreateJiraSetUp, doGetJiraSetupById, doPutJiraSetup, doPatchJiraSetup, doDeletejiraSetupById, doGetPrdanalyzerisks, doCreateGeneratesugesstfeature, docreateStartoverprd, doCreateGeneratemodelwithai, doCreateprdGetestimate, doCreatetoggleselfserveestimation, doCreateUpdatecontextstore, doCreateContactsales, doGetCopilot,doGetCopilotByID,doGetPrddemo,doCreateLoadPrdintochat,doCreatesendmessagetocopilot,doCreateSyncPRDtocopilotagent } from '../pages/NewPrdPage.js';
+import { dopatchSpecificgitConfigByOrg,dogetSpecificgitConfigByOrg,dogetAllgitConfigByOrg,dopatchContextByOrgUser,dogetContextByOrgUser,addFeatureMaually, generateAzureCostEstimation, unlinkJiraUrl, getStarterCode, requestTechnicalRecomandation, generateStarterCode, getTecnicalReconmondationList, featureAutoEstimation, featureDecompose, deleteFeatureCommet, patchFeatureComments, putFeatureComments, getFeatureCommentById, addCommentsIntoFeature, getAllFeatureComments, downloadPrd, doGetAllChatMessage, doCreateChatMessage, doGetChatMessageById, doDeleteChatMessageById, doClearChatMessage, doDeleteUserRoleByIdOrganizationPRD, doPatchUserRoleOrganizationPRD, doPutUserRoleOrganizationPRD, doGetUserRoleByIdOrganizationPRD, doCreateUserRolesOrganizationPRD, doGetAllUserRolesOrganizationPRD, doGetPRDWishlist, doDeletePhaseByIdOrganizationPRD, doPutPhaseOrganizationPRD, doPatchPhaseOrganizationPRD, doCreatePhaseOrganizationPRD, doGetPhaseByIdOrganizationPRD, doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doGetJiraSetup, doCreateJiraSetUp, doGetJiraSetupById, doPutJiraSetup, doPatchJiraSetup, doDeletejiraSetupById, doGetPrdanalyzerisks, doCreateGeneratesugesstfeature, docreateStartoverprd, doCreateGeneratemodelwithai, doCreateprdGetestimate, doCreatetoggleselfserveestimation, doCreateUpdatecontextstore, doCreateContactsales, doGetCopilot,doGetCopilotByID,doGetPrddemo,doCreateLoadPrdintochat,doCreatesendmessagetocopilot,doCreateSyncPRDtocopilotagent } from '../pages/NewPrdPage.js';
 
 let app_name;
 let app_id;
@@ -17,6 +17,8 @@ let newFaetiureId;
 let jira_id;
 let ids;
 let copilot_id;
+let  org_Id =87;
+let gitConfig_Id=48;
 describe("New PRD Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Get all PRD List by organization User', () => {
@@ -545,6 +547,7 @@ describe("New PRD Page", () => {
 
     it('Get PRD Copilot Flow', () => {
         doGetCopilot(authKey).then((response) => {
+            copilot_id = response.body.results[0].id;
             expect(response.status).to.eq(200)
             cy.log("Get PRD Copilot response", response.body)
         })
@@ -584,8 +587,36 @@ describe("New PRD Page", () => {
             cy.log("Create Sync PRD to copilot agent Response", response.body)
         })
     })
-
-
-
+   
+   it('get Context By Org User', () => {
+    dogetContextByOrgUser(authKey,org_Id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("get Context By Org User Response", response.body)
+    })
+})
+it('Patch Context By Org User', () => {
+    dopatchContextByOrgUser(authKey,org_Id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Patch Context By Org User Response", response.body)
+    })
+})
+it('Get All gitConfig By Org', () => {
+    dogetAllgitConfigByOrg(authKey,org_Id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Get All gitConfig By Org Response", response.body)
+    })
+})
+it('Get Specific gitConfig By Org', () => {
+    dogetSpecificgitConfigByOrg(authKey,org_Id,gitConfig_Id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Get Specific gitConfig By Org Response", response.body)
+    })
+})
+it('Patch Specific gitConfig By Org', () => {
+    dopatchSpecificgitConfigByOrg(authKey,org_Id,gitConfig_Id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Patch Specific gitConfig By Org Response", response.body)
+    })
+})
 })
 

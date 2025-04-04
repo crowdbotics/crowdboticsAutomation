@@ -1040,3 +1040,73 @@ export const doCreateSyncPRDtocopilotagent = (auth_key, generatePrd_id) => {
         })
     })
 };
+
+export const dogetContextByOrgUser = (auth_key,org_Id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getContextByOrgUser1')+org_Id + Cypress.env('getContextByOrgUser2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const dopatchContextByOrgUser = (auth_key, org_Id) => {
+    return cy.fixture('api_patch_context_by_orguser.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchContextByOrgUser1') + org_Id + Cypress.env('patchContextByOrgUser2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+export const dogetAllgitConfigByOrg = (auth_key,org_Id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getAllgitConfigByOrg1')+org_Id + Cypress.env('getAllgitConfigByOrg2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const dogetSpecificgitConfigByOrg = (auth_key,org_Id,gitConfig_Id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getSpecificgitConfigByOrg1')+org_Id + Cypress.env('getSpecificgitConfigByOrg2')+gitConfig_Id+ Cypress.env('getSpecificgitConfigByOrg3'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+export const dopatchSpecificgitConfigByOrg = (auth_key, org_Id,gitConfig_Id) => {
+    return cy.fixture('api_patch_specificgitconfig_by_org.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchSpecificgitConfigByOrg1') + org_Id + Cypress.env('patchSpecificgitConfigByOrg2')+gitConfig_Id+ Cypress.env('getSpecificgitConfigByOrg3'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
