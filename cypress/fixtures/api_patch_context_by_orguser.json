@@ -1,0 +1,17 @@
+{
+    "context_store": {
+      "contexts": [],
+      "frameworks": []
+    },
+    "metadata": {
+      "contexts": [
+        {
+          "slug": "content1",
+          "label": "Business Information1",
+          "required": false,
+          "placeholder": "ACME Corp is a B2B SaaS provider in the healthcare space1",
+          "order": 1
+        }
+      ]
+    }
+  }

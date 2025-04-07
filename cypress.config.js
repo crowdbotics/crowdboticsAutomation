@@ -1086,6 +1086,25 @@ module.exports = defineConfig({
    createSyncPRDtocopilot1: "/api/v1/prd/",
    createSyncPRDtocopilot2: "/chat/message/sync-prd-to-copilot-agent/",
 
+   getContextByOrgUser1: "/api/v1/enterprise/org/",
+   getContextByOrgUser2: "/context/",
+
+   patchContextByOrgUser1: "/api/v1/enterprise/org/",
+   patchContextByOrgUser2: "/context/",
+
+   getAllgitConfigByOrg1: "/api/v1/enterprise/org/",
+   getAllgitConfigByOrg2: "/git-config/",
+
+   getSpecificgitConfigByOrg1: "/api/v1/enterprise/org/",
+   getSpecificgitConfigByOrg2: "/git-config/",
+   getSpecificgitConfigByOrg3: "/",
+
+   patchSpecificgitConfigByOrg1: "/api/v1/enterprise/org/",
+   patchSpecificgitConfigByOrg2: "/git-config/",
+   patchSpecificgitConfigByOrg3: "/",
+
+
+
   },
   e2e: {
     setupNodeEvents(on, config) {
