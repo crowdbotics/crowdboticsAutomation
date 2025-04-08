@@ -1110,3 +1110,42 @@ export const dopatchSpecificgitConfigByOrg = (auth_key, org_Id,gitConfig_Id) => 
         })
     })
 };
+export const doGetOrgMemeberDetails = (auth_key,org_Id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getOrgMemeberDetails1')+org_Id+ Cypress.env('getOrgMemeberDetails2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+export const doGetAllAppCreatedByOrg = (auth_key,org_Id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getAllAppCreatedByOrg1')+org_Id+ Cypress.env('getAllAppCreatedByOrg2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+export const doGetAllCommitMetricsByOrg = (auth_key,org_Id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getAllCommitMetricsByOrg1')+org_Id+ Cypress.env('getAllCommitMetricsByOrg2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};

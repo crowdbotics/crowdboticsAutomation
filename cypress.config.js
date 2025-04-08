@@ -1103,7 +1103,14 @@ module.exports = defineConfig({
    patchSpecificgitConfigByOrg2: "/git-config/",
    patchSpecificgitConfigByOrg3: "/",
 
+   getOrgMemeberDetails1:"/api/v1/enterprise/org/",
+   getOrgMemeberDetails2:"/",
 
+   getAllAppCreatedByOrg1:"/api/v1/enterprise/org/",
+   getAllAppCreatedByOrg2:"/apps/",
+
+   getAllCommitMetricsByOrg1:"/api/v1/enterprise/org/",
+   getAllCommitMetricsByOrg2:"/commit-metrics/",
 
   },
   e2e: {
