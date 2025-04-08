@@ -1149,3 +1149,58 @@ export const doGetAllCommitMetricsByOrg = (auth_key,org_Id) => {
         return response;
     })
 };
+
+export const doGetEnterprisesOrgMatrics = (auth_key,org_Id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getEnterprisesOrgMatrics1')+org_Id+ Cypress.env('getEnterprisesOrgMatrics2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doGetEnterprisesOrgModuleMatrics = (auth_key,org_Id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getEnterprisesOrgModuleMatrics1')+org_Id+ Cypress.env('getEnterprisesOrgModuleMatrics2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doGetEnterprisesOrgRepoApps = (auth_key,org_Id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getEnterprisesOrgRepoApps1')+org_Id+ Cypress.env('getEnterprisesOrgRepoApps2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+export const doGetEnterprisesOrgRepo = (auth_key,org_Id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getEnterprisesOrgRepo1')+org_Id+ Cypress.env('getEnterprisesOrgRepo2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
