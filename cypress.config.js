@@ -1112,6 +1112,22 @@ module.exports = defineConfig({
    getAllCommitMetricsByOrg1:"/api/v1/enterprise/org/",
    getAllCommitMetricsByOrg2:"/commit-metrics/",
 
+   getEnterprisesOrgMatrics1:"/api/v1/enterprise/org/",
+   getEnterprisesOrgMatrics2: "/metrics/",
+
+   getEnterprisesOrgModuleMatrics1: "/api/v1/enterprise/org/",
+   getEnterprisesOrgModuleMatrics2: "/module-metrics/",
+   
+   getEnterprisesOrgRepoApps1:"/api/v1/enterprise/org/",
+   getEnterprisesOrgRepoApps2: "/repo-apps/",
+
+   getEnterprisesOrgRepo1: "/api/v1/enterprise/org/",
+   getEnterprisesOrgRepo2: "/repos/",
+ 
+   
+
+
+
   },
   e2e: {
     setupNodeEvents(on, config) {
