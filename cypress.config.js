@@ -1124,6 +1124,8 @@ module.exports = defineConfig({
    getEnterprisesOrgRepo1: "/api/v1/enterprise/org/",
    getEnterprisesOrgRepo2: "/repos/",
  
+   getUserProjectPermission1: "/api/v2/apps/",
+   getUserProjectPermission2: "/permissions/",
    
 
 
