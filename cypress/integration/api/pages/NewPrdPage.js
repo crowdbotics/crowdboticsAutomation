@@ -1204,3 +1204,19 @@ export const doGetEnterprisesOrgRepo = (auth_key,org_Id) => {
         return response;
     })
 };
+
+
+
+export const doGetUserProjectPermission = (auth_key,app_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getUserProjectPermission1')+app_id+ Cypress.env('getUserProjectPermission2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
