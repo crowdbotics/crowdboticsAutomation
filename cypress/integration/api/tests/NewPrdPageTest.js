@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doNewPrdLogin } from '../pages/loginPage.js';
-import { doGetUserProjectPermission,doGetDownloadErrorLogFile,doGetEnterprisesOrgRepo,doGetEnterprisesOrgRepoApps,doGetEnterprisesOrgModuleMatrics,doGetEnterprisesOrgMatrics,doGetOrgMemeberDetails,doGetAllAppCreatedByOrg,doGetAllCommitMetricsByOrg,dopatchSpecificgitConfigByOrg,dogetSpecificgitConfigByOrg,dogetAllgitConfigByOrg,dopatchContextByOrgUser,dogetContextByOrgUser,addFeatureMaually, generateAzureCostEstimation, unlinkJiraUrl, getStarterCode, requestTechnicalRecomandation, generateStarterCode, getTecnicalReconmondationList, featureAutoEstimation, featureDecompose, deleteFeatureCommet, patchFeatureComments, putFeatureComments, getFeatureCommentById, addCommentsIntoFeature, getAllFeatureComments, downloadPrd, doGetAllChatMessage, doCreateChatMessage, doGetChatMessageById, doDeleteChatMessageById, doClearChatMessage, doDeleteUserRoleByIdOrganizationPRD, doPatchUserRoleOrganizationPRD, doPutUserRoleOrganizationPRD, doGetUserRoleByIdOrganizationPRD, doCreateUserRolesOrganizationPRD, doGetAllUserRolesOrganizationPRD, doGetPRDWishlist, doDeletePhaseByIdOrganizationPRD, doPutPhaseOrganizationPRD, doPatchPhaseOrganizationPRD, doCreatePhaseOrganizationPRD, doGetPhaseByIdOrganizationPRD, doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doGetJiraSetup, doCreateJiraSetUp, doGetJiraSetupById, doPutJiraSetup, doPatchJiraSetup, doDeletejiraSetupById, doGetPrdanalyzerisks, doCreateGeneratesugesstfeature, docreateStartoverprd, doCreateGeneratemodelwithai, doCreateprdGetestimate, doCreatetoggleselfserveestimation, doCreateUpdatecontextstore, doCreateContactsales, doGetCopilot,doGetCopilotByID,doGetPrddemo,doCreateLoadPrdintochat,doCreatesendmessagetocopilot,doCreateSyncPRDtocopilotagent } from '../pages/NewPrdPage.js';
+import { doGetGitCommits,doGetGitPulls,doGetZoomLevel,doGetUserProjectPermission,doGetDownloadErrorLogFile,doGetEnterprisesOrgRepo,doGetEnterprisesOrgRepoApps,doGetEnterprisesOrgModuleMatrics,doGetEnterprisesOrgMatrics,doGetOrgMemeberDetails,doGetAllAppCreatedByOrg,doGetAllCommitMetricsByOrg,dopatchSpecificgitConfigByOrg,dogetSpecificgitConfigByOrg,dogetAllgitConfigByOrg,dopatchContextByOrgUser,dogetContextByOrgUser,addFeatureMaually, generateAzureCostEstimation, unlinkJiraUrl, getStarterCode, requestTechnicalRecomandation, generateStarterCode, getTecnicalReconmondationList, featureAutoEstimation, featureDecompose, deleteFeatureCommet, patchFeatureComments, putFeatureComments, getFeatureCommentById, addCommentsIntoFeature, getAllFeatureComments, downloadPrd, doGetAllChatMessage, doCreateChatMessage, doGetChatMessageById, doDeleteChatMessageById, doClearChatMessage, doDeleteUserRoleByIdOrganizationPRD, doPatchUserRoleOrganizationPRD, doPutUserRoleOrganizationPRD, doGetUserRoleByIdOrganizationPRD, doCreateUserRolesOrganizationPRD, doGetAllUserRolesOrganizationPRD, doGetPRDWishlist, doDeletePhaseByIdOrganizationPRD, doPutPhaseOrganizationPRD, doPatchPhaseOrganizationPRD, doCreatePhaseOrganizationPRD, doGetPhaseByIdOrganizationPRD, doGetAllPhaseOrganizationPRD, doRemoveModuleIntoFeatureOrganizationPRD, doAddModuleIntofeatureOrganizationPRD, doDeletefeatureUsingIdOrganizationPRD, doPatchfeatureUsingIdOrganizationPRD, doPutfeatureUsingIdOrganizationPRD, doGetfeatureUsingIdOrganizationPRD, doCreatefeatureOrganizationPRD, doGetAllfeatureOrganizationPRD, doMoveFetaureIntoCategoryOrganizationPRD, doDeleteOrganizationPRDCategoryUsingId, doPatchOrganizationPRDCategory, doPutOrganizationPRDCategory, doGetOrganizationPRDCategoryUsingId, doCreateOrganizationPRDCategory, doGetOrganizationPRDCategoryList, dogetOrganizationPRDEstimate, doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doGetJiraSetup, doCreateJiraSetUp, doGetJiraSetupById, doPutJiraSetup, doPatchJiraSetup, doDeletejiraSetupById, doGetPrdanalyzerisks, doCreateGeneratesugesstfeature, docreateStartoverprd, doCreateGeneratemodelwithai, doCreateprdGetestimate, doCreatetoggleselfserveestimation, doCreateUpdatecontextstore, doCreateContactsales, doGetCopilot,doGetCopilotByID,doGetPrddemo,doCreateLoadPrdintochat,doCreatesendmessagetocopilot,doCreateSyncPRDtocopilotagent } from '../pages/NewPrdPage.js';
 
 let app_name;
 let app_id;
@@ -670,5 +670,23 @@ it('Get User Project Permission', () => {
     })
 })
 
+it('Get Zoom Level', () => {
+    doGetZoomLevel(authKey,app_id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Get Zoom Level Response", response.body)
+    })
+})
+it('Get Git Pulls', () => {
+    doGetGitPulls(authKey,app_id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Get Git Pulls Response", response.body)
+    })
+})
+it('Get Git Commits', () => {
+    doGetGitCommits(authKey,app_id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("et Git Commits Response", response.body)
+    })
+})
 })
 
