@@ -1126,6 +1126,17 @@ module.exports = defineConfig({
  
    getUserProjectPermission1: "/api/v2/apps/",
    getUserProjectPermission2: "/permissions/",
+
+   getZoomLevel1: "/api/v2/apps/",
+   getZoomLevel2: "/zoom-level/",
+
+   getGitPulls1: "/api/v2/apps/",
+   getGitPulls2: "/git-pulls/",
+
+   getGitCommits1: "/api/v2/apps/",
+   getGitCommits2: "/git-commits/",
+
+
    
 
 

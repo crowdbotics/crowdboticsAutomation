@@ -1220,3 +1220,44 @@ export const doGetUserProjectPermission = (auth_key,app_id) => {
         return response;
     })
 };
+
+////////////////////////////////////////////////////////////////
+export const doGetZoomLevel = (auth_key,app_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getZoomLevel1')+app_id+ Cypress.env('getZoomLevel2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+export const doGetGitPulls = (auth_key,app_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getGitPulls1')+app_id+ Cypress.env('getGitPulls2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+export const doGetGitCommits = (auth_key,app_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getGitCommits1')+app_id+ Cypress.env('getGitCommits2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
