@@ -1136,6 +1136,8 @@ module.exports = defineConfig({
    getGitCommits1: "/api/v2/apps/",
    getGitCommits2: "/git-commits/",
 
+   createAppWithRepoC2S: "/api/v1/create/import/",
+
 
    
 
