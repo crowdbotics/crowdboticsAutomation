@@ -1411,21 +1411,7 @@ export const doCreateCodetospecresetstatus = (auth_key, app_id) => {
 
 };
 
-export const doCreateCodetospegenerate = (auth_key, app_id) => {
-    return cy.fixture('api_add_codetospec_generate.json').then((myFixture) => {
-        cy.request({
-            method: 'POST',
-            url: Cypress.env('baseUrl') + Cypress.env('creategeneratecodetospec1') + app_id + Cypress.env('creategeneratecodetospec2'),
-            body: myFixture,
-            headers: {
-                'Authorization': 'Token ' + auth_key,
-            }
-        }).then((response) => {
-            return response;
-        })
-    })
 
-};
 
 export const docreateProxyaccess = (auth_key,app_id) => {
     return cy.request({
