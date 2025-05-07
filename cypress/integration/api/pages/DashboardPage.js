@@ -295,6 +295,37 @@ export const doDeleteComponent = (auth_key, app_id, component_id) => {
     })
 };
 
+export const doGetModuleOptions = (auth_key, app_id, Component_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getModuleOptions1') + app_id + Cypress.env('getModuleOptions2') + Component_id + Cypress.env('getModuleOptions3'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doCreateModuleOptions = (auth_key, app_id, Component_id) => {
+
+    return cy.fixture('api_addComponent.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('postModuleOptions1') + app_id + Cypress.env('postModuleOptions2') + Component_id + Cypress.env('postModuleOptions3'),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Token ' + auth_key,
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
 
 export const getCertificateList = (auth_key) => {
     return cy.request({
@@ -464,6 +495,52 @@ export const doGetAttributesById = (auth_key, app_id, attributes_id) => {
     return cy.request({
         method: 'GET',
         url: Cypress.env('baseUrl') + Cypress.env('getAttributes1') + app_id + Cypress.env('getAttributes2') + attributes_id + Cypress.env('getAttributes3'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doUpdateAttributesByPut = (auth_key, app_id,attributes_id) => {
+
+    return cy.fixture('api_updateAttribute.json').then((myFixture) => {
+        cy.request({
+            method: 'PUT',
+            url: Cypress.env('baseUrl') + Cypress.env('putAttributes1') + app_id + Cypress.env('putAttributes2') + attributes_id ,
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doUpdateAttributesByPatch = (auth_key, app_id,attributes_id) => {
+
+    return cy.fixture('api_updateAttribute.json').then((myFixture) => {
+        cy.request({
+            method: 'PATCH',
+            url: Cypress.env('baseUrl') + Cypress.env('patchAttributes1') + app_id + Cypress.env('patchAttributes2') + attributes_id ,
+            headers: {
+                'Authorization': 'Token ' + auth_key
+            },
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+};
+
+export const doDeleteAttributes = (auth_key, app_id, attributes_id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: Cypress.env('baseUrl') + Cypress.env('deleteAttributes1') + app_id + Cypress.env('deleteAttributes2') + attributes_id,
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -1370,3 +1447,44 @@ export const doGetProjectlogsByID = (auth_key,projectlogs_id) => {
     })
 };
 
+export const doGetPlans = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getPlans'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doGetPlansByID = (auth_key,Plans_id) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getPlansByID1')+Plans_id + Cypress.env('getPlansByID2'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doGetProductmetrics = (auth_key) => {
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getProdcutmetrics'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Token ' + auth_key,
+        },
+    }).then((response) => {
+        return response;
+    })
+};

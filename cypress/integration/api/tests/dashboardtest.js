@@ -1,6 +1,6 @@
 /// <reference types = "cypress"/>
 
-import { doGetMobilebuilds, doPostresendverification, doGetSlides, doPostslides, doDeleteCertificationsid, doPatchCertificationsid, doputCertificationsid, dogetCertificationsid, doPostCertifications, dogetCertifications, doDeleteFile, doUpdateWithPatchFile, doUpdateWithPutFile, doGetFileById, doCreateFile, doDeleteComponent, doUpdateWithPatchComponent, doUpdateWithPutComponent, doGetComponentById, doCreateComponent, doGetComponentList, doDeleteBugTask, doUpdateWithPatchBugTask, doUpdateWithPutBugTask, doGetBugTaskById, doCreateBugTask, doGetBugTaskList, doGetAppetizeBuilds, getAppListById, dogGetFilesList, getEdges, getUserList, getAuditLogList, getAttributes, doCreateAttributes, getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories, getReports, doGetFeedbacksCategoriesByID, dogetcbusers, doPostcbusers, dogetcbusersbyId, doputcbusersbyId, dopatchcbusersbyId, doGetReportsByID, doGetDevloperrequest, doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById, doGetLogs, doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID, doGetAddons, doGetAddonsByID, doGetScaffolds, doTOTPdevice, doGetSocialaccounts, doGetSettingsfe, doGetPeojectClones, doGetProjectClonesByID, doPostDashboardFeedack, doPostMagicLink, doPostOutGrow, doGetSocialApp, doGetSocialAppByID, doPostTotpDeviceRemove, doGetUser, doPutUser, doGetUsers, doGetUsersByID, doGetProjectlogs, doGetProjectlogsByID } from '../pages/DashboardPage.js';
+import { doGetMobilebuilds, doPostresendverification, doGetSlides, doPostslides, doDeleteCertificationsid, doPatchCertificationsid, doputCertificationsid, dogetCertificationsid, doPostCertifications, dogetCertifications, doDeleteFile, doUpdateWithPatchFile, doUpdateWithPutFile, doGetFileById, doCreateFile, doDeleteComponent, doUpdateWithPatchComponent, doUpdateWithPutComponent, doGetComponentById, doCreateComponent, doGetComponentList, doDeleteBugTask, doUpdateWithPatchBugTask, doUpdateWithPutBugTask, doGetBugTaskById, doCreateBugTask, doGetBugTaskList, doGetAppetizeBuilds, getAppListById, dogGetFilesList, getEdges, getUserList, getAuditLogList, getAttributes, doCreateAttributes, getNotification, getAppSupportType, getCertificateList, doGetSkillsList, appTypeList, appTypeUsingId, doCteareApp, searchApp, doCheckAppGeneration, getInvoice, searchInvoice, getAppLogs, getAppLogsUsingLogID, getStatistics, getBuildstages, getCandidates, getFeedbacks, getFeedbacksCategories, getReports, doGetFeedbacksCategoriesByID, dogetcbusers, doPostcbusers, dogetcbusersbyId, doputcbusersbyId, dopatchcbusersbyId, doGetReportsByID, doGetDevloperrequest, doGetDevloperrequestByID, doGetResponses, doGetAppetizedevices, dogGetAPIspec, doGetAttributesById, doGetLogs, doGetLogsById, doPostDashboardfeedbacks, doGetMemberfeedback, doGetfeedbackmemberByID, doGetAddons, doGetAddonsByID, doGetScaffolds, doTOTPdevice, doGetSocialaccounts, doGetSettingsfe, doGetPeojectClones, doGetProjectClonesByID, doPostDashboardFeedack, doPostMagicLink, doPostOutGrow, doGetSocialApp, doGetSocialAppByID, doPostTotpDeviceRemove, doGetUser, doPutUser, doGetUsers, doGetUsersByID, doGetProjectlogs, doGetProjectlogsByID,doGetPlans,doGetPlansByID,doGetProductmetrics, doGetModuleOptions, doCreateModuleOptions, doUpdateAttributesByPatch, doUpdateAttributesByPut, doDeleteAttributes } from '../pages/DashboardPage.js';
 import { doDashboardLogin, doDatamodelLogin } from '../pages/loginPage.js';
 
 let component_id;
@@ -25,6 +25,7 @@ let projectclones_id;
 let social_id = 1;
 let users_id = 1;
 let projectlogs_id;
+let Plans_id;
 
 describe("Dashboard Page", () => {
 
@@ -169,6 +170,22 @@ describe("Dashboard Page", () => {
         doGetComponentById(authKey, app_id, component_id).then((response) => {
             expect(response.status).to.eq(200)
             cy.log("Get Component Using Id response", response.body)
+
+        })
+    })
+
+    it('Get Module Options', () => {
+        doGetModuleOptions(authKey, app_id, component_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Module Options response", response.body)
+
+        })
+    })
+
+    it('Create Module Options', () => {
+        doCreateModuleOptions(authKey, app_id, component_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Create Module Options response", response.body)
 
         })
     })
@@ -330,12 +347,36 @@ describe("Dashboard Page", () => {
         })
     })
 
-    it('Get Audit Log List Flow', () => {
-        getAuditLogList(authKey, app_id).then((response) => {
+    it('Put Attributes', () => {
+        doUpdateAttributesByPut(authKey, app_id, attributes_id).then((response) => {
             expect(response.status).to.eq(200)
-            cy.log("Get Attributes response", response.body)
+            cy.log("Put Attributes", response.body)
+
         })
     })
+
+    it('Patch Attributes', () => {
+        doUpdateAttributesByPatch(authKey, app_id, attributes_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Patch Attributes", response.body)
+
+        })
+    })
+
+    it('Delete Attributes', () => {
+        doDeleteAttributes(authKey, app_id, attributes_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Delete Attributes", response.body)
+
+        })
+    })
+
+    // it('Get Audit Log List Flow', () => {
+    //     getAuditLogList(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get Attributes response", response.body)
+    //     })
+    // })
 
     it('Get Certifications', () => {
         dogetCertifications(authKey, app_id).then((response) => {
@@ -427,14 +468,6 @@ describe("Dashboard Page", () => {
     //     })
     // })
 
-    
-
-    it('Get Cb Users', () => {
-        dogetcbusers(authKey).then((response) => {
-            cy.log("Get Cb users response", response.body)
-            expect(response.status).to.eq(200)
-        })
-    })
 
     it('Post Cb Users', () => {
         doPostcbusers(authKey).then((response) => {
@@ -447,6 +480,13 @@ describe("Dashboard Page", () => {
 
     it('Get Cb Users by Id', () => {
         dogetcbusersbyId(authKey, cb_usersid).then((response) => {
+            cy.log("Get Cb users response", response.body)
+            expect(response.status).to.eq(200)
+        })
+    })
+
+    it('Get Cb Users', () => {
+        dogetcbusers(authKey).then((response) => {
             cy.log("Get Cb users response", response.body)
             expect(response.status).to.eq(200)
         })
@@ -728,6 +768,29 @@ describe("Dashboard Page", () => {
             cy.log("Get Social APP Id response", response.body)
         })
     })
+
+    it('get verify the Plans', () => {
+        doGetPlans(authKey).then((response) => {
+            Plans_id = response.body[0].id;
+            expect(response.status).to.eq(200)
+            cy.log("Get Plans", response.body)
+        })
+    })
+
+    it('get verify the Plans By ID', () => {
+        doGetPlansByID(authKey, Plans_id).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Plans Id response", response.body)
+        })
+    })
+
+    it('get verify the product metrics', () => {
+        doGetProductmetrics(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get product metrics", response.body)
+        })
+    })
+
 
 
 })

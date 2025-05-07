@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import { doCteareApp } from '../pages/DashboardPage.js';
 import { doPrdLogin} from '../pages/loginPage.js';
-import { doGetattachmentslist,doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doDeletefeature, doPatchFeature, doPutFeature, doPutCategories, doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks,doPostUsefullLinks,doGetidUsefullLinks,doPutUsefullLinks,doPatchUsefullLinks,doDeleteUsefullLinks,doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getRolesUsingId, getRoles, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, prd_overview_tags, prd_overview_userRoles, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually,doGetSUserTypes, doCreateUserTypes, doGetSUserTypesByID, doPatchUserTypes,doPutUserTypes, dodeleteuserTypesByid,doGetRolesByID, doGetOpenAI,doGetDemoPhase,doGetDemoRoles,doGetDemoticket,doCreateStartcodespec,doGetCodetospecById,doPutCodetospec,doPatchCodetospec,doDeleteCodetospecById,doCreatecodespecgeneratedependencies,doGetCodepackages,doCreateCodespacpackagesinstall,doGetCodetospecerrorlog,doCreateCodetospecresetstatus } from '../pages/PrdPage.js';
+import { doGetattachmentslist,doGetOrganizationPRDList, doGenerateOrganizationPRD, doGetOrganizationPRDById, doPutOrganizationPRD, doPatchOrganizationPRD, doDeleteOrganizationPRD, doDeletefeature, doPatchFeature, doPutFeature, doPutCategories, doDeleteCategories, doCreateCategories, doApproveAllFeatures, doGetPRDAIfeatures, doGetPrdAiUserType, doGetPrdActivityLog, doGetStatementOfWork, doGetUsefullLinks,doPostUsefullLinks,doGetidUsefullLinks,doPutUsefullLinks,doPatchUsefullLinks,doDeleteUsefullLinks,doGetPaymentReceipt, doAddInstallerInstall, doGetStartOverPrdAi, doGetaAnalyzeRisks, doAddSuggestedFeatures, doGetCurrentPrdPdf, getRolesUsingId, getRoles, addPrdVersionStatus, getMilestoneStatusSummy, getMilestoneIndex, getCBCarePlanUsingId, getCurrentlyApprovedPrdVersion, prd_overview_tags, prd_overview_userRoles, prd_create_item, prd_get_Item, prd_delete_item, doPatchGroup, doPatchItem, doGetUserReposList, doApprovePrd, doUpdatePrdVersionStatus, doImportCatalog, doGetGroupUsingId, doPatchItemUpdateOrder, doGetItemsUsingId, doAddPrdRoles, doRemovePrdRoles, doAddPrdTag, doGetPrdTag, doGetPrdTagUsingId, doDeletePrdTag, doGetPrdVersions, doAddComment, doGetComment, doGetChangeCommentStatus, doGetViewInStudioPrd, doDeleteComment, doEditComment, doAddFeatureIntoPrd, doAddModuleIntoPrd, doAddArchetypeIntoPrd, doGetCodeStatusPrd, docreatePRDWithAI, doAddfeaturewithAI, doAddfeaturemanually,doGetSUserTypes, doCreateUserTypes, doGetSUserTypesByID, doPatchUserTypes,doPutUserTypes, dodeleteuserTypesByid,doGetRolesByID, doGetOpenAI,doGetDemoPhase,doGetDemoRoles,doGetDemoticket,doCreateStartcodespec,doGetCodetospecById,doPutCodetospec,doPatchCodetospec,doDeleteCodetospecById,doCreatecodespecgeneratedependencies,doGetCodepackages,doCreateCodespacpackagesinstall,doGetCodetospecerrorlog,doCreateCodetospecresetstatus,docreateProxyaccess,doGetmoduledeploystatus,doGetPRDList,docreateUpdateproposal,doaddToggleselfserveestimation } from '../pages/PrdPage.js';
 
 
 let authKey;
@@ -29,6 +29,7 @@ let usertypes_id;
 let roles_id
 let codetospec;
 let user_id = ["4473"];
+let getPRDId;
 describe("PRD Page", () => {
     app_name = 'TestAPIAutoSettings' + (Math.random() + 1).toString(36).substring(7);
     it('Create Tags Flow', () => {
@@ -566,13 +567,14 @@ describe("PRD Page", () => {
 //             cy.log("Put categories response", response.body)
 //         })
 //     })
-//     it('Get PRD List', () => {
-//         doGetPRDList(authKey, app_id).then((response) => {
-//             expect(response.status).to.eq(200)
-//             cy.log("apps prd list", response.body)
+    it('Get PRD List', () => {
+        doGetPRDList(authKey, app_id).then((response) => {
+            getPRDId=response.body.id;
+            expect(response.status).to.eq(200)
+            cy.log("apps prd list", response.body)
 
-//         })
-//     })
+        })
+    })
 //     it('Get PRD Partial Update Status', () => {
 //         doGetprdPartialUpdate(authKey, app_id).then((response) => {
 //             expect(response.status).to.eq(200)
@@ -695,5 +697,34 @@ it('Create Code to Spec', () => {
         cy.log("Create Code to spec reset status Message Response", response.body)
     })
  })
+
+ it('Create Proxy access Flow', () => {
+    docreateProxyaccess(authKey,app_id).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Create Proxy access Flow response", response.body)
+    })
+})
+
+it('Get module deploy status', () => {
+    doGetmoduledeploystatus(authKey, app_id,getPRDId).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Reports get result", response.body)
+    })
+})
+
+it('Create Update proposal', () => {
+    docreateUpdateproposal(authKey,app_id,getPRDId).then((response) => {
+        expect(response.status).to.eq(202)
+        cy.log("Create Update proposal response", response.body)
+    })
+})
+
+it('Create Toggle self serveestimation', () => {
+    doaddToggleselfserveestimation(authKey,app_id,getPRDId).then((response) => {
+        expect(response.status).to.eq(200)
+        cy.log("Create Update proposal response", response.body)
+    })
+})
+
 
 })

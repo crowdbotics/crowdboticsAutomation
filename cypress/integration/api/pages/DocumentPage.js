@@ -148,3 +148,55 @@ export const doPatchCodePackageById = (auth_key,codepackage_id,codePackage_name,
         })
     })
 }
+
+export const doGetSuggestedChatbotQuestions = (auth_key) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getSuggestedChatbotQuestions'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const doGetSuggestedChatbotQuestionsById = (auth_key,chatbotQuestionsId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getSuggestedChatbotQuestionsById')+chatbotQuestionsId,
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const doGetAllAppCreatedBySpecificRepo = (auth_key) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getAppListByrepo'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}
+
+export const doGetUserRepoList = (auth_key) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getUserRepoList'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+}

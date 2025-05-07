@@ -242,6 +242,25 @@ export const doNewPrdLogin = () => {
 
 }
 
+export const doC2SLogin = () => {
+    // const tokenvalue = authenticator.generate("EQ2WUPX7QC3VIPGPMQ5M5AOYADH4XMHT");
+    // cy.readFile('cypress/fixtures/api_login.json').then((data) => {
+    //     data.token = parseInt(tokenvalue);
+    //     cy.writeFile('cypress/fixtures/api_login.json', JSON.stringify(data));
+    // });
+    return cy.fixture('api_c2s.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('normallogin'),
+            retryOnStatusCodeFailure: true,
+            body: myFixture
+        }).then((response) => {
+            return response;
+        })
+    })
+
+}
+
 export const doGeneralUserLogin = () => {
     // const tokenvalue = authenticator.generate("EQ2WUPX7QC3VIPGPMQ5M5AOYADH4XMHT");
     // cy.readFile('cypress/fixtures/api_login.json').then((data) => {
@@ -295,4 +314,3 @@ export const doLogout = (auth_key) => {
         return response;
     })
 };
-
