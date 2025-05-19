@@ -1072,7 +1072,7 @@ module.exports = defineConfig({
 
     getSuggestedChatbotQuestionsById: "/api/v1/suggested-chatbot-questions/",
 
-    getAppListByrepo: "/api/v1/user/repo-apps?repo_name=anishcb%2FV1Testing",
+    getAppListByrepo: "/api/v1/user/repo-apps?repo_name=TiwariMithilesh/TestingRepo",
 
     getUserRepoList: "/api/v1/user/repos/",
     getCopilot: "/api/v1/prd-copilot/",

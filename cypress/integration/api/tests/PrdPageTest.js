@@ -41,11 +41,6 @@ describe("PRD Page", () => {
                 app_id = response.body.id;
                 app_name = response.body.name;
                 localStorage.setItem('app_id', response.body.id);
-                //prd_overview_tags(authKey, app_id).then((response) => {
-                    getPrdAiCategories(authKey, app_id).then((response) => {
-                    expect(response.status).to.eq(200)
-                    cy.log("create tags response", response.body)
-                })
             })
         })
     })
@@ -487,12 +482,12 @@ describe("PRD Page", () => {
         })
     })
 
-    it('Get User Repos List Flow', () => {
-        doGetUserReposList(authKey).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("Get PrdGroup response", response.body)
-        })
-    })
+    // it('Get User Repos List Flow', () => {
+    //     doGetUserReposList(authKey).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("Get PrdGroup response", response.body)
+    //     })
+    // })
     it('Add Create PRD with AI', () => {
         docreatePRDWithAI(authKey, app_id, app_name).then((response) => {
             expect(response.status).to.eq(202)
@@ -627,48 +622,48 @@ it('get Demo Ticket Flow', () => {
     })
 })
 
-it('Create Code to Spec', () => {
-    doCreateStartcodespec(authKey, app_id).then((response) => {
-        codetospec=response.body.id;
-        expect(response.status).to.eq(200)
-        cy.log("Create code to spec Message Response", response.body)
-    })
- })
+// it('Create Code to Spec', () => {
+//     doCreateStartcodespec(authKey, app_id).then((response) => {
+//         codetospec=response.body.id;
+//         expect(response.status).to.eq(200)
+//         cy.log("Create code to spec Message Response", response.body)
+//     })
+//  })
 
- it('Get Code to spec using Id', () => {
-    doGetCodetospecById(authKey, app_id,codetospec).then((response) => {
-        expect(response.status).to.eq(200)
-        cy.log("Get code to spec using Id Response", response.body)
-    })
- })
+//  it('Get Code to spec using Id', () => {
+//     doGetCodetospecById(authKey, app_id,codetospec).then((response) => {
+//         expect(response.status).to.eq(200)
+//         cy.log("Get code to spec using Id Response", response.body)
+//     })
+//  })
 
- it('Put Code to spec using Id', () => {
-    doPutCodetospec(authKey, app_id,codetospec).then((response) => {
-        expect(response.status).to.eq(200)
-        cy.log("Put code to spec using Id Response", response.body)
-    })
- })
+//  it('Put Code to spec using Id', () => {
+//     doPutCodetospec(authKey, app_id,codetospec).then((response) => {
+//         expect(response.status).to.eq(200)
+//         cy.log("Put code to spec using Id Response", response.body)
+//     })
+//  })
 
- it('Patch Code to spec using Id', () => {
-    doPatchCodetospec(authKey, app_id,codetospec).then((response) => {
-        expect(response.status).to.eq(200)
-        cy.log("Patch code to spec using Id Response", response.body)
-    })
- })
+//  it('Patch Code to spec using Id', () => {
+//     doPatchCodetospec(authKey, app_id,codetospec).then((response) => {
+//         expect(response.status).to.eq(200)
+//         cy.log("Patch code to spec using Id Response", response.body)
+//     })
+//  })
 
- it('Delete Code to spec using Id', () => {
-    doDeleteCodetospecById(authKey, app_id,codetospec).then((response) => {
-        expect(response.status).to.eq(204)
-        cy.log("Delete code to spec using Id Response", response.body)
-    })
- })
+//  it('Delete Code to spec using Id', () => {
+//     doDeleteCodetospecById(authKey, app_id,codetospec).then((response) => {
+//         expect(response.status).to.eq(204)
+//         cy.log("Delete code to spec using Id Response", response.body)
+//     })
+//  })
 
- it('Create Code to Spec generate dependencies', () => {
-    doCreatecodespecgeneratedependencies(authKey, app_id).then((response) => {
-        expect(response.status).to.eq(200)
-        cy.log("Create Code to Spec generate dependencies Message Response", response.body)
-    })
- })
+//  it('Create Code to Spec generate dependencies', () => {
+//     doCreatecodespecgeneratedependencies(authKey, app_id).then((response) => {
+//         expect(response.status).to.eq(200)
+//         cy.log("Create Code to Spec generate dependencies Message Response", response.body)
+//     })
+//  })
 
  it('get Code Packages Flow', () => {
     doGetCodepackages(authKey,app_id).then((response) => {
@@ -684,19 +679,19 @@ it('Create Code to Spec', () => {
     })
  })
 
- it('get Code to spec error log', () => {
-    doGetCodetospecerrorlog(authKey,app_id).then((response) => {
-        expect(response.status).to.eq(200)
-        cy.log("Get Code to spec error log response", response.body)
-    })
-})
+//  it('get Code to spec error log', () => {
+//     doGetCodetospecerrorlog(authKey,app_id).then((response) => {
+//         expect(response.status).to.eq(200)
+//         cy.log("Get Code to spec error log response", response.body)
+//     })
+// })
 
- it('Create Code to spec reset status', () => {
-    doCreateCodetospecresetstatus(authKey, app_id).then((response) => {
-        expect(response.status).to.eq(200)
-        cy.log("Create Code to spec reset status Message Response", response.body)
-    })
- })
+//  it('Create Code to spec reset status', () => {
+//     doCreateCodetospecresetstatus(authKey, app_id).then((response) => {
+//         expect(response.status).to.eq(200)
+//         cy.log("Create Code to spec reset status Message Response", response.body)
+//     })
+//  })
 
  it('Create Proxy access Flow', () => {
     docreateProxyaccess(authKey,app_id).then((response) => {

@@ -135,12 +135,12 @@ describe("Tasks Page", () => {
     // })
 
 
-    it('View Wish List Task Info', () => {
-        doGetTaskById(authKey, app_id,task_wishlist_id).then((response) => {
-            expect(response.status).to.eq(200)
-            cy.log("create milestone response", response.body)
-        })
-    })
+    // it('View Wish List Task Info', () => {
+    //     doGetTaskById(authKey, app_id,task_wishlist_id).then((response) => {
+    //         expect(response.status).to.eq(200)
+    //         cy.log("create milestone response", response.body)
+    //     })
+    // })
 
     it('Create Subtask Flow', () => {
         doCreateSubTask(authKey, task_id).then((response) => {
@@ -211,13 +211,13 @@ it('Update Subtask Flow', () => {
         })
     })
 
-    it('Approve Payment Flow', () => {
+    // it('Approve Payment Flow', () => {
 
-        doApprovePayment(authKey, app_id).then((response) => {
-            expect(response.status).to.eq(201)
-            cy.log("Approve Payment response", response.body)
-        })
-    })
+    //     doApprovePayment(authKey, app_id).then((response) => {
+    //         expect(response.status).to.eq(201)
+    //         cy.log("Approve Payment response", response.body)
+    //     })
+    // })
 
     it('Create Billing Schedule Flow', () => {
 

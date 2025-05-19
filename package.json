@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test:general": "npx cypress run --spec cypress/integration/api/tests/DifferentUserTest.js --env grep=general",
+    "test:sales": "npx cypress run --spec cypress/integration/api/tests/DifferentUserTest.js --env grep=sales",
     "test:setting": "npx cypress run --spec cypress/integration/api/tests/SettingsPageTest.js",
-    "test:all": "npx cypress run --spec cypress/integration/api/tests/SettingsPageTest.js,cypress/integration/api/tests/PrdPageTest.js,cypress/integration/api/tests/ConnectorsPageTest.js,cypress/integration/api/tests/CatalogPageTest.js,cypress/integration/api/tests/Taskstest.js,cypress/integration/api/tests/dashboardtest.js",
+    "test:all": "npx cypress run --spec cypress/integration/api/tests/C2SPageTest.js,cypress/integration/api/tests/CatalogPageTest.js,cypress/integration/api/tests/ConnectorsPageTest.js,cypress/integration/api/tests/dashboardtest.js,cypress/integration/api/tests/DataModelPageTest.js,cypress/integration/api/tests/DocumentPageTest.js,cypress/integration/api/tests/JobPageTest.js,cypress/integration/api/tests/ModulePageTest.js,cypress/integration/api/tests/PrdPageTest.js,cypress/integration/api/tests/SettingsPageTest.js,cypress/integration/api/tests/StudioPageTest.js,cypress/integration/api/tests/taskstest.js,cypress/integration/api/tests/TeamMemberPageAdminTest.js,cypress/integration/api/tests/NewPrdPageTest.js",
     "test:prd": "npx cypress run --spec cypress/integration/api/tests/PrdPageTest.js",
     "test:login": "npx cypress run --spec cypress/integration/api/tests/logintest.js",
     "test:settingsa": "npx cypress run --spec cypress/integration/api/tests/*.js --env grep=Settings",
