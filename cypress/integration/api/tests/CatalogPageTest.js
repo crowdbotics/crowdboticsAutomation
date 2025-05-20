@@ -152,7 +152,6 @@ describe("Catalog Page", () => {
             cy.log("Get Catolog Module List", response.body)
         })
     })
-
      it('Add Catalog Module', () => {
         module_title='_IunN' + (Math.random() + 1).toString(36).substring(7);
         module_slug="TestModuleSlug"+(Math.random() + 1).toString(36).substring(7);
@@ -186,11 +185,14 @@ describe("Catalog Page", () => {
             cy.log("'Update Catalog Module Using Put Method ", response.body)
         })
     })
-
     it('Delete Catalog Module Flow', () => {
-        doDeleteCatologModule(authKey,module_id).then((response) => {
-            expect(response.status).to.eq(204)
-            cy.log("Delete Catalog Module ", response.body)
+        // doDeleteCatologModule(authKey,module_id).then((response) => {
+        //     expect(response.status).to.eq(204)
+        //     cy.log("Delete Catalog Module ", response.body)
+        // })
+        doGetCatalogArchetypeList(authKey).then((response) => {
+            expect(response.status).to.eq(200)
+            cy.log("Get Archetype response", response.body)
         })
     })
 

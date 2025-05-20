@@ -33,7 +33,7 @@ Go to any location on your system where you want to store your project.
     
 16. Select your spec file so your test will automatically start.
 
-    ___________________________________________________________________________________________________________
+    _______________________________________________________________________________________
 
   
 **How can you run the code from GitHub actions?**
@@ -48,7 +48,7 @@ Go to any location on your system where you want to store your project.
    
 5. Click on the build option, and you can check your status.
 
-   ______________________________________________________________________________________________________________
+   ________________________________________________________________________________________
 
 **How can I check the report?**
 
@@ -60,10 +60,25 @@ Go to any location on your system where you want to store your project.
    
 4. Click on the enter key.
 
-_________________________________________________________________________________________________________________
-7. What is the framework structure?
-8. How can I check the report and concurrency?
-9. How can we use TCMS for every automated test run?
-10. How to checkout and use the framework Create a sub-branch.
-11. Create a document defining the process of branching.
-12. How to checkout and use the framework
+____________________________________________________________________________________________
+
+**How to Test API Endpoints with Different User Roles (e.g., Normal User, Sales User, Super User):**
+
+1. Update Credentials in Fixture File:
+First, go to the fixture file named api_for_different_user_login.json and update it with the username and password of the user role you want to test.
+For example, if you're testing as a Normal User, enter the Normal User’s credentials in this file.
+
+2. Run Tests Based on User Role Using Tags:
+Once you've set the appropriate credentials, you can run the tests for that specific user role using tags.
+For example, to run tests for the Normal User, use the following command:
+
+**User Credentials**
+**👤 Normal User**
+Email: testnew.prd@crowdbotics.com
+
+Password: Test@123456789
+
+**💼 Sales User**
+Email: vinay.sales@crowdbotics.com
+
+Password: VinaySales@123

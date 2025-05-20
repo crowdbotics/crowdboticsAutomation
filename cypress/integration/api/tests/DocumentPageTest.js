@@ -46,6 +46,7 @@ describe("Document Page", () => {
             cy.log("Patch document by id flow response", response.body)
         })
     })
+    
     it('Delete document by id flow', () => {
         doDeleteDocumentById(authKey, app_id, document_id).then((response) => {
             expect(response.status).to.eq(204)
