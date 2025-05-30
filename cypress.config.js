@@ -1154,19 +1154,34 @@ module.exports = defineConfig({
     getErroLogDetails2: '/code-to-spec/error-log-detail/',
 
     createC2s1: '/api/v1/apps/',
-    createC2S2: '/c2s/',
+    createC2s2: '/c2s/',
 
     getC2SArchitectureActor1:'/api/v1/c2s/',
     getC2SArchitectureActor2: '/architecture/actors/',
 
     getC2SArchitectureC41:'/api/v1/c2s/',
-    getC2SArchitectureC41: '/architecture/c4/',
+    getC2SArchitectureC42: '/architecture/c4/',
 
     getC2SArchitectureCodeGraph1: '/api/v1/c2s/',
     getC2SArchitectureCodeGraph2:'/architecture/code-graph/',
 
     getC2SArchitectureDatabases1: '/api/v1/c2s/',
     getC2SArchitectureDatabases2:'/architecture/databases/',
+
+    getC2SArchitectureDomainModel1: '/api/v1/c2s/',
+    getC2SArchitectureDomainModel2: '/architecture/domain-model/',
+
+    getC2SArchitectureExternalDependencies1: '/api/v1/c2s/',
+    getC2SArchitectureExternalDependencies2: '/architecture/external-dependencies/',
+
+    getC2SArchitectureFrameworks1: '/api/v1/c2s/',
+    getC2SArchitectureFrameworks2: '/architecture/frameworks/',
+
+    getC2SArchitectureInfrastructures1:'/api/v1/c2s/',
+    getC2SArchitectureInfrastructures2: '/architecture/infrastructures/',
+
+    getC2SArchitectureLanguages1: '/api/v1/c2s/',
+    getC2SArchitectureLanguages2: '/architecture/languages/',
 
   },
   e2e: {

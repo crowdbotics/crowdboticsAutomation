@@ -110,7 +110,7 @@ export const doCreateC2S = (auth_key, app_id) => {
             url: Cypress.env('baseUrl') + Cypress.env('createC2s1') + app_id + Cypress.env('createC2s2'),
             body: myFixture,
             headers: {
-                'Authorization': 'Token ' + auth_key,
+                'Authorization': 'CBToken ' + auth_key,
             }
         }).then((response) => {
             return response;
@@ -124,7 +124,7 @@ export const dogetC2SArchitectureActor = (auth_key, c2sId) => {
         method: 'GET',
         url: Cypress.env('baseUrl') + Cypress.env('getC2SArchitectureActor1') + c2sId + Cypress.env('getC2SArchitectureActor2'),
         headers: {
-            'Authorization': 'Token ' + auth_key
+            'Authorization': 'CBToken ' + auth_key
         }
     }).then((response) => {
         return response;
@@ -137,7 +137,7 @@ export const doGetC2SArchitectureC4 = (auth_key, c2sId) => {
         method: 'GET',
         url: Cypress.env('baseUrl') + Cypress.env('getC2SArchitectureC41') + c2sId + Cypress.env('getC2SArchitectureC42'),
         headers: {
-            'Authorization': 'Token ' + auth_key
+            'Authorization': 'CBToken ' + auth_key
         }
     }).then((response) => {
         return response;
@@ -150,7 +150,7 @@ export const doGetC2SArchitectureCodeGraph = (auth_key, c2sId) => {
         method: 'GET',
         url: Cypress.env('baseUrl') + Cypress.env('getC2SArchitectureCodeGraph1') + c2sId + Cypress.env('getC2SArchitectureCodeGraph2'),
         headers: {
-            'Authorization': 'Token ' + auth_key
+            'Authorization': 'CBToken ' + auth_key
         }
     }).then((response) => {
         return response;
@@ -163,7 +163,71 @@ export const doGetC2SArchitectureDatabases = (auth_key, c2sId) => {
         method: 'GET',
         url: Cypress.env('baseUrl') + Cypress.env('getC2SArchitectureDatabases1') + c2sId + Cypress.env('getC2SArchitectureDatabases2'),
         headers: {
-            'Authorization': 'Token ' + auth_key
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+export const doGetC2SArchitectureDomainModel = (auth_key, c2sId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SArchitectureDomainModel1') + c2sId + Cypress.env('getC2SArchitectureDomainModel2'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const  doGetC2SArchitectureExternalDependencies = (auth_key, c2sId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SArchitectureExternalDependencies1') + c2sId + Cypress.env('getC2SArchitectureExternalDependencies2'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const  dogetC2SArchitectureFrameworks = (auth_key, c2sId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SArchitectureFrameworks1') + c2sId + Cypress.env('getC2SArchitectureFrameworks2'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const  dogetC2SArchitectureInfrastructures = (auth_key, c2sId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SArchitectureInfrastructures1') + c2sId + Cypress.env('getC2SArchitectureInfrastructures2'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const  dogetC2SArchitectureLanguages = (auth_key, c2sId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SArchitectureLanguages1') + c2sId + Cypress.env('getC2SArchitectureLanguages2'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
         }
     }).then((response) => {
         return response;

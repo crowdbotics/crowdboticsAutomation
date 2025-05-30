@@ -1,4 +1,4 @@
 {
-    "branch_name": "main",
-    "gitignore_rules": "null"
-  }
+  "branch": "main",
+  "gitignore_rules": "null"
+}
