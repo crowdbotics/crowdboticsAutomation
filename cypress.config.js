@@ -1183,6 +1183,21 @@ module.exports = defineConfig({
     getC2SArchitectureLanguages1: '/api/v1/c2s/',
     getC2SArchitectureLanguages2: '/architecture/languages/',
 
+    getC2SCodeList1: '/api/v1/c2s/',
+    getC2SCodeList2: '/code/',
+
+    getC2SCodeEntryPoint1:'/api/v1/c2s/',
+    getC2SCodeEntryPoint2:'/code/entry-points/',
+
+    getC2SCodeFilePathStatus1: '/api/v1/c2s/',
+    getC2SCodeFilePathStatus2: '/code/file-path-status/',
+
+    getC2SCodeFile1: '/api/v1/c2s/',
+    getC2SCodeFile2: '/code/files/',
+
+    getC2SBusinessLogic1: '/api/v1/c2s/',
+    getC2SBusinessLogic2: '/requirements/business-logic/',
+
   },
   e2e: {
     setupNodeEvents(on, config) {
