@@ -1,5 +1,5 @@
 
-import { doGetC2SArchitectureDomainModel,doGetC2SArchitectureExternalDependencies,dogetC2SArchitectureFrameworks,dogetC2SArchitectureInfrastructures,dogetC2SArchitectureLanguages,doGetC2SArchitectureDatabases,doGetC2SArchitectureCodeGraph,doGetC2SArchitectureC4,dogetC2SArchitectureActor,doCreateC2S,doCreateAppWithRepoC2S,doCreateCodetospegenerate,doGetC2SErrorLog,doGetC2SSummaryDetails,dogetDownloadErrorLogFile,dogetDownloadPRDMetaData,dogetErroLogDetails } from '../pages/C2SPage.js';
+import { doGetC2SCodeList,doGetC2SCodeEntryPoint,doGetC2SCodeFilePathStatus,doGetC2SCodeFile,doGetC2SBusinessLogic,doGetC2SArchitectureDomainModel,doGetC2SArchitectureExternalDependencies,dogetC2SArchitectureFrameworks,dogetC2SArchitectureInfrastructures,dogetC2SArchitectureLanguages,doGetC2SArchitectureDatabases,doGetC2SArchitectureCodeGraph,doGetC2SArchitectureC4,dogetC2SArchitectureActor,doCreateC2S,doCreateAppWithRepoC2S,doCreateCodetospegenerate,doGetC2SErrorLog,doGetC2SSummaryDetails,dogetDownloadErrorLogFile,dogetDownloadPRDMetaData,dogetErroLogDetails } from '../pages/C2SPage.js';
 import { doC2SLogin } from '../pages/loginPage.js';
 
 let appId;
@@ -131,5 +131,35 @@ describe("C2S Flow ", () => {
             cy.log("Get C2S Architecture Language Response", response.body)
         })
      })
-     
+     //  ,,,doGetC2SCodeFile,doGetC2SBusinessLogic
+     it('Get C2S Code List', () => {
+        doGetC2SCodeList(newAuthKey,  c2sId).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Get C2S Code List Response", response.body)
+        })
+     })
+     it('Get C2S Code Entry Point', () => {
+        doGetC2SCodeEntryPoint(newAuthKey,  c2sId).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Get C2S Code Entry Point Response", response.body)
+        })
+     })
+     it('Get C2S Code File Path Status', () => {
+        doGetC2SCodeFilePathStatus(newAuthKey,  c2sId).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Get C2S Code File Path Status Response", response.body)
+        })
+     })
+     it('Get C2S Code File', () => {
+        doGetC2SCodeFile(newAuthKey,  c2sId).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Get C2S Code File Response", response.body)
+        })
+     })
+     it('Get C2S Business Logic', () => {
+        doGetC2SBusinessLogic(newAuthKey,  c2sId).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Get C2S Business Logic Response", response.body)
+        })
+     })
 })

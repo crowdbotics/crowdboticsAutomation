@@ -233,3 +233,64 @@ export const  dogetC2SArchitectureLanguages = (auth_key, c2sId) => {
         return response;
     })
 };
+///////////////////////////////////////////////////////////////////////////////
+export const  doGetC2SCodeList = (auth_key, c2sId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SCodeList1') + c2sId + Cypress.env('getC2SCodeList2'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+export const  doGetC2SCodeEntryPoint = (auth_key, c2sId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SCodeEntryPoint1') + c2sId + Cypress.env('getC2SCodeEntryPoint2'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+export const  doGetC2SCodeFilePathStatus = (auth_key, c2sId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SCodeFilePathStatus1') + c2sId + Cypress.env('getC2SCodeFilePathStatus2'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+export const  doGetC2SCodeFile = (auth_key, c2sId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SCodeFile1') + c2sId + Cypress.env('getC2SCodeFile2'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+export const  doGetC2SBusinessLogic = (auth_key, c2sId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SBusinessLogic1') + c2sId + Cypress.env('getC2SBusinessLogic2'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
