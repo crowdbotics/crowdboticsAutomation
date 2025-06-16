@@ -1198,6 +1198,31 @@ module.exports = defineConfig({
     getC2SBusinessLogic1: '/api/v1/c2s/',
     getC2SBusinessLogic2: '/requirements/business-logic/',
 
+    getC2SRequirementscategories1: '/api/v1/c2s/',
+    getC2SRequirementscategories2: '/requirements/categories/',
+
+    getC2SRequirementscategoriesById1: '/api/v1/c2s/',
+    getC2SRequirementscategoriesById2: '/requirements/categories/',
+    getC2SRequirementscategoriesById3: '/',
+
+    getC2SRequirementscategoriesByIdFeature1:'/api/v1/c2s/',
+    getC2SRequirementscategoriesByIdFeature2:'/requirements/categories/',
+    getC2SRequirementscategoriesByIdFeature3:'/features/',
+
+    getC2SRequirementFeature1:'/api/v1/c2s/',
+    getC2SRequirementFeature2: '/requirements/features/',
+
+    getC2SRequirementFeatureById1:'/api/v1/c2s/',
+    getC2SRequirementFeatureById2: '/requirements/features/',
+    getC2SRequirementFeatureById3: '/',
+
+    getC2SRequirementFeatureByIdCode1: '/api/v1/c2s/',
+    getC2SRequirementFeatureByIdCode2: '/requirements/features/',
+    getC2SRequirementFeatureByIdCode3: '/code/',
+    
+    getC2SRequirementRoles1: '/api/v1/c2s/',
+    getC2SRequirementRoles2: '/requirements/roles/',
+
   },
   e2e: {
     setupNodeEvents(on, config) {
