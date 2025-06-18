@@ -294,3 +294,95 @@ export const  doGetC2SBusinessLogic = (auth_key, c2sId) => {
         return response;
     })
 };
+////////////////////////////////////////////////////////////////////
+
+export const  dogetC2SRequirementscategories = (auth_key, c2sId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SRequirementscategories1') + c2sId + Cypress.env('getC2SRequirementscategories2'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const  dogetC2SRequirementscategoriesById = (auth_key, c2sId, catId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SRequirementscategoriesById1') + c2sId + Cypress.env('getC2SRequirementscategoriesById2')+catId + Cypress.env('getC2SRequirementscategoriesById3'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const  dogetC2SRequirementscategoriesByIdFeature = (auth_key, c2sId, catId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SRequirementscategoriesByIdFeature1') + c2sId + Cypress.env('getC2SRequirementscategoriesByIdFeature2')+catId + Cypress.env('getC2SRequirementscategoriesByIdFeature3'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const  dogetC2SRequirementFeature = (auth_key, c2sId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SRequirementFeature1') + c2sId + Cypress.env('getC2SRequirementFeature2'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const  dogetC2SRequirementFeatureById = (auth_key, c2sId, featureId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SRequirementFeatureById1') + c2sId + Cypress.env('getC2SRequirementFeatureById2')+featureId + Cypress.env('getC2SRequirementFeatureById3'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const  getC2SRequirementFeatureByIdCode = (auth_key, c2sId, featureId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SRequirementFeatureByIdCode1') + c2sId + Cypress.env('getC2SRequirementFeatureByIdCode2')+featureId + Cypress.env('getC2SRequirementFeatureByIdCode3'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const  dogetC2SRequirementRoles = (auth_key, c2sId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SRequirementRoles1') + c2sId + Cypress.env('getC2SRequirementRoles2'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};

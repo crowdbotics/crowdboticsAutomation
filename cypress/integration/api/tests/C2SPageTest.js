@@ -1,11 +1,13 @@
 
-import { doGetC2SCodeList,doGetC2SCodeEntryPoint,doGetC2SCodeFilePathStatus,doGetC2SCodeFile,doGetC2SBusinessLogic,doGetC2SArchitectureDomainModel,doGetC2SArchitectureExternalDependencies,dogetC2SArchitectureFrameworks,dogetC2SArchitectureInfrastructures,dogetC2SArchitectureLanguages,doGetC2SArchitectureDatabases,doGetC2SArchitectureCodeGraph,doGetC2SArchitectureC4,dogetC2SArchitectureActor,doCreateC2S,doCreateAppWithRepoC2S,doCreateCodetospegenerate,doGetC2SErrorLog,doGetC2SSummaryDetails,dogetDownloadErrorLogFile,dogetDownloadPRDMetaData,dogetErroLogDetails } from '../pages/C2SPage.js';
+import { dogetC2SRequirementscategories,dogetC2SRequirementscategoriesById,dogetC2SRequirementscategoriesByIdFeature,dogetC2SRequirementFeature,dogetC2SRequirementFeatureById,getC2SRequirementFeatureByIdCode,dogetC2SRequirementRoles,doGetC2SCodeList,doGetC2SCodeEntryPoint,doGetC2SCodeFilePathStatus,doGetC2SCodeFile,doGetC2SBusinessLogic,doGetC2SArchitectureDomainModel,doGetC2SArchitectureExternalDependencies,dogetC2SArchitectureFrameworks,dogetC2SArchitectureInfrastructures,dogetC2SArchitectureLanguages,doGetC2SArchitectureDatabases,doGetC2SArchitectureCodeGraph,doGetC2SArchitectureC4,dogetC2SArchitectureActor,doCreateC2S,doCreateAppWithRepoC2S,doCreateCodetospegenerate,doGetC2SErrorLog,doGetC2SSummaryDetails,dogetDownloadErrorLogFile,dogetDownloadPRDMetaData,dogetErroLogDetails } from '../pages/C2SPage.js';
 import { doC2SLogin } from '../pages/loginPage.js';
 
 let appId;
+let catId;
 let authKey;
 let app_name;
 let c2sId;
+let featureId;
 let newAuthKey = "cb-e344367ce8b7b3e9802d943f302b4d8714d3d748fba26a1275dac1d1da406a54";
 let newAppId;
 describe("C2S Flow ", () => {
@@ -131,7 +133,7 @@ describe("C2S Flow ", () => {
             cy.log("Get C2S Architecture Language Response", response.body)
         })
      })
-     //  ,,,doGetC2SCodeFile,doGetC2SBusinessLogic
+    
      it('Get C2S Code List', () => {
         doGetC2SCodeList(newAuthKey,  c2sId).then((response) => {
             expect(response.status).to.eq(200);
@@ -160,6 +162,55 @@ describe("C2S Flow ", () => {
         doGetC2SBusinessLogic(newAuthKey,  c2sId).then((response) => {
             expect(response.status).to.eq(200);
             cy.log("Get C2S Business Logic Response", response.body)
+        })
+     })
+     //-----------------------
+     it('Get C2S Requirements Categories', () => {
+        dogetC2SRequirementscategories(newAuthKey,  c2sId).then((response) => {
+            expect(response.status).to.eq(200);
+            catId = response.body.id;
+            cy.log("Get C2S Requirements Categories Response", response.body)
+        })
+     })
+     it('Get C2S Requirements Categories By Id', () => {
+        dogetC2SRequirementscategoriesById(newAuthKey,c2sId,catId).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Get C2S Requirements Categories By Id Response", response.body)
+        })
+     })
+     it('Get C2S Requirements Categories By Id Feature', () => {
+        dogetC2SRequirementscategoriesByIdFeature(newAuthKey,c2sId,catId).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Get C2S Requirements Categories By Id Feature Response", response.body)
+        })
+     })
+
+      it('Get C2S Requirement Feature', () => {
+        dogetC2SRequirementFeature(newAuthKey,  c2sId).then((response) => {
+             featureId = response.body.id;
+            expect(response.status).to.eq(200);
+            cy.log("Get C2S Requirement Feature Response", response.body)
+        })
+     })
+
+     it('Get C2S Requirement Feature By Id', () => {
+        dogetC2SRequirementFeatureById(newAuthKey,c2sId,featureId).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Get C2S Requirement Feature Response", response.body)
+        })
+     })
+
+     it('Get C2S Requirement Feature By Id Code', () => {
+        getC2SRequirementFeatureByIdCode(newAuthKey,c2sId,featureId).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Get C2S Requirement Feature By Id Code Response", response.body)
+        })
+     })
+
+      it('Get C2S Requirement Roles', () => {
+        dogetC2SRequirementRoles(newAuthKey,  c2sId).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Get C2S Requirement Roles Response", response.body)
         })
      })
 })
