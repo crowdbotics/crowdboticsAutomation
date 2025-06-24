@@ -1,5 +1,5 @@
 
-import { dogetC2SRequirementscategories,dogetC2SRequirementscategoriesById,dogetC2SRequirementscategoriesByIdFeature,dogetC2SRequirementFeature,dogetC2SRequirementFeatureById,getC2SRequirementFeatureByIdCode,dogetC2SRequirementRoles,doGetC2SCodeList,doGetC2SCodeEntryPoint,doGetC2SCodeFilePathStatus,doGetC2SCodeFile,doGetC2SBusinessLogic,doGetC2SArchitectureDomainModel,doGetC2SArchitectureExternalDependencies,dogetC2SArchitectureFrameworks,dogetC2SArchitectureInfrastructures,dogetC2SArchitectureLanguages,doGetC2SArchitectureDatabases,doGetC2SArchitectureCodeGraph,doGetC2SArchitectureC4,dogetC2SArchitectureActor,doCreateC2S,doCreateAppWithRepoC2S,doCreateCodetospegenerate,doGetC2SErrorLog,doGetC2SSummaryDetails,dogetDownloadErrorLogFile,dogetDownloadPRDMetaData,dogetErroLogDetails } from '../pages/C2SPage.js';
+import { dogetC2SById,doC2SStarts,dogetC2SRequirementscategories,dogetC2SRequirementscategoriesById,dogetC2SRequirementscategoriesByIdFeature,dogetC2SRequirementFeature,dogetC2SRequirementFeatureById,getC2SRequirementFeatureByIdCode,dogetC2SRequirementRoles,doGetC2SCodeList,doGetC2SCodeEntryPoint,doGetC2SCodeFilePathStatus,doGetC2SCodeFile,doGetC2SBusinessLogic,doGetC2SArchitectureDomainModel,doGetC2SArchitectureExternalDependencies,dogetC2SArchitectureFrameworks,dogetC2SArchitectureInfrastructures,dogetC2SArchitectureLanguages,doGetC2SArchitectureDatabases,doGetC2SArchitectureCodeGraph,doGetC2SArchitectureC4,dogetC2SArchitectureActor,doCreateC2S,doCreateAppWithRepoC2S,doCreateCodetospegenerate,doGetC2SErrorLog,doGetC2SSummaryDetails,dogetDownloadErrorLogFile,dogetDownloadPRDMetaData,dogetErroLogDetails } from '../pages/C2SPage.js';
 import { doC2SLogin } from '../pages/loginPage.js';
 
 let appId;
@@ -213,4 +213,17 @@ describe("C2S Flow ", () => {
             cy.log("Get C2S Requirement Roles Response", response.body)
         })
      })
+      it('Get C2S By Id', () => {
+        dogetC2SById(newAuthKey,  c2sId).then((response) => {
+            expect(response.status).to.eq(200);
+            cy.log("Get C2S By Id Response", response.body)
+        })
+     })
+       it('C2S Starts', () => {
+        doC2SStarts(newAuthKey,  c2sId).then((response) => {
+            expect(response.status).to.eq(201);
+            cy.log("C2S Starts Response", response.body)
+        })
+     })
+   
 })

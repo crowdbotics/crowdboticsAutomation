@@ -233,7 +233,7 @@ export const  dogetC2SArchitectureLanguages = (auth_key, c2sId) => {
         return response;
     })
 };
-///////////////////////////////////////////////////////////////////////////////
+
 export const  doGetC2SCodeList = (auth_key, c2sId) => {
 
     return cy.request({
@@ -294,7 +294,7 @@ export const  doGetC2SBusinessLogic = (auth_key, c2sId) => {
         return response;
     })
 };
-////////////////////////////////////////////////////////////////////
+
 
 export const  dogetC2SRequirementscategories = (auth_key, c2sId) => {
 
@@ -384,5 +384,33 @@ export const  dogetC2SRequirementRoles = (auth_key, c2sId) => {
         }
     }).then((response) => {
         return response;
+    })
+};
+
+export const  dogetC2SById = (auth_key, c2sId) => {
+
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getC2SById1') + c2sId + Cypress.env('getC2SById2'),
+        headers: {
+            'Authorization': 'CBToken ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
+
+export const doC2SStarts = (auth_key, c2sId) => {
+    return cy.fixture('api_start_c2s.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('C2SStarts1') + c2sId + Cypress.env('C2SStarts2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'CBToken ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
     })
 };

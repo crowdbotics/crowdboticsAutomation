@@ -1223,6 +1223,12 @@ module.exports = defineConfig({
     getC2SRequirementRoles1: '/api/v1/c2s/',
     getC2SRequirementRoles2: '/requirements/roles/',
 
+    getC2SById1: '/api/v1/c2s/',
+    getC2SById2: '/',
+
+    C2SStarts1: '/api/v1/c2s/',
+    C2SStarts2: '/start/',
+
   },
   e2e: {
     setupNodeEvents(on, config) {
