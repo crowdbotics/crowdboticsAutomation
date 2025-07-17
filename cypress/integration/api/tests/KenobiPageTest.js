@@ -7,40 +7,40 @@ let authKey, C2SKenobi_id;
 describe("Kenobi Test Flow", () => {
 
 
-    it('Create Kenobi by C2S Using Private Repo', () => {
+    it('Create C2S Kenobi using Private Repo', () => {
         doC2SLogin().then((response) => {
             authKey = response.body.key;
             doCreateKenobiC2SUsingPrivateRepo(authKey).then((response) => {
                 C2SKenobi_id = response.body.id;
-                cy.log("Create Kenobi by C2S Using Private Repo", response.body)
+                cy.log("Create C2S Kenobi using Private Repo Response", response.body)
                 expect(response.status).to.eq(201)
             })
         })
     })
 
-    it('Get C2S Kenobi Using Private Repo By Id', () => {
+    it('Get C2S Kenobi by ID using Private Repo', () => {
         doGetKenobiC2SUsingPrivateRepoById(authKey, C2SKenobi_id).then((response) => {
-            cy.log("Get C2S Kenobi Using Private Repo By Id Response", response.body)
+            cy.log("Get C2S Kenobi by ID using Private Repo Response", response.body)
             expect(response.status).to.eq(200)
         })
     })
 
-    it('PUT C2S Kenobi Using Private Repo By Id', () => {
+    it('PUT C2S Kenobi by ID using Private Repo', () => {
         doPutKenobiC2SUsingPrivateRepo(authKey, C2SKenobi_id).then((response) => {
-            cy.log("PUT C2S Kenobi Using Private Repo By Id Response", response.body)
+            cy.log("PUT C2S Kenobi by ID using Private Repo Response", response.body)
             expect(response.status).to.eq(200)
         })
     })
 
-    it('PATCH C2S Kenobi Using Private Repo By Id', () => {
+    it('PATCH C2S Kenobi by ID using Private Repo', () => {
         doPatchKenobiC2SUsingPrivateRepo(authKey, C2SKenobi_id).then((response) => {
-            cy.log("PATCH C2S Kenobi Using Private Repo By Id Response", response.body)
+            cy.log("PATCH C2S Kenobi by ID using Private Repo Response", response.body)
             expect(response.status).to.eq(200)
         })
     })
-    it('Delete C2S Kenobi Using Private Repo By Id', () => {
+    it('Delete C2S Kenobi by ID using Private Repo', () => {
         doDeleteKenobiC2SUsingPrivateRepoById(authKey, C2SKenobi_id).then((response) => {
-            cy.log("Delete C2S Kenobi Using Private Repo By Id Response", response.body)
+            cy.log("Delete C2S Kenobi by ID using Private Repo Response", response.body)
             expect(response.status).to.eq(204)
         })
     })
