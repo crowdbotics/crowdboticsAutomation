@@ -1229,6 +1229,9 @@ module.exports = defineConfig({
     C2SStarts1: '/api/v1/c2s/',
     C2SStarts2: '/start/',
 
+    CreateKenobiC2S: '/api/v2/kenobi-c2s/',
+    CreateKenobiC2S1: '/',
+
   },
   e2e: {
     setupNodeEvents(on, config) {
