@@ -1,4 +1,4 @@
-import { doCreateKenobiC2SUsingPrivateRepo, doGetKenobiC2SUsingPrivateRepoById, doPutKenobiC2SUsingPrivateRepo, doPatchKenobiC2SUsingPrivateRepo, doDeleteKenobiC2SUsingPrivateRepoById, doCreateKenobiC2SUsingPubliceRepo, doGetKenobiC2SUsingPublicRepoById, doPutKenobiC2SUsingPublicRepo, doPatchKenobiC2SUsingPublicRepo, doDeleteKenobiC2SUsingPublicRepoById } from '../pages/KenobiPage.js';
+import { doCreateKenobiC2SUsingPrivateRepo, doGetKenobiC2SUsingPrivateRepoById, doPutKenobiC2SUsingPrivateRepo, doPatchKenobiC2SUsingPrivateRepo, doDeleteKenobiC2SUsingPrivateRepoById, doCreateKenobiC2SUsingPublicRepo, doGetKenobiC2SUsingPublicRepoById, doPutKenobiC2SUsingPublicRepo, doPatchKenobiC2SUsingPublicRepo, doDeleteKenobiC2SUsingPublicRepoById } from '../pages/KenobiPage.js';
 import { doC2SLogin } from '../pages/loginPage.js';
 
 
@@ -46,7 +46,7 @@ describe("Kenobi Test Flow", () => {
     })
 
     it('Create C2S Kenobi using Public Repo', () => {
-        doCreateKenobiC2SUsingPubliceRepo(authKey).then((response) => {
+        doCreateKenobiC2SUsingPublicRepo(authKey).then((response) => {
             C2SKenobi_idPUB = response.body.id;
             cy.log("Create C2S Kenobi using Public Repo Response", response.body)
             expect(response.status).to.eq(201)
