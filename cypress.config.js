@@ -10,6 +10,7 @@ module.exports = defineConfig({
     baseUrl: "https://crowdbotics-slack-dev.crowdbotics.com",
     username: "sneh@crowdbotics.com",
     password: "devstringx@123",
+    publicRepoLink: "https://github.com/TiwariMithilesh/knobitestpublic",
     authenticationToken: "U634c6bd8d6ff4482000de25a378a80e238d336e6",
     token_key: "",
     loginEndPoint: "/api/v2/totp-login/",
