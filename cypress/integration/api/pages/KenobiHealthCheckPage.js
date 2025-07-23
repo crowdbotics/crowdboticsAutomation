@@ -1,158 +1,326 @@
 /// <reference types = "cypress"/>
 
 // Vector Store Endpoints
-export const getVectorStoreStatus = () => {
+export const getVectorStoreStatus = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/vector-store/status`
+        url: `${Cypress.env('baseUrl')}/api/vector-store/status`,
+        headers
     });
 };
 
-export const getVectorStoreSchema = () => {
+export const getVectorStoreSchema = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/vector-store/schema`
+        url: `${Cypress.env('baseUrl')}/api/vector-store/schema`,
+        headers
     });
 };
 
-export const getVectorStoreExport = () => {
+export const getVectorStoreExport = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/vector-store/export`
+        url: `${Cypress.env('baseUrl')}/api/vector-store/export`,
+        headers
     });
 };
 
-export const getVectorStoreExportStream = () => {
+export const getVectorStoreExportStream = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/vector-store/export/stream`
+        url: `${Cypress.env('baseUrl')}/api/vector-store/export/stream`,
+        headers
     });
 };
 
 // Agent Endpoints
-export const getAgentRecentQueries = () => {
+export const getAgentRecentQueries = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/agent/recent_queries`
+        url: `${Cypress.env('baseUrl')}/api/agent/recent_queries`,
+        headers
     });
 };
 
 // Prompts Endpoints
-export const getPromptsList = () => {
+export const getPromptsList = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/prompts/list`
+        url: `${Cypress.env('baseUrl')}/api/prompts/list`,
+        headers
     });
 };
 
 // Code Analysis Endpoints
-export const getCodeOverallAnalysis = () => {
+export const getCodeOverallAnalysis = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/code/overall-analysis`
+        url: `${Cypress.env('baseUrl')}/api/code/overall-analysis`,
+        headers
     });
 };
 
 // Discovery Endpoints
-export const getDiscoveryIdentifyCoreFeatures = () => {
+export const getDiscoveryIdentifyCoreFeatures = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/discovery/identify-core-features`
+        url: `${Cypress.env('baseUrl')}/api/discovery/identify-core-features`,
+        headers
     });
 };
 
-export const getDiscoveryQuestions = () => {
+export const getDiscoveryQuestions = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/discovery/questions`
+        url: `${Cypress.env('baseUrl')}/api/discovery/questions`,
+        headers
     });
 };
 
 // Graph Cache Endpoints
-export const getGraphCacheStats = () => {
+export const getGraphCacheStats = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/graph/cache/stats`
+        url: `${Cypress.env('baseUrl')}/api/graph/cache/stats`,
+        headers
     });
 };
 
-export const getGraphCacheDump = () => {
+export const getGraphCacheDump = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/graph/cache/dump`
+        url: `${Cypress.env('baseUrl')}/api/graph/cache/dump`,
+        headers
     });
 };
 
 // PRD Endpoints
-export const getPrdList = () => {
+export const getPrdList = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/prd/list`
+        url: `${Cypress.env('baseUrl')}/api/prd/list`,
+        headers
     });
 };
 
 // Authentication Endpoints
-export const getAuthWhoami = () => {
+export const getAuthWhoami = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/auth/whoami`
+        url: `${Cypress.env('baseUrl')}/api/auth/whoami`,
+        headers
     });
 };
 
-export const getAuthWhoamiOptional = () => {
+export const getAuthWhoamiOptional = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/auth/whoami-optional`
+        url: `${Cypress.env('baseUrl')}/api/auth/whoami-optional`,
+        headers
     });
 };
 
-export const getAuthProfile = () => {
+export const getAuthProfile = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/auth/profile`
+        url: `${Cypress.env('baseUrl')}/api/auth/profile`,
+        headers
     });
 };
 
-export const getAuthHeadersDebug = () => {
+export const getAuthHeadersDebug = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/auth/headers-debug`
+        url: `${Cypress.env('baseUrl')}/api/auth/headers-debug`,
+        headers
     });
 };
 
-export const getAuthLogoutInfo = () => {
+export const getAuthLogoutInfo = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/auth/logout-info`
+        url: `${Cypress.env('baseUrl')}/api/auth/logout-info`,
+        headers
     });
 };
 
-export const getAuthCheckGroupAdmin = () => {
+export const getAuthCheckGroupAdmin = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/auth/check-group/admin`
+        url: `${Cypress.env('baseUrl')}/api/auth/check-group/admin`,
+        headers
     });
 };
 
 // Accuracy Endpoints
-export const getAccuracyEvals = () => {
+export const getAccuracyEvals = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/api/accuracy/1/get-accuracy-evals/`
+        url: `${Cypress.env('baseUrl')}/api/accuracy/1/get-accuracy-evals/`,
+        headers
     });
 };
 
 // Root and Health Endpoints
-export const getRoot = () => {
+export const getRoot = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/`
+        url: `${Cypress.env('baseUrl')}/`,
+        headers
     });
 };
 
-export const getHealth = () => {
+export const getHealth = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
     return cy.request({
         method: 'GET',
-        url: `${Cypress.env('centeneBaseUrl')}/health`
+        url: `${Cypress.env('baseUrl')}/health`,
+        headers
     });
 }; 
