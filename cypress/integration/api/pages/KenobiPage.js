@@ -345,7 +345,6 @@ export const doDeleteKenobiC2SUsingZipFileById = (auth_key, kenobi_id) => {
 
 
 
-//doPutKenobiC2SUsingZipFile,doPatchKenobiC2SUsingZipFile,doDeleteKenobiC2SUsingZipFileById
 
 
 
