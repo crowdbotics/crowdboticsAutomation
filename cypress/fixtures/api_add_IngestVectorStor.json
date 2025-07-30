@@ -1,0 +1,12 @@
+{
+"source_type": "git_clone",
+"source": "<<REPO_URL>>",
+"force": false,
+"num_summaries": 1,
+"summary_types": [
+"self"
+],
+"num_questions": 2,
+"run_in_background": true,
+"benchmark": false
+}

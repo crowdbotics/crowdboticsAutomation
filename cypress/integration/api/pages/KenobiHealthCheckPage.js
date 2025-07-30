@@ -324,3 +324,57 @@ export const getHealth = (auth_key = null) => {
         headers
     });
 }; 
+//----------------------------------------------------------------
+export const clearVectorStore = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
+    return cy.request({
+        method: 'POST',
+        url: `${Cypress.env('baseUrl')}/api/vector-store/clear`,
+        headers
+    });
+}; 
+export const ingestVectorStore = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+     return cy.fixture('api_add_IngestVectorStor.json')
+        .then((myFixture) => {
+            let ingestVectorStore = JSON.stringify(myFixture);
+            const repoLink = Cypress.env('publicRepoLink');
+            ingestVectorStore = ingestVectorStore.replace('<<REPO_URL>>', repoLink);
+            const finalPayload = JSON.parse(ingestVectorStore);
+    
+    return cy.request({
+        method: 'POST',
+        url: `${Cypress.env('baseUrl')}/api/vector-store/ingest`,
+        headers,
+        body: finalPayload
+    });
+});
+}; 
+
+
+
+export const sideLoadVectorStore = (auth_key = null) => {
+    const headers = {};
+    
+    // TODO: Enable authentication when required
+    if (auth_key) {
+        headers['Authorization'] = 'Token ' + auth_key;
+    }
+    
+    return cy.request({
+        method: 'POST',
+        url: `${Cypress.env('baseUrl')}/api/vector-store/side-load`,
+        headers
+    });
+}; 
