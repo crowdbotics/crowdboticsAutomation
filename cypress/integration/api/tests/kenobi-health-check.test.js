@@ -20,7 +20,10 @@ import {
     getAuthCheckGroupAdmin,
     getAccuracyEvals,
     getRoot,
-    getHealth
+    getHealth,
+    clearVectorStore,
+    ingestVectorStore,
+    sideLoadVectorStore
 } from '../pages/KenobiHealthCheckPage.js';
 
 describe('Kenobi API Health Check Tests', () => {
@@ -53,6 +56,27 @@ describe('Kenobi API Health Check Tests', () => {
             getVectorStoreExportStream(auth_key).then((response) => {
                 expect(response.status).to.eq(200);
                 cy.log('Vector store export stream response:', response.body);
+            });
+        });
+
+         it('should clean vector store export stream', () => {
+            clearVectorStore(auth_key).then((response) => {
+                expect(response.status).to.eq(200);
+                cy.log('clean vector store export stream response:', response.body);
+            });
+        });
+
+         it('should ingest vector store export stream', () => {
+            ingestVectorStore(auth_key).then((response) => {
+                expect(response.status).to.eq(200);
+                cy.log('ingest vector store export stream response:', response.body);
+            });
+        });
+
+         it('should side load vector store export stream', () => {
+             sideLoadVectorStore(auth_key).then((response) => {
+                expect(response.status).to.eq(200);
+                cy.log('Side load vector store export stream response:', response.body);
             });
         });
     });
