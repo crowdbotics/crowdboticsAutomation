@@ -52,31 +52,31 @@ describe('Kenobi API Health Check Tests', () => {
             });
         });
 
-        it('should get vector store export stream', () => {
+        it('should get vector store', () => {
             getVectorStoreExportStream(auth_key).then((response) => {
                 expect(response.status).to.eq(200);
-                cy.log('Vector store export stream response:', response.body);
+                cy.log('Get vector store response:', response.body);
             });
         });
 
-         it('should clean vector store export stream', () => {
+         it('should clean vector store', () => {
             clearVectorStore(auth_key).then((response) => {
                 expect(response.status).to.eq(200);
-                cy.log('clean vector store export stream response:', response.body);
+                cy.log('clean vector store response:', response.body);
             });
         });
 
-         it('should ingest vector store export stream', () => {
+         it('should ingest vector store', () => {
             ingestVectorStore(auth_key).then((response) => {
                 expect(response.status).to.eq(200);
-                cy.log('ingest vector store export stream response:', response.body);
+                cy.log('ingest vector store response:', response.body);
             });
         });
 
-         it('should side load vector store export stream', () => {
+         it('should side load vector store', () => {
              sideLoadVectorStore(auth_key).then((response) => {
                 expect(response.status).to.eq(200);
-                cy.log('Side load vector store export stream response:', response.body);
+                cy.log('Side load vector store response:', response.body);
             });
         });
     });

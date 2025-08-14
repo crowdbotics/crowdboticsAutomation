@@ -341,26 +341,35 @@ export const clearVectorStore = (auth_key = null) => {
 }; 
 export const ingestVectorStore = (auth_key = null) => {
     const headers = {};
-    
+
     // TODO: Enable authentication when required
     if (auth_key) {
         headers['Authorization'] = 'Token ' + auth_key;
     }
-     return cy.fixture('api_add_IngestVectorStor.json')
+
+    return cy.fixture('api_add_IngestVectorStor.json')
         .then((myFixture) => {
-            let ingestVectorStore = JSON.stringify(myFixture);
-            const repoLink = Cypress.env('publicRepoLink');
-            ingestVectorStore = ingestVectorStore.replace('<<REPO_URL>>', repoLink);
-            const finalPayload = JSON.parse(ingestVectorStore);
-    
-    return cy.request({
-        method: 'POST',
-        url: `${Cypress.env('baseUrl')}/api/vector-store/ingest`,
-        headers,
-        body: finalPayload
-    });
-});
-}; 
+            let fixtureData;
+            try {
+                fixtureData = JSON.stringify(myFixture);
+                const repoLink = Cypress.env('publicRepoLink');
+                fixtureData = fixtureData.replace('<<REPO_URL>>', repoLink);
+
+                // Safely parse JSON
+                const finalPayload = JSON.parse(fixtureData);
+
+                return cy.request({
+                    method: 'POST',
+                    url: `${Cypress.env('baseUrl')}/api/vector-store/ingest`,
+                    headers,
+                    body: finalPayload
+                });
+
+            } catch (error) {
+                throw new Error(`JSON parsing failed in ingestVectorStore: ${error.message}`);
+            }
+        });
+};
 
 
 
