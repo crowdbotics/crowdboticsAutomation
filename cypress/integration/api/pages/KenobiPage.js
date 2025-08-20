@@ -342,20 +342,66 @@ export const doDeleteKenobiC2SUsingZipFileById = (auth_key, kenobi_id) => {
     })
 };
 
+export const doGetKenobiChatList = (auth_key, app_id) => {
+    if (!auth_key) {
+        throw new Error("auth_key is required");
+    }
 
+    if (!app_id) {
+        throw new Error("app_id is required");
+    }
+    return cy.request({
+        method: 'GET',
+        url: Cypress.env('baseUrl') + Cypress.env('getKenobiChatList1') + app_id + Cypress.env('getKenobiChatList2'),
+        headers: {
+            'Authorization': 'Token ' + auth_key
+        }
+    }).then((response) => {
+        return response;
+    })
+};
 
+export const doCreateKenobiChat = (auth_key, app_id) => {
+     if (!auth_key) {
+        throw new Error("auth_key is required");
+    }
 
+    if (!app_id) {
+        throw new Error("app_id is required");
+    }
+    return cy.fixture('api_add_kenobi_chat.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('postKenobiChat1') + app_id + Cypress.env('postKenobiChat2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
 
+export const doClearKenobiChat = (auth_key, app_id) => {
+     if (!auth_key) {
+        throw new Error("auth_key is required");
+    }
 
-
-
-
-
-
-
-
-
-
-
-
+    if (!app_id) {
+        throw new Error("app_id is required");
+    }
+    return cy.fixture('api_clear_kenobi_chat.json').then((myFixture) => {
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseUrl') + Cypress.env('clearKenobiChat1') + app_id + Cypress.env('clearKenobiChat2'),
+            body: myFixture,
+            headers: {
+                'Authorization': 'Token ' + auth_key,
+            }
+        }).then((response) => {
+            return response;
+        })
+    })
+};
 

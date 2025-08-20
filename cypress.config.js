@@ -1233,6 +1233,15 @@ module.exports = defineConfig({
     CreateKenobiC2S: '/api/v2/kenobi-c2s/',
     CreateKenobiC2S1: '/',
 
+    getKenobiChatList1: '/api/v1/apps/',
+    getKenobiChatList2: '/kenobi-chat/',
+
+    postKenobiChat1: '/api/v1/apps/',
+    postKenobiChat2: '/kenobi-chat/',
+
+    clearKenobiChat1: '/api/v1/apps/',
+    clearKenobiChat2: '/kenobi-chat/clear/',
+
   },
   e2e: {
     setupNodeEvents(on, config) {
